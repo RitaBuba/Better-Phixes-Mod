@@ -51,7 +51,7 @@
 		custom_tooltip = {
 			text = china_recognized_tt
 			c:CHI = {
-				country_type = recognized
+				is_country_type = recognized
 			}
 		}
 		# custom_tooltip = {
