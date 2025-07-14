@@ -280,7 +280,7 @@ religious_party = {
 				OR = {
 					has_ideology = ideology:ideology_anti_clerical
 					leader = {
-						has_ideology = ideology:ideology_atheist
+						has_ideology = ideology:ideology_nihilist
 					}
 				}
 			}
@@ -368,6 +368,9 @@ religious_party = {
 						NOT = {
 							country_has_state_religion = rel:catholic
 						}
+						ig:ig_christian_democrats = {
+							has_ideology = ideology_rel_pragmatic_moralist
+						}
 						AND = {
 							any_interest_group = {
 								OR = {
@@ -385,10 +388,23 @@ religious_party = {
 						}
 					}
 				}
+				
 			}
 			add = {
-				value = 50
+				value = 25
 				desc = "bpm_from_being_oppresed"
+			}
+		}
+
+		if = { # Christian Democrats hate electoralism
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				has_ideology = ideology:ideology_dop_placeholder
+				
+			}
+			add = {
+				value = -25
+				desc = "bpm_from_hostility_towards_democracy"
 			}
 		}
 

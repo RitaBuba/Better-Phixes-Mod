@@ -189,6 +189,13 @@ conservative_party = {
 				}
       		}
 			triggered_desc = {
+				desc = party_conservative_clm
+				trigger = {
+					exists = c:CLM
+					THIS = c:CLM
+				}
+      		}
+			triggered_desc = {
 				desc = party_conservative_rus
 				trigger = {
 					exists = c:RUS
@@ -942,6 +949,49 @@ conservative_party = {
 			}
 		}
 
+		if = { # Christian Democrats hate electoralism
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				has_ideology = ideology:ideology_dop_placeholder
+				
+			}
+			add = {
+				value = -25
+				desc = "bpm_from_hostility_towards_democracy"
+			}
+		}
+
+		if = { # Christian Democrats hate cons except when strong radiicals/socialists
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				owner = {
+					NOT = {
+						country_has_state_religion = rel:catholic
+					}
+					any_interest_group = {
+						is_powerful = yes
+						OR = {
+							is_interest_group_type = ig_radicals
+							is_interest_group_type = ig_reformist_socialists
+							is_interest_group_type = ig_revolutionist_socialists
+							is_interest_group_type = ig_anarchists
+						}
+					}
+				}
+			}
+			add = {
+				value = 10
+				desc = "bpm_from_radical_enemy"
+			}
+		}
+
+		else = {
+			add = {
+				value = -10
+				desc = "bpm_from_no_common_enemy"
+			}
+		}
+
 		# ===========================================================================
 		# Hardcoded party affiliation
 		# ===========================================================================
@@ -1170,9 +1220,9 @@ conservative_party = {
 					limit = {
 						owner = {
 							NOT = { has_law = law_type:law_monarchy }
-						}
-						ig:ig_conservatives ?= {
-							bpm_ig_is_republican = no
+							ig:ig_conservatives ?= {
+								bpm_ig_is_republican = no
+							}
 						}
 					}
 					add = {

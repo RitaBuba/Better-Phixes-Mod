@@ -1,35 +1,35 @@
 ﻿l_english:
+
+ ################################################# 
+ ############## Christian Democrats: Ideology Names and Descriptions
+
  ideology_eco_modern_interventionist: "Modern Interventionist"
- ideology_eco_modern_interventionist_desc: "#lore This group believes in a modern market economy based on nationaliation, wealth dissemination, corporatism and limited free trade, controlled by sensible regulation and limits.#!"
+ ideology_eco_modern_interventionist_desc: "#lore This group believes in modern interventionist policies, seeking to increase state control over the economy supported by progressive taxation, limited free trade and regulations.#!"  
  
  ideology_eco_centralized_economy: "Centralized Economy"
- ideology_eco_centralized_economy_desc: "#lore This group seeks to blend the market economy with the strong primacy of central planning and socialization, limiting private ownership to agriculture and small-scale production necessary to carry out nation-wide economic plans.#!"
+ ideology_eco_centralized_economy_desc: "#lore The group sees liberal capitalism as a failure and seeks to replace it with a democratic mix of a market economy and a command economy, limiting private property to agriculture and small-scale production subordinated to nationwide economic planning.#!" 
 
  ideology_sta_regionalized_state: "Regionalized State"
- ideology_sta_regionalized_state_desc: "#lore This group believes in a modern and decentralized state that bases its power on the local human collective. #!"
+ ideology_sta_regionalized_state_desc: "#lore This group believes in a modern and decentralized state that bases its power on the local human collective and protects the rights of its citizens. #!"
 
  ideology_dop_christian_democrat: "Christian Democrat"
- ideology_dop_christian_democrat_desc: "#lore This group believes in the principles of democracy, and seeks to promote it in all places, retaining its religious and corporatist character.#!"
+ ideology_dop_christian_democrat_desc: "#lore This group believes in the principles of democracy and seeks to introduce universal suffrage and Catholic Social Teaching in the political sphere.#!" 
 
  ideology_cit_christian_internationalist: "Christian Internationalist"
  ideology_cit_christian_internationalist_desc: "#lore This group believes in the brotherhood of nations and seeks to weaken internal and international borders. #!"
 
- ideology_dop_iliberal_democrat: "Illiberal Democrat"
- ideology_dop_iliberal_democrat_desc: "#lore This group believes that democracy is an important principle, but it must be guidied and limited by a strong and wise rule, corporatism and religious morality.#!"
+ ideology_dop_illiberal_democrat: "Illiberal Democrat"
+ ideology_dop_illiberal_democrat_desc: "#lore This group believes that democracy is an important principle, but it must be guidied and limited by a strong and wise rule, corporatism and religious morality.#!"
 
  ideology_dop_divine_democrat: "Divine Democrat"
  ideology_dop_divine_democrat_desc: "#lore This group believes in divine sovereignty suplemented by a prudently limited democracy, seeking to maintain religious and political moderation.#!"
- ideology_rel_liberal_moralist: "Liberal Moralist"
+ 
+ ideology_rel_liberal_moralist: "Liberal-Moralist"
  ideology_rel_liberal_moralist_desc: "#lore This group believes that governmental policies should be aligned with religious morality that also provide protection for religious minorities and secure the professional character of administration. #!"
 
-
-
- ideology_wel_pragmatic_distributist: "Pragmatic Distributist"
- ideology_wel_pragmatic_distributist_desc: "#lore Based upon Catholic Social Teaching, this group believes that the state should provide a basic standard of living for the poor, helpless masses, but as a religious minority they do not want to be oppresed by religious policies. #!"
-
- bpm_christdem_split.1.t: "Catholic Interests"
- bpm_christdem_split.1.d: "The confluence of Catholicism with democracy, liberal secularization and state control of education has led to a widespread response by adherents of the Catholic branch.\n\nPolitical movements to protect @ig_christian_democrats! #blue Catholic Interests#! from unfriendly state policies are beginning to emerge in many corners of our state, organizing themselves into various groups and even forming parties. Attempts to limit the influence of the Catholic Church may be difficult."
- bpm_christdem_split.1.f: "For truth, justice and freedom!\n1. Preservation of the constitutionally recognized independence and rights of the (Catholic) Church. Defense against any attack on the independence of church bodies, the development of religious life and the development of Christian charity.\n\n— Soest Program, 1870"
+ bpm_christdem_split.1.t: "Defending Your Humble Home"
+ bpm_christdem_split.1.d: "The confluence of Catholicism with modern, sinful in their eyes, ideas of democracy, liberal secularization and state control of education has led to a widespread response by adherents of the Catholic denomination.\n\nPolitical movements to protect @ig_christian_democrats! #blue Catholic Interests#! from unfriendly state policies are beginning to emerge outside of electoral politics and in various groups, organizing themselves into various groups and organizations. Attempts to limit the influence of Catholics may be difficult."
+ bpm_christdem_split.1.f: "Those who have faith move mountains; those who have faith make converts; those who have faith win battles.\n\n— Luigi Sturzo, 1922" # For truth, justice and freedom!\n1. Preservation of the constitutionally recognized independence and rights of the (Catholic) Church. Defense against any attack on the independence of church bodies, the development of religious life and the development of Christian charity.\n\n— Soest Program, 1870
  bpm_christdem_split.1.a: "Unloyal malcontents."
 
  notification_bpm_rerum_novarum_name: "#v Rerum Novarum Issued!#!"
@@ -49,7 +49,60 @@
  ################################################# 
  ############## Christian Democrats: Overall Explanation 
 
+ ################################################# 
+ ############## Christian Democrats: Flavour Events
+
+ bpm_pronounced_support_for_democracy_despite_backlash: "Pronounced Support for Democracy despite Backlash"
+ bpm_ig_support_from_church_authorities: "Received Formal Support from Church Authorities"
+ bpm_strong_backlash_for_pronouncing_support_for_democracy: "Met Very Strong Backlash for Supporting Democracy"
+ bpm_interest_group_supportive_of_liberal_democracy: "Anti-Modernist Interest Group Supportive of Liberal Democracy"
+ bpm_reinforcing_anti_modernist_ideas: "Reinforcing Anti-Modernist Stances"
+ option_moderated_towards_democracy_tt: "The #v Ideological Leaning#! progress Progress Bar will move towards the #bold Democracy Side#! by #italic 0.1#! points a month."
+ option_moderated_towards_christianity_tt: "The #v Ideological Leaning#! progress Progress Bar will move towards the #bold Christianity Side#! by #italic 0.1#! points a month."
+
+ bpm_christdem_flavour.1.t: "Primate of [ROOT.GetCountry.GetName] Defends Democracy"
+ bpm_christdem_flavour.1.desc: "Our Primate gave a high-profile and controversial speech in which he defended views that advocated standing up and staying on the ground of democracy as well as surreptitiously assuring that the Church is not hostile to the liberal constitution. The speech drew as much applause as voices of discontent for the Church's modernist policies, and the Primate himself was met with backlash."
+ bpm_christdem_flavour.1.f: "I do not want to be constrained by the state to believe what it believes to be true, because the State is not the judge of truth. However the State is bound to protect me in the practice of the truth that I choose, that is to say, the exercise of the religion that I profess. This is what constitutes religious freedom in the modern state, which the free state is bound to respect and guarantee, not only for each citizen in particular, but for groups of citizens joined together to profess and propagate their belief, that is to say, for corporation, for associations, and for churches.\n\n— Charles de Montalembert, 1863"
+
+ bpm_christdem_flavour.1.a: "The Church finally moves on and accepts the modern-day."
+ bpm_christdem_flavour.1.b: "The Primate has gone too far into the modernist threat." 
+ bpm_christdem_flavour.1.b.tt: "[SCOPE.sCharacter('devout_speech').GetFullName] resigns in shame."
+
+
+
+
+
+
+
+
+
+
+ bpm_christdem_flavour.3.t: "All Alone Against All"
+ bpm_christdem_flavour.3.desc: "The sense of political loneliness and forced self-reliance weighs on many Catholic activists, and is often exacerbated by the constant political battles for influence and members as well as the protection of their own from many unfriendly groups, from @ig_conservatives! Conservatives, through @ig_liberals! Liberals and @ig_socialists! Socialists, to the Catholic Church itself. While the constraints strain Catholics, they also give them the strength and drive to carry out ever more radical actions and defeat their opponents."
+ bpm_christdem_flavour.3.f: "— I'm telling you that there is no way we can fight these diabolical liberals if we don't get ad hoc support from conservatives! I even got support from an offic—...\n\n— And I'm telling you that there's no way and with whom, because we're on our own! They have already made a deal to take advantage of us, and on top of that, the Church has been perspiring us with obstacles... Let hell already take all these greedy sinners..."
  
+ bpm_christdem_flavour.3.a: "We always have each other!"
+ bpm_christdem_flavour.3.a.tt: "#v Independence from the Catholic Church#! Bar will progress by #bold #italic 0.5%#!#!."
+ 
+ bpm_christdem_flavour.3.b: "At least the Church may be of some help..."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  bpm_christdem_split.30.t: "The Sunset of Change"
@@ -60,21 +113,24 @@
  ################################################# 
  ############## Christian Democrats 
 
- ideology_eco_distrubitist: "Distributist"
- ideology_eco_distrubitist_desc: "#lore This group believes in the principles of distributism and capitalism, supporting corporatist methods and cooperativization of the economy — mainly of agriculture, as well as state invervention."
+ ideology_eco_distributist_economy: "Distributist Economy"
+ ideology_eco_distributist_economy_desc: "#lore This group believes in the principles of distributism and capitalism, supporting corporatist methods and cooperativization of the economy — mainly of agriculture, as well as fiscal conservatism, although sometimes limited by economic intervention.#!"
 
  ################################################# 
  ############## Christian Democrats: Names
 
  ig_christian_democrats: "Christian Democrats"
  ig_christian_democrats_only_icon: "@ig_christian_democrats!"
- ig_christian_democrats_desc: "As a centrist ideology with a heavy emphasis on local circumstances, Christian Democrats are a group with no clear ideological definition, but generally find themselves on the left-wing of Catholic thought, usually supporting suffrage, corporatism and religious moralism. Historically, it has been a broad concept; ranging from Austrian corporatist-authoritarian Christian Socials, through the Franco-Italian reformist Popularists and the German big-tent Zentrumspartei, to the pro-austerity Lidovci and the late Polish anti-capitalist Chadecy."
+ ig_christian_democrats_desc: "As a centrist ideology with a heavy emphasis on local circumstances, Christian Democrats are a group with no clear ideological definition, but generally find themselves on the left-wing of Catholic thought, usually supporting suffrage, corporatism and religious moralism. Historically, it has been a broad concept; ranging from Austrian corporatist-authoritarian Christian Socials, through the Franco-Italian reformist Popularists and the German big-tent Zentrumspartei, to the Czech fiscally conservative Lidovci and the late Polish anti-capitalist Chadecy."
 
  ig_catholic_interests: "Catholic Interests"
- ig_catholic_interests_desc: "An interest bloc representing politically independent followers of the Catholic Church, seeking to protect fellow believers from state overreach in areas of religiosity and education by, for example, imposing secularism, sometimes also excessive economic liberalism — the latter based on Catholic Social Teaching. Examples include the German Zentrumspartei, French Liberal Action and various Catholic Actions and early Christian movements." # Used to have Irish Home Rule League  
+ ig_catholic_interests_desc: "An interest bloc representing politically independent followers of the Catholic Church, seeking to protect fellow believers from state overreach in areas of religiosity and education by, for example, imposing secularism, sometimes also excessive economic liberalism — the latter based on Catholic Social Teaching. Examples include the German Zentrumspartei, French Liberal Action, various independent Catholic Actions and early Christian movements." # Used to have Irish Home Rule League  
  
  ig_popularists: "Popularists"
  ig_popularists_desc: "$ig_christian_democrats_desc$"
+
+ ig_popular_democrats: "Popular Democrats"
+ ig_popular_democrats_desc: "$ig_christian_democrats_desc$"
 
  ig_lidovci: "Lidovci"
  ig_lidovci_desc: "$ig_christian_democrats_desc$"
@@ -85,30 +141,104 @@
  ig_chadecy: "Chadecy"
  ig_chadecy_desc: "$ig_christian_democrats_desc$"
 
+ ig_christian_socials: "Christian Socials"
+ ig_christian_socials_desc: "$ig_christian_democrats_desc$"
+
  ig_young_right: "Young Right"
  ig_young_right_desc: "$ig_christian_democrats_desc$"
 
- ig_vienna_movement: "Vienna Movement"
+ ig_innovateuren: "Innovateuren"
+ ig_innovateuren_desc: "$ig_christian_democrats_desc$"
+
+ ig_vienna_movement: "Wienerbewegung"
  ig_vienna_movement_desc: "$ig_catholic_interests_desc$"
 
  ig_piusvereine: "Piusvereine"
  ig_piusvereine_desc: "$ig_catholic_interests_desc$"
+ 
+ ig_katholiken: "Katholiken"
+ ig_katholiken_desc: "$ig_catholic_interests_desc$"
 
+ ig_united_christians: "Vereinigten Christen"
+ ig_united_christians_desc: "$ig_catholic_interests_desc$"
+
+ ig_christian_democrats_left: "Christian Democrats (Left)"
+ ig_christian_democrats_left_desc: "$ig_christian_democrats_desc$"
+
+ ################################################# 
+ ############## Some Conservatives Content
+
+ ig_old_right: "Old Right"
+ ig_old_right_desc: "$ig_conservatives_desc$"
+
+ ig_agrarian_conservatives: "Agrarian Conservatives"
+ ig_agrarian_conservatives_desc: "$ig_conservatives_desc$" 
+
+ ig_confessional_conservatives: "Confessional Conservatives"
+ ig_confessional_conservatives_desc: "$ig_conservatives_desc$"
+
+ ig_christian_democrats_rightwing: "Christian Democrats (Right)"
+ ig_christian_democrats_rightwing_desc: "$ig_conservatives_desc$"
+
+ ig_conservative_catholics: "Conservative Catholics"
+ ig_conservative_catholics_desc: "$ig_reactionaries_desc$"
+ 
+ ig_paternal_conservatives_2: "Paternal Conservatives"
+ ig_paternal_conservatives_2_desc: "Paternal conservatives are a subset of conservatives that attempt to preserve the fundamental status quo with tactical expansions in political rights and social welfare. Examples include Disraeli's Tories and Christian Democrats." # Paternal conservatives are a subset of conservatives that attempt to preserver the fundemtal status quo with tactical expansions in political rights, social welfare and state intervention in the matters of economics. Examples include Disraeli's Tories, Bismarck's State Socialism policies and Teddy's Progressive Conservatives.
+
+ 
+
+ BPM_VALUE_FROM_TRADE_UNIONS_CLOUT: "[GetInterestGroupVariant('ig_trade_unions',GetPlayer).GetName] Popularity"
+ BPM_VALUE_FROM_STRONG_LABOR_LIBERAL_RADICAL_MOVEMENTS: "over 10% [concept_political_movement] for the #gold Liberal Movement#! or #gold Modernizer Movement#!, #gold Radical Movement#! and #gold Labor Movement#! timed by [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] [concept_clout]"
+
+ BPM_VALUE_FROM_LABOUR_CONCIOUSNESS: "#bold #gold @laborers! Labor Consciousness#! #!
+ BPM_VALUE_FROM_LIBERAL_CONCIOUSNESS_SECULARISTS_LIBERAL_NATIONALISTS_MOVEMENT: "#bold #gold @academics! Liberal Consciousness#!#!, #bold Liberal-Nationalist#! [Concept('concept_interest_group', 'Interest Groups')] and [Concept('concept_political_movement', 'Political Movements')] and [Concept('concept_bpm_ig_is_non_religious', 'Secularist')] [Concept('concept_interest_group', 'Interest Group')] [concept_clout]"
+ BPM_VALUE_FROM_ILLIBERAL_SOCIETY_AND_STATE: "illiberal and authoritarian [GetLawGroup('lawgroup_distribution_of_power').GetName], [GetLawGroup('lawgroup_labor_unions').GetName] and [GetLawGroup('lawgroup_free_speech').GetName] [Concept('concept_law', 'Laws')] (#italic [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetName] cannot be [concept_in_government] and have [GetIdeology('ideology_dop_illiberal_democrat').GetName] [concept_ideology]#!)"
+ BPM_VALUE_FROM_RERUM_NOVARUM_DEMOCRATIC_RADICALIZATION: "post-’#italic Rerum novarum#!’ inclination towards #bold Christianity Side#! and #bold Democracy Side#! & [GetPopType('laborers').GetName], [GetPopType('machinists').GetName], [GetPopType('farmers').GetName] and [GetPopType('shopkeepers').GetName] [Concept('concept_pop', 'Population')]"
+ BPM_VALUE_FROM_MORALIST_MIDDLE_CLASS_GROUPS: "conservative-liberal [GetInterestGroupVariant('ig_industrialists',GetPlayer).GetNameWithCountryVariant], [GetInterestGroupVariant('ig_landowners',GetPlayer).GetNameWithCountryVariant] and [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] and their [concept_clout], as well as [Concept('concept_bpm_ig_is_religious', 'Moralist')] [concept_clout]"
+ BPM_VALUE_FROM_PAPACY: "current [concept_ideology] of the #bold #gold [Concept('concept_ruler', 'Pope')] of the Holy See#!#! & [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] [concept_interest_group] [concept_clout] and [concept_leader] (if [Concept('concept_state_religion', 'State')] is [GetReligion('catholic').GetName])"
+ BPM_VALUE_FROM_CONSERVATIVE_MODERATION_EVENTS_AND_OTHER_REASONS: "christian moderation, [GetIdeology('ideology_moderate').GetName] [concept_leader], [Concept('concept_loyalist', 'Loyalists')] and other reasons."
+
+ ###############################################################
+ ################################################# 
+ ############## Christian, or Democrat? Tooltips for RP/LARP Purposes & Teaching
+
+ je_bpm_group_young_right_tooltip: "The #v Young Right#! (#italic French/Wallon: #bold Jeune Droite#!, Dutch/Flemish: #bold Jong Rechts#!#!) was a @ig_christian_democrats! Christian Democratic political movement and faction of the #bold Catholic Party#! of Belgium that seeked to introduce various #gold political#! and #gold social reforms#! and was led by people like Joris Helleputte, Arthur Verhaegen and Jules Renkin. The Young Right was in strong opposition to the conservative and paternalist-elitist @ig_conservatives! #v Old Right#! (#italic French/Wallon: #bold Vieille Droite#!, Dutch/Flemish: #bold Oud Rechts#!#!) led mainly by Charles Woeste, who believed he was an unchallanged right-wing leader.\n\nThe #v Young Right#! was politically, economically and socially progressive. They supported the introduction of [GetLawType('law_universal_suffrage').GetName] and building a Christian Democracy; expanding decentralization of #gold Belgium#! and empowering local administration, ensuring the importance of religion in the state. Unlike most other Christian Democracy they were less friendly to [GetTechnology('corporatism').GetName] and any forms of paternalism.\n\nThey also supported wide and total benefits for all workers, regulating the economy and greater state involvement in it, as well as sekeed to redistribute wealth through progressive taxation.\n\n The #v Young Right#! were relatively internationalist and pacifist, with many youth members refusing to use any national symbols seeing them as inherently reactionary. The #v Youth Right#! was also very friendly to the idea of building a united Belgian indentity and connecting the Flemish and Walloons as much as possible, where both nations are so intertwined that their differences are miniscule.\n\nThe following ideologies represent the #v Young Right#! as closely as possible: [GetIdeology('ideology_gov_moderate_monarchist').GetName]; [GetIdeology('ideology_exe_weak_rigid').GetName]; [GetIdeology('ideology_dop_christian_democrat').GetName]; [GetIdeology('ideology_sta_regionalized_state').GetName]; [GetIdeology('ideology_eco_modern_interventionist').GetName]; [GetIdeology('ideology_wel_expanded_public_welfare').GetName]; [GetIdeology('ideology_cit_christian_internationalist').GetName]; [GetIdeology('ideology_rel_moralist').GetName]; [GetIdeology('ideology_mil_antimilitarist').GetName]; [GetIdeology('ideology_fem_benevolent_sexism').GetName]\n\n#tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_group_young_right_p1 #bold #grey History: First Page#!#!#!"
+
+ je_bpm_group_chadecy_tooltip: "\n\nThe following ideologies represent the (#italic Early#!) #v Chadecy#! as closely as possible: [GetIdeology('ideology_gov_liberal_republican').GetName]; [GetIdeology('ideology_exe_strong_dynamic').GetName]; [GetIdeology('ideology_dop_christian_democrat').GetName]; [GetIdeology('ideology_sta_federated_state').GetName]; [GetIdeology('ideology_eco_distributist_economy').GetName]; [GetIdeology('ideology_wel_distributist_welfare').GetName]; [GetIdeology('ideology_cit_multiethnic_nationalist').GetName]; [GetIdeology('ideology_rel_moralist').GetName]; [GetIdeology('ideology_mil_defensive_patriot').GetName]; [GetIdeology('ideology_fem_benevolent_sexism').GetName]\n\nThe following ideologies represent the (#italic Late#!) #v Chadecy#! as closely as possible: [GetIdeology('ideology_gov_liberal_republican').GetName]; [GetIdeology('ideology_exe_strong_dynamic').GetName]; [GetIdeology('ideology_dop_christian_democrat').GetName]; [GetIdeology('ideology_sta_federated_state').GetName]; [GetIdeology('ideology_eco_centralized_economy').GetName]; [GetIdeology('ideology_wel_expanded_public_welfare').GetName]; [GetIdeology('ideology_cit_multiethnic_nationalist').GetName]; [GetIdeology('ideology_rel_liberal_moralist').GetName]; [GetIdeology('ideology_mil_defensive_patriot').GetName]; [GetIdeology('ideology_fem_benevolent_sexism').GetName]"
+
+ je_bpm_group_popularists_tooltip: "\n\nThe following ideologies represent the #italic Franco-Italian#! #v Popularists#! as closely as possible: (French) [GetIdeology('ideology_gov_liberal_republican').GetName] / (Italian) [GetIdeology('ideology_gov_moderate_monarchist').GetName]; (French) [GetIdeology('ideology_exe_strong_dynamic').GetName] / (Italian) [GetIdeology('ideology_exe_ceremonial').GetName]; [GetIdeology('ideology_dop_christian_democrat').GetName]; [GetIdeology('ideology_sta_federated_state').GetName]; [GetIdeology('ideology_eco_modern_interventionist').GetName]; [GetIdeology('ideology_wel_expanded_public_welfare').GetName]; [GetIdeology('ideology_cit_christian_internationalist').GetName]; [GetIdeology('ideology_rel_liberal_moralist').GetName]; [GetIdeology('ideology_mil_antimilitarist').GetName]; [GetIdeology('ideology_fem_benevolent_sexism').GetName]"
+
+ je_bpm_group_young_right_p1: "Their birth can be put on the March 30th, 1891, with the creation of #bold ‘Ligue démocratique belge’#! (#italic Belgian Democratic League, L.D.B.#!). The Young Right, even though enjoyed risng popular and Leo XIII‘s support (July 1895), had to  overcome various, massive obstacles and fight with many groups both within and outisde of the Catholic Party, like various #gold Socialists#!, #gold Liberals#!, #gold the Catholic Church#! (who wanted to maintain unity, and also were often allied with Woeste) and sometimes even the #gold King Leopold II#! (who wrote to the Pope Leo XIII about the Young Right a few times).\n\nThe Old Right denied the #bold L.D.B.#!‘s right to exist and actively fought it by playing for time, cooperating with bishops, shutting down various congresses (like Liège), refusing electoral lists, and most importantly fighting any Christian Democrat-led legislation, especially social. The 1893 mixed universal suffrage allowed the Young Right to expand into parliamentary politics and got them 12 seats in the Parliament but also caused a crisis in the L.D.B. due the reluctant vote of 8-member group called ’groupe démocratique’ for a municipal elections bill that disfavoured workers which led to Helleputte's resignation as a chairman, but they eventually managed to survive.\n\nThe Pope's intervention on the behalf of the Young Right allowed them to be admitted to Catholic lists in 1895 municipal elections. A truce was made in 1896 between the two factions as legislative elections approached, but Woeste had the Catholics close the lists and set up a commission within the F.C.C.C.A. to draw up a social program with the goal of weakening and assimilating the Christian Democrats. Locally though, the conservatives allowed the christian democrats to be put on electoral lists, ultimately allowing the Young Right to get 14 seats in Federal Parliament.\n\n#tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_group_young_right_tooltip_p2 #bold #grey Second Page#!#!#!" # 
+
+ je_bpm_group_young_right_tooltip_p2: "Helleputte was delegated for the F.C.C.C.A. Sint-Truiden congress (May 1897) where he proposed a joint committee in each electoral district to bring various movements and groups together. Woeste agreed to meet the Democrats in Octoboer 1897 but ultimately he maintained his position, and despite intervention of bishops, the ‘Saint-Trond formula’ was not accepted by the Old Right. However in various places in Belgium there were set up joint committees and agreements made for preparations for the 1898 elections. The Young Right retained their representatives and gained wider support.\n\nAs time went on Woeste‘s influence kept slowly going down, while the Young Right‘s support kept on growing, with bishops and newspapers siding with them.\n\nThe war between the Young and the Old Right had shifted from the hushed grassroots to the floor of Parliament. The legislative elections of May 27, 1906, had somewhat reduced the government's majority, without however jeopardizing it. The Young Right‘s discontent with government's conservatism was expressed with abstain during the vote for Sunday rest law (July 26th, 1905).\n\nThe bill for mining consessions in Campine gave a grand opportunity to show their strength. The Christian Democrats gave conditions for granting these consessions: pensions for miners, a limit of eight hours on working hours, a ban on underground work for women and children, and improved sanitary facilities for workers. The Old Right and Woeste, knowing the upcoming danger, responded by proposing refer the matter back to committee. His motion was rejected. The christian democrats intented to grant maximum benefits for miners despite the Old Right urging them not to impose ‘reforms that the country does not demand’. With nobody wanting to give in to the other's demands, the crisis became public, with the Socialists and Radical Liberals supporting the Young Right and cooperating with each other. The christian democrats questioned the composition of the government as not representative of the whole right, then the more moderate previous P.M. Beernaert joined the opposition. On April 12th, 1907 Old Right government was defeated and so was the bill, with 59 Catholics and 11 liberals for, and 34 socialists, 23 radicals and 19 christian democrats against. The government submitted its resignation to the King.\n\n#tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_group_young_right_tooltip_p3 #bold #grey Third Page#!#!#!"
+
+ je_bpm_group_young_right_tooltip_p3: "The next government was led by Jules de Trooz with 2 members of the Young RIght — Jules Renkin and Joris Helleputte and had shown the Old Right that it is not possible to rule without the support of the Young Right.\n\nWoeste‘s influence kept crumbling down and by 1907 he was completely irrelevant in politics, and with the appointment of pro-Young Right Désiré-Joseph Mercier as Archbishop and the 1909 5th Malines Congress and an another Woeste‘s defeat his influence completely dissapeared. When eventually Charles de Broqueville, a moderate and somebody who was more close to Christian Democracy, took lead in the Catholic Party, the ‘Old‘ Old Right stopped funtionally existing and the Catholic Party became more Christian Democratic-aligned."
+
+ ###############################################################
  ################################################# 
  ############## Christian, or Democrat? JE Name and Modifiers
 
- je_bpm_ideological_leaning_progress_tooltip: "#v Ideological Leaning#! represents the existing currents, shifts and debates within the Catholic movements, parties, unions and organizations and their stances on [GetLawGroup('lawgroup_distribution_of_power').GetName], [GetLawGroup('lawgroup_rights_of_women').GetName], religious morality and the question of Divine vs. Popular sovereignty, as well as if Christianity can be reconciled with democracy. There are generally three main [Concept('concept_ideology', 'Ideologies')] and sides:\n\n#v The Christianity Side#! (#italic <33%#!) — This side represents the more conservative currents within with the dominating ideology being [GetIdeology('ideology_dop_iliberal_democrat').GetName], which will, nostalgically missing the old past, seek strong rule guided by religious morality and strong [GetTechnology('corporatism').GetName] (Examples include #bold Lithuanian LKDP#! and #bold Austrian CSP#!).\n\n#v The Middle/Moderate Side#! (#italic >25%, <75%#!) — This side represents the general liberal-conservative @middling! [Concept('concept_middle_strata', 'Middle-Class')] currents within through the [GetIdeology('ideology_dop_divine_democrat').GetName] [concept_ideology], and will strive to preserve the primacy of divine sovereignty over popular sovereignty, while also maintaining moderation, religious morality and opposing [GetLawType('law_universal_suffrage').GetName] (Examples include the early middle-class-based #bold Catholic Interests#! and the independent #bold Hungarian Christian Democrats#!).\n\n#v The Democrat Side#! (#italic >66%#!) — This side represents the progressive, farmer- and worker-based [GetIdeology('ideology_dop_christian_democrat').GetName] currents within, seeking to, most importantly, introduce [GetLawType('law_universal_suffrage').GetName], expand [GetLawGroup('lawgroup_labor_unions').GetName] [Concept('concept_law', 'Laws')] and reduce [concept_religion] in political life (Examples include the #bold Franco-Italian Popularists#! and the #bold Czech Lidovci#!)."
+ ideology_reactionary_anti_capitalist: "Reactionary Anti-Capitalist"
+ ideology_reactionary_anti_capitalist_desc: "#lore This leader seeks to abolish capitalism through evolutionary means and return to artisantal methods of production.#!"
 
- je_bpm_economical_leaning_progress_tooltip: "#v Economical Leaning#! represents the existing highly-divided currents, shifts and debates, as well as general attitude towards capitalism within Catholic movements, parties, unions and organizations and their stances on the [GetLawGroup('lawgroup_economic_system').GetName], [GetLawGroup('lawgroup_trade_policy').GetName], [GetLawGroup('lawgroup_land_reform').GetName], private ownership and economical developemnt. There are generally three main [Concept('concept_ideology', 'Ideologies')] and sides:\n\n#v The Distributist Side#! (#italic <20%#!) — This side represents @middling! [Concept('concept_middle_strata', 'Middle-')] to [Concept('concept_upper_strata', 'Upper-Class')] currents that see slightly regulated capitalism as rather a nature of things, and are keen on keeping its [GetIdeology('ideology_eco_distrubitist').GetName] character, through austerity policies and being supportive of limited [GetLawType('law_interventionism').GetName], [GetLawType('law_homesteading').GetName], [GetLawType('law_protectionism').GetName] with often no clear stance on [GetLawGroup('lawgroup_taxation').GetName] (Examples include the #bold Austrian CSP#! and #bold Czech Lidovci#!).\n\n#v The Moderate/Middle Stance#! (#italic >15%, <85%#!) — This side represents rather cohesive and moderate stances on capitalism that seek to introduce [GetIdeology('ideology_eco_modern_interventionist').GetName] policies. The supporters of a modern interventionist economy generally seek to promote modern economical policies, like [Concept('concept_nationalize', 'Nationalization')] of key sectors, progressive and just [GetLawGroup('lawgroup_taxation').GetName] as well as more pro-[GetLawType('law_free_trade').GetName] policies (Examples include the #bold Belgian Young Right#! movement and #bold Franco-Italian Popularists#!).\n\n#v The Anti-Capitalist side#! (#italic >80%#!) — This side represents currents that, seeing the destitute conditions of the present-day, view capitalism as a horrible relic of the past, something that many modern [Concept('concept_party', 'Parties')] seek to 'repair'. They instead propose a [GetIdeology('ideology_eco_centralized_economy').GetName] supported by corporatism and socialization, a heavily cooperativized farmer-owned agriculture and breaking international trade barriers through [GetLawType('law_free_trade').GetName], seeing in [GetLawType('law_protectionism').GetName] only unnecessary damage (Examples include late #bold Polish Chadecy#! and young #bold German Zentrumites#!)"
+ ig_christian_democrats_distinct_tt: "[GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will become a fully #v distinct#! [concept_interest_group]!"
+
+ je_bpm_ideological_leaning_progress_tooltip: "#v Ideological Leaning#! represents the existing currents, shifts and debates within the Catholic movements, parties, unions and organizations and their stances on [GetLawGroup('lawgroup_distribution_of_power').GetName], [GetLawGroup('lawgroup_rights_of_women').GetName], religious morality and the question of Divine vs. Popular sovereignty, as well as if Christianity can be reconciled with democracy. There are generally three main [Concept('concept_ideology', 'Ideologies')] and sides:\n\n#v The Christianity Side#! (#italic <33%#!) — This side represents the more conservative currents within with the dominating ideology being [GetIdeology('ideology_dop_illiberal_democrat').GetName], which will, nostalgically missing the old past, seek strong rule guided by religious morality and strong [GetTechnology('corporatism').GetName] (Examples include #bold Lithuanian LKDP#! and mid-late #bold Austrian CSP#!).\n\n#v The Middle/Moderate Side#! (#italic >25%, <75%#!) — This side represents the general liberal-conservative @middling! [Concept('concept_middle_strata', 'Middle-Class')] currents within through the [GetIdeology('ideology_dop_divine_democrat').GetName] [concept_ideology], and will strive to preserve the primacy of divine sovereignty over popular sovereignty, while also maintaining moderation, religious morality and opposing [GetLawType('law_universal_suffrage').GetName] (Examples include the middle-class #bold Catholics#! and the independent #bold Hungarian Christian Democrats#!).\n\n#v The Democrat Side#! (#italic >66%#!) — This side represents the progressive, farmer- and worker-based [GetIdeology('ideology_dop_christian_democrat').GetName] currents within, seeking to, most importantly, introduce [GetLawType('law_universal_suffrage').GetName], pursue introduction of democracy and its expansion in various regions of life, expand [GetLawGroup('lawgroup_labor_unions').GetName] [Concept('concept_law', 'Laws')] and limit oppresiveness of [concept_religion] in political life, excluding general religious morality (Examples include the #bold Franco-Italian Popularists#! and the #bold Czech Lidovci#!)."
+
+ je_bpm_economical_leaning_progress_tooltip: "#v Economical Leaning#! represents the existing highly-divided currents, shifts and debates, as well as general attitude towards capitalism within Catholic movements, parties, unions and organizations and their stances on the [GetLawGroup('lawgroup_economic_system').GetName], [GetLawGroup('lawgroup_trade_policy').GetName], [GetLawGroup('lawgroup_land_reform').GetName], private ownership and economical development. There are generally three main [Concept('concept_ideology', 'Ideologies')] and sides:\n\n#v The Distributism Side#! (#italic <20%#!) — This side represents ‘Christian Socialist‘, conservative, @middling! [Concept('concept_middle_strata', 'Middle-')] to [Concept('concept_upper_strata', 'Upper-Class')] currents that see either slightly regulated capitalism as rather a nature of things, and are keen on building a [GetIdeology('ideology_eco_distributist_economy').GetName], through fiscally conservative policies and being supportive of limited [GetLawType('law_interventionism').GetName], [GetLawType('law_homesteading').GetName], [GetLawType('law_protectionism').GetName] with often no clear stance on [GetLawGroup('lawgroup_taxation').GetName]; Christian Socialists, unlike their name suggests, are #bold not#! Socialists. This term in this cases refers to Catholic activists that seeked to fully introduce the encyclique ‘Rerum novarum’. They are fundamentally anti-capitalist, seeking to return to the artisantal methods of production, while at the same time standing against excessive government intervention. (Examples include the #bold Czech Lidovci#! and the #bold Austrian Vereinigten Christen#!).\n\n#v The Moderate/Middle Stance#! (#italic >15%, <85%#!) — This side represents rather cohesive and moderate stances on capitalism that seek to introduce [GetIdeology('ideology_eco_modern_interventionist').GetName] policies. The supporters of a modern interventionist economy generally seek to promote modern economical policies, like [Concept('concept_nationalize', 'Nationalization')] of key sectors, progressive and just [GetLawGroup('lawgroup_taxation').GetName] as well as more pro-[GetLawType('law_free_trade').GetName] policies (Examples include the #bold Belgian #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_group_young_right_tooltip Young Right#!#! movement/faction and the #bold Franco-Italian #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_group_popularists_tooltip Popularists#!#!).\n\n#v The Anti-Capitalism side#! (#italic >80%#!) — This side represents currents that, seeing the destitute conditions of the present-day, view capitalism as a horrible relic of the past, something that many modern [Concept('concept_party', 'Parties')] seek to 'repair'. They instead propose a [GetIdeology('ideology_eco_centralized_economy').GetName] supported by corporatism, limited socialization and total democratization, a heavily cooperativized farmer-owned agriculture and breaking international trade barriers through [GetLawType('law_free_trade').GetName], seeing in [GetLawType('law_protectionism').GetName] only unnecessary damage (Examples include the late #bold Polish #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_group_chadecy_tooltip Chadecy#!#! and the young #bold German Zentrumites#!)"
+
+ 
+ 
 
  je_bpm_welfare_leaning_progress_tooltip: "#v Welfare Leaning#! represents the highly-divided currents, shifts and debates within the Catholic movements, parties, unions and organizations and their stances on welfare, like on the [GetLawGroup('lawgroup_education_system').GetName], [GetLawGroup('lawgroup_health_system').GetName] or [GetLawGroup('lawgroup_welfare').GetName] and the ways how they should be introduced - whether through private initiative like charity, corporatism or should the state step in. There are generally three main [Concept('concept_ideology', 'Ideologies')] and sides:\n\n#v The Society Side#! (#italic <25%#!) — This side represents conservative, strictly religious and corporatist currents that believe that the private initiative should lead in welfare within corporatism and [GetIdeology('ideology_wel_religious_welfare').GetName].\n\n#v The Moderate/Middle Stance#! (#italic >20%, <80%#!) — This side represents usually religious, middle-class, worker-based and relatively moderate currents that believe in [GetIdeology('ideology_wel_social_market_welfare').GetName], seeking to introduce state control and support where private initiative isn't strong enough to maintain proper living of workers. They usually tend to prefer introducing subsidies rather than fully-funded welfare.\n\n#v The State Side#! (#italic >75%#!) — This side represents progressive and worker-based currents that seek to introduce [GetIdeology('ideology_wel_expanded_public_welfare').GetName] gradually and efficiently, believing that the private corporatist ideas aren't a proper answer to social problems and poverty."
 
  je_bpm_independence_from_church_tooltip: "#v Independence from the Catholic Church#! represents how much independent the Catholic laymen are from #bold Church#! authorities and its influence. This progress bar increases every month, and for every #bold 10% progress#! made in this [concept_journal_entry], the [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will debate on various issues concerning their [concept_interest_group], and, with your help, will shape and change its [concept_ideology] depending on local circumstances."
 
- je_bpm_christian_democrat_development_stages_tooltip: "There are generally a few stages and checkpoints for the development of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant]:\n\n (1) #v 0%#!: [GetLawType('law_wealth_voting').GetName] or more; Catholic [concept_state_religion] or significant minority; Powerful [concept_bpm_ig_is_liberal] or [concept_bpm_ig_is_socialist] [concept_interest_group].\n    [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetName] appear as a response to the modernist danger.\n\n (2) #v 25%#!: Requires [GetTechnology('corporatism').GetName] & [GetTechnology('socialism').GetName].\n    [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetName] gain further traction and discuss the matters of democracy and nationalism.\n\n (3) #v 50%#!: Requires #v Rerum Novarum#! to be issued.\n    [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetName], basing their ideologies now on Catholic Social Teaching and expanding on the economical issues.\n\n (4) #v 75%#!: No requirement.\n    [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetName] are no longer rather loose laymen organizations but full on socio-economical movements, that seek to change the existing status quo.\n\n"
+ je_bpm_christian_democrat_development_stages_tooltip: "There are generally a few stages and checkpoints for the development of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant]:\n\n (1) #v 0%#!: [GetLawType('law_wealth_voting').GetName] or more; Catholic [concept_state_religion] or significant minority; Powerful [concept_bpm_ig_is_liberal] or [concept_bpm_ig_is_socialist] [concept_interest_group].\n    Laymen [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetName] appear as a response to the modernist danger in spite of #bold Church#! to keep them under control.\n\n (2) #v 25%#!: Requires [GetTechnology('egalitarianism').GetName], [GetTechnology('nationalism').GetName], [GetTechnology('corporatism').GetName] & [GetTechnology('socialism').GetName].\n    [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetName] gain further traction and discuss the matters of the liberal democracy and nationalism, and may pronounce their support for welfare measures.\n\n (3) #v 50%#!: Requires #v ’Rerum novarum’#! to be issued.\n    [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetName] having the encyclique as their ideological fundament will begin to gain stances on suffrage, the matter of the economy and capitalism.\n\n (4) #v 75%#!: Requires #v ’Graves de communi re’#! to be issued.\n    [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetName] and laymen movements, after being adressed by the #bold Pope#!, begin to fully join the political life and actively partake in electoralism and grassroots movements under various names and ideals."
 
  je_bpm_christian_or_democrat: "Christian, or Democrat?"
- je_bpm_christian_or_democrat_reason: "The age of strong kings and rural life is long time gone, replaced by the modern and sinful ideas of democracy, industrialization and capitalism, devoid of any morality and God. Therefore, the Catholic laymen must modernize to survive in these dark times, working within the new systems to defend their influence and combat the ever-growing ideas of bloodthirsty #yellow liberalism#! and godless #pink socialism#!, together #bold with#! or #bold against#! the #v Catholic Church#!. \n\nThis [concept_journal_entry] follows the long and dynamic process of weak and loose groups organizing themselves, developing new ideas and growing into the modern [Concept('concept_bpm_ig_is_liberal', 'Liberal')] state, eventually outgrowing the #v Church#! influence and becoming a new, independent ideology. As the [concept_interest_group] grows and becomes more #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_independence_from_church_tooltip Independent from the Church#!, and as they progress to futher #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_christian_democrat_development_stages_tooltip Stages#!, you will receive events that will allow you to influence the developemnt of the [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant], though they will still highly depend on their #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_ideological_leaning_progress_tooltip Ideological#! and #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_economical_leaning_progress_tooltip Economical#! Leanings.\n\n#lore There are not two souls in the Zentrum party, but seven different schools of thought, which shimmer in all colours of the political rainbow, from the farthest right to the radical left. For my part, I admire the craftsmanship with which the coachman of the Zentrum party knows how to steer all these divergent spirits so elegantly.\n\n— Otto von Bismarck, 1890#!" #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_welfare_leaning_progress_tooltip Welfare#!
+ je_bpm_christian_or_democrat_reason: "The age of strong kings and rural life is long time gone, replaced by modern and sinful ideas of democracy, industrialization and capitalism, devoid of any morality and God. Therefore, the Catholic laymen must adapt to survive in these dark times, working within the new systems to defend their influence and combat the ever-growing ideas of bloodthirsty #yellow liberalism#! and godless #pink socialism#!, together #bold with#! or #bold against#! the #v Catholic Church#!.\n\nThis [concept_journal_entry] follows the long and dynamic process of weak and loose laymen groups organizing themselves, developing new ideas and growing into the modern [Concept('concept_bpm_ig_is_liberal', 'Liberal')] [Concept('concept_country', 'State')], eventually outgrowing the #v Church#!’s influence and becoming a new, independent ideology. As the [concept_interest_group] grows and becomes more #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_independence_from_church_tooltip Independent from the Church#!, and as it progresses to futher #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_christian_democrat_development_stages_tooltip Stages#!, you will receive events that will allow you to influence the development of the [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant], though they will still highly depend on their #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_ideological_leaning_progress_tooltip Ideological#! and #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_economical_leaning_progress_tooltip Economical#! Leanings.\n\n#lore There are not two souls in the Zentrum party, but seven different schools of thought, which shimmer in all colours of the political rainbow, from the farthest right to the radical left. For my part, I admire the craftsmanship with which the coachman of the Zentrum party knows how to steer all these divergent spirits so elegantly.\n\n— Otto von Bismarck, 1890#!" #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_welfare_leaning_progress_tooltip Welfare#!
 
  has_wealth_voting_or_higher: "Has [GetLawType('law_wealth_voting').GetName] or higher"
  
@@ -138,27 +268,26 @@
 
  ######################### CHRISTIAN DEMOCRAT IG EVOLUTION
  
- je_debating_the_state_stance: "Debates on the stance on state power and decentralization."
- je_debating_the_religion_stance: "Debates on the stance on religion and morality."
- je_debating_the_dop_stance: "Debates on the stance on democracy and suffrage."
- je_debating_the_eco_stance: "Debates on the stance on economy and capitalism."
- je_debating_the_wel_stance: "Debates on the stance on welfare and charity."
- je_debating_the_cit_stance: "Debates on the stance on patriotism and borders."
- je_debating_the_mil_stance: "Debates on the stance on defence and military."
- je_debating_the_fem_stance: "Debates on the stance on women and their rights."
+ je_debating_the_state_stance: "Stances on state power and decentralization are currently being developed."
+ je_debating_the_religion_stance: "Stances on religion and morality are currently being developed."
+ je_debating_the_dop_stance: "Stances on democracy and suffrage are currently being developed"
+ je_debating_the_eco_stance: "Stances on economy and capitalism are currently being developed"
+ je_debating_the_wel_stance: "Stances on welfare and charity are currently being developed"
+ je_debating_the_cit_stance: "Stances on patriotism and borders are currently being developed"
+ je_debating_the_mil_stance: "Stances on peace and military are currently being developed"
+ je_debating_the_fem_stance: "Stances on women and their rights are currently being developed"
 
- je_finalizing_the_political_program: "Finalizing an official programmes."
- je_securing_full_independence_from_the_church: "Securing full independence from the Church."
+ je_finalizing_the_political_program: "Gaining mass popularity and securing full independence from the Church."
+ je_securing_full_independence_from_the_church: "Finally deciding if we are Christians, or Democrats."
  
 
- bpm_christdem_split.4.t: "On State Power and Decentralization"
- bpm_christdem_split.4.desc: "The debates inside the bloc of protecting #blue [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetName]#! are heated and active, with many social groups and members taking up debates on the construction of their ideology and socio-political program. The issue they are currently addressing is the question of decentralization and the strength of the state, and many agree on the importance of decentralization, but everyone differs in their vision of the depth of it." # 
- bpm_christdem_split.4.f: "(We support a decentralized state) that recognizes the limits of its activity, respects natural nuclei and bodies — the family, classes, communes — respects individual personality and encourages private initiatives.\n— An Appeal to the Free and Strong — Italian Popular Party Program, 1919"
- bpm_christdem_split.4.a: "Deep decentralization is much needed, and we should actively seek it."
- bpm_christdem_split.4.b: "Decentralization is important, but the stability of the state is much more."
- bpm_christdem_split.4.c: "The state should be strong and maintain a calm public order."
+ 
+
+ 
 
  socialised_economy_tt: "You have more than or equal to #gold 80%#! on the side of #bold Anti-Capitalism#! in #bold Economical Leaning progress#! Progress Bar"
+ welfare_leaning_state_eco_75_tt: "You have more than or equal to #gold 65%#! on the side of #bold Anti-Capitalism#! in #bold Economical Leaning progress#! Progress Bar"
+ welfare_leaning_state_eco_35_tt: "You have more than or equal to #gold 35%#! on the side of #bold Distributism#! in #bold Economical Leaning progress#! Progress Bar"
  distributist_economy_tt: "You have less than or equal to #gold 20%#! on the side of #bold Distributism#! in #bold Economical Leaning progress#! Progress Bar"
  ideological_leaning_christian_democrat_tt: "You have more than or equal to #gold 80%#! on the side of #bold Democracy#! in #bold Ideological Leaning progress#! Progress Bar"
  welfare_leaning_society_welfare_tt: "You have less than or equal to #gold 30%#! on the side of #bold Society#! in #bold Welfare Leaning progress#! Progress Bar"
@@ -171,24 +300,39 @@
  democracy_leaning_divine_democrat_tt: "You have more than #gold 25%#! and less than #gold 75%#! in the #bold Ideological Leaning progress#! Progress Bar"
  democracy_leaning_illiberal_democrat_tt: "You have less than or equal to #gold 33%#! on the side of #bold Christianity#! in #bold Ideological Leaning progress#! Progress Bar"
 
+ ##### Revising the Economics
+
+ bpm_christdem_split.50.t: "Revising the Economical Matters"
+ bpm_christdem_split.50.d: "Recent changes in the state's economy, general standard of living as well as internal tensions have begun to affect the @ig_christian_democrats! #blue Christian Democrats#! and their views on state intervention, trade and taxation, and have led them to internal debates and changes toward alternatives to their current and existing economic positions, as well as voicing voices that were previously quiet." 
+ bpm_christdem_split.50.f: ""
+
+ ##### Decentralization and State Power
+
+ bpm_christdem_split.4.t: "On State Power and Decentralization"
+ bpm_christdem_split.4.desc: "The decentralization of the state and the desire to strengthen local structures have always been important to Catholics. Most share the view that decentralization of the state is necessary, but not to the same extent.\n\nOne group believes that a strongly federalized, cohesive state should be maintained or introduced, while the other group strives for much deeper decentralization of the state, noting its weaknesses and incompetence."
+ bpm_christdem_split.4.f: "The state is, by definition, incapable of managing even a simple cobbler's shop.\n\n— Luigi Sturzo, 1951"
+ bpm_christdem_split.4.a: "Deep decentralization is much needed, and we should actively seek it."
+ bpm_christdem_split.4.b: "Decentralization is important, but the stability of the state is much more."
+ bpm_christdem_split.4.c: "The state should be strong and maintain a calm public order."
+
+
  ##### Economy and Capitalism
  
  bpm_christdem_split.5.t: "On Economy and Capitalism"
 
- bpm_christdem_split.5.d1: ""
- bpm_christdem_split.5.d2: ""
- bpm_christdem_split.5.f: ""
+ bpm_christdem_split.5.d: "Liberal capitalism, industrialization, and a complete revolution in every area and aspect of human life were initially met with great hostility and resistance from Catholic activists and Catholic laymen. However, over time, many of them accepted it, differing in their approach to it.\n\nSome believe that capitalism is generally positive, and that the state should pursue a fiscal conservatism, while others seek to limit it in favor of the state and citizens through gradual democratization and the equalization of differences. Some, though quiet, see capitalism as an absolute evil and seek to replace it with a strongly democratized, centrally planned economy."
+ bpm_christdem_split.5.f: "The enormous gap between rich and poor must be bridged — woe betide us if it is not! The commandment of love is even higher before God than the commandment of justice.\n\n— Karl Freiherr von Vogelsang"
 
  bpm_christdem_split.5.a: "A peaceful cooperation between capital and workers will bring forth great fruits."
  bpm_christdem_split.5.b: "Capitalism needs futher reform and change."
  bpm_christdem_split.5.c: "Liberal-capitalist policy has proved fatal and must be destroyed."
- bpm_christdem_split.5.d: "An agrarian-based economy must be upheld, far from a capitalist dystopia."
+ bpm_christdem_split.5.d: "An agrarian-based economy must be upheld and actively supported."
 
  ##### Religion
 
  bpm_christdem_split.6.t: "On Religion and Morality"
- bpm_christdem_split.6.d1: ""
- bpm_christdem_split.6.f: "Religion and good morals are the only solid foundation of public liberty and happiness.\n— Samuel Adams"
+ bpm_christdem_split.6.d1: "All @ig_christian_democrats! Catholics are religious to a greater or lesser extent, but they are religious nonetheless. Therefore, the need to maintain the religious and moral aspect of humanity in general has always been and continues to be significant, and many believers strive to uphold the religious and moral character of the law and the activities of the state, but not everyone agrees on the scope and strength of this ideal.\n\nSome seek to maintain a stronger basis for law and the state in religion, others strive for a deeper moderation of religious moralism, and some seek a broader restriction of religion in political life and even the separation of church and state." 
+ bpm_christdem_split.6.f: "It is better to obey God than people.\n\n— Wojciech Korfanty, 1927"
 
  bpm_christdem_split.6.a: "Catholicism shall regulate all aspects of public life."
  bpm_christdem_split.6.b: "Freedom of consciece must be guaranteed, and public administration must be kept professional."
@@ -197,18 +341,19 @@
  ##### Welfare
 
  bpm_christdem_split.7.t: "On Welfare and Charity"
- bpm_christdem_split.7.d1: ""
- bpm_christdem_split.7.f: "A charity which knows only how to give money is not yet Christian love. You will be free of guilt only when you also give your time, your energy, and your resourcefulness to help end such abuses for good, and when you allow nothing that lies hidden in the storehouse of your Christian religion to remain unused against the cancer that is destroying the vitality of our society in such alarming ways\n— Abraham Kuyper, 1891"
+ bpm_christdem_split.7.d1: "Many @ig_christian_democrats! Catholic laymen sincerely believe in charity and the need for humanity as a whole to provide every person with access to the all life necessities.\n\nSome believe that civil society and charity alone will provide for everyone, while others believe in the strong use of the state to provide benefits to everyone, and still others seek to find a middle ground and use both ideas to a limited extent."
+ bpm_christdem_split.7.f: "A charity which knows only how to give money is not yet Christian love. You will be free of guilt only when you also give your time, your energy, and your resourcefulness to help end such abuses for good, and when you allow nothing that lies hidden in the storehouse of your Christian religion to remain unused against the cancer that is destroying the vitality of our society in such alarming ways\n\n— Abraham Kuyper, 1891"
 
  bpm_christdem_split.7.a: "One man helping the other through charity is the fairest way to ensure a decent life."
- bpm_christdem_split.7.b: "Charity not being enough, the state must ensure public welfare for the workingman."
+ bpm_christdem_split.7.b: "Charity is not enough, the state must ensure some public welfare for the workingman."
  bpm_christdem_split.7.c: "The private hand has failed to protect the workingman, the state must take total reign."
+ bpm_christdem_split.7.d: "Combined religious welfare and charity will bring forth great fruits."
 
  ##### Nationalism
 
  bpm_christdem_split.8.t: "On Nationalism and Borders"
- bpm_christdem_split.8.desc: ""
- bpm_christdem_split.8.f: "There is neither Jew nor Gentile, neither slave nor free, nor is there male and female, for you are all one in Christ Jesus.\n— Galatians 3:28"
+ bpm_christdem_split.8.desc: "@ig_christian_democrats! Catholic laymen have long had a strong sense of their culture, but with the advent of nationalism and modern perceptions of people, the way this culture is related to has shifted considerably. In the past, many of them felt a sense of belonging only to their family and place of residence; now, more and more of them are finding new senses of belonging and places.\n\nNationalism has caused some to fall in love with their nation and find enemies in others, while others have found a strong sense of belonging to humanity as a whole and maintain the pursuit of uniting small groups into a single whole. Meanwhile some have found a golden mean between the two radical perceptions."
+ bpm_christdem_split.8.f: "There is neither Jew nor Gentile, neither slave nor free, nor is there male and female, for you are all one in Christ Jesus.\n\n— Galatians 3:28"
  
  bpm_christdem_split.8.a: "All borders, whether internal or international, must be weakened and eventually abolished."
  bpm_christdem_split.8.b: "All people should be allowed to seek a new safe haven."
@@ -219,8 +364,8 @@
  ##### Democracy
 
  bpm_christdem_split.9.t: "On Democracy and Suffrage"
- bpm_christdem_split.9.desc: ""
- bpm_christdem_split.9.f: ""
+ bpm_christdem_split.9.desc: "Liberal democracy, once something to which most @ig_christian_democrats! Catholics were hostile, has today become something that is widely accepted by virtually everyone, permeating various areas of human life. Many Catholics are now more or simply positively disposed towards democracy, believing in its necessity in society, but everyone differs in their vision.\n\nSome seek to limit or even remove the ’liberal’ part, some seek to maintain it but without violating the principle of divine sovereignty, while some others believe in the need to introduce a synthesis of Democracy and Christianity and strive to expand it."
+ bpm_christdem_split.9.f: "Today, you need gold, lots of gold, to enjoy the right to speak; we are not rich enough. Silence for the poor.\n\n— Félicité de La Mennais, 1848"
 
  bpm_christdem_split.9.a: "We are democrats, christian democrats."
  bpm_christdem_split.9.b: "Divine sovereignty should be retained within a democracy."
@@ -229,26 +374,45 @@
  ##### Military
 
  bpm_christdem_split.10.t: "On Military and Defence"
- bpm_christdem_split.10.desc: ""
+ bpm_christdem_split.10.desc: "The desire to maintain peace and protect one's own has always been common among followers of the Catholic Church. Added to this, nationalism and modern militarism led to a general shift among @ig_christian_democrats! Catholics towards pacifist positions and hostility towards an overly exaggerated military.\n\nThe first group maintains the need for a strong and modern military, but only for defense, while continuing to strive for peace and mutual cooperation, while the second group strives for the gradual, complete demilitarization of the entire world and universal peace."
  bpm_christdem_split.10.f: ""
 
  bpm_christdem_split.10.a: "We need extraordinary means of national defence."
  bpm_christdem_split.10.b: "Our army should be strong and modern."
+ bpm_christdem_split.10.c: "We must pursue total and universal demilitarization."
 
  ##### Women (WHERE?)
  
  bpm_christdem_split.11.t: "On Women and Suffrage"
- bpm_christdem_split.11.desc: ""
+ bpm_christdem_split.11.desc: "For Catholic laymen, the family is extremely important, and since its inception they have sought to defend and support it.\n\nWith the emergence of feminism, Catholics too have changed their thinking about women, and the vast majority of them want to ensure the right to vote for women, some of whom still prefer that they stay at home.\n\nHowever, there are also those who would prefer that women not participate in politics at all."
  bpm_christdem_split.11.f: ""
  
  bpm_christdem_split.11.a: "Women should be able to vote, but really their proper place is at home."
  bpm_christdem_split.11.b: "Women's proper place is only at home."
 
+ ##### Rise of Christian Democracy
+
+ bpm_christdem_split.12.t: "The Rise of Christian Democracy"
+ bpm_christdem_split.12.desc: "With the advent of the encyclicals ‘Rerum novarum’ and ‘Graves de communi re’ a new ideology — @ig_christian_democrats! Christian Democracy — was finally formed. Christian Democrats are difficult to define, as they vary enormously from country to country, but the vast majority support suffrage, corporatism and religious morality, sometimes also aiming to change the world based on Catholic Social Teaching.\n\nTheir emergence may shake history, or it may not actually change anything."
+ bpm_christdem_split.12.f: "The Centre Party is basically a political and not a confessional party. It takes its stand on the German Constitution, which requires deputies to regard themselves as representatives of the people as a whole.\n\n— Centre Party Leadership, 1909"
+
+ bpm_christdem_split.12.a: "So they finally decided whether they are Christians, or Democrats?"
+
+ ##### Afermath
+
+ bpm_christdem_split.13.t: "Aftermath"
+ bpm_christdem_split.13.d: "The emergence of Christian Democrats in many places in Europe has led to significant changes contrary to what its perennial enemies expected. In various countries, they have joined the political machinery in full force and formed parties or took them over, weakening former elites.\n\nIn some places they have forced the introduction of major reforms like [GetLawType('law_universal_suffrage').GetName], social [GetLawGroup('lawgroup_welfare').GetName], modern economic policies; while in others they seek to strengthen the state and develop it around corporatism and the teachings of the church, curbing liberal and leftist extremes."
+ bpm_christdem_split.13.f: "Let us learn, first of all, to defend our belief without hating our adversaries, to appreciate those who do not think as we do, to recognize that there are Christians in every camp, and that God can be served now as always! Let us complain less of our times and more of ourselves. Let us not be discouraged, let us be better.\n\n— Frédéric Ozanam"
+ 
+ bpm_christdem_split.13.a: "Very weird guys."
+
+ bpm_ig_all_alone_again: "All Alone Against All"
+
  BPM_VALUE_FROM_INCLINATION_TOWARDS_MODERATION: "inclination towards moderation and conservatism"
 
  option_retain_regionalized_state_tt: "The [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] retain their [GetIdeology('ideology_sta_regionalized_state').GetName] ideology."
 
- BPM_VALUE_FROM_PAPACY: "current Pope of the Holy See"
+ 
 
  BPM_VALUE_FROM_LOW_SOL: "average [concept_sol] amongst [concept_country] [Concept('concept_pop', 'Population')] (below @middling! #b 15.0#! [Concept('concept_sol', 'Middling')])"
 
@@ -259,7 +423,7 @@
 
  BPM_VALUE_FROM_STRONG_LIBERAL_MOVEMENT: "over 10% [concept_political_movement_support] for the #gold Liberal Movement#! or its [concept_political_movement_pressure] on [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant]"
 
- BPM_VALUE_FROM_STRONG_LABOR_LIBERAL_RADICAL_MOVEMENTS: "over 10% [concept_political_movement_support] for the #gold Liberal Movement#!, #gold Radical Movement#! and #gold Labor Movement#! or their [concept_political_movement_pressure] on [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant]"
+ 
 
  liberal_movement_support_radicalism_tt: "Over 10% [concept_political_movement_support] or 30% [concept_activism] for the #gold Liberal Movement#!."
  reactionary_movement_support_radicalism_tt: "Over 10% [concept_political_movement_support] and 20% [concept_activism] for the #gold Reactionary Movement#!."

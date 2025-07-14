@@ -1,24 +1,20 @@
 ﻿namespace = bpm_christdem_split
-namespace = bpm_reactionaries_split
+namespace = bpm_christdem_flavour
 
 bpm_christdem_split.1 = {
 	type = country_event
 	placement = root
 
-	event_image = { video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2" }
+	event_image = { video = "gfx/event_pictures/southamerica_christianity.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	title = bpm_christdem_split.1.t
 	desc = bpm_christdem_split.1.d
 	flavor = bpm_christdem_split.1.f
 	duration = 3
 
 	dlc = dlc_bpm
-
-	cancellation_trigger = {
-		#has_local_variable = local_christdem_split_var
-	}
-
+	
 	immediate = {
 		set_local_variable = local_christdem_split_var
 		
@@ -99,61 +95,7 @@ bpm_christdem_split.2 = {
 	}
 }
 
-bpm_christdem_split.30 = { ##### Anti-capitalist + Christian Democrat
-	type = country_event
-	placement = root
 
-	event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-	title = bpm_christdem_split.30.t
-	desc = bpm_christdem_split.30.d
-	flavor = bpm_christdem_split.30.f
-	duration = 3
-
-	dlc = dlc_bpm
-
-	trigger = {
-		
-	}
-
-	immediate = {
-		
-	}
-
-	option = {
-		name = bpm_christdem_split.30.a
-		default_option = yes
-	}
-}
-
-bpm_christdem_split.31 = { #####
-	type = country_event
-	placement = root
-
-	event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-	title = bpm_christdem_split.30.t
-	desc = bpm_christdem_split.31.d
-	flavor = bpm_christdem_split.31.f
-	duration = 3
-
-	dlc = dlc_bpm
-
-	trigger = {
-		
-	}
-
-	immediate = {
-		
-	}
-
-	option = {
-		name = bpm_christdem_split.31.a
-		default_option = yes
-	}
-}
 
 ################ State power and decentralisation
 
@@ -163,7 +105,7 @@ bpm_christdem_split.4 = {
 
 	event_image = { video = "gfx/event_pictures/southamerica_election.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
 	title = bpm_christdem_split.4.t
 	desc = bpm_christdem_split.4.desc
 	flavor = bpm_christdem_split.4.f
@@ -178,7 +120,7 @@ bpm_christdem_split.4 = {
 	}
 
 	immediate = {
-		
+		set_variable = bpm_christian_democrats_sta_ideology
 	}
 
 	after = {
@@ -197,21 +139,10 @@ bpm_christdem_split.4 = {
 
 		custom_tooltip = {
 			text = option_retain_regionalized_state_tt
-			if = {
-				limit = {
-					NOT = {
-						has_ideology = ideology_sta_regionalized_state
-					}
-				}
+			ig:ig_christian_democrats = {
 				bpm_remove_all_sta_ideologies = yes
-				ig:ig_christian_democrats = {
-					add_ideology = ideology_sta_regionalized_state
-				}
+				add_ideology = ideology_sta_regionalized_state
 			}
-		}
-		set_variable = {
-			name = bpm_christian_democrats_sta_ideology 
-			value = ideology:ideology_sta_regionalized_state
 		}
 	}
 
@@ -220,16 +151,12 @@ bpm_christdem_split.4 = {
 
 		hidden_effect = {
 			ig:ig_christian_democrats = {
-				remove_ideology = ideology_sta_regionalized_state
+				bpm_remove_all_sta_ideologies = yes
 			}
 		}
 
 		ig:ig_christian_democrats = {
 			add_ideology = ideology_sta_federated_state
-		}
-		set_variable = {
-			name = bpm_christian_democrats_sta_ideology 
-			value = ideology:ideology_sta_federated_state
 		}
 	}
 
@@ -266,11 +193,8 @@ bpm_christdem_split.4 = {
 		}
 
 		ig:ig_christian_democrats = {
+			bpm_remove_all_sta_ideologies = yes
 			add_ideology = ideology_sta_powerful_state
-		}
-		set_variable = {
-			name = bpm_christian_democrats_sta_ideology 
-			value = ideology:ideology_sta_powerful_state
 		}
 	}
 }
@@ -281,10 +205,10 @@ bpm_christdem_split.5 = {
 
 	event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 
 	title = bpm_christdem_split.5.t
-	desc = bpm_christdem_split.5.d1
+	desc = bpm_christdem_split.5.d
 	flavor = bpm_christdem_split.5.f
 	
 	duration = 3
@@ -293,12 +217,12 @@ bpm_christdem_split.5 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable > 50 # Rerum Novarum must be announced!
+		var:independence_from_church_variable > 60 # Rerum Novarum must be announced!
 		NOT = { has_variable = bpm_christian_democrats_eco_ideology }
 	}
 
 	immediate = {
-		
+		set_variable = bpm_christian_democrats_eco_ideology
 	}
 
 	after = {
@@ -319,7 +243,10 @@ bpm_christdem_split.5 = {
 		trigger = {
 			custom_tooltip = {
 				text = distributist_economy_tt
-				"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
+				
+				je:je_bpm_christian_or_democrat ?= { 
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
+				}
 			}
 		}
 
@@ -327,12 +254,9 @@ bpm_christdem_split.5 = {
 			hidden_effect = {
 				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = ideology_eco_distrubitist
+			add_ideology = ideology_eco_distributist_economy
 		}
-		set_variable = {
-			name = bpm_christian_democrats_eco_ideology 
-			value = ideology:ideology_eco_distrubitist
-		}
+		
 	}
 
 	option = {
@@ -356,10 +280,6 @@ bpm_christdem_split.5 = {
 			}
 			add_ideology = ideology_eco_modern_interventionist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_eco_ideology 
-			value = ideology:ideology_eco_modern_interventionist
-		}
 	}
 
 	option = {
@@ -368,7 +288,9 @@ bpm_christdem_split.5 = {
 		trigger = {
 			custom_tooltip = {
 				text = socialised_economy_tt
-				"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
+				je:je_bpm_christian_or_democrat ?= { 
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
+				}
 			}
 		}
 
@@ -379,10 +301,6 @@ bpm_christdem_split.5 = {
 				bpm_remove_all_eco_ideologies = yes
 			}
 			add_ideology = ideology_eco_centralized_economy
-		}
-		set_variable = {
-			name = bpm_christian_democrats_eco_ideology 
-			value = ideology:ideology_eco_centralized_economy
 		}
 	}
 
@@ -397,6 +315,14 @@ bpm_christdem_split.5 = {
 				}
 				country_rank < rank_value:major_power 
 			}
+			OR = {
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_dop_christian_democrat
+				}
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_dop_illiberal_democrat
+				}
+			}
 		}
 
 		highlighted_option = yes
@@ -406,10 +332,6 @@ bpm_christdem_split.5 = {
 				bpm_remove_all_eco_ideologies = yes
 			}
 			add_ideology = ideology_eco_modern_agrarian
-		}
-		set_variable = {
-			name = bpm_christian_democrats_eco_ideology 
-			value = ideology:ideology_eco_modern_agrarian
 		}
 	}
 }
@@ -423,7 +345,7 @@ bpm_christdem_split.6 = {
 
 	event_image = { video = "gfx/event_pictures/southamerica_christianity.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 
 	title = bpm_christdem_split.6.t
 	desc = {
@@ -447,7 +369,7 @@ bpm_christdem_split.6 = {
 	}
 
 	immediate = {
-		
+		set_variable = bpm_christian_democrats_rel_ideology
 	}
 
 	after = {
@@ -475,10 +397,7 @@ bpm_christdem_split.6 = {
 			}
 			add_ideology = ideology_rel_moralist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_rel_ideology 
-			value = ideology:ideology_rel_moralist
-		}
+		
 	}
 
 	option = {
@@ -500,10 +419,6 @@ bpm_christdem_split.6 = {
 			}
 			add_ideology = ideology_rel_liberal_moralist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_rel_ideology 
-			value = ideology:ideology_rel_liberal_moralist
-		}
 	}
 
 	option = {
@@ -522,10 +437,6 @@ bpm_christdem_split.6 = {
 			}
 			add_ideology = ideology_rel_pragmatic_moralist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_rel_ideology 
-			value = ideology:ideology_rel_pragmatic_moralist
-		}
 	}
 }
 
@@ -538,7 +449,7 @@ bpm_christdem_split.7 = {
 
 	event_image = { video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
 
 	title = bpm_christdem_split.7.t
 	desc = bpm_christdem_split.7.d1
@@ -550,12 +461,12 @@ bpm_christdem_split.7 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 60
+		var:independence_from_church_variable >= 50
 		NOT = { has_variable = bpm_christian_democrats_wel_ideology }
 	}
 
 	immediate = {
-		
+		set_variable = bpm_christian_democrats_wel_ideology
 	}
 
 	after = {
@@ -574,11 +485,17 @@ bpm_christdem_split.7 = {
 
 		highlighted_option = yes
 		trigger = {
-			custom_tooltip = {
-				text = welfare_leaning_society_welfare_tt
-				je:je_bpm_christian_or_democrat ?= {
-					"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" <= 25
+			#custom_tooltip = {
+			#	text = welfare_leaning_society_welfare_tt
+			#	je:je_bpm_christian_or_democrat ?= {
+			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" <= 25
+			#	}
+			#}
+			NOR = {
+				je:je_bpm_christian_or_democrat ?= { 
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 25
 				}
+				has_technology_researched = corporatism
 			}
 		}
 
@@ -588,23 +505,25 @@ bpm_christdem_split.7 = {
 			}
 			add_ideology = ideology_wel_religious_welfare
 		}
-
-		set_variable = {
-			name = bpm_christian_democrats_wel_ideology 
-			value = ideology:ideology_wel_religious_welfare
-		}
 	}
 
 	option = {
-		name = bpm_christdem_split.7.b
+		name = bpm_christdem_split.7.d
 
 		highlighted_option = yes
 		trigger = {
+			#custom_tooltip = {
+			#	text = welfare_leaning_state_welfare_tt
+			#	je:je_bpm_christian_or_democrat ?= {
+			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" >= 75
+			#	}
+			#}
+			has_technology_researched = corporatism
+			
 			custom_tooltip = {
-				text = welfare_leaning_central_welfare_tt
-				je:je_bpm_christian_or_democrat ?= {
-					"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" >= 20
-					"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" <= 80
+				text = welfare_leaning_state_eco_35_tt
+				je:je_bpm_christian_or_democrat ?= { 
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 35
 				}
 			}
 		}
@@ -613,11 +532,30 @@ bpm_christdem_split.7 = {
 			hidden_effect = {
 				bpm_remove_all_wel_ideologies = yes
 			}
-			add_ideology = ideology_wel_social_market_welfare
+			add_ideology = ideology_wel_distributist_welfare
 		}
-		set_variable = {
-			name = bpm_christian_democrats_wel_ideology 
-			value = ideology:ideology_wel_social_market_welfare
+	}
+
+	option = {
+		name = bpm_christdem_split.7.b
+
+		highlighted_option = yes
+		trigger = {
+			#custom_tooltip = {
+			#	text = welfare_leaning_central_welfare_tt
+			#	je:je_bpm_christian_or_democrat ?= {
+			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" >= 20
+			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" <= 80
+			#	}
+			#}
+			has_technology_researched = corporatism
+		}
+
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_remove_all_wel_ideologies = yes
+			}
+			add_ideology = ideology_wel_social_market_welfare
 		}
 	}
 
@@ -626,10 +564,18 @@ bpm_christdem_split.7 = {
 
 		highlighted_option = yes
 		trigger = {
+			#custom_tooltip = {
+			#	text = welfare_leaning_state_welfare_tt
+			#	je:je_bpm_christian_or_democrat ?= {
+			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" >= 75
+			#	}
+			#}
+			has_technology_researched = corporatism
+			
 			custom_tooltip = {
-				text = welfare_leaning_state_welfare_tt
-				je:je_bpm_christian_or_democrat ?= {
-					"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" >= 75
+				text = welfare_leaning_state_eco_75_tt
+				je:je_bpm_christian_or_democrat ?= { 
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 65
 				}
 			}
 		}
@@ -639,10 +585,6 @@ bpm_christdem_split.7 = {
 				bpm_remove_all_wel_ideologies = yes
 			}
 			add_ideology = ideology_wel_expanded_public_welfare
-		}
-		set_variable = {
-			name = bpm_christian_democrats_wel_ideology 
-			value = ideology:ideology_wel_expanded_public_welfare
 		}
 	}
 }
@@ -656,7 +598,7 @@ bpm_christdem_split.8 = {
 
 	event_image = { video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 
 	title = bpm_christdem_split.8.t
 	desc = bpm_christdem_split.8.desc
@@ -673,7 +615,7 @@ bpm_christdem_split.8 = {
 	}
 
 	immediate = {
-		
+		set_variable = bpm_christian_democrats_cit_ideology
 	}
 
 	after = {
@@ -701,10 +643,7 @@ bpm_christdem_split.8 = {
 			}
 			add_ideology = ideology_cit_christian_internationalist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_cit_ideology 
-			value = ideology:ideology_cit_christian_internationalist
-		}
+		
 	}
 
 	option = { #### Imigrant Nationalism
@@ -723,10 +662,6 @@ bpm_christdem_split.8 = {
 			}
 			add_ideology = ideology_cit_immigrant_nationalist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_cit_ideology 
-			value = ideology:ideology_cit_immigrant_nationalist
-		}
 	}
 
 	option = { # Multi-Ethnic nationalism (Poland, Austria, Hungary etc)
@@ -743,10 +678,6 @@ bpm_christdem_split.8 = {
 			}
 			add_ideology = ideology_cit_multiethnic_nationalist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_cit_ideology 
-			value = ideology:ideology_cit_multiethnic_nationalist
-		}
 	}
 
 	option = { # Liberal Nationalism (Almost all if not actually all)
@@ -758,13 +689,9 @@ bpm_christdem_split.8 = {
 			}
 			add_ideology = ideology_cit_liberal_nationalist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_cit_ideology 
-			value = ideology:ideology_cit_liberal_nationalist 
-		}
 	}
 
-	option = { # Ethnonationalism? Defo lithuania and kinda late CSP
+	option = { # Ethnonationalism? Defo lithuania, very late CSP somewhat
 		name = bpm_christdem_split.8.e
 
 		highlighted_option = yes
@@ -798,10 +725,6 @@ bpm_christdem_split.8 = {
 			}
 			add_ideology = ideology_cit_ethnonationalist
 		}
-		set_variable = {
-			name = bpm_christian_democrats_cit_ideology 
-			value = ideology:ideology_cit_ethnonationalist
-		}
 	}
 }
 
@@ -811,7 +734,7 @@ bpm_christdem_split.9 = {
 
 	event_image = { video = "gfx/event_pictures/southamerica_election.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
 
 	title = bpm_christdem_split.9.t
 	desc = bpm_christdem_split.9.desc
@@ -828,7 +751,7 @@ bpm_christdem_split.9 = {
 	}
 
 	immediate = {
-		
+		set_variable = bpm_christian_democrats_dop_ideology
 	}
 
 	after = {
@@ -862,10 +785,7 @@ bpm_christdem_split.9 = {
 			add_ideology = ideology_dop_christian_democrat
 		}
 
-		set_variable = {
-			name = bpm_christian_democrats_dop_ideology 
-			value = ideology:ideology_dop_christian_democrat
-		}
+		
 	}
 
 	option = { #### Divine Democrat
@@ -888,11 +808,6 @@ bpm_christdem_split.9 = {
 			}
 			add_ideology = ideology_dop_divine_democrat
 		}
-
-		set_variable = {
-			name = bpm_christian_democrats_dop_ideology 
-			value = ideology:ideology_dop_divine_democrat
-		}
 	}
 
 	option = { #### Illiberal Democrat
@@ -912,34 +827,7 @@ bpm_christdem_split.9 = {
 			hidden_effect = {
 				bpm_remove_all_dop_ideologies = yes
 			}
-			add_ideology = ideology_dop_iliberal_democrat
-		}
-
-		set_variable = {
-			name = bpm_christian_democrats_dop_ideology 
-			value = ideology:ideology_dop_iliberal_democrat
-		}
-	}
-
-	option = { # Corporatist Democrat
-		name = bpm_christdem_split.9.d
-
-		highlighted_option = yes
-
-		trigger = {
-			always = yes
-		}
-
-		ig:ig_christian_democrats = {
-			hidden_effect = {
-				bpm_remove_all_dop_ideologies = yes
-			}
-			add_ideology = ideology_dop_corporatist_democrat
-		}
-
-		set_variable = {
-			name = bpm_christian_democrats_dop_ideology 
-			value = ideology:ideology_dop_corporatist_democrat
+			add_ideology = ideology_dop_illiberal_democrat
 		}
 	}
 }
@@ -951,7 +839,7 @@ bpm_christdem_split.10 = {
 
 	event_image = { video = "gfx/event_pictures/unspecific_military_parade.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
 
 	title = bpm_christdem_split.10.t
 	desc = bpm_christdem_split.10.desc
@@ -968,7 +856,7 @@ bpm_christdem_split.10 = {
 	}
 
 	immediate = {
-		
+		set_variable = bpm_christian_democrats_mil_ideology
 	}
 
 	after = {
@@ -997,10 +885,7 @@ bpm_christdem_split.10 = {
 			add_ideology = ideology_mil_defensive_patriot
 		}
 
-		set_variable = {
-			name = bpm_christian_democrats_mil_ideology 
-			value = ideology:ideology_mil_defensive_patriot
-		}
+		
 	}
 
 	option = { #### Liberal-Patriotic
@@ -1017,10 +902,21 @@ bpm_christdem_split.10 = {
 			}
 			add_ideology = ideology_mil_patriotic_liberal
 		}
+	}
 
-		set_variable = {
-			name = bpm_christian_democrats_mil_ideology 
-			value = ideology:ideology_mil_patriotic_liberal
+	option = { #### Anti-Militarist
+		name = bpm_christdem_split.10.c
+
+		highlighted_option = yes
+		trigger = {
+			always = yes
+		}
+
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_remove_all_mil_ideologies = yes
+			}
+			add_ideology = ideology_mil_antimilitarist
 		}
 	}
 }
@@ -1032,7 +928,7 @@ bpm_christdem_split.11 = {
 
 	event_image = { video = "gfx/event_pictures/europenorthamerica_sufferage.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	title = bpm_christdem_split.11.t
 	desc = bpm_christdem_split.11.desc
@@ -1049,7 +945,7 @@ bpm_christdem_split.11 = {
 	}
 
 	immediate = {
-		
+		set_variable = bpm_christian_democrats_fem_ideology
 	}
 
 	after = {
@@ -1094,10 +990,7 @@ bpm_christdem_split.11 = {
 			add_ideology = ideology_fem_moderate_patriarchal
 		}
 
-		set_variable = {
-			name = bpm_christian_democrats_fem_ideology 
-			value = ideology:ideology_fem_moderate_patriarchal
-		}
+		
 	}	
 }
 
@@ -1106,9 +999,9 @@ bpm_christdem_split.12 = {
 	type = country_event
 	placement = root
 
-	event_image = { video = "gfx/event_pictures/europenorthamerica_sufferage.bk2" }
+	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
 	title = bpm_christdem_split.12.t
 	desc = bpm_christdem_split.12.desc
@@ -1125,6 +1018,53 @@ bpm_christdem_split.12 = {
 	}
 
 	immediate = {
+		set_variable = bpm_christian_democrats_program_completed
+	}
+
+	after = {
+		
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_reorder_ideologies = yes
+			}
+		}
+	}
+
+	option = { #### Rise of Christian Democracy
+		name = bpm_christdem_split.12.a
+		
+		default_option = yes
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+                name = bpm_ig_all_alone_again
+                months = normal_modifier_time
+				is_decaying = yes
+            }
+		}
+	}	
+}
+
+bpm_christdem_split.13 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/europenorthamerica_london_center.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	title = bpm_christdem_split.13.t
+	desc = bpm_christdem_split.13.d
+	flavor = bpm_christdem_split.13.f
+	
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+	}
+
+	immediate = {
 		
 	}
 
@@ -1137,26 +1077,410 @@ bpm_christdem_split.12 = {
 		}
 	}
 
-	option = { #### Finally, a programme that has worked out!
-		name = bpm_christdem_split.12.a
+	option = { #### 
+		name = bpm_christdem_split.13.a
+		
+		default_option = yes
+	}	
+}
+
+###################################################
+########## Flavour Stuff 
+
+#1 Primate of ROOT proclaims support for democracy (Like Belgian, must be before the Syllabus of Errors)
+#?2 Bishop publicly criticizes democracy
+#3 All alone: Catholics against the world
+#4 Labour/youth wing speaks out: criticism of capitalism
+#5 Are we christians, or democrats?
+#6 Responding to economical crisises
+#7 Internal opposition to ROOT.RecentChoice
+#8 The pope criticizes local movement
+#9 Organisation/Group created
+#10 Party/Catholic Action created
+#11 Farmers/Bourgouisie/Labourers take lead
+#12 Bishops officially say they won't partake in ChristDem development
+#13 Local Christian Democrats/Priest in alliance with Socialists
+#14 Pro-christian democracy Priest/Bishop was excommunicated
+#15 Youth Christian Democrats refuse to fly national colors
+
+bpm_christdem_flavour.1 = { # Primate of ROOT proclaims support for democracy (Like Belgian, must be before the Syllabus of Errors)
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/unspecific_politicians_arguing.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	title = bpm_christdem_flavour.1.t
+	desc = bpm_christdem_flavour.1.desc
+	flavor = bpm_christdem_flavour.1.f
+	
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+		NOT = {
+			has_global_variable = global_variable_quanta_cura_var_released
+		}
+		NOT = {
+			has_variable = bpm_christian_democrats_dop_ideology
+		}
+		NOT = {
+			AND = {
+				country_has_state_religion = rel:catholic
+				ig:ig_devout = {
+					leader = {
+						has_ideology = ideology:ideology_theocrat
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				has_role = politician
+				is_ruler = no
+				age > 18
+				is_busy = no
+				interest_group = {
+					is_marginal = no
+					is_interest_group_type = ig_devout
+				}
+			}
+			save_scope_as = devout_speech
+		}
+	}
+
+	after = {
+		
+	}
+
+	option = { ##### He's quite right about that!
+		name = bpm_christdem_flavour.1.a
+		
+		default_option = yes
+
+		if = {
+			limit = {
+				country_has_state_religion = rel:catholic
+			}
+			scope:devout_speech = {
+				add_modifier = {
+					name = bpm_pronounced_support_for_democracy_despite_backlash
+					days = normal_modifier_time
+				}
+				interest_group = {
+					add_modifier = {
+						name = bpm_interest_group_supportive_of_liberal_democracy
+						days = normal_modifier_time
+					}	
+				}
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_ig_support_from_church_authorities
+				days = short_modifier_time
+			}
+		}
+
+		custom_tooltip = {
+			text = option_moderated_towards_democracy_tt
+			change_variable = { 
+				name = christian_democrats_ideology_change 
+				subtract = 1 
+			}
+		}
+	}	
+
+	option = { ##### The Holy See shall take interest in such person.
+		name = bpm_christdem_flavour.1.b
+
+		if = {
+			limit = {
+				country_has_state_religion = rel:catholic
+			}
+			scope:devout_speech = {
+				add_modifier = {
+					name = bpm_strong_backlash_for_pronouncing_support_for_democracy
+					days = normal_modifier_time
+				}
+				interest_group = {
+					add_modifier = {
+						name = bpm_reinforcing_anti_modernist_ideas
+						days = normal_modifier_time
+					}
+				}
+			}
+
+			random = {
+				chance = 20
+				custom_tooltip = bpm_christdem_flavour.1.b.tt
+				hidden_effect = {
+					scope:devout_speech = {
+						kill_character = {
+							hidden = yes
+						}
+					}
+				}
+			}
+		}
+		
+		custom_tooltip = {
+			text = option_moderated_towards_christianity_tt
+			change_variable = { 
+				name = christian_democrats_ideology_change 
+				add = 1 
+			}
+		}
+	}	
+}
+
+bpm_christdem_flavour.3 = { # All alone: Catholics against the world
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	title = bpm_christdem_flavour.3.t
+	desc = bpm_christdem_flavour.3.desc
+	flavor = bpm_christdem_flavour.3.f
+	
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+		var:independence_from_church_variable >= 25
+		has_global_variable = global_variable_quanta_cura_var_released
+		ig:ig_christian_democrats = {
+			ig_clout <= 0.05
+		}
+	}
+
+	immediate = {
+		
+	}
+
+	after = {
+		
+	}
+
+	option = { # This loneliness gives us freedom of movement (pro-indepndence, pro-radicalisms)
+		name = bpm_christdem_flavour.3.a
+		
+		default_option = yes
 
 		highlighted_option = yes
 		trigger = {
-			always = yes
+			NOT = {
+				has_variable = catholics_at_war_with_the_church
+			}
+		}
+
+		custom_tooltip = bpm_christdem_flavour.3.a.tt
+		change_variable = {
+			name = independence_from_church_variable
+			add = 0.5
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_ig_all_alone
+				days = normal_modifier_time
+				is_decaying = yes
+			}
+		}
+	}	
+
+	option = { # The Church is our save haven (must not be at 'war' with the Church)
+		name = bpm_christdem_split.3.b
+
+		change_variable = {
+			name = independence_from_church_variable
+			subtract = 0.5
+		}
+	}	
+}
+
+bpm_christdem_split.50 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	title = bpm_christdem_split.50.t
+	desc = bpm_christdem_split.50.d
+	flavor = bpm_christdem_split.50.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	after = {
+		change_variable = { name = christian_democrats_ideology_change add = 1 }
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_reorder_ideologies = yes
+			}
+		}
+	}
+
+	trigger = {
+		has_journal_entry = je_bpm_christian_or_democrat
+		var:independence_from_church_variable > 60 # Rerum Novarum must be announced!
+		has_variable = bpm_christian_democrats_eco_ideology
+		OR = {
+			AND = {
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_eco_centralized_economy
+				}
+				je:je_bpm_christian_or_democrat ?= { 
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 65
+				}
+			}
+
+			AND = {
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_eco_modern_interventionist
+				}
+				#"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
+				OR = {
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 20
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
+				}
+			}
+
+			AND = {
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_eco_distributist_economy
+				}
+				
+				je:je_bpm_christian_or_democrat ?= { 
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 35
+				}
+			}
+		}
+	}
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = bpm_christdem_split.5.a
+
+		default_option = yes
+
+		highlighted_option = yes
+		trigger = {
+			NOT = {
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_eco_distributist_economy
+				}
+			}
+			je:je_bpm_christian_or_democrat ?= { 
+				"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
+			}
 		}
 
 		ig:ig_christian_democrats = {
 			hidden_effect = {
-				bpm_remove_all_fem_ideologies = yes
+				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = var:bpm_christian_democrats_dem_ideology
-			add_ideology = var:bpm_christian_democrats_sta_ideology
-			add_ideology = var:bpm_christian_democrats_eco_ideology
-			add_ideology = var:bpm_christian_democrats_wel_ideology
-			add_ideology = var:bpm_christian_democrats_cit_ideology
-			add_ideology = var:bpm_christian_democrats_rel_ideology
-			add_ideology = var:bpm_christian_democrats_mil_ideology
-			add_ideology = var:bpm_christian_democrats_fem_ideology
+			add_ideology = ideology_eco_distributist_economy
 		}
-	}	
+		set_variable = {
+			name = bpm_christian_democrats_eco_ideology 
+			value = ideology:ideology_eco_distributist_economy
+		}
+	}
+
+	option = {
+		name = bpm_christdem_split.5.b
+
+		highlighted_option = yes
+
+		trigger = {
+			NOT = {
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_eco_modern_interventionist
+				}
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_remove_all_eco_ideologies = yes
+			}
+			add_ideology = ideology_eco_modern_interventionist
+		}
+		set_variable = {
+			name = bpm_christian_democrats_eco_ideology 
+			value = ideology:ideology_eco_modern_interventionist
+		}
+	}
+
+	option = {
+		name = bpm_christdem_split.5.a
+
+		default_option = yes
+
+		highlighted_option = yes
+		trigger = {
+			NOT = {
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_eco_centralized_economy
+				}
+			}
+			je:je_bpm_christian_or_democrat ?= { 
+				"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_remove_all_eco_ideologies = yes
+			}
+			add_ideology = ideology_eco_centralized_economy
+		}
+		set_variable = {
+			name = bpm_christian_democrats_eco_ideology 
+			value = ideology:ideology_eco_centralized_economy
+		}
+	}
+}
+
+bpm_christdem_split.51 = { #####
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	title = bpm_christdem_split.51.t
+	desc = bpm_christdem_split.51.d
+	flavor = bpm_christdem_split.51.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = bpm_christdem_split.31.a
+		default_option = yes
+	}
 }
