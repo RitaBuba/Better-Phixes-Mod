@@ -461,8 +461,9 @@ bpm_christdem_split.7 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 50
+		var:independence_from_church_variable > 50
 		NOT = { has_variable = bpm_christian_democrats_wel_ideology }
+		NOT = { has_variable = cant_progress_sorry_var }
 	}
 
 	immediate = {

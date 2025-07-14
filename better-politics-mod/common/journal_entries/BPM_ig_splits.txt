@@ -914,7 +914,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_modernizer_movement.political_movement_support
-								multiply = 0.44
+								multiply = 0.33
 							}
 							else = {
 								value = 0.004
@@ -983,7 +983,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:movement_reformist_socialist.political_movement_support
-								multiply = 0.13
+								multiply = 0.15
 							}
 							else = {
 								value = 0.0097
@@ -1104,6 +1104,7 @@ je_bpm_christian_or_democrat = {
 						change_variable = {
 							name = independence_from_church_variable
 							subtract = ROOT.ig:ig_conservatives.ig_clout
+							multiply = 1.66
 						}
 					}
 					if = { ### Reactionaries even more!
@@ -1117,7 +1118,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							subtract = {
 								value = ROOT.ig:ig_reactionaries.ig_clout
-								multiply = 1.33
+								multiply = 2.00
 							}
 						}
 					}
@@ -1145,7 +1146,7 @@ je_bpm_christian_or_democrat = {
 						add = {
 							value = var:christian_democrats_ideology_change
 							multiply = ROOT.ig:ig_christian_democrats.ig_clout
-							divide = 2.5
+							divide = 3.33
 						}
 					}
 				}
@@ -1158,7 +1159,7 @@ je_bpm_christian_or_democrat = {
 						NOT = { has_technology_researched = socialism }
 						NOT = { has_technology_researched = nationalism }
 						NOT = { has_technology_researched = egalitarianism }
-						var:independence_from_church_variable >= 25
+						ROOT.var:independence_from_church_variable >= 25
 					}
 					set_variable = {
 						name = independence_from_church_variable
@@ -1186,7 +1187,7 @@ je_bpm_christian_or_democrat = {
 						NOT = {
 							has_global_variable = global_rerum_novarum_issued_var
 						}
-						var:independence_from_church_variable >= 50
+						ROOT.var:independence_from_church_variable >= 50
 					}
 					set_variable = {
 						name = independence_from_church_variable
@@ -1200,7 +1201,7 @@ je_bpm_christian_or_democrat = {
 						NOT = {
 							has_global_variable = global_variable_graves_de_communi_re
 						}
-						var:independence_from_church_variable >= 75
+						ROOT.var:independence_from_church_variable >= 75
 					}
 					set_variable = {
 						name = independence_from_church_variable
