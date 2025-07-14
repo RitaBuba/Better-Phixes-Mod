@@ -1,4 +1,5 @@
 ﻿namespace = bpm_christdem_split
+namespace = bpm_christdem_flavour
 
 bpm_christdem_split.1 = {
 	type = country_event
@@ -207,7 +208,7 @@ bpm_christdem_split.5 = {
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 
 	title = bpm_christdem_split.5.t
-	desc = bpm_christdem_split.5.d1
+	desc = bpm_christdem_split.5.d
 	flavor = bpm_christdem_split.5.f
 	
 	duration = 3
@@ -253,7 +254,7 @@ bpm_christdem_split.5 = {
 			hidden_effect = {
 				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = ideology_eco_distrubitist_economy
+			add_ideology = ideology_eco_distributist_economy
 		}
 		
 	}
@@ -504,8 +505,35 @@ bpm_christdem_split.7 = {
 			}
 			add_ideology = ideology_wel_religious_welfare
 		}
+	}
 
-		
+	option = {
+		name = bpm_christdem_split.7.d
+
+		highlighted_option = yes
+		trigger = {
+			#custom_tooltip = {
+			#	text = welfare_leaning_state_welfare_tt
+			#	je:je_bpm_christian_or_democrat ?= {
+			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" >= 75
+			#	}
+			#}
+			has_technology_researched = corporatism
+			
+			custom_tooltip = {
+				text = welfare_leaning_state_eco_35_tt
+				je:je_bpm_christian_or_democrat ?= { 
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 35
+				}
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_remove_all_wel_ideologies = yes
+			}
+			add_ideology = ideology_wel_distributist_welfare
+		}
 	}
 
 	option = {
@@ -875,6 +903,22 @@ bpm_christdem_split.10 = {
 			add_ideology = ideology_mil_patriotic_liberal
 		}
 	}
+
+	option = { #### Anti-Militarist
+		name = bpm_christdem_split.10.c
+
+		highlighted_option = yes
+		trigger = {
+			always = yes
+		}
+
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_remove_all_mil_ideologies = yes
+			}
+			add_ideology = ideology_mil_antimilitarist
+		}
+	}
 }
 
 
@@ -955,7 +999,7 @@ bpm_christdem_split.12 = {
 	type = country_event
 	placement = root
 
-	event_image = { video = "gfx/event_pictures/europenorthamerica_sufferage.bk2" }
+	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
@@ -990,6 +1034,14 @@ bpm_christdem_split.12 = {
 		name = bpm_christdem_split.12.a
 		
 		default_option = yes
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+                name = bpm_ig_all_alone_again
+                months = normal_modifier_time
+				is_decaying = yes
+            }
+		}
 	}	
 }
 
@@ -997,12 +1049,12 @@ bpm_christdem_split.13 = {
 	type = country_event
 	placement = root
 
-	event_image = { video = "gfx/event_pictures/europenorthamerica_sufferage.bk2" }
+	event_image = { video = "gfx/event_pictures/europenorthamerica_london_center.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_default.dds"
 
 	title = bpm_christdem_split.13.t
-	desc = bpm_christdem_split.13.desc
+	desc = bpm_christdem_split.13.d
 	flavor = bpm_christdem_split.13.f
 	
 	duration = 3
@@ -1035,35 +1087,181 @@ bpm_christdem_split.13 = {
 ###################################################
 ########## Flavour Stuff 
 
-# Primate of ROOT proclaims support for democracy (Like Belgian, must be before the Syllabus of Errors)
-# Bishop publicly criticizes democracy
-# All alone: Catholics against the world
-# Labour/youth wing speaks out: criticism of capitalism
-# Are we christians, or democrats?
-# Responding to economical crisises
-# Internal opposition to ROOT.RecentChoice
-# The pope criticizes local movement
-# Organisation/Group created
-# Party/Catholic Action created
-# Farmers/Bourgouisie/Labourers take lead
+#1 Primate of ROOT proclaims support for democracy (Like Belgian, must be before the Syllabus of Errors)
+#?2 Bishop publicly criticizes democracy
+#3 All alone: Catholics against the world
+#4 Labour/youth wing speaks out: criticism of capitalism
+#5 Are we christians, or democrats?
+#6 Responding to economical crisises
+#7 Internal opposition to ROOT.RecentChoice
+#8 The pope criticizes local movement
+#9 Organisation/Group created
+#10 Party/Catholic Action created
+#11 Farmers/Bourgouisie/Labourers take lead
+#12 Bishops officially say they won't partake in ChristDem development
+#13 Local Christian Democrats/Priest in alliance with Socialists
+#14 Pro-christian democracy Priest/Bishop was excommunicated
+#15 Youth Christian Democrats refuse to fly national colors
 
-bpm_christdem_split.25 = {
+bpm_christdem_flavour.1 = { # Primate of ROOT proclaims support for democracy (Like Belgian, must be before the Syllabus of Errors)
 	type = country_event
 	placement = root
 
-	event_image = { video = "gfx/event_pictures/europenorthamerica_sufferage.bk2" }
+	event_image = { video = "gfx/event_pictures/unspecific_politicians_arguing.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
 
-	title = bpm_christdem_split.25.t
-	desc = bpm_christdem_split.25.desc
-	flavor = bpm_christdem_split.25.f
+	title = bpm_christdem_flavour.1.t
+	desc = bpm_christdem_flavour.1.desc
+	flavor = bpm_christdem_flavour.1.f
 	
 	duration = 3
 
 	dlc = dlc_bpm
 
 	trigger = {
+		NOT = {
+			has_global_variable = global_variable_quanta_cura_var_released
+		}
+		NOT = {
+			has_variable = bpm_christian_democrats_dop_ideology
+		}
+		NOT = {
+			AND = {
+				country_has_state_religion = rel:catholic
+				ig:ig_devout = {
+					leader = {
+						has_ideology = ideology:ideology_theocrat
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				has_role = politician
+				is_ruler = no
+				age > 18
+				is_busy = no
+				interest_group = {
+					is_marginal = no
+					is_interest_group_type = ig_devout
+				}
+			}
+			save_scope_as = devout_speech
+		}
+	}
+
+	after = {
+		
+	}
+
+	option = { ##### He's quite right about that!
+		name = bpm_christdem_flavour.1.a
+		
+		default_option = yes
+
+		if = {
+			limit = {
+				country_has_state_religion = rel:catholic
+			}
+			scope:devout_speech = {
+				add_modifier = {
+					name = bpm_pronounced_support_for_democracy_despite_backlash
+					days = normal_modifier_time
+				}
+				interest_group = {
+					add_modifier = {
+						name = bpm_interest_group_supportive_of_liberal_democracy
+						days = normal_modifier_time
+					}	
+				}
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_ig_support_from_church_authorities
+				days = short_modifier_time
+			}
+		}
+
+		custom_tooltip = {
+			text = option_moderated_towards_democracy_tt
+			change_variable = { 
+				name = christian_democrats_ideology_change 
+				subtract = 1 
+			}
+		}
+	}	
+
+	option = { ##### The Holy See shall take interest in such person.
+		name = bpm_christdem_flavour.1.b
+
+		if = {
+			limit = {
+				country_has_state_religion = rel:catholic
+			}
+			scope:devout_speech = {
+				add_modifier = {
+					name = bpm_strong_backlash_for_pronouncing_support_for_democracy
+					days = normal_modifier_time
+				}
+				interest_group = {
+					add_modifier = {
+						name = bpm_reinforcing_anti_modernist_ideas
+						days = normal_modifier_time
+					}
+				}
+			}
+
+			random = {
+				chance = 20
+				custom_tooltip = bpm_christdem_flavour.1.b.tt
+				hidden_effect = {
+					scope:devout_speech = {
+						kill_character = {
+							hidden = yes
+						}
+					}
+				}
+			}
+		}
+		
+		custom_tooltip = {
+			text = option_moderated_towards_christianity_tt
+			change_variable = { 
+				name = christian_democrats_ideology_change 
+				add = 1 
+			}
+		}
+	}	
+}
+
+bpm_christdem_flavour.3 = { # All alone: Catholics against the world
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+
+	title = bpm_christdem_flavour.3.t
+	desc = bpm_christdem_flavour.3.desc
+	flavor = bpm_christdem_flavour.3.f
+	
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+		var:independence_from_church_variable >= 25
+		has_global_variable = global_variable_quanta_cura_var_released
+		ig:ig_christian_democrats = {
+			ig_clout <= 0.05
+		}
 	}
 
 	immediate = {
@@ -1074,10 +1272,40 @@ bpm_christdem_split.25 = {
 		
 	}
 
-	option = { #### 
-		name = bpm_christdem_split.25.a
+	option = { # This loneliness gives us freedom of movement (pro-indepndence, pro-radicalisms)
+		name = bpm_christdem_flavour.3.a
 		
 		default_option = yes
+
+		highlighted_option = yes
+		trigger = {
+			NOT = {
+				has_variable = catholics_at_war_with_the_church
+			}
+		}
+
+		custom_tooltip = bpm_christdem_flavour.3.a.tt
+		change_variable = {
+			name = independence_from_church_variable
+			add = 0.5
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_ig_all_alone
+				days = normal_modifier_time
+				is_decaying = yes
+			}
+		}
+	}	
+
+	option = { # The Church is our save haven (must not be at 'war' with the Church)
+		name = bpm_christdem_split.3.b
+
+		change_variable = {
+			name = independence_from_church_variable
+			subtract = 0.5
+		}
 	}	
 }
 
@@ -1118,20 +1346,20 @@ bpm_christdem_split.50 = {
 				}
 			}
 
-			#AND = {
-			#	ig:ig_christian_democrats = {
-			#		has_ideology = ideology:ideology_eco_modern_interventionist
-			#	}
-			#	"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
-			#	OR = {
-			#		"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
-			#		"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
-			#	}
-			#}
+			AND = {
+				ig:ig_christian_democrats = {
+					has_ideology = ideology:ideology_eco_modern_interventionist
+				}
+				#"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
+				OR = {
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 20
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
+				}
+			}
 
 			AND = {
 				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_eco_distrubitist_economy
+					has_ideology = ideology:ideology_eco_distributist_economy
 				}
 				
 				je:je_bpm_christian_or_democrat ?= { 
@@ -1154,7 +1382,7 @@ bpm_christdem_split.50 = {
 		trigger = {
 			NOT = {
 				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_eco_distrubitist_economy
+					has_ideology = ideology:ideology_eco_distributist_economy
 				}
 			}
 			je:je_bpm_christian_or_democrat ?= { 
@@ -1166,11 +1394,11 @@ bpm_christdem_split.50 = {
 			hidden_effect = {
 				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = ideology_eco_distrubitist_economy
+			add_ideology = ideology_eco_distributist_economy
 		}
 		set_variable = {
 			name = bpm_christian_democrats_eco_ideology 
-			value = ideology:ideology_eco_distrubitist_economy
+			value = ideology:ideology_eco_distributist_economy
 		}
 	}
 

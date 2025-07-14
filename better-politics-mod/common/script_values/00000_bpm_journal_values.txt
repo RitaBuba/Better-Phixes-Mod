@@ -471,6 +471,24 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 			}
+			else_if = {
+				limit = {
+					country_has_state_religion = rel:catholic
+					ig:ig_devout = {
+						leader = {
+							OR = {
+								has_ideology = ideology:ideology_radical
+								has_ideology = ideology:ideology_land_reformer
+								# has_ideology = ideology:ideology_liberal_democrat
+							}
+						}
+					}
+				}
+				add = {
+					value = ROOT.ig:ig_devout.ig_clout
+					multiply = 1.33
+				}
+			}
 		}
 	}
 
@@ -483,7 +501,7 @@ bpm_je_christian_democrat_ideology_rate = {
 			}
 			subtract = {
 				value = ROOT.var:christian_democrats_ideology_change
-				multiply = 0.1
+				multiply = 0.05
 			}
 		}
 
@@ -499,7 +517,7 @@ bpm_je_christian_democrat_ideology_rate = {
 		
 				multiply = bpm_loyalist_population_fraction
 				multiply = bpm_loyalist_population_fraction
-				multiply = 3.33
+				multiply = 1.66
 			}
 		}
 
@@ -541,7 +559,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				has_global_variable = global_rerum_novarum_issued_var
 			}
-			if = { # (Netherlands, Old Right in Belgium)
+			if = { # (Netherlands, New (Old?) Right in Belgium)
 				limit = {
 					scope:journal_entry = {
 						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" > 50
@@ -616,212 +634,173 @@ bpm_je_christian_democrat_ideology_rate = {
 	}
 }
 
-bpm_je_christian_democrat_economy_rate = {
+bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected_sol
 	value = 0
 
 	add = {
-		desc = "BPM_VALUE_FROM_INCLINATION_TOWARDS_MODERATION"
-		
-		if = {
-			limit = {
-				scope:journal_entry = {
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" > 50
-				}
-			}
-			add = -0.1
-			multiply = var:christian_democrats_ideology_change
-		}
-		else_if = {
-			limit = {
-				scope:journal_entry = {
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" < 50
-				}
-			}
-			add = 0.1
-			multiply = var:christian_democrats_ideology_change
-		}
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_LOW_SOL"
-		if = {
-			limit = {
-				average_sol <= 15
-				average_sol >= 10
-			}
-			add = total_population
-			#pop_type_percent_country = {
-			#	pop_type = peasants
-			#	percent < 0.35
-			#}
-			divide = average_sol
-			divide = total_population
-			multiply = 2.5
-		}
-		else_if = {
-			limit = {
-				average_sol <= 15
-			}
-			add = total_population
-			#pop_type_percent_country = {
-			#	pop_type = peasants
-			#	percent < 0.35
-			#}
-			divide = average_sol
-			divide = total_population
-			multiply = 1.5
-		}
-		else_if = {
-			subtract = total_population
-			#pop_type_percent_country = {
-			#	pop_type = peasants
-			#	percent < 0.35
-			#}
-			divide = average_sol
-			divide = total_population
-			multiply = 10
-		}
-	}
-
-
-	add = {
-		desc = "BPM_VALUE_FROM_CAPITALISTIC_LAWS"
+		desc = "BPM_VALUE_FROM_LABOR_CONCIOUSNESS_BELOW_75_PERCENT"
 		if = { 
 			limit = {
-				bpm_country_laws_are_very_capitalist = yes
+				has_variable = bpm_consciousness_labor
+				ROOT.var:bpm_consciousness_labor <= 75
 			}
-			if = {
-				limit = {
-					has_law = law_type:law_laissez_faire
-				}
-				add = 0.2
+			add = {
+				value = ROOT.var:bpm_consciousness_labor
+				multiply = 0.005
 			}
-			if = {
-				limit = {
-					has_law = law_type:law_free_trade
-				}
-				add = 0.2
-			}
-			if = {
-				limit = {
-					has_law = law_type:law_commercialized_agriculture
-				}
-				add = 0.2
-			}
+		}
+		else = {
+			subtract = 0.1
 		}
 	}
 
-	add = {
-		desc = "BPM_VALUE_FROM_POWERFUL_MARKET_LIBERALS"
-		every_interest_group = {
+	add = { ##### Countries where one side was stronger than the other (ig_clout) would have Christian Democrats move towards the opposite of the winning team (usually)
+		desc = "BPM_VALUE_FROM_PATERNALIST_RELIGIOUS_VS_SECULAR_EXTENSIVE_WELFARE"
+		
+		if = { ### Paternalist, Religious, Distrubutist welfare dominating in clout (Poland, Germany, Belgium) had em pro-welfare
 			limit = {
-				bpm_ig_is_market_liberal = yes
-				NOT = {
-					has_ideology = ideology:ideology_nonexistent
+				any_interest_group = {
+					OR = {
+						has_ideology = ideology:ideology_wel_distributist_welfare
+						has_ideology = ideology:ideology_wel_paternalistic_welfare
+						has_ideology = ideology:ideology_wel_religious_welfare
+					}
 				}
-				is_powerful = yes
-			}
-			add = 0.2
-		}
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_NO_HOMESTEADING_LAW"
-		if = {
-			limit = {
-				NOT = {
-					has_law = law_type:law_homesteading
+				scope:journal_entry = {
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 75
 				}
 			}
-			add = 0.1
-		}
-		else_if	= {
-			limit = {
-				bpm_country_has_unfree_labor = yes
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_wel_distributist_welfare # Notably weird Conservatives, Reactionaries, other guys.
+				}
+				add = ig_clout
+				multiply = 1.33
 			}
-			add = 0.2
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_wel_paternalistic_welfare # Nationa Liberals, Paternal Conservatives, Fascists, theoretically some Liberals
+				}
+				add = ig_clout
+				multiply = 1.33
+			}
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_wel_religious_welfare # The Church, Conservatives, some rando's
+				}
+				subtract = ig_clout
+				multiply = 1.33
+			}
+		}
+
+		if = { ### Strog pro-welfare fellas will make sure Christdems go more religious wel. (Austria)
+			limit = {
+				any_interest_group = {
+					OR = {
+						has_ideology = ideology:ideology_wel_public_welfare
+						has_ideology = ideology:ideology_wel_expanded_public_welfare
+					}
+				}
+				scope:journal_entry = {
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 25
+				}
+			}
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_wel_public_welfare # Radical Liberals, some liberals
+				}
+				subtract = ig_clout
+				multiply = 1.15
+			}
+			every_interest_group = {
+				limit = {
+					has_ideology = ideology:ideology_wel_expanded_public_welfare # Labor, Socialists
+				}
+				subtract = ig_clout
+				multiply = 1.15
+			}
 		}
 	}
 
-	add = {
-		desc = "BPM_VALUE_FROM_PEASANT_POPULATION"
-		value = var:bpm_peasant_population_yandev_var
-		multiply = 0.04
+	add = { ##### Lack of proper healtcare, welfare and rights. 
+		desc = "BPM_VALUE_FROM_MARKET_WELFARE_LAWS_BELOW_LVL_3_AND_LACK_OF_WELFARE"
+		
+		if = { ### For now...
+			limit = {
+				always = yes
+			}
+
+			###################################################
+			####### Healthcare (must not be lack of one, and not be below level 3)
+
+			if = { # Multiplies by level
+				limit = {
+					OR = {
+						has_law = law_type:law_no_health_system
+						AND = {
+							OR = {
+								has_law = law_type:law_charitable_health_system
+								has_law = law_type:law_private_health_insurance
+								has_law = law_type:law_public_health_insurance
+							}
+							owner = {
+								institution_investment_level = { institution = institution_health_system value < 3 }
+							}
+						}
+					}
+				}
+				add = {
+					value = 3
+					subtract = "institution_investment_level(institution_health_system)"
+					multiply = ROOT.ig:ig_christian_democrats.ig_clout
+					divide = 20
+				}
+			}
+		}
 	}
 
-	add = {
-		desc = "BPM_VALUE_FROM_POWERFUL_ANTI_CAPITALISTS"
-		every_interest_group = {
+	if = { ### The way how population works and where changes the approach to economics and welfare.
+		limit = {
+			always = yes
+		}
+		if = { # Countries with a strong middle class (Shopkeepers, Farmers) (To show orientation towards them)
+			limit = {
+				has_variable = bpm_shopkeeper_population_yandev_var
+			}
+			subtract = {
+				value = ROOT.var:bpm_shopkeeper_population_yandev_var
+				multiply = 0.5
+			}
+			subtract = {
+				value = ROOT.var:bpm_farmer_population_yandev_var
+				multiply = 0.33
+			}
+		}
+		if = { # Countries with a strong lower class (Labourers, Machinists) were also a bit more progressive.
 			limit = {
 				OR = {
-					has_ideology = ideology:ideology_eco_agrarian_socialist
-					has_ideology = ideology:ideology_eco_proletarian_economy
-					has_ideology = ideology:ideology_eco_socialist_mixed_economy
+					has_variable = bpm_laborer_population_yandev_var
+					has_variable = bpm_machinist_population_yandev_var
 				}
-				NOT = {
-					is_interest_group_type = ig_christian_democrats
-  				}
-				is_powerful = yes
 			}
-			add = -0.3
+			add = {
+				value = ROOT.var:bpm_laborer_population_yandev_var
+				multiply = 0.04 # 0.05 - Counter-balance for the 'reactionary' shopkeepers and farmers!
+			}
+			add = {
+				value = ROOT.var:bpm_machinist_population_yandev_var
+				multiply = 0.33 # 0.20 - Counter-balance for the 'reactionary' shopkeepers and farmers!
+			}
 		}
 	}
 
 	add = {
-		desc = "BPM_VALUE_FROM_MARKET_WELFARE"
-		if = { 
-			limit = {
-				bpm_country_laws_has_market_welfare = yes
-			}
-			if = {
-				limit = {
-					has_law = law_type:law_private_health_insurance
-				}
-				add = 0.1
-			}
-			if = {
-				limit = {
-					has_law = law_type:law_no_workers_rights
-				}
-				add = 0.1
-			}
-			if = {
-				limit = {
-					has_law = law_type:law_private_schools
-				}
-				add = 0.1
-			}
-			if = {
-				limit = {
-					has_law = law_type:law_poor_laws
-				}
-				add = 0.1
-			}
-			if = {
-				limit = {
-					has_law = law_type:law_child_labor_allowed
-				}
-				add = 0.1
-			}
-			else_if = {
-				limit = {
-					has_law = law_type:law_no_social_security
-				}
-				add = 0.2
-			}
-			if = {
-				limit = {
-					has_law = law_type:law_unregulated_work_time
-				}
-				add = 0.1
-			}
-			if = {
-				limit = {
-					has_law = law_type:law_illegal_labor_unions
-				}
-				add = 0.1
-			}
-			multiply = 0.5
+		desc = "BPM_VALUE_FROM_STANDARD_OF_LIVING_AND_BELOW_EXPECTED_SOL"
+		
+		add = {
+			value = bpm_country_fraction_below_expected_sol
+			divide = 100
+			divide = 10
 		}
 	}
 
@@ -832,26 +811,6 @@ bpm_je_christian_democrat_economy_rate = {
 				has_technology_researched = corporatism
 			}
 			add = -0.5
-		}
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_PATERNALISM"
-		every_scope_character = {
-			limit = {
-				OR = {
-					has_role = politician
-					has_role = agitator
-				}
-				has_ideology = ideology:ideology_corporatist_leader
-			}
-			add = -0.2
-		}
-		every_interest_group = {
-			limit = {
-				bpm_ig_is_paternalistic = yes
-			}
-			add = -0.2
 		}
 	}
 }

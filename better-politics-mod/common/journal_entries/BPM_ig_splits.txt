@@ -654,6 +654,12 @@ je_bpm_christian_or_democrat = {
 		}
 	}
 
+	on_yearly_pulse = {
+		events = {
+			
+		}
+	}
+
 	on_monthly_pulse = {
 		effect = {
 			##### Thank u lilian for this great code
@@ -765,7 +771,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.15
+						add = 0.05
 					}
 				}
 
@@ -780,7 +786,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.1
+							add = 0.05
 						}
 					}
 					else_if = {
@@ -793,17 +799,17 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.05
+							add = 0.025
 						}
 					}
 					else_if = {
 						limit = {
-							has_law = law_type:law_state_religion
+							has_law = law_type:law_state_atheism
 						}
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.025
+							add = 0.005
 						}
 					}
 				}
@@ -823,7 +829,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_liberals.ig_clout
-								multiply = 1.22
+								multiply = 1.11
 							}
 						}
 					}
@@ -839,7 +845,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_radicals.ig_clout
-								multiply = 1.33
+								multiply = 1.22
 							}
 						}
 					}
@@ -863,10 +869,10 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_liberal_movement.political_movement_support
-								multiply = 0.33
+								multiply = 0.15
 							}
 							else = {
-								value = 0.06
+								value = 0.02
 							}
 						}
 					}
@@ -885,10 +891,10 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_radical_movement.political_movement_support
-								multiply = 0.33
+								multiply = 0.22
 							}
 							else = {
-								value = 0.05
+								value = 0.01
 							}
 						}
 					}
@@ -908,10 +914,10 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_modernizer_movement.political_movement_support
-								multiply = 0.66
+								multiply = 0.44
 							}
 							else = {
-								value = 0.025
+								value = 0.004
 							}
 						}
 					}
@@ -931,10 +937,10 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_socialist_movement.political_movement_support
-								multiply = 0.44
+								multiply = 0.33
 							}
 							else = {
-								value = 0.08
+								value = 0.009
 							}
 						}
 					}
@@ -954,10 +960,10 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:movement_communist.political_movement_support
-								multiply = 0.33
+								multiply = 0.25
 							}
 							else = {
-								value = 0.1
+								value = 0.011
 							}
 						}
 					}
@@ -977,10 +983,10 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:movement_reformist_socialist.political_movement_support
-								multiply = 0.33
+								multiply = 0.13
 							}
 							else = {
-								value = 0.1
+								value = 0.0097
 							}
 						}
 					}
@@ -1003,7 +1009,7 @@ je_bpm_christian_or_democrat = {
 								multiply = 0.25
 							}
 							else = {
-								value = 0.05
+								value = 0.005
 							}
 						}
 					}
@@ -1015,7 +1021,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.025
+						add = 0.0025
 					}
 				}
 
@@ -1025,7 +1031,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.05
+						add = 0.005
 					}
 				}
 
@@ -1035,7 +1041,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.05
+						add = 0.005
 					}
 				}
 
@@ -1045,7 +1051,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.05
+						add = 0.005
 					}
 				}
 
@@ -1057,7 +1063,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						add = {
 							value = var:bpm_consciousness_liberal
-							multiply = 0.0033
+							multiply = 0.0011
 						}
 					}
 				}
@@ -1070,7 +1076,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						subtract = {
 							value = ig:ig_devout.ig_clout
-							multiply = 2.66
+							multiply = 3.33
 						}
 					}
 				}
@@ -1111,7 +1117,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							subtract = {
 								value = ROOT.ig:ig_reactionaries.ig_clout
-								multiply = 1.22
+								multiply = 1.33
 							}
 						}
 					}
@@ -1125,7 +1131,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						add = {
 							value = ROOT.ig:ig_trade_unions.ig_clout
-							multiply = 0.5
+							multiply = 0.33
 						}
 					}
 				}
@@ -1139,60 +1145,13 @@ je_bpm_christian_or_democrat = {
 						add = {
 							value = var:christian_democrats_ideology_change
 							multiply = ROOT.ig:ig_christian_democrats.ig_clout
+							divide = 2.5
 						}
 					}
 				}
 
-				#if = {
-				#	limit = {
-				#		OR = { 
-				#			ig:ig_christian_democrats.var:bpm_movement_liberal_pressure > 0.1
-				#			OR = {
-				#				var:bpm_liberal_movement.political_movement_support >= 0.1
-				#				var:bpm_liberal_movement.political_movement_radicalism >= 0.2
-				#			}
-				#		}
-				#	}
-				#	change_variable = {
-				#		name = independence_from_church_variable
-				#		add = 20
-				#		multiply = ROOT.ig:ig_christian_democrats.var:bpm_movement_liberal_pressure
-				#		divide = 20
-				#	}
-				#}
-
-				#if = {
-				#	limit = {
-				#		this = c:FRA
-				#	}
-				#	change_variable = {
-				#		name = independence_from_church_variable
-				#		add = 0.1
-				#	}
-				#}
-				
-				#if = {
-				#	limit = { 
-				#		owner = {
-				#			OR = {
-				#				ig:ig_christian_democrats.var:bpm_movement_liberal_pressure > 0.1
-				#				OR = {
-				#					var:bpm_liberal_movement.political_movement_support >= 0.1
-				#					var:bpm_liberal_movement.political_movement_radicalism >= 0.2
-				#				}
-				#			}
-				#		}
-				#	}
-				#	change_variable = {
-				#		name = independence_from_church_variable
-				#		add = 20
-				#		multiply = ig:ig_christian_democrats.var:bpm_movement_liberal_pressure
-				#		divide = 20
-				#	}
-				#}
 				remove_variable = cant_progress_sorry_var
 				
-
 				if = {
 					limit = { 
 						NOT = { has_technology_researched = corporatism }

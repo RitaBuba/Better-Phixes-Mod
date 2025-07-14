@@ -127,7 +127,7 @@ ig_christian_democrats = {
 			limit = {
 				owner = {
 					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_eco_distrubitist_economy # CSP example:
+						has_ideology = ideology:ideology_eco_distributist_economy # CSP example:
 					}
 				}
 			}
@@ -580,7 +580,7 @@ ig_christian_democrats = {
         }
 
 		multiply = { # Secularised state and place where secularization was relatively significant had Christian Democrats rather weakened (France, Germany)
-            desc = "Has Corporatism"
+            desc = "Is a Secular State"
             value = 1.0
             if = { 
                 limit = { 
@@ -591,7 +591,18 @@ ig_christian_democrats = {
 						}
                     }
                 }
-                value = 0.8
+                value = 0.75
+            }
+        }
+
+		multiply = { # Rerum novarum was released. Time to implode whole parties and organizations.
+            desc = "Rerum novarum was released"
+            value = 1.0
+            if = { 
+                limit = { 
+                    has_global_variable = global_rerum_novarum_issued_var
+                }
+                value = 1.8
             }
         }
 

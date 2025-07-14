@@ -553,7 +553,7 @@ bpm_initialize_patcons = {
 
 			add_ideology = ideology_rel_moralist
 
-			add_ideology = ideology_eco_distrubitist_economy
+			add_ideology = ideology_eco_distributist_economy
 
 			if = {
 				limit = { ROOT = { country_has_state_religion = rel:catholic } }
@@ -849,11 +849,11 @@ bpm_initialize_catholic_interests = {
 					owner = {
 						OR = {
 							country_has_primary_culture = cu:flemish
-							country_has_primary_culture = cu:wallonian
+							country_has_primary_culture = cu:alemannic
 						}	
 					}
 				}
-				add_ideology = ideology_dop_moderate_democrat
+				add_ideology = ideology_dop_divine_democrat
 			}
 
 			else = {
