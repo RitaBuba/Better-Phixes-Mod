@@ -139,12 +139,12 @@ law_colonial_admin = {
 	}
 
 	can_impose = {
-		OR = {
-			AND = {
-				is_in_same_power_bloc = scope:target_country
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_chartered_company
 				is_subject_type = subject_type_colony
 			}
-			can_impose_law_default = no
 		}
 	}
 
