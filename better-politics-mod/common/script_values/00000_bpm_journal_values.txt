@@ -507,8 +507,8 @@ bpm_je_christian_democrat_ideology_rate = {
 			}
 		}
 
-		add = {
-			value = -50
+		subtract = {
+			value = 50
 			add = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)"
 			multiply = ROOT.ig:ig_christian_democrats.ig_clout
 			divide = 2.5
