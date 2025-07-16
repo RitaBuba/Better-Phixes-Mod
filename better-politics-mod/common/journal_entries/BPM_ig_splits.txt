@@ -1458,10 +1458,12 @@ je_bpm_christian_or_democrat = {
 				
 				if = {
 					limit = { 
-						NOT = { has_technology_researched = corporatism }
-						NOT = { has_technology_researched = socialism }
-						NOT = { has_technology_researched = nationalism }
-						NOT = { has_technology_researched = egalitarianism }
+						NOT = { 
+							has_technology_researched = corporatism
+							has_technology_researched = egalitarianism
+							has_technology_researched = socialism
+							has_technology_researched = nationalism
+						}
 						ROOT.var:independence_from_church_variable >= 25
 					}
 					set_variable = {
