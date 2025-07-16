@@ -121,7 +121,7 @@
 
  ig_christian_democrats: "Christian Democrats"
  ig_christian_democrats_only_icon: "@ig_christian_democrats!"
- ig_christian_democrats_desc: "As a centrist ideology with a heavy emphasis on local circumstances, Christian Democrats are a group with no clear ideological definition, but generally find themselves on the left-wing of Catholic thought, usually supporting suffrage, corporatism and religious moralism. Historically, it has been a broad concept; ranging from Austrian corporatist-authoritarian Christian Socials, through the Franco-Italian reformist Popularists and the German big-tent Zentrumspartei, to the Czech fiscally conservative Lidovci and the late Polish anti-capitalist Chadecy."
+ ig_christian_democrats_desc: "As a centrist ideology with a heavy emphasis on local circumstances, Christian Democrats are a group with no clear ideological definition, but generally find themselves on the left-wing of Catholic thought, usually supporting suffrage, corporatism and religious moralism. Historically, it has been a broad concept; ranging from Austrian corporatist-authoritarian Christian Socials, through the Franco-Italian reformist Popularists and the German big-tent Zentrumspartei, to the Czech pro-austerity Lidovci and the late Polish anti-capitalist Chadecy."
 
  ig_catholic_interests: "Catholic Interests"
  ig_catholic_interests_desc: "An interest bloc representing politically independent followers of the Catholic Church, seeking to protect fellow believers from state overreach in areas of religiosity and education by, for example, imposing secularism, sometimes also excessive economic liberalism — the latter based on Catholic Social Teaching. Examples include the German Zentrumspartei, French Liberal Action, various independent Catholic Actions and early Christian movements." # Used to have Irish Home Rule League  
@@ -174,11 +174,18 @@
  ig_agrarian_conservatives: "Agrarian Conservatives"
  ig_agrarian_conservatives_desc: "$ig_conservatives_desc$" 
 
+ ### ConCons (Netherlands)
  ig_confessional_conservatives: "Confessional Conservatives"
  ig_confessional_conservatives_desc: "$ig_conservatives_desc$"
 
+ ### ChristDem (R) (Belgium, Italy, Czechoslovakia)
  ig_christian_democrats_rightwing: "Christian Democrats (Right)"
  ig_christian_democrats_rightwing_desc: "$ig_conservatives_desc$"
+
+ ### Classical Conservatives (Belgium, Poland) (If Christdems are the 'conservatives' in the state and the Burke Cons are not with Christian Democrats)
+
+ ig_classical_conservatives: "Classical Conservatives"
+ ig_classical_conservatives_desc: "$ig_conservatives_desc$" 
 
  ig_conservative_catholics: "Conservative Catholics"
  ig_conservative_catholics_desc: "$ig_reactionaries_desc$"
@@ -186,16 +193,45 @@
  ig_paternal_conservatives_2: "Paternal Conservatives"
  ig_paternal_conservatives_2_desc: "Paternal conservatives are a subset of conservatives that attempt to preserve the fundamental status quo with tactical expansions in political rights and social welfare. Examples include Disraeli's Tories and Christian Democrats." # Paternal conservatives are a subset of conservatives that attempt to preserver the fundemtal status quo with tactical expansions in political rights, social welfare and state intervention in the matters of economics. Examples include Disraeli's Tories, Bismarck's State Socialism policies and Teddy's Progressive Conservatives.
 
+ BPM_VALUE_FROM_LABOR_CONCIOUSNESS_BELOW_75_PERCENT: "#bold #gold @laborers! Labor Consciousness#! #!(#italic Below 75.0#!)"
+ BPM_VALUE_FROM_PEASANTS_LABORERS_AND_POPULARITY_OF_PROLETARIAT: "@peasants! Peasant and @laborers! Laborer [Concept('concept_pop', 'Population')] as well as [Concept('concept_bpm_ig_is_proletarian', 'Proletarian')] [Concept('concept_interest_group', 'Interest Groups')] [Concept('concept_pop', 'Population Percentage')]"
+
+ 
+
+ BPM_VALUE_FROM_LAISSEZ_FAIRE_VS_INTERVENTIONISM_LAW_IGS_MOVEMENT: "#bold #yellow Laissez-Faire#!#! and #bold #white Moderately Interventionist#!#! vs. #bold #blue Strongly Interventionist#!#! and #bold #pink Proletarian#!#! [Concept('concept_interest_group', 'Interest Groups')] and their [concept_clout], [GetLawGroup('lawgroup_economic_system').GetName] and [GetLawGroup('lawgroup_trade_policy').GetName] [Concept('concept_law', 'Laws')] (#italic More impactful if the laws harm [Concept('concept_sol', 'SoL')]#!!)"
+ BPM_VALUE_FROM_PATERNALIST_RELIGIOUS_VS_SECULAR_EXTENSIVE_WELFARE: "#bold Religious-Paternalistic-Market#! vs. #bold Secular-Public#! [Concept('concept_welfare_payments', 'Welfare')] [Concept('concept_interest_group', 'Interest Groups')] and their [concept_clout]"
+
+ BPM_VALUE_FROM_MIDDLE_CLASS_LANDOWNER_POPULATION: "middle-class conservative-liberal [GetPopType('shopkeepers').GetName], [GetPopType('farmers').GetName], [GetPopType('clergymen').GetName] and [GetPopType('aristocrats').GetName] [Concept('concept_pop', 'Population')]"
+
+ BPM_VALUE_RERUM_NOVARUM_ECONOMY: "[GetPlayer.GetCustom('bpm_je_rerum_novarum_economy_bar')]"
+
+ 
+
+ BPM_VALUE_FROM_POST_RERUM_NOVARUM_SOL_BELOW_EXPECTED_AVERAGE_STANDARD_OF_LIVING_AND_TAXATION_LAW: "post-’#italic Rerum novarum#!’ inclination towards #v Moderate/Middle Stance#! & [GetLawGroup('lawgroup_taxation').GetName] [concept_law], fraction of [Concept('concept_pop', 'Population')] that lives below [Concept('concept_expected_sol', 'Minimum Expected')] and the #bold average#! @middling! [concept_sol] (#italic Positive if below 15.0, negative if above#!) (#italic The bigger [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] are the more moderate they will be#!)"
+
+ BPM_VALUE_FROM_PRE_RERUM_NOVARUM_DISDAIN_FOR_CAPITALISM_AND_SOCIALISM: "pre-’#italic Rerum novarum#!’ disdain for #yellow Capitalism#! and inclination towards #v Distributist Side#! & pre-modern or anti-capitalist [concept_interest_group] [concept_clout] with [GetIdeology('ideology_eco_traditional_agrarian').GetName], [GetIdeology('ideology_eco_conservative_agrarian').GetName], [GetIdeology('ideology_eco_autarky').GetName] or [GetIdeology('ideology_eco_agrarian_autarky').GetName], as well as lack of artisantal/agrarian [concept_law]"
+ 
+ bpm_balance_ig_catholic_minority: "Catholic Minority (BPM Balance)"
+
+ bpm_economy_cr_christdem_modifier: "Minister of the Economy" 
+ bpm_economy_christdem_modifier: "Minister of the Economy"
+ bpm_health_system_christdem_modifier: "Minister of Health" 
+ bpm_centralization_christdems_modifier: "Minister of Regions"
+ bpm_police_christdem_modifier: "Head of Police"
+ bpm_workplace_safety_christdem_modifier: "Minister of Workplace Safety"
+ bpm_social_security_christdems_modifier: "Minister of Social Security"
+ bpm_colonial_affairs_christdem_modifier: "Minister of Colonial Affairs" 
+ bpm_schools_christdems_modifier: "Minister of Education" 
  
 
  BPM_VALUE_FROM_TRADE_UNIONS_CLOUT: "[GetInterestGroupVariant('ig_trade_unions',GetPlayer).GetName] Popularity"
  BPM_VALUE_FROM_STRONG_LABOR_LIBERAL_RADICAL_MOVEMENTS: "over 10% [concept_political_movement] for the #gold Liberal Movement#! or #gold Modernizer Movement#!, #gold Radical Movement#! and #gold Labor Movement#! timed by [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] [concept_clout]"
 
  BPM_VALUE_FROM_LABOUR_CONCIOUSNESS: "#bold #gold @laborers! Labor Consciousness#! #!
- BPM_VALUE_FROM_LIBERAL_CONCIOUSNESS_SECULARISTS_LIBERAL_NATIONALISTS_MOVEMENT: "#bold #gold @academics! Liberal Consciousness#!#!, #bold Liberal-Nationalist#! [Concept('concept_interest_group', 'Interest Groups')] and [Concept('concept_political_movement', 'Political Movements')] and [Concept('concept_bpm_ig_is_non_religious', 'Secularist')] [Concept('concept_interest_group', 'Interest Group')] [concept_clout]"
+ BPM_VALUE_FROM_LIBERAL_CONCIOUSNESS_SECULARISTS_LIBERAL_NATIONALISTS_MOVEMENT: "#bold #gold @academics! Liberal Consciousness#!#!, #bold Liberal-Nationalist#! [Concept('concept_interest_group', 'Interest Groups')] and [Concept('concept_political_movement', 'Political Movements')], and [Concept('concept_bpm_ig_is_non_religious', 'Secularist')] [Concept('concept_interest_group', 'Interest Group')] [concept_clout]"
  BPM_VALUE_FROM_ILLIBERAL_SOCIETY_AND_STATE: "illiberal and authoritarian [GetLawGroup('lawgroup_distribution_of_power').GetName], [GetLawGroup('lawgroup_labor_unions').GetName] and [GetLawGroup('lawgroup_free_speech').GetName] [Concept('concept_law', 'Laws')] (#italic [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetName] cannot be [concept_in_government] and have [GetIdeology('ideology_dop_illiberal_democrat').GetName] [concept_ideology]#!)"
  BPM_VALUE_FROM_RERUM_NOVARUM_DEMOCRATIC_RADICALIZATION: "post-’#italic Rerum novarum#!’ inclination towards #bold Christianity Side#! and #bold Democracy Side#! & [GetPopType('laborers').GetName], [GetPopType('machinists').GetName], [GetPopType('farmers').GetName] and [GetPopType('shopkeepers').GetName] [Concept('concept_pop', 'Population')]"
- BPM_VALUE_FROM_MORALIST_MIDDLE_CLASS_GROUPS: "conservative-liberal [GetInterestGroupVariant('ig_industrialists',GetPlayer).GetNameWithCountryVariant], [GetInterestGroupVariant('ig_landowners',GetPlayer).GetNameWithCountryVariant] and [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] and their [concept_clout], as well as [Concept('concept_bpm_ig_is_religious', 'Moralist')] [concept_clout]"
+ BPM_VALUE_FROM_MORALIST_MIDDLE_CLASS_GROUPS: "conservative-liberal [GetInterestGroupVariant('ig_industrialists',GetPlayer).GetNameWithCountryVariant], [GetInterestGroupVariant('ig_landowners',GetPlayer).GetNameWithCountryVariant], [GetInterestGroupVariant('ig_rural_folk',GetPlayer).GetNameWithCountryVariant] and [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] and their [concept_clout], as well as [Concept('concept_bpm_ig_is_religious', 'Moralist')] [concept_clout]"
  BPM_VALUE_FROM_PAPACY: "current [concept_ideology] of the #bold #gold [Concept('concept_ruler', 'Pope')] of the Holy See#!#! & [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] [concept_interest_group] [concept_clout] and [concept_leader] (if [Concept('concept_state_religion', 'State')] is [GetReligion('catholic').GetName])"
  BPM_VALUE_FROM_CONSERVATIVE_MODERATION_EVENTS_AND_OTHER_REASONS: "christian moderation, [GetIdeology('ideology_moderate').GetName] [concept_leader], [Concept('concept_loyalist', 'Loyalists')] and other reasons."
 
@@ -268,14 +304,14 @@
 
  ######################### CHRISTIAN DEMOCRAT IG EVOLUTION
  
- je_debating_the_state_stance: "Stances on state power and decentralization are currently being developed."
- je_debating_the_religion_stance: "Stances on religion and morality are currently being developed."
- je_debating_the_dop_stance: "Stances on democracy and suffrage are currently being developed"
- je_debating_the_eco_stance: "Stances on economy and capitalism are currently being developed"
- je_debating_the_wel_stance: "Stances on welfare and charity are currently being developed"
- je_debating_the_cit_stance: "Stances on patriotism and borders are currently being developed"
- je_debating_the_mil_stance: "Stances on peace and military are currently being developed"
- je_debating_the_fem_stance: "Stances on women and their rights are currently being developed"
+ je_debating_the_state_stance: "Coherent stances on state power and decentralization are currently being developed."
+ je_debating_the_religion_stance: "Coherent stances on religion and morality are currently being developed."
+ je_debating_the_dop_stance: "Coherent stances on democracy and suffrage are currently being developed."
+ je_debating_the_eco_stance: "Coherent stances on economy and capitalism are currently being developed."
+ je_debating_the_wel_stance: "Coherent stances on welfare and charity are currently being developed."
+ je_debating_the_cit_stance: "Coherent stances on patriotism and borders are currently being developed."
+ je_debating_the_mil_stance: "Coherent stances on peace and military are currently being developed."
+ je_debating_the_fem_stance: "Coherent stances on women and their rights are currently being developed."
 
  je_finalizing_the_political_program: "Gaining mass popularity and securing full independence from the Church."
  je_securing_full_independence_from_the_church: "Finally deciding if we are Christians, or Democrats."

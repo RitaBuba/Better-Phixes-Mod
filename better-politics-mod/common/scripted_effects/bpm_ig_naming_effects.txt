@@ -151,6 +151,13 @@ bpm_rename_christian_democrat_ig = {
 		}
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_catholic_interests }
 	}
+	else_if = {
+		limit = {
+			has_global_variable = global_rerum_novarum_issued_var
+			has_local_variable = rightwing_christian_democrats_loc_var
+		}
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_democrats_left }
+	}
 	else = {
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_democrats }
 	}
@@ -1046,6 +1053,20 @@ bpm_rename_conservative_ig = {
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_old_right }
 	}
+
+	else_if = {
+		limit = {
+			has_global_variable = global_rerum_novarum_issued_var
+			ig:ig_christian_democrats ?= {
+				has_party = yes
+				party = {
+					is_party_type = conservative_party
+				}
+			}
+		}
+		ig:ig_conservatives ?= { set_interest_group_name = ig_classical_conservatives }
+	}
+
 	# Konstitutionell-Liberale
 	else_if = {
 		limit = {

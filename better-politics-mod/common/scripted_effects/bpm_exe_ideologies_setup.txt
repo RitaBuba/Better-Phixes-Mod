@@ -195,7 +195,7 @@ bpm_set_rest_exe_ideology_ing = {
             }
         }
         bpm_set_exe_ideology_strong_rigid = yes
-    }
+    }z
     else_if = {
         limit = {
             is_interest_group_type = ig_rural_folk
@@ -299,6 +299,12 @@ bpm_set_rest_exe_ideology_idg = {
                 is_interest_group_type = ig_reactionaries
             }
             bpm_set_exe_ideology_traditional = yes
+        }
+        else_if = {
+            limit = {
+                is_interest_group_type = ig_christian_democrats
+            }
+            bpm_set_exe_ideology_weak_rigid = yes
         }
         else = {
             bpm_set_exe_ideology_strong_dynamic = yes
