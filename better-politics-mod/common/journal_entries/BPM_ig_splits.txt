@@ -646,6 +646,200 @@ je_bpm_christian_or_democrat = {
 			id = bpm_christdem_split.1
 			popup = yes
 		}
+
+		##### Thank u lilian for this great code
+			# Shopkeeper population yandev
+			set_variable = {
+				name = bpm_shopkeeper_population_yandev_var
+				value = 0
+			}
+			
+			if = {
+				limit = { pop_type_percent_country = { pop_type = shopkeepers percent > 0.03 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = shopkeepers percent > 0.05 } }
+					set_variable = { name = bpm_shopkeeper_population_yandev_var value = 0.5 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = shopkeepers percent > 0.04 } }
+					set_variable = { name = bpm_shopkeeper_population_yandev_var value = 0.4 }
+				}
+				else = {
+					set_variable = { name = bpm_shopkeeper_population_yandev_var value = 0.3 }
+				}
+			}
+			else = {
+				if = {
+					limit = { pop_type_percent_country = { pop_type = shopkeepers percent > 0.02 } }
+					set_variable = { name = bpm_shopkeeper_population_yandev_var value = 0.2 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = shopkeepers percent > 0.01 } }
+					set_variable = { name = bpm_shopkeeper_population_yandev_var value = 0.1 }
+				}
+			}
+
+			# Farmer population yandev
+			set_variable = {
+				name = bpm_farmer_population_yandev_var
+				value = 0
+			}
+			if = {
+				limit = { pop_type_percent_country = { pop_type = farmers percent > 0.08 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.1 } }
+					set_variable = { name = bpm_farmer_population_yandev_var value = 1 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.9 } }
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.9 }
+				}
+				else = {
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.8 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = farmers percent > 0.05 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.07 } }
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.7 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.06 } }
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.06 }
+				}
+				else = {
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.5 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = farmers percent > 0.03 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.04 } }
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.4 }
+				}
+				else = {
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.3 }
+				}
+			}
+			else = {
+				if = {
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.02 } }
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.2 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.01 } }
+					set_variable = { name = bpm_farmer_population_yandev_var value = 0.1 }
+				}
+			}
+
+			# Clergymen population yandev
+			set_variable = {
+				name = bpm_clergymen_population_yandev_var
+				value = 0
+			}
+			if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.08 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.1 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 1 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.9 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.9 }
+				}
+				else = {
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.8 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.05 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.07 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.7 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.06 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.06 }
+				}
+				else = {
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.5 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.03 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.04 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.4 }
+				}
+				else = {
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.3 }
+				}
+			}
+			else = {
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.02 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.2 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.01 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.1 }
+				}
+			}
+
+			# Aristocrat population yandev
+			set_variable = {
+				name = bpm_aristocrat_population_yandev_var
+				value = 0
+			}
+			if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.008 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.01 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.1 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.009 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.09 }
+				}
+				else = {
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.08 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.005 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.007 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.07 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.006 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.06 }
+				}
+				else = {
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.05 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.003 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.004 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.04 }
+				}
+				else = {
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.03 }
+				}
+			}
+			else = {
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.002 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.02 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.001 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.01 }
+				}
+			}
 	}
 
 	is_progressing = {
@@ -700,13 +894,13 @@ je_bpm_christian_or_democrat = {
 				value = 0
 			}
 			if = {
-				limit = { pop_type_percent_country = { pop_type = laborers percent > 0.08 } }
+				limit = { pop_type_percent_country = { pop_type = farmers percent > 0.08 } }
 				if = {
-					limit = { pop_type_percent_country = { pop_type = laborers percent > 0.1 } }
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.1 } }
 					set_variable = { name = bpm_farmer_population_yandev_var value = 1 }
 				}
 				else_if = {
-					limit = { pop_type_percent_country = { pop_type = laborers percent > 0.9 } }
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.9 } }
 					set_variable = { name = bpm_farmer_population_yandev_var value = 0.9 }
 				}
 				else = {
@@ -714,13 +908,13 @@ je_bpm_christian_or_democrat = {
 				}
 			}
 			else_if = {
-				limit = { pop_type_percent_country = { pop_type = laborers percent > 0.05 } }
+				limit = { pop_type_percent_country = { pop_type = farmers percent > 0.05 } }
 				if = {
-					limit = { pop_type_percent_country = { pop_type = laborers percent > 0.07 } }
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.07 } }
 					set_variable = { name = bpm_farmer_population_yandev_var value = 0.7 }
 				}
 				else_if = {
-					limit = { pop_type_percent_country = { pop_type = laborers percent > 0.06 } }
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.06 } }
 					set_variable = { name = bpm_farmer_population_yandev_var value = 0.06 }
 				}
 				else = {
@@ -728,9 +922,9 @@ je_bpm_christian_or_democrat = {
 				}
 			}
 			else_if = {
-				limit = { pop_type_percent_country = { pop_type = laborers percent > 0.03 } }
+				limit = { pop_type_percent_country = { pop_type = farmers percent > 0.03 } }
 				if = {
-					limit = { pop_type_percent_country = { pop_type = laborers percent > 0.04 } }
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.04 } }
 					set_variable = { name = bpm_farmer_population_yandev_var value = 0.4 }
 				}
 				else = {
@@ -739,14 +933,123 @@ je_bpm_christian_or_democrat = {
 			}
 			else = {
 				if = {
-					limit = { pop_type_percent_country = { pop_type = laborers percent > 0.02 } }
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.02 } }
 					set_variable = { name = bpm_farmer_population_yandev_var value = 0.2 }
 				}
 				else_if = {
-					limit = { pop_type_percent_country = { pop_type = laborers percent > 0.01 } }
+					limit = { pop_type_percent_country = { pop_type = farmers percent > 0.01 } }
 					set_variable = { name = bpm_farmer_population_yandev_var value = 0.1 }
 				}
 			}
+
+			# Clergymen population yandev
+			set_variable = {
+				name = bpm_clergymen_population_yandev_var
+				value = 0
+			}
+			if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.08 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.1 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 1 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.9 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.9 }
+				}
+				else = {
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.8 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.05 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.07 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.7 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.06 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.06 }
+				}
+				else = {
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.5 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.03 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.04 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.4 }
+				}
+				else = {
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.3 }
+				}
+			}
+			else = {
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.02 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.2 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.01 } }
+					set_variable = { name = bpm_clergymen_population_yandev_var value = 0.1 }
+				}
+			}
+
+			# Aristocrat population yandev
+			set_variable = {
+				name = bpm_aristocrat_population_yandev_var
+				value = 0
+			}
+			if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.008 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.01 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.1 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.009 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.09 }
+				}
+				else = {
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.08 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.005 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.007 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.07 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.006 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.06 }
+				}
+				else = {
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.05 }
+				}
+			}
+			else_if = {
+				limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.003 } }
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.004 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.04 }
+				}
+				else = {
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.03 }
+				}
+			}
+			else = {
+				if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.002 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.02 }
+				}
+				else_if = {
+					limit = { pop_type_percent_country = { pop_type = clergymen percent > 0.001 } }
+					set_variable = { name = bpm_aristocrat_population_yandev_var value = 0.01 }
+				}
+			}
+
 
 			if = {
 				limit = {
@@ -829,7 +1132,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_liberals.ig_clout
-								multiply = 1.11
+								multiply = 1.06
 							}
 						}
 					}
@@ -845,7 +1148,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_radicals.ig_clout
-								multiply = 1.22
+								multiply = 1.11
 							}
 						}
 					}
@@ -869,7 +1172,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_liberal_movement.political_movement_support
-								multiply = 0.15
+								multiply = 0.12
 							}
 							else = {
 								value = 0.02
@@ -891,7 +1194,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_radical_movement.political_movement_support
-								multiply = 0.22
+								multiply = 0.2
 							}
 							else = {
 								value = 0.01
@@ -914,7 +1217,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_modernizer_movement.political_movement_support
-								multiply = 0.33
+								multiply = 0.3
 							}
 							else = {
 								value = 0.004
@@ -937,7 +1240,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_socialist_movement.political_movement_support
-								multiply = 0.33
+								multiply = 0.3
 							}
 							else = {
 								value = 0.009
@@ -983,7 +1286,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:movement_reformist_socialist.political_movement_support
-								multiply = 0.15
+								multiply = 0.125
 							}
 							else = {
 								value = 0.0097
@@ -1021,7 +1324,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.0025
+						add = 0.00125
 					}
 				}
 
@@ -1031,7 +1334,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.005
+						add = 0.0025
 					}
 				}
 
@@ -1041,7 +1344,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.005
+						add = 0.0025
 					}
 				}
 
@@ -1118,7 +1421,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							subtract = {
 								value = ROOT.ig:ig_reactionaries.ig_clout
-								multiply = 2.00
+								multiply = 2.22
 							}
 						}
 					}

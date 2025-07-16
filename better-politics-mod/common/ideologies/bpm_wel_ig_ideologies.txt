@@ -398,9 +398,9 @@ ideology_wel_social_market_welfare = {
 	}
 
 	lawgroup_work_time_regulations = {
-		law_unregulated_work_time = strongly_disapprove
-		law_token_time_regulations = neutral
-		law_limited_work_hours = approve
-		law_protected_leisure = approve
+		law_unregulated_work_time = disapprove
+		law_token_time_regulations = approve
+		law_limited_work_hours = strongly_approve
+		law_protected_leisure = strongly_approve
 	}
 }

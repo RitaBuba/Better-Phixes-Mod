@@ -168,3 +168,29 @@ bpm_je_modernizers_desc_anti_modernizers = {
 		localization_key = bpm_je_modernizers_desc_conservatives
 	}
 }
+
+bpm_je_rerum_novarum_economy_bar = {
+	type = country
+	random_valid = no
+	
+	text = {
+		trigger = {
+			NOR = {
+				has_global_variable = global_rerum_novarum_issued_var
+				AND = {
+					has_technology_researched = corporatism
+					has_technology_researched = mechanized_workshops
+					has_technology_researched = mutual_funds
+				}
+			}
+		}
+		localization_key = BPM_VALUE_FROM_PRE_RERUM_NOVARUM_DISDAIN_FOR_CAPITALISM_AND_SOCIALISM
+	}
+	text = {
+		trigger = {
+			always = yes	
+		}
+		fallback = yes
+		localization_key = BPM_VALUE_FROM_POST_RERUM_NOVARUM_SOL_BELOW_EXPECTED_AVERAGE_STANDARD_OF_LIVING_AND_TAXATION_LAW
+	}
+}
