@@ -949,7 +949,10 @@ conservative_party = {
 			}
 		}
 
-		else = {
+		else_if = {
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+			}
 			add = {
 				value = -10
 				desc = "bpm_from_no_common_enemy"
