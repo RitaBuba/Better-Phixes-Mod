@@ -497,6 +497,18 @@ bpm_je_christian_democrat_ideology_rate = {
 	add = { ##### As Christian Democrats progress, they should retain their goal of retaining moderation wherever they currently are.
 		desc = "BPM_VALUE_FROM_CONSERVATIVE_MODERATION_EVENTS_AND_OTHER_REASONS"
 		
+		if = {
+			limit = {
+				has_global_variable = global_rerum_novarum_issued_var
+			}
+			add = {
+				value = 50
+				subtract = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)"
+				multiply = ROOT.ig:ig_christian_democrats.ig_clout
+				divide = 2.5
+			}
+		}
+
 		if = { ### Essentially a negative modifier
 			limit = {
 				has_variable = christian_democrats_ideology_change
@@ -505,13 +517,6 @@ bpm_je_christian_democrat_ideology_rate = {
 				value = ROOT.var:christian_democrats_ideology_change
 				multiply = 0.05
 			}
-		}
-
-		subtract = {
-			value = 50
-			add = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)"
-			multiply = ROOT.ig:ig_christian_democrats.ig_clout
-			divide = 2.5
 		}
 
 		if = { ### Lots of loyalists will keep them relatively moderate 
@@ -560,6 +565,13 @@ bpm_je_christian_democrat_ideology_rate = {
 
 	add = { ##### After Rerum Novarum many catholics drifted towards Christian Democracy...
 		desc = "BPM_VALUE_FROM_RERUM_NOVARUM_DEMOCRATIC_RADICALIZATION" ### but some 'radicalized' themselves towards right-wing illiberal approaches (Austria, Lithuania)
+
+		subtract = {
+			value = 50
+			add = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)"
+			multiply = ROOT.ig:ig_christian_democrats.ig_clout
+			divide = 2.5
+		}
 
 		if = { ### Christian Democrats, once in power, would ALWAYS 'moderate'/'radicalize' towards Christian Democrat or Illiberal Democrat stances. 
 			limit = {

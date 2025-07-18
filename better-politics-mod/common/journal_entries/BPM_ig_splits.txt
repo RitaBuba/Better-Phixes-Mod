@@ -1074,7 +1074,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.05
+						add = 0.1
 					}
 				}
 
@@ -1089,7 +1089,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.05
+							add = 0.1
 						}
 					}
 					else_if = {
@@ -1102,7 +1102,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.025
+							add = 0.05
 						}
 					}
 					else_if = {
@@ -1112,7 +1112,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.005
+							add = 0.025
 						}
 					}
 				}
@@ -1132,7 +1132,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_liberals.ig_clout
-								multiply = 1.06
+								multiply = 1.11
 							}
 						}
 					}
@@ -1148,7 +1148,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_radicals.ig_clout
-								multiply = 1.11
+								multiply = 1.22
 							}
 						}
 					}
@@ -1354,7 +1354,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.005
+						add = 0.0075
 					}
 				}
 
@@ -1366,7 +1366,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						add = {
 							value = var:bpm_consciousness_liberal
-							multiply = 0.0011
+							multiply = 0.0015
 						}
 					}
 				}
@@ -1407,7 +1407,7 @@ je_bpm_christian_or_democrat = {
 						change_variable = {
 							name = independence_from_church_variable
 							subtract = ROOT.ig:ig_conservatives.ig_clout
-							multiply = 1.66
+							multiply = 1.44
 						}
 					}
 					if = { ### Reactionaries even more!
@@ -1421,7 +1421,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							subtract = {
 								value = ROOT.ig:ig_reactionaries.ig_clout
-								multiply = 2.22
+								multiply = 1.66
 							}
 						}
 					}
@@ -1459,10 +1459,12 @@ je_bpm_christian_or_democrat = {
 				if = {
 					limit = { 
 						NOT = { 
-							has_technology_researched = corporatism
-							has_technology_researched = egalitarianism
-							has_technology_researched = socialism
-							has_technology_researched = nationalism
+							ig:ig_industrialists = {
+								has_ideology = ideology:ideology_wel_paternalistic_welfare
+							}
+							owner = {
+								has_technology_researched = socialism
+							}
 						}
 						ROOT.var:independence_from_church_variable >= 25
 					}
