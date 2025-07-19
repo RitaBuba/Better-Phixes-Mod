@@ -97,15 +97,15 @@
         if = {
             limit = { 
                 has_pop_religion = catholic
-				owner = {
-					NOT = {
-						country_has_state_religion = rel:catholic
-					}
-				}
+				#owner = {
+				#	NOT = {
+				#		country_has_state_religion = rel:catholic
+				#	}
+				#}
             }
             add = { 
                 desc = "Catholic Religion"
-                value = 100
+                value = 50
             }
         }
 
@@ -117,7 +117,27 @@
 			}
 			add = {
 				desc = "POP_CLERGYMEN"
-				value = 50
+				value = 75
+			}
+		}
+
+		# Rural reactionary workers like it
+
+		if = {
+			limit = { 
+				bpm_pop_employment_is_rural = yes 
+			}
+			add = {
+				desc = "RURAL_POP"
+				value = 25
+			}
+		}
+
+		if = {
+			limit = { strata = middle }
+			add = {
+				desc = "MIDDLE_CLASS"
+				value = 10
 			}
 		}
 
@@ -297,7 +317,7 @@
 					}
 				}
 			}
-			else_if = {
+			if = {
 				limit = { strata = lower }
 				add = {
 					desc = "LOWER_CLASS"
@@ -311,11 +331,11 @@
 			limit = {
 				owner = {
 					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_dop_divine_democrat # Belgians, Dutch, general tendencies
+						has_ideology = ideology:ideology_dop_divine_democrat # Belgians, Dutch, Austrians general tendencies
 					}
 				}
 			}
-			else_if = {
+			if = {
 				limit = { strata = middle }
 				add = {
 					desc = "MIDDLE_CLASS"
@@ -557,13 +577,18 @@
             if = { 
                 limit = { 
                     owner = { 
-                        religion_percent_country = { 
-                            target = rel:catholic
-                            value <= 0.5 
-                        }
+                        OR = {
+							religion_percent_country = { 
+								target = rel:catholic
+								value <= 0.5 
+							}
+						}
+						NOT = {
+							country_has_state_religion = rel:catholic
+						}
                     }
                 }
-                value = 2.0
+                value = 2.5
             }
         }
         multiply = { #has researched corporatism
@@ -575,7 +600,7 @@
                         has_technology_researched = corporatism
                     }
                 }
-                value = 1.25
+                value = 1.125
             }
         }
 

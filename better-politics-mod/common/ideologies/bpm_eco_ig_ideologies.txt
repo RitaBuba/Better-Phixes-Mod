@@ -1136,9 +1136,9 @@ ideology_eco_modern_interventionist = {
     lawgroup_land_reform = {
 		law_serfdom = strongly_disapprove
 		law_tenant_farmers = neutral
-		law_homesteading = approve
+		law_homesteading = neutral
 		law_commercialized_agriculture = approve
-		law_collectivized_agriculture = strongly_disapprove
+		law_collectivized_agriculture = disapprove
 	}
 
     lawgroup_taxation = {

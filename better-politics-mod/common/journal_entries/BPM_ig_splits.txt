@@ -1066,7 +1066,7 @@ je_bpm_christian_or_democrat = {
 				#	}
 				#}
 
-				if = { ##### Ironically this causes laymen to organize better without the church.
+				if = { ##### Ironically this causes laymen to organize better without the church. But we need base value for nerfing them.
 					limit = {
 						NOT = {
 							country_has_state_religion = rel:catholic
@@ -1074,7 +1074,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.1
+						subtract = 0.125
 					}
 				}
 
@@ -1089,7 +1089,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.1
+							add = 0.05
 						}
 					}
 					else_if = {
@@ -1102,7 +1102,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.05
+							add = 0.025
 						}
 					}
 					else_if = {
@@ -1112,7 +1112,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.025
+							add = 0.0125
 						}
 					}
 				}
@@ -1132,7 +1132,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_liberals.ig_clout
-								multiply = 1.11
+								multiply = 1.125
 							}
 						}
 					}
@@ -1148,7 +1148,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_radicals.ig_clout
-								multiply = 1.22
+								multiply = 1.25
 							}
 						}
 					}
@@ -1172,7 +1172,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_liberal_movement.political_movement_support
-								multiply = 0.12
+								multiply = 0.25
 							}
 							else = {
 								value = 0.02
@@ -1194,7 +1194,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_radical_movement.political_movement_support
-								multiply = 0.2
+								multiply = 0.33
 							}
 							else = {
 								value = 0.01
@@ -1240,7 +1240,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_socialist_movement.political_movement_support
-								multiply = 0.3
+								multiply = 0.44
 							}
 							else = {
 								value = 0.009
@@ -1366,7 +1366,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						add = {
 							value = var:bpm_consciousness_liberal
-							multiply = 0.0015
+							multiply = 0.003
 						}
 					}
 				}
@@ -1379,7 +1379,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						subtract = {
 							value = ig:ig_devout.ig_clout
-							multiply = 3.33
+							multiply = 2.66
 						}
 					}
 				}
@@ -1406,8 +1406,10 @@ je_bpm_christian_or_democrat = {
 						}
 						change_variable = {
 							name = independence_from_church_variable
-							subtract = ROOT.ig:ig_conservatives.ig_clout
-							multiply = 1.44
+							subtract = {
+								value = ROOT.ig:ig_conservatives.ig_clout
+								multiply = 1.33
+							}
 						}
 					}
 					if = { ### Reactionaries even more!
@@ -1449,7 +1451,7 @@ je_bpm_christian_or_democrat = {
 						add = {
 							value = var:christian_democrats_ideology_change
 							multiply = ROOT.ig:ig_christian_democrats.ig_clout
-							divide = 3.33
+							divide = 2.50
 						}
 					}
 				}
@@ -1524,6 +1526,31 @@ je_bpm_christian_or_democrat = {
 				}
 			}
 		}
+
+		effect = {
+			scope:journal_entry = {
+				set_variable = { 
+					name = ideological_leaning_bar_variable
+					value = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" 
+				}
+
+				set_variable = { 
+					name = economical_leaning_bar_variable
+					value = "scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" 
+				}
+			}
+
+			set_variable = { 
+				name = ideological_leaning_bar_variable
+				value = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" 
+			}
+
+			set_variable = { 
+				name = economical_leaning_bar_variable
+				value = "scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" 
+			}
+		}
+		
 		events = {
 			bpm_christdem_split.6 # Religion
 			bpm_christdem_split.4 # Decentralization
