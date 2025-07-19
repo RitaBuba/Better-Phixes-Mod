@@ -1313,7 +1313,7 @@ bpm_christdem_flavour.3 = { # All alone: Catholics against the world
 
 
 
-bpm_christdem_flavour.15 = { # 
+bpm_christdem_flavour.15 = { # Youth Christian Democrats refuse to fly national colors
 	type = country_event
 	placement = root
 
@@ -1330,7 +1330,12 @@ bpm_christdem_flavour.15 = { #
 	dlc = dlc_bpm
 
 	trigger = {
-		
+		ig:ig_christian_democrats = {
+			OR = {
+				has_ideology = ideology:ideology_cit_christian_internationalist
+				has_ideology = ideology:ideology_mil_antimilitarist
+			}
+		}
 	}
 
 	immediate = {
@@ -1350,6 +1355,18 @@ bpm_christdem_flavour.15 = { #
 		
 		trigger = {
 			
+		}
+		
+		add_modifier = {
+			name = bpm_rising_internationalism_amongst_christian_youth
+			days = normal_modifier_time
+			is_decaying = yes
+		}
+
+		custom_tooltip = bpm_christdem_flavour.15.a.tt
+		change_variable = {
+			name = independence_from_church_variable
+			add = 0.25
 		}
 	}	
 

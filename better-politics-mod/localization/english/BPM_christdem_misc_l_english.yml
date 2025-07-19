@@ -29,7 +29,7 @@
 
  bpm_christdem_split.1.t: "Defending Your Humble Home"
  bpm_christdem_split.1.d: "The confluence of Catholicism with modern, sinful in their eyes, ideas of democracy, liberal secularization and state control of education has led to a widespread response by adherents of the Catholic denomination.\n\nPolitical movements to protect @ig_christian_democrats! #blue Catholic Interests#! from unfriendly state policies are beginning to emerge outside of electoral politics and in various groups, organizing themselves into various groups and organizations. Attempts to limit the influence of Catholics may be difficult."
- bpm_christdem_split.1.f: "Those who have faith move mountains; those who have faith make converts; those who have faith win battles.\n\n— Luigi Sturzo, 1922" # For truth, justice and freedom!\n1. Preservation of the constitutionally recognized independence and rights of the (Catholic) Church. Defense against any attack on the independence of church bodies, the development of religious life and the development of Christian charity.\n\n— Soest Program, 1870
+ bpm_christdem_split.1.f: "It is also a mistake to believe that what exists today must survive until tomorrow and beyond, to want to maintain the present at all costs because we feel comfortable in it, to strive for immediate change in the present because we feel uncomfortable in it, and finally, to forget that the present is always, in reality, the emergence of a new state of affairs, and that this emergence is continuous.\n\n— Wojciech Korfanty, 1927"
  bpm_christdem_split.1.a: "Unloyal malcontents."
 
  notification_bpm_rerum_novarum_name: "#v Rerum Novarum Issued!#!"
@@ -90,13 +90,16 @@
 
 
 
+ bpm_rising_internationalism_amongst_christian_youth: "Rising Internationalism Among Christian Youth"
 
+ bpm_christdem_flavour.3.a.tt: "#v Independence from the Catholic Church#! Bar will progress by #bold #italic 0.25%#!#!."
+ bpm_christdem_flavour.15.t: "Catholic Youth Refusing to Fly National Colors"
+ bpm_christdem_flavour.15.desc: "At a local meeting of one of the Catholic youth organizations, an incredible scandal occurred. Some of the youth, mostly workers, most simply refused to sing the national anthem, and argued with great resistance with the rest of the gathered over the incident.\n\nWord reached the local press that the section was significantly hostile to any [ROOT.GetCountry.GetAdjective] symbolism, treating ‘traditional nationalism’ as ’socially reactionary’."
+ bpm_christdem_flavour.15.t.f: "I remember years ago I had a section of working-class youth from my city under my control. The guys were very radical and diverse, but what religious zealots! All of them felt that the ideal of the flag in general was outdated, they always whined or argued when they were asked to pray for the state, and they refused to fly our flag every time, at every meeting whether with their own or others. They felt more connected to the people in general or as Europeans, and not as some nation."
 
-
-
-
-
-
+ bpm_christdem_flavour.15.a: "I guess we should let it slide..."
+ bpm_christdem_flavour.15.b: "Discipline them! Nobody will disrespect our national symbols."
+ 
 
 
 
@@ -418,7 +421,7 @@
 
  bpm_christdem_split.10.t: "On Military and Defence"
  bpm_christdem_split.10.desc: "The desire to maintain peace and protect one's own has always been common among followers of the Catholic Church. Added to this, nationalism and modern militarism led to a general shift among @ig_christian_democrats! Catholics towards pacifist positions and hostility towards an overly exaggerated military.\n\nThe first group maintains the need for a strong and modern military, but only for defense, while continuing to strive for peace and mutual cooperation, while the second group strives for the gradual, complete demilitarization of the entire world and universal peace."
- bpm_christdem_split.10.f: ""
+ bpm_christdem_split.10.f: "Those who have faith move mountains; those who have faith make converts; those who have faith win battles.\n\n— Luigi Sturzo, 1922"
 
  bpm_christdem_split.10.a: "We need extraordinary means of national defence."
  bpm_christdem_split.10.b: "Our army should be strong and modern."
@@ -428,7 +431,7 @@
  
  bpm_christdem_split.11.t: "On Women and Suffrage"
  bpm_christdem_split.11.desc: "For Catholic laymen, the family is extremely important, and since its inception they have sought to defend and support it.\n\nWith the emergence of feminism, Catholics too have changed their thinking about women, and the vast majority of them want to ensure the right to vote for women, some of whom still prefer that they stay at home.\n\nHowever, there are also those who would prefer that women not participate in politics at all."
- bpm_christdem_split.11.f: "It is also a mistake to believe that what exists today must survive until tomorrow and beyond, to want to maintain the present at all costs because we feel comfortable in it, to strive for immediate change in the present because we feel uncomfortable in it, and finally, to forget that the present is always, in reality, the emergence of a new state of affairs, and that this emergence is continuous.\n\n— Wojciech Korfanty, 1927"
+ bpm_christdem_split.11.f: ""
  
  bpm_christdem_split.11.a: "Women should be able to vote, but really their proper place is at home."
  bpm_christdem_split.11.b: "Women's proper place is only at home."
