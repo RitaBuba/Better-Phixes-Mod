@@ -122,3 +122,50 @@ canada_unite_gbr = {
 		}		
 	}
 }
+
+quanta_cura_decision_variable_debug = {
+	is_shown = {
+        always = yes
+	}
+	possible = {
+		always = yes
+	}
+	when_taken = {
+		set_global_variable = global_variable_quanta_cura_var_released
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+rerum_novarum_decision_variable_debug = {
+	is_shown = {
+        always = yes
+	}
+	possible = {
+		always = yes
+	}
+	when_taken = {
+		set_global_variable = global_rerum_novarum_issued_var
+	}
+
+	ai_chance = {
+		value = 0	
+	}
+}
+
+graves_de_communi_re_decision_variable_debug = {
+	is_shown = {
+        always = yes
+	}
+	possible = {
+		always = yes
+	}
+	when_taken = {
+		set_global_variable = global_variable_graves_de_communi_re
+	}
+
+	ai_chance = {
+		value = 0	
+	}
+}

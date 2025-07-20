@@ -439,8 +439,8 @@ je_bpm_second_international = {
 #	should_be_pinned_by_default = no
 #}
 
-# Christian Democrats Development Journal Entry
-
+### Christian Democrats Development Journal Entry
+# Oh my this is so massive
 je_bpm_christian_or_democrat = {
 	icon = "gfx/interface/icons/invention_icons/unused/secularism.dds"
 
@@ -856,6 +856,29 @@ je_bpm_christian_or_democrat = {
 
 	on_monthly_pulse = {
 		effect = {
+
+			scope:journal_entry = {
+				set_variable = { 
+					name = ideological_leaning_bar_variable
+					value = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" 
+				}
+
+				set_variable = { 
+					name = economical_leaning_bar_variable
+					value = "scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" 
+				}
+			}
+
+			set_variable = { 
+				name = ideological_leaning_bar_variable
+				value = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" 
+			}
+
+			set_variable = { 
+				name = economical_leaning_bar_variable
+				value = "scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" 
+			}
+
 			##### Thank u lilian for this great code
 			# Shopkeeper population yandev
 			set_variable = {
@@ -1058,27 +1081,28 @@ je_bpm_christian_or_democrat = {
 					}
 				}
 
-				##### Base value from just simply things happening
-				#change_variable = {
-				#	name = independence_from_church_variable
-				#	add = {
-				#		value = 0.25
-				#	}
-				#}
-
-				if = { ##### Ironically this causes laymen to organize better without the church.
+				if = { ##### Ironically this causes laymen to organize better without the church. But we need base value for nerfing them.
 					limit = {
-						NOT = {
-							country_has_state_religion = rel:catholic
-						}
+						is_player = no
+						country_has_state_religion = rel:catholic
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.1
+						add = 0.05
 					}
 				}
 
-				if = { ##### Ironically the more intertwined the church and the state are the more independent the laymen are.
+				else_if = {
+					limit = {
+						is_player = yes
+					}
+					change_variable = {
+						name = independence_from_church_variable
+						subtract = 0.05
+					}
+				}
+
+				if = { ##### Ironically the more intertwined the church and the state are the more the church wants to stop the laymen.
 					limit = {
 						country_has_state_religion = rel:catholic
 					}
@@ -1089,7 +1113,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.1
+							add = 0.05
 						}
 					}
 					else_if = {
@@ -1102,7 +1126,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.05
+							add = 0.025
 						}
 					}
 					else_if = {
@@ -1112,7 +1136,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.025
+							add = 0.0125
 						}
 					}
 				}
@@ -1132,7 +1156,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_liberals.ig_clout
-								multiply = 1.11
+								multiply = 1.04
 							}
 						}
 					}
@@ -1148,7 +1172,31 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_radicals.ig_clout
-								multiply = 1.22
+								multiply = 1.08
+							}
+						}
+					}
+
+					if = { # They're practically off the leash, and are exploding in popularity.
+						limit = {
+							has_global_variable = global_rerum_novarum_issued_var
+						}
+						change_variable = {
+							name = independence_from_church_variable
+							add = {
+								value = 0.2
+							}
+						}
+					}
+
+					if = { # 
+						limit = {
+							has_global_variable = global_variable_graves_de_communi_re
+						}
+						change_variable = {
+							name = independence_from_church_variable
+							subtract = {
+								value = 0.1
 							}
 						}
 					}
@@ -1172,7 +1220,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_liberal_movement.political_movement_support
-								multiply = 0.12
+								multiply = 0.15
 							}
 							else = {
 								value = 0.02
@@ -1194,7 +1242,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_radical_movement.political_movement_support
-								multiply = 0.2
+								multiply = 0.28
 							}
 							else = {
 								value = 0.01
@@ -1240,7 +1288,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_socialist_movement.political_movement_support
-								multiply = 0.3
+								multiply = 0.44
 							}
 							else = {
 								value = 0.009
@@ -1366,7 +1414,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						add = {
 							value = var:bpm_consciousness_liberal
-							multiply = 0.0015
+							multiply = 0.003
 						}
 					}
 				}
@@ -1379,7 +1427,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						subtract = {
 							value = ig:ig_devout.ig_clout
-							multiply = 3.33
+							multiply = 5
 						}
 					}
 				}
@@ -1406,8 +1454,10 @@ je_bpm_christian_or_democrat = {
 						}
 						change_variable = {
 							name = independence_from_church_variable
-							subtract = ROOT.ig:ig_conservatives.ig_clout
-							multiply = 1.44
+							subtract = {
+								value = ROOT.ig:ig_conservatives.ig_clout
+								multiply = 1.33
+							}
 						}
 					}
 					if = { ### Reactionaries even more!
@@ -1422,6 +1472,22 @@ je_bpm_christian_or_democrat = {
 							subtract = {
 								value = ROOT.ig:ig_reactionaries.ig_clout
 								multiply = 1.66
+							}
+						}
+					}
+
+					if = { ### National Liberals dislike laborers
+						limit = {
+							any_interest_group = {
+								has_ideology = ideology:ideology_rel_moralist
+								is_interest_group_type = ig_national_liberals
+							}
+						}
+						change_variable = {
+							name = independence_from_church_variable
+							subtract = {
+								value = ROOT.ig:ig_national_liberals.ig_clout
+								multiply = 1.11
 							}
 						}
 					}
@@ -1449,7 +1515,7 @@ je_bpm_christian_or_democrat = {
 						add = {
 							value = var:christian_democrats_ideology_change
 							multiply = ROOT.ig:ig_christian_democrats.ig_clout
-							divide = 3.33
+							divide = 2.50
 						}
 					}
 				}
@@ -1524,6 +1590,7 @@ je_bpm_christian_or_democrat = {
 				}
 			}
 		}
+		
 		events = {
 			bpm_christdem_split.6 # Religion
 			bpm_christdem_split.4 # Decentralization
@@ -1541,6 +1608,7 @@ je_bpm_christian_or_democrat = {
 			####### Revalitisation of Older Ideas
 
 			bpm_christdem_split.50 # Economy: Return
+			bpm_christdem_split.51 # Politics: Return
 			
 			#bpm_frankfurt_parliament_events.23
 		}
@@ -1585,3 +1653,116 @@ je_bpm_christian_or_democrat = {
 }
 
 
+je_bpm_new_wine_in_old_wineskins = {
+	icon = "gfx/interface/icons/goods_icons/wine.dds"
+
+	group = bpm_je_group_interest_groups
+	
+	modifiers_while_active = {
+		bpm_new_wine_in_old_wineskins_modifier
+	}
+
+	is_shown_when_inactive = {
+		always = yes
+	}
+
+	immediate = {
+		####################################
+		####### Christian Democrats must exist. Setting their names up in the conflict.
+		if = {
+			limit = {
+				exists = ig:ig_christian_democrats
+			}
+			if = { # Innovators vs. Agrarian Conservatives debate
+				limit = {
+					this ?= c:LUX
+				}
+				ig:ig_christian_democrats ?= { set_interest_group_name = ig_innovateuren }
+				ig:ig_conservatives ?= { set_interest_group_name = ig_agrarian_conservatives }
+			}
+			else_if = { # Young Right vs. Old Right debate
+				limit = {
+					OR = {
+						this ?= c:BEL
+						country_has_primary_culture = cu:flemish
+					}
+				}
+				ig:ig_christian_democrats ?= { set_interest_group_name = ig_young_right }
+				ig:ig_conservatives ?= { set_interest_group_name = ig_old_right }
+			}
+			else = { # Christian Democrats join in on the 'conservatives' term, though not ones really, so we need to make Burkeans visibly distinct
+				ig:ig_conservatives ?= { set_interest_group_name = ig_classical_conservatives }
+			}
+		}
+
+		set_local_variable = bpm_old_new_wine_var
+
+		set_variable = {
+			name = clacons_traits_var
+			value = bpm_je_clacon_ideological_power
+		}
+		set_variable = {
+			name = christdem_traits_var
+			value = bpm_je_christdem_ideological_power
+		}
+		set_variable = {
+			name = wine_events_and_other_variable
+			value = 0
+		}
+	}
+
+	possible = {
+		always = no
+	}
+
+	invalid = {
+		
+	}
+
+	complete = {
+		
+	}
+
+	on_complete = {
+		
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			############################
+			####### Scopes
+			ig:ig_christian_democrats = {
+				leader = {
+					save_scope_as = christdem_leader_scope
+				}
+			}
+
+			ig:ig_conservatives = {
+				leader = {
+					save_scope_as = clacons_leader_scope
+				}
+			}
+
+			############################
+			####### Variables: Set up variables for certain traits etc. and then math them up. So we can also show how much each trait or thingy adds or takes
+			### Traits: +Dirtect, +Persistent, -Reckless, +Meticulous, ++Charismatic, ++Pious, +Imposing, ++Master Bureaucrat, +Any Political Operator.
+			### Popularity:
+			### IG Clout
+			### Events and other reasons:
+			
+			##### TRAITS
+			# Direct
+
+			set_variable = {
+				name = clacons_traits_var
+				value = bpm_je_clacon_ideological_power
+			}
+			set_variable = {
+				name = christdem_traits_var
+				value = bpm_je_christdem_ideological_power
+			}
+		}
+	}
+
+	should_be_pinned_by_default = yes
+}

@@ -1322,3 +1322,19 @@ bpm_balance_ig_catholic_minority = {
 
 	state_conversion_mult = -0.9
 }
+
+bpm_rising_internationalism_amongst_christian_youth = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+
+	state_radicals_from_discrimination_mult = -0.05
+	country_prestige_mult = -0.05
+}
+
+bpm_new_wine_in_old_wineskins_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+
+	interest_group_ig_conservatives_pol_str_mult = -0.05
+	state_radicals_from_political_movements_mult = 0.1
+	country_laborers_pol_str_mult = 0.05
+	country_clergymen_pol_str_mult = 0.05
+}

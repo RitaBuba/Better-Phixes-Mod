@@ -134,11 +134,13 @@ bpm_je_christian_democrat_ideology_rate = {
 		if = { ### Can't be liberal if they moved towards authoritarianism themselves!
 			limit = {
 				ig:ig_christian_democrats = {
-					NAND = {
-						is_in_government = yes
-						has_ideology = ideology:ideology_dop_illiberal_democrat
-					}
-					ig_clout >= 0.009
+					#NOT = {
+					#	AND = {
+					#		is_in_government = yes
+					#		has_ideology = ideology:ideology_dop_illiberal_democrat
+					#	}
+					#}
+					bpm_ig_is_marginal = no
 				}
 			}
 
@@ -155,7 +157,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 				add = {
-					value = 0.003
+					value = 0.005
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -168,7 +170,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 				add = {
-					value = 0.002
+					value = 0.003
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -178,7 +180,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					has_law = law_type:law_universal_suffrage
 				}
 				add = {
-					value = 0.001
+					value = 0.002
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -190,7 +192,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 				add = {
-					value = 0.0005
+					value = 0.00025
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -207,7 +209,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 				add = {
-					value = 0.002
+					value = 0.003
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -219,7 +221,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 				add = {
-					value = 0.001
+					value = 0.0025
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -235,7 +237,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 				add = {
-					value = 0.001
+					value = 0.002
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -248,7 +250,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					has_law = law_type:law_advisory_body
 				}
 				add = {
-					value = 0.002
+					value = 0.003
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -258,17 +260,17 @@ bpm_je_christian_democrat_ideology_rate = {
 					has_law = law_type:law_separated_powers
 				}
 				add = {
-					value = 0.001
+					value = 0.002
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
 
 			else_if = { # Too much liberalism is very bad!
 				limit = {
-					has_law = law_type:law_separated_powers
+					has_law = law_type:law_supreme_legislature
 				}
 				add = {
-					value = 0.002
+					value = 0.005
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -308,7 +310,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				add = {
 					value = political_movement_support
 					multiply = ROOT.ig:ig_christian_democrats.ig_clout
-					multiply = 25
+					multiply = 30
 				}
 			}
 		}
@@ -324,7 +326,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				add = {
 					value = political_movement_support
 					multiply = ROOT.ig:ig_christian_democrats.ig_clout
-					multiply = 25
+					multiply = 28
 				}
 			}
 		}
@@ -359,7 +361,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				subtract = ig_clout
 			}
-			multiply = 1.44
+			multiply = 1.33
 		}
 
 		if = { ### Moralist Interest Groups should drive them towards more conservative and reactionary stances.
@@ -497,16 +499,11 @@ bpm_je_christian_democrat_ideology_rate = {
 	add = { ##### As Christian Democrats progress, they should retain their goal of retaining moderation wherever they currently are.
 		desc = "BPM_VALUE_FROM_CONSERVATIVE_MODERATION_EVENTS_AND_OTHER_REASONS"
 		
-		if = {
-			limit = {
-				has_global_variable = global_rerum_novarum_issued_var
-			}
-			add = {
-				value = 50
-				subtract = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)"
-				multiply = ROOT.ig:ig_christian_democrats.ig_clout
-				divide = 2.5
-			}
+		add = {
+			value = 50
+			subtract = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
+			multiply = ROOT.ig:ig_christian_democrats.ig_clout
+			divide = 2.5
 		}
 
 		if = { ### Essentially a negative modifier
@@ -519,37 +516,27 @@ bpm_je_christian_democrat_ideology_rate = {
 			}
 		}
 
-		if = { ### Lots of loyalists will keep them relatively moderate 
-			limit = {
-				NOR = {
-					bpm_country_laws_are_very_undemocratic = yes
-					bpm_country_laws_are_moderately_undemocratic = yes
-				}
-			}
-			subtract = {
-				value = 1
-		
-				multiply = bpm_loyalist_population_fraction
-				multiply = bpm_loyalist_population_fraction
-				multiply = 1.66
-			}
+		subtract = {
+			value = 4.44
+			multiply = bpm_loyalist_population_fraction
+			multiply = 1.33
 		}
 
-		else_if = { ### Lots of loyalists will keep them relatively moderate 
-			limit = {
-				OR = {
-					bpm_country_laws_are_very_undemocratic = yes
-					bpm_country_laws_are_moderately_undemocratic = yes
-				}
-			}
-			add = {
-				value = 1
-		
-				multiply = bpm_loyalist_population_fraction
-				multiply = bpm_loyalist_population_fraction
-				multiply = 3.33
-			}
-		}
+		#else_if = { ### Lots of loyalists will keep them relatively moderate 
+		#	limit = {
+		#		OR = {
+		#			bpm_country_laws_are_very_undemocratic = yes
+		#			bpm_country_laws_are_moderately_undemocratic = yes
+		#		}
+		#	}
+		#	add = {
+		#		value = 1
+		#
+		#		multiply = bpm_loyalist_population_fraction
+		#		multiply = bpm_loyalist_population_fraction
+		#		multiply = 3.33
+		#	}
+		#}
 
 		if = { ### A moderate leader of ChD will have them be more moderate
 			limit = {
@@ -559,18 +546,24 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 			}
-			subtract = -0.1
+			subtract = -0.2
 		}
 	}
 
 	add = { ##### After Rerum Novarum many catholics drifted towards Christian Democracy...
 		desc = "BPM_VALUE_FROM_RERUM_NOVARUM_DEMOCRATIC_RADICALIZATION" ### but some 'radicalized' themselves towards right-wing illiberal approaches (Austria, Lithuania)
 
-		subtract = {
-			value = 50
-			add = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)"
-			multiply = ROOT.ig:ig_christian_democrats.ig_clout
-			divide = 2.5
+		if = {
+			limit = {
+				has_global_variable = global_rerum_novarum_issued_var
+			}
+
+			subtract = {
+				value = 50
+				add = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
+				multiply = ROOT.ig:ig_christian_democrats.ig_clout
+				divide = 2.5
+			}
 		}
 
 		if = { ### Christian Democrats, once in power, would ALWAYS 'moderate'/'radicalize' towards Christian Democrat or Illiberal Democrat stances. 
@@ -856,6 +849,9 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_ideology = ideology:ideology_wel_paternalistic_welfare
 						has_ideology = ideology:ideology_wel_religious_welfare
 						has_ideology = ideology:ideology_wel_market_welfare
+						leader = {
+							has_ideology = ideology:ideology_market_liberal
+						}
 					}
 				}
 				#scope:journal_entry = {
@@ -869,11 +865,17 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_ideology = ideology:ideology_wel_paternalistic_welfare # Nationa Liberals, Paternal Conservatives, Fascists, theoretically some Liberals
 						has_ideology = ideology:ideology_wel_religious_welfare # The Church, Conservatives, some rando's
 						has_ideology = ideology:ideology_wel_market_welfare # Classical Liberals, Market Liberals
+						leader = {
+							has_ideology = ideology:ideology_market_liberal
+						}
 					}
 				}
-				add = ig_clout
+				add = {
+					value = ig_clout
+					multiply = 1.33
+				}
 			}
-			multiply = 1.33
+			
 		}
 
 		if = { ### Actual public welfare satisfied Christian Democrats and workers... somewhat...!
@@ -882,6 +884,9 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					OR = {
 						has_ideology = ideology:ideology_wel_public_welfare
 						has_ideology = ideology:ideology_wel_expanded_public_welfare
+						leader = {
+							has_ideology = ideology:ideology_social_democrat
+						}
 					}
 				}
 				#scope:journal_entry = {
@@ -893,11 +898,16 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					OR = {
 						has_ideology = ideology:ideology_wel_public_welfare # Radical Liberals, some liberals
 						has_ideology = ideology:ideology_wel_expanded_public_welfare # Labor, Socialists
+						leader = {
+							has_ideology = ideology:ideology_social_democrat
+						}
 					}
 				}
-				subtract = ig_clout
+				subtract = {
+					value = ig_clout
+					multiply = 1.66
+				}
 			}
-			multiply = 1.66
 		}
 	}
 
@@ -1113,7 +1123,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 
 		if = {
 			limit = {
-				NOR = {
+				NOT = {
 					has_global_variable = global_rerum_novarum_issued_var
 					AND = {
 						has_technology_researched = corporatism
@@ -1121,6 +1131,14 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_technology_researched = mutual_funds
 					}
 				}
+			}
+
+			add = {
+				value = -50
+				add = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
+				multiply = ROOT.ig:ig_christian_democrats.ig_clout
+				divide = 3.33
+				max = 0
 			}
 
 			every_interest_group = {
@@ -1146,7 +1164,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.33
+					multiply = 1.44
 				}
 			}
 
@@ -1161,8 +1179,9 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 
 				subtract = {
-					value = 0.66
+					value = 1.66
 					multiply = ROOT.ig:ig_christian_democrats.ig_clout
+					multiply = 2.5
 				}
 			}
 		}
@@ -1460,6 +1479,346 @@ bpm_je_christian_democrat_welfare_rate = {
 				bpm_ig_is_paternalistic = yes
 			}
 			add = -0.2
+		}
+	}
+}
+
+bpm_je_christdem_ideological_power = {
+	value = 0
+
+	add = {
+		desc = "BPM_VALUE_BASE"
+		value = 50
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_CHARACTER_POPULARITY"
+		every_scope_character = {
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				has_role = politician
+			}
+			add = popularity
+		}
+		divide = 2
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_IG_CLOUT"
+		
+		every_interest_group = {
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+			}
+			add = ig_clout
+			multiply = 100
+			max = 10
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_EVENTS_AND_OTHER"
+		
+		if = {
+			limit = {
+				has_variable = wine_events_and_other_variable
+			}
+
+			add = {
+				value = ROOT.ig:ig_christian_democrats.var:wine_events_and_other_variable
+			}
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_TRAITS"
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = direct
+					}
+				}
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = persistent
+					}
+				}
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = reckless
+					}
+				}
+			}
+
+			subtract = 15
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = meticulous
+					}
+				}
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = charismatic
+					}
+				}
+			}
+
+			add = 20
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = pious
+					}
+				}
+			}
+
+			add = 20
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = imposing
+					}
+				}
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = master_bureaucrat
+					}
+				}
+			}
+
+			add = 15
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = grifter
+					}
+				}
+			}
+
+			add = 5
+		}
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = ruthless
+					}
+				}
+			}
+
+			add = 5
+		}
+	}
+}
+
+bpm_je_clacon_ideological_power = {
+	value = 0
+
+	add = {
+		desc = "BPM_VALUE_BASE"
+		value = 50
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_CHARACTER_POPULARITY"
+		every_scope_character = {
+			limit = {
+				is_interest_group_type = ig_conservatives
+				has_role = politician
+			}
+			add = popularity
+		}
+		divide = 2
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_IG_CLOUT"
+		
+		every_interest_group = {
+			limit = {
+				is_interest_group_type = ig_conservatives
+			}
+			add = ig_clout
+			multiply = 50
+			max = 10
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_EVENTS_AND_OTHER"
+		
+		if = {
+			limit = {
+				has_variable = wine_events_and_other_variable
+			}
+
+			add = {
+				value = ROOT.ig:ig_conservatives.var:wine_events_and_other_variable
+			}
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_TRAITS"
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = direct
+					}
+				}
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = persistent
+					}
+				}
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = reckless
+					}
+				}
+			}
+
+			subtract = 15
+		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = meticulous
+					}
+				}
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = charismatic
+					}
+				}
+			}
+
+			add = 20
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = pious
+					}
+				}
+			}
+
+			add = 20
+		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = imposing
+					}
+				}
+			}
+
+			add = 10
+		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = master_bureaucrat
+					}
+				}
+			}
+
+			add = 15
+		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = grifter
+					}
+				}
+			}
+
+			add = 5
+		}
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = ruthless
+					}
+				}
+			}
+
+			add = 5
 		}
 	}
 }
