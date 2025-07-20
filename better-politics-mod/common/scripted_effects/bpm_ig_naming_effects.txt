@@ -46,6 +46,7 @@ bpm_rename_christian_democrat_ig = {
 				this = c:LUX
 			}
 			has_global_variable = global_rerum_novarum_issued_var
+			has_local_variable = bpm_old_new_wine_var
 		}
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_young_right }
 	}
@@ -60,6 +61,7 @@ bpm_rename_christian_democrat_ig = {
 					is_party_type = conservative_party
 				}
 			}
+			has_local_variable = bpm_old_new_wine_var
 		}
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_innovateuren }
 	}
@@ -1031,6 +1033,7 @@ bpm_rename_conservative_ig = {
 					is_party_type = conservative_party
 				}
 			}
+			has_local_variable = bpm_old_new_wine_var
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_agrarian_conservatives }
 	}
@@ -1047,6 +1050,7 @@ bpm_rename_conservative_ig = {
 					is_party_type = conservative_party
 				}
 			}
+			has_local_variable = bpm_old_new_wine_var
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_old_right }
 	}

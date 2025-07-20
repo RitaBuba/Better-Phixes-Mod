@@ -138,6 +138,97 @@
 			add = {
 				desc = "MIDDLE_CLASS"
 				value = 10
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_eco_distributist_economy # CSP example:
+							}
+						}
+					}
+					add = {
+						value = 75
+					}
+				}
+				else_if = {
+					limit = { 
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_eco_modern_interventionist # Popularists, Young Right, Dutch Christian Democrats
+							}
+						}
+					}
+					add = {
+						value = 50
+					}
+				}
+				else_if = {
+					limit = { 
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_eco_centralized_economy # Young Zentrumites, late Polish Chadecy
+							}
+						}
+					}
+					add = {
+						value = 25
+					}
+				}
+				else_if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_eco_modern_agrarian # Bavarian People's Party, Lithuanian Christian Democrats
+							}
+						}
+					}
+					add = {
+						value = 25
+					}
+				}
+
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_dop_divine_democrat # Belgians, Dutch, Austrians general tendencies
+							}
+						}
+					}
+					add = {
+						value = 5
+					}
+				}
+
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								OR = {
+									has_ideology = ideology:ideology_cit_immigrant_nationalist
+									has_ideology = ideology:ideology_cit_multiethnic_nationalist
+									has_ideology = ideology:ideology_cit_ethnonationalist
+								}
+							}
+						}
+					}
+					add = {
+						value = 3
+					}
+				}
+
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_wel_distributist_welfare
+							}
+						}
+					}
+					add = {
+						value = 5
+					}
+				}
 			}
 		}
 
@@ -156,13 +247,6 @@
 				add = {
 					desc = "LOWER_CLASS"
 					value = 25
-				}
-			}
-			else_if = {
-				limit = { strata = middle }
-				add = {
-					desc = "MIDDLE_CLASS"
-					value = 75
 				}
 			}
 			else_if = {
@@ -201,13 +285,6 @@
 				}
 			}
 			else_if = {
-				limit = { strata = middle }
-				add = {
-					desc = "MIDDLE_CLASS"
-					value = 80
-				}
-			}
-			else_if = {
 				limit = {
 					is_pop_type = capitalists
 				}
@@ -231,13 +308,6 @@
 				add = {
 					desc = "LOWER_CLASS"
 					value = 75
-				}
-			}
-			else_if = {
-				limit = { strata = middle }
-				add = {
-					desc = "MIDDLE_CLASS"
-					value = 100
 				}
 			}
 			else_if = {
@@ -268,11 +338,6 @@
 					}
 				}
 			}
-			# Always rural due to pop potential
-			add = {
-				desc = "RURAL_POP"
-				value = 50
-			}		
 
 			if = {
 				limit = { is_pop_type = farmers }
@@ -289,13 +354,7 @@
 				}
 			}
 
-			else_if = {
-				limit = { strata = middle }
-				add = {
-					desc = "MIDDLE_CLASS"
-					value = 25
-				}
-			}
+			
 			else_if = {
 				limit = {
 					is_pop_type = aristocrats
@@ -331,23 +390,6 @@
 			limit = {
 				owner = {
 					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_dop_divine_democrat # Belgians, Dutch, Austrians general tendencies
-					}
-				}
-			}
-			if = {
-				limit = { strata = middle }
-				add = {
-					desc = "MIDDLE_CLASS"
-					value = 5
-				}
-			}
-		}
-
-		else_if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
 						has_ideology = ideology:ideology_dop_christian_democrat
 					}
 				}
@@ -373,76 +415,13 @@
 
 		if = {
 			limit = {
-				ig:ig_christian_democrats = {
-					OR = {
-						has_ideology = ideology:ideology_cit_christian_internationalist
-						has_ideology = ideology:ideology_cit_liberal_nationalist
+				owner = {
+					ig:ig_christian_democrats = {
+						OR = {
+							has_ideology = ideology:ideology_cit_christian_internationalist
+							has_ideology = ideology:ideology_cit_liberal_nationalist
+						}
 					}
-				}
-			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 2
-				}
-			}
-		}
-
-		else_if = {
-			limit = {
-				ig:ig_christian_democrats = {
-					OR = {
-						has_ideology = ideology:ideology_cit_immigrant_nationalist
-						has_ideology = ideology:ideology_cit_multiethnic_nationalist
-						has_ideology = ideology:ideology_cit_ethnonationalist
-					}
-				}
-			}
-			if = {
-				limit = { strata = middle }
-				add = {
-					desc = "MIDDLE_CLASS"
-					value = 2
-				}
-			}
-		}
-
-		# WELFARE 
-
-		if = {
-			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_wel_religious_welfare
-				}
-			}
-			if = {
-				limit = { is_pop_type = shopkeepers }
-				add = {
-					desc = "MIDDLE_CLASS"
-					value = 1
-				}
-			}
-		}
-
-		else_if = {
-			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_wel_social_market_welfare
-				}
-			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 1
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_wel_expanded_public_welfare
 				}
 			}
 			if = {
@@ -456,25 +435,12 @@
 
 		# WELFARE 
 
-		if = {
-			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_wel_religious_welfare
-				}
-			}
-			if = {
-				limit = { is_pop_type = shopkeepers }
-				add = {
-					desc = "MIDDLE_CLASS"
-					value = 1
-				}
-			}
-		}
-
 		else_if = {
 			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_wel_social_market_welfare
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_wel_social_market_welfare
+					}
 				}
 			}
 			if = {
@@ -487,8 +453,45 @@
 		}
 		else_if = {
 			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_wel_expanded_public_welfare
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_wel_expanded_public_welfare
+					}
+				}
+			}
+			if = {
+				limit = { strata = lower }
+				add = {
+					desc = "LOWER_CLASS"
+					value = 2
+				}
+			}
+		}
+
+		# WELFARE 
+
+		else_if = {
+			limit = {
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_wel_social_market_welfare
+					}
+				}
+			}
+			if = {
+				limit = { strata = lower }
+				add = {
+					desc = "LOWER_CLASS"
+					value = 1
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_wel_expanded_public_welfare
+					}
 				}
 			}
 			if = {
@@ -504,15 +507,17 @@
 
 		if = {
 			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_rel_moralist
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_rel_moralist
+					}
 				}
 			}
 			if = {
 				limit = { is_pop_type = clergymen }
 				add = {
 					desc = "CLERGYMEN"
-					value = 3
+					value = 5
 				}
 			}
 		}
@@ -521,8 +526,10 @@
 
 		if = {
 			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_mil_patriotic_liberal
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_mil_patriotic_liberal
+					}
 				}
 			}
 			if = {
@@ -544,8 +551,10 @@
 
 		if = {
 			limit = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_mil_defensive_patriot
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_mil_defensive_patriot
+					}
 				}
 			}
 
@@ -588,7 +597,7 @@
 						}
                     }
                 }
-                value = 2.5
+                value = 2.25
             }
         }
         multiply = { #has researched corporatism
@@ -627,9 +636,21 @@
                 limit = { 
                     has_global_variable = global_rerum_novarum_issued_var
                 }
-                value = 1.8
+                value = 1.3
             }
         }
+
+		multiply = { # Graves de communi re was released. Time to implode whole parties and organizations.
+            desc = "Graves de communi re was released"
+            value = 1.0
+            if = { 
+                limit = { 
+                    has_global_variable = global_variable_graves_de_communi_re
+                }
+                value = 0.85
+            }
+        }
+
 
 		multiply = { #has researched mass parties
             desc = "Has Mass Parties"
