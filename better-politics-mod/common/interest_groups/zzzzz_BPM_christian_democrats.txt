@@ -131,6 +131,20 @@
 				desc = "RURAL_POP"
 				value = 25
 			}
+
+			if = {
+				limit = {
+					owner = {
+						ig:ig_christian_democrats = {
+							has_ideology = ideology:ideology_sta_regionalized_state
+						}
+						has_variable = bpm_christian_democrats_eco_ideology
+					}
+				}
+				add = {
+					value = 5
+				}
+			}
 		}
 
 		if = {
@@ -138,6 +152,20 @@
 			add = {
 				desc = "MIDDLE_CLASS"
 				value = 10
+				
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_sta_federated_state
+							}
+						}
+					}
+					add = {
+						value = 2
+					}
+				}
+
 				if = {
 					limit = {
 						owner = {
@@ -662,17 +690,6 @@
                     }
                 }
                 value = 1.0
-            }
-        }
-
-		multiply = { #has researched mass parties
-            desc = "Rerum novarum was released"
-            value = 0.88
-            if = { 
-                limit = { 
-                    has_global_variable = global_rerum_novarum_issued_var
-                }
-                value = 1.25
             }
         }
 

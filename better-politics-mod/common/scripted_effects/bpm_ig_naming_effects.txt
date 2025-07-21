@@ -10,7 +10,6 @@ bpm_rename_christian_democrat_ig = {
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
-				country_has_primary_culture = cu:french
 			}
 			has_global_variable = global_rerum_novarum_issued_var
 			has_global_variable = global_variable_graves_de_communi_re
@@ -18,7 +17,22 @@ bpm_rename_christian_democrat_ig = {
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_popularists }
 	}
 
-	if = {
+	else_if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:north_italian
+				country_has_primary_culture = cu:south_italian
+			}
+			has_global_variable = global_rerum_novarum_issued_var
+			has_global_variable = global_variable_graves_de_communi_re
+			owner = {
+				has_variable = variable_christian_democrat_wine_win
+			}
+		}
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_popularists_left }
+	}
+
+	else_if = {
 		limit = {
 			country_has_primary_culture = cu:french
 			has_global_variable = global_rerum_novarum_issued_var
@@ -1036,6 +1050,21 @@ bpm_rename_conservative_ig = {
 			has_local_variable = bpm_old_new_wine_var
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_agrarian_conservatives }
+	}
+
+	else_if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:north_italian
+				country_has_primary_culture = cu:south_italian
+			}
+			has_global_variable = global_rerum_novarum_issued_var
+			has_global_variable = global_variable_graves_de_communi_re
+			owner = {
+				has_variable = variable_christian_democrat_wine_win
+			}
+		}
+		ig:ig_conservatives ?= { set_interest_group_name = ig_popularists_right }
 	}
 	else_if = {
 		limit = {
