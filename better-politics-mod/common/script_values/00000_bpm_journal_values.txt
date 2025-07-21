@@ -625,7 +625,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				subtract = {
 					value = ROOT.var:bpm_farmer_population_yandev_var
-					multiply = 0.44
+					multiply = 0.33
 				}
 			}
 			if = { # Countries with a strong lower class (Labourers, Machinists) were also a bit more progressive.
@@ -637,11 +637,11 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				add = {
 					value = ROOT.var:bpm_laborer_population_yandev_var
-					multiply = 0.03 # 0.05 - Counter-balance for the 'reactionary' shopkeepers and farmers!
+					multiply = 0.08 # 0.05 - Counter-balance for the 'reactionary' shopkeepers and farmers!
 				}
 				add = {
 					value = ROOT.var:bpm_machinist_population_yandev_var
-					multiply = 0.25 # 0.20 - Counter-balance for the 'reactionary' shopkeepers and farmers!
+					multiply = 0.33 # 0.20 - Counter-balance for the 'reactionary' shopkeepers and farmers!
 				}
 			}
 		}
@@ -1133,12 +1133,12 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 			}
 
-			add = {
-				value = -50
+			subtract = {
+				value = 50
 				add = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				divide = 3.33
-				max = 0
+				#max = 0
 			}
 
 			every_interest_group = {

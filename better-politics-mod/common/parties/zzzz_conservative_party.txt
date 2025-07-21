@@ -941,6 +941,20 @@ conservative_party = {
 							is_interest_group_type = ig_anarchists
 						}
 					}
+
+					any_interest_group = {
+						has_party = yes
+						party = {
+							is_party_type = conservative_party
+						}
+						NOR = {
+							has_ideology = ideology:ideology_rel_radical_moralist
+							AND = {
+								has_ideology = ideology:ideology_rel_moralist
+								is_interest_group_type = ig_conservatives
+							}
+						}
+					}
 				}
 			}
 			add = {
