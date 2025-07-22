@@ -330,6 +330,7 @@ bpm_workplace_safety_christdem_modifier = {
     state_laborers_mortality_mult = -0.02
     state_machinists_mortality_mult = -0.02
     state_farmers_mortality_mult = -0.01
+    state_working_adult_ratio_add = -0.01
     # # country_rigidity_baseline_add = 1
 }
 

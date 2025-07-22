@@ -456,7 +456,12 @@ conservative_party = {
 						bpm_ig_is_moderate_conservative = yes
 						bpm_ig_is_liberal_conservative = no
 					}	
-					is_interest_group_type = ig_christian_democrats
+					AND = {
+						is_interest_group_type = ig_christian_democrats
+						owner = {
+							country_has_state_religion = rel:catholic
+						}
+					}
 				}
 			}
 			add = {

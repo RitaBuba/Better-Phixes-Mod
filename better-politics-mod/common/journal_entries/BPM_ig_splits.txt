@@ -1530,12 +1530,22 @@ je_bpm_christian_or_democrat = {
 				
 				if = {
 					limit = { 
-						owner = {
-							NOT = {
-								has_technology_researched = socialism
-								has_technology_researched = corporatism
-								has_technology_researched = egalitarianism
-								has_technology_researched = nationalism
+						OR = {
+							owner ?= {
+								NOT = {
+									has_technology_researched = socialism
+									has_technology_researched = corporatism
+									has_technology_researched = egalitarianism
+									has_technology_researched = nationalism
+								}
+							}
+							ROOT = {
+								NOT = {
+									has_technology_researched = socialism
+									has_technology_researched = corporatism
+									has_technology_researched = egalitarianism
+									has_technology_researched = nationalism
+								}
 							}
 						}
 						ROOT.var:independence_from_church_variable >= 25
@@ -1601,8 +1611,14 @@ je_bpm_christian_or_democrat = {
 
 			bpm_christdem_split.50 # Economy: Return
 			bpm_christdem_split.51 # Politics: Return
-			
-			#bpm_frankfurt_parliament_events.23
+		}
+	}
+
+	on_yearly_pulse = {
+		random_events = {
+		 	60 = 0
+		 	5 = bpm_christdem_flavour.1
+			5 = bpm_christdem_flavour.3 
 		}
 	}
 
@@ -1610,7 +1626,7 @@ je_bpm_christian_or_democrat = {
 		custom_tooltip = {
 			text = "bpm_je_progress_complete"
 			var:independence_from_church_variable >= 100
-			always = no
+			#always = no
 		}
 	}
 
