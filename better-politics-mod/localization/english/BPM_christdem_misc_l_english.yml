@@ -117,14 +117,14 @@
  ############## Christian Democrats 
 
  ideology_eco_distributist_economy: "Distributist Economy"
- ideology_eco_distributist_economy_desc: "#lore This group believes in the principles of distributism and capitalism, supporting corporatist methods and cooperativization of the economy — mainly of agriculture, as well as fiscal conservatism, although sometimes limited by economic intervention.#!"
+ ideology_eco_distributist_economy_desc: "#lore This group believes in the principles of distributism, corporatism and fiscal conservatism, and seeks to reform or abolish capitalism — eventually establishing an artisantal and strongly cooperativized economy based on minor production.#!" 
 
  ################################################# 
  ############## Christian Democrats: Names
 
  ig_christian_democrats: "Christian Democrats"
  ig_christian_democrats_only_icon: "@ig_christian_democrats!"
- ig_christian_democrats_desc: "As a centrist ideology with a heavy emphasis on local circumstances, Christian Democrats are a group with no clear ideological definition, but generally find themselves on the left-wing of Catholic thought, usually supporting suffrage, corporatism and religious moralism. Historically, it has been a broad concept; ranging from the Austrian corporatist-authoritarian Christlichsozialen and the Lithuanian ethnonationalist-agrarian Krikščionys Demokratai, through the Italian reformist Popularists and the German big-tent Zentrumspartei, to the Czech pro-austerity Lidovci and the 1930s Polish anti-capitalist Chadecy."
+ ig_christian_democrats_desc: "As a centrist ideology with a heavy emphasis on local circumstances, Christian Democrats are a group with no clear ideological definition, but generally find themselves on the left-wing of Catholic thought, usually supporting suffrage, corporatism and religious moralism. Historically, it has been a broad concept; ranging from the Austrian corporatist-authoritarian Christlichsozialen and the Lithuanian ethnonationalist-agrarian Krikščionys Demokratai, through the Italian reformist-progressive Popularists and the German big-tent Zentrumspartei, to the Czech pro-austerity Lidovci and the 1930s Polish anti-capitalist Chadecy."
 
  ig_catholic_interests: "Catholic Interests"
  ig_catholic_interests_desc: "An interest bloc representing politically independent followers of the Catholic Church, seeking to protect fellow believers from state overreach in areas of religiosity and education by, for example, imposing secularism, often also hostile to capitalism and modernity — usually basing themselves on Catholic Social Teaching. Examples include the German Zentrumspartei, French Liberal Action, various independent Catholic Actions and early Christian movements." # Used to have Irish Home Rule League  
@@ -417,7 +417,7 @@
 
  bpm_christdem_split.8.t: "On Nationalism and Borders"
  bpm_christdem_split.8.desc: "@ig_christian_democrats! Catholic laymen have long had a strong sense of their culture, but with the advent of nationalism and modern perceptions of people, the way this culture is related to has shifted considerably. In the past, many of them felt a sense of belonging only to their family and place of residence; now, more and more of them are finding new senses of belonging and places.\n\nNationalism has caused some to fall in love with their nation and find enemies in others, while others have found a strong sense of belonging to humanity as a whole and maintain the pursuit of uniting small groups into a single whole. Meanwhile some have found a golden mean between the two radical perceptions."
- bpm_christdem_split.8.f: "There is neither Jew nor Gentile, neither slave nor free, nor is there male and female, for you are all one in Christ Jesus.\n\n— Galatians 3:28"
+ bpm_christdem_split.8.f: "While it is natural that the clergy, as a component part of a broader social order, should take the interests of the fatherland to heart, it is neither natural nor Christian to slip into any kind of nationalism or particularism, which involve losing that superiority of judgement that derives from universal Christian morality.\n\n— Luigi Sturzo, 1929"
  
  bpm_christdem_split.8.a: "All borders, whether internal or international, must be weakened and eventually abolished."
  bpm_christdem_split.8.b: "All people should be allowed to seek a new safe haven."
