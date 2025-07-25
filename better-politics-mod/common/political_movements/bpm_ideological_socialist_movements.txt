@@ -583,7 +583,7 @@ movement_socialist = {
 				is_pop_type = laborers
 			}
 			add = {
-				value = 18 # bread and butter movement
+				value = 36 # bread and butter movement
 				multiply = {
 					value = owner.bpm_consciousness_socialist_movement_laborers
 					desc = "BPM_LABOR_CONSCIOUSNESS"
@@ -596,7 +596,7 @@ movement_socialist = {
 				is_pop_type = machinists
 			}
 			add = {
-				value = 18
+				value = 36
 				multiply = {
 					value = owner.bpm_consciousness_socialist_movement_machinists
 					desc = "BPM_LABOR_CONSCIOUSNESS"
@@ -609,7 +609,7 @@ movement_socialist = {
 				is_pop_type = academics
 			}
 			add = {
-				value = 12
+				value = 24
 				multiply = {
 					value = owner.bpm_consciousness_socialist_movement_academics_and_engineers
 					desc = "BPM_LABOR_CONSCIOUSNESS"
@@ -622,7 +622,7 @@ movement_socialist = {
 				is_pop_type = engineers
 			}
 			add = {
-				value = 12
+				value = 48
 				multiply = {
 					value = owner.bpm_consciousness_socialist_movement_academics_and_engineers
 					desc = "BPM_LABOR_CONSCIOUSNESS"
@@ -1171,6 +1171,9 @@ movement_anarchist = {
 				}
 				desc = "POP_SOLDIERS"	
 			}
+		}
+		else = {
+			value = 0
 		}
 		if = {
 			limit = {
