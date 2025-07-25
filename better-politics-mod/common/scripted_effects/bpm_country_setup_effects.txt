@@ -16,9 +16,12 @@
 	bpm_cache_country_igs_radical_opposition_effect = yes
 	bpm_cache_country_variables_monthly_effect = yes
 	bpm_cache_country_variables_half_yearly_effect = yes
-	bpm_activate_interest_group_initialize = yes
 	bpm_setup_foundation_laws = yes
 	bpm_trend_party_establishment = yes
+}
+
+bpm_earlier_setup_country = {
+	bpm_activate_interest_group_initialize = yes
 }
 
 bpm_setup_cabinet = {
