@@ -1425,7 +1425,6 @@ on_game_started = {
 on_bpm_game_started = {
 	effect = {
 		every_country = {
-			trigger_event = { id = bpm_misc.2 }
 			trigger_event = { id = bpm_misc.5}
 		}
 	}
