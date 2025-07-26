@@ -114,6 +114,10 @@
 		value = 1
 		add = modifier:country_bpm_labor_consciousness_target_mult
 	}
+	divide = {
+		value = bpm_consciousness_number_of_states
+		desc = bpm_consciousness_labor_change_states_divide_desc
+	}
 	min = 0
 	max = 100
 }
@@ -262,6 +266,13 @@ bpm_loyalist_population_fraction = {
 		}
 	}
 	divide = total_population
+}
+
+bpm_consciousness_number_of_states = {
+	value = 0
+	every_scope_state = {
+		add = 1
+	}
 }
 
 bpm_consciousness_labor_change_manufacturing = {
