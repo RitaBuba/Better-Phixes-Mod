@@ -1530,23 +1530,8 @@ je_bpm_christian_or_democrat = {
 				
 				if = {
 					limit = { 
-						OR = {
-							owner ?= {
-								NOT = {
-									has_technology_researched = socialism
-									has_technology_researched = corporatism
-									has_technology_researched = egalitarianism
-									has_technology_researched = nationalism
-								}
-							}
-							ROOT = {
-								NOT = {
-									has_technology_researched = socialism
-									has_technology_researched = corporatism
-									has_technology_researched = egalitarianism
-									has_technology_researched = nationalism
-								}
-							}
+						NOT = {
+							has_global_variable = global_variable_quanta_cura_var_released
 						}
 						ROOT.var:independence_from_church_variable >= 25
 					}
