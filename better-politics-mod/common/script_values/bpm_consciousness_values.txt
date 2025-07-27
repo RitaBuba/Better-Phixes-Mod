@@ -114,6 +114,10 @@
 		value = 1
 		add = modifier:country_bpm_labor_consciousness_target_mult
 	}
+	divide = {
+		value = bpm_consciousness_number_of_states
+		desc = bpm_consciousness_labor_change_states_divide_desc
+	}
 	min = 0
 	max = 100
 }
@@ -264,6 +268,13 @@ bpm_loyalist_population_fraction = {
 	divide = total_population
 }
 
+bpm_consciousness_number_of_states = {
+	value = 0
+	every_scope_state = {
+		add = 1
+	}
+}
+
 bpm_consciousness_labor_change_manufacturing = {
 	value = 0
 	every_scope_building = {
@@ -340,12 +351,12 @@ bpm_consciousness_labor_percent = {
 
 bpm_consciousness_labor_movement_laborers = {
 	value = bpm_consciousness_labor_percent
-	subtract = 0.5
+	subtract = 0.3
 	multiply = {
 		value = bpm_consciousness_labor_percent
-		subtract = 0.5
+		subtract = 0.3
 	}
-	multiply = -24 
+	multiply = -12
 	add = 0.75
 	multiply = 4
 	min = 0
@@ -396,7 +407,7 @@ bpm_consciousness_socialist_movement_laborers = {
 		subtract = 0.7
 	}
 	multiply = -8 
-	add = 0.65
+	add = 1
 	multiply = 6
 	min = 0
 }
@@ -409,7 +420,7 @@ bpm_consciousness_socialist_movement_machinists = {
 		subtract = 0.6
 	}
 	multiply = -12
-	add = 0.85
+	add = 1.5
 	multiply = 6
 	min = 0
 }
@@ -449,13 +460,12 @@ bpm_consciousness_communist_movement_laborers = {
 		value = bpm_consciousness_beyond_liberal_percent
 		subtract = 2
 	}
-	divide = -3 
-	add = 1
-	multiply = 12
+	divide = -6 
+	add = 6
 	if = {
 		# When fully awakened, nothing can stand in the way of the struggle
 		limit = {
-			bpm_consciousness_beyond_liberal_percent >= 1
+			bpm_consciousness_beyond_liberal_percent >= 1.5
 			is_player = yes
 		}
 		multiply = 999
@@ -471,8 +481,7 @@ bpm_consciousness_communist_movement_machinists = {
 		subtract = 2
 	}
 	divide = -4
-	add = 1
-	multiply = 12
+	add = 6
 	if = {
 		# When fully awakened, nothing can stand in the way of the struggle
 		limit = {
@@ -929,11 +938,11 @@ bpm_consciousness_beyond_liberal_percent = {
 	value = var:bpm_consciousness_labor
 	
 	multiply = {
-		value = 1.5
+		value = 1.2
 		subtract = bpm_consciousness_labor_min_lib
 	}
 	multiply = {
-		value = 1.5
+		value = 1.2
 		subtract = bpm_consciousness_labor_min_lib
 	}
 	divide = 100

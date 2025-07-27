@@ -1,4 +1,4 @@
-﻿MILITARY_DEPLOYMENTS = {
+﻿GLOBAL = {
 	every_country = {
 		limit = {
 			OR = {
