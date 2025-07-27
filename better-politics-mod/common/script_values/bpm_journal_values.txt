@@ -665,7 +665,7 @@ bpm_je_syndicalism_rate = {
 	        add = {
 	           	desc = "BPM_VALUE_FROM_LABORER_LOYALISTS"
 	            	value = var:bpm_laborer_loyalists_yandev_var
-	            	multiply = -0.10
+	            	multiply = -0.05
 	        }
 	}
 
@@ -674,7 +674,7 @@ bpm_je_syndicalism_rate = {
 	        add = {
 	           	desc = "BPM_VALUE_FROM_MACHINIST_LOYALISTS"
 	            	value = var:bpm_machinist_loyalists_yandev_var
-	            	multiply = -0.10
+	            	multiply = -0.05
 	        }
 	}
 
