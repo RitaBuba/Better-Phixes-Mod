@@ -132,6 +132,9 @@ quanta_cura_decision_variable_debug = {
 	}
 	when_taken = {
 		set_global_variable = global_variable_quanta_cura_var_released
+		every_country = {
+			remove_variable = cant_progress_sorry_var
+		}
 	}
 
 	ai_chance = {
@@ -147,6 +150,9 @@ rerum_novarum_decision_variable_debug = {
 	}
 	when_taken = {
 		set_global_variable = global_rerum_novarum_issued_var
+		every_country = {
+			remove_variable = cant_progress_sorry_var
+		}
 	}
 
 	ai_chance = {
@@ -163,6 +169,9 @@ graves_de_communi_re_decision_variable_debug = {
 	}
 	when_taken = {
 		set_global_variable = global_variable_graves_de_communi_re
+		every_country = {
+			remove_variable = cant_progress_sorry_var
+		}
 	}
 
 	ai_chance = {

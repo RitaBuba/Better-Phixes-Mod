@@ -849,8 +849,13 @@ je_bpm_christian_or_democrat = {
 	}
 
 	is_progressing = {
-		NOT = {
-			has_variable = cant_progress_sorry_var
+		OR = {
+			NOT = {
+				has_variable = cant_progress_sorry_var
+			}
+			NOT = {
+				ROOT.var:cant_progress_sorry_var = 1
+			}
 		}
 	}
 
@@ -1526,7 +1531,16 @@ je_bpm_christian_or_democrat = {
 					}
 				}
 
-				remove_variable = cant_progress_sorry_var
+				if = {
+					limit = {
+						has_variable = cant_progress_sorry_var
+					}
+					remove_variable = cant_progress_sorry_var
+					change_variable = {
+						name = cant_progress_sorry_var
+						value = 0
+					}
+				}
 				
 				if = {
 					limit = { 
@@ -1539,7 +1553,10 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						value = 25
 					}
-					set_variable = cant_progress_sorry_var
+					#set_variable = {
+					#	name = cant_progress_sorry_var
+					#	value = 1
+					#}
 				}
 
 				else_if = {
@@ -1553,7 +1570,10 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						value = 50
 					}
-					set_variable = cant_progress_sorry_var
+					#set_variable = {
+					#	name = cant_progress_sorry_var
+					#	value = 1
+					#}
 				}
 
 				else_if = {
@@ -1567,7 +1587,10 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						value = 75
 					}
-					set_variable = cant_progress_sorry_var
+					#set_variable = {
+					#	name = cant_progress_sorry_var
+					#	value = 1
+					#}
 				}
 
 				clamp_variable = {

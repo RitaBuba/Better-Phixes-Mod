@@ -15,7 +15,7 @@ bpm_je_christian_democrat_ideology_rate = {
 	add = { ##### Countries with significant peasantry (not farmers!) were more progressive (Poland, Czechoslovakia, Italy)
 		desc = "BPM_VALUE_FROM_PEASANT_POPULATION"
 		value = var:bpm_peasant_population_yandev_var
-		multiply = 0.05 # 0.04
+		multiply = 0.066 # 0.04
 	}
 
 	##### This was moved down to class-focused values!
@@ -83,14 +83,18 @@ bpm_je_christian_democrat_ideology_rate = {
 				limit = {
 					is_interest_group_type = ig_national_liberals
 				}
-				add = ig_clout
+				add = {
+					value = ig_clout
+				}
 			}
 			every_political_movement = {
 				limit = {
-					bpm_movement_is_liberal_nationalist = yes
+					is_political_movement_type = movement_national_liberal
 				}
-				add = political_movement_support
-				multiply = 0.5
+				add = {
+					value = political_movement_support
+					multiply = 15
+				}
 			}
 		}
 		
@@ -433,25 +437,6 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 			}
 			add = -0.5
-			if = {
-				limit = {
-					country_has_state_religion = rel:catholic
-				}
-				subtract = {
-					value = ROOT.ig:ig_devout.ig_clout
-					multiply = 1.66
-					if = {
-						limit = {
-							ig:ig_devout = {
-								leader = {
-									has_ideology = ideology:ideology_theocrat
-								}
-							}
-						}
-						multiply = 1.33
-					}
-				}
-			}
 		}
 		else_if = {
 			limit = {
@@ -500,6 +485,26 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 			}
 		}
+
+		if = {
+			limit = {
+				country_has_state_religion = rel:catholic
+			}
+			subtract = {
+				value = ROOT.ig:ig_devout.ig_clout
+				multiply = 1.66
+					if = {
+						limit = {
+							ig:ig_devout = {
+							leader = {
+									has_ideology = ideology:ideology_theocrat
+								}
+							}
+						}
+					multiply = 1.33
+				}
+			}
+		}
 	}
 
 	add = { ##### As Christian Democrats progress, they should retain their goal of retaining moderation wherever they currently are.
@@ -509,7 +514,7 @@ bpm_je_christian_democrat_ideology_rate = {
 			value = 50
 			subtract = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
 			multiply = ROOT.ig:ig_christian_democrats.ig_clout
-			divide = 2.5
+			divide = 3
 		}
 
 		if = { ### Essentially a negative modifier
@@ -523,7 +528,7 @@ bpm_je_christian_democrat_ideology_rate = {
 		}
 
 		subtract = {
-			value = 4.44
+			value = 1.33
 			multiply = bpm_loyalist_population_fraction
 			multiply = 1.33
 		}
@@ -564,8 +569,8 @@ bpm_je_christian_democrat_ideology_rate = {
 				has_global_variable = global_rerum_novarum_issued_var
 			}
 
-			subtract = {
-				value = 50
+			add = {
+				value = -50
 				add = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				divide = 2.5
