@@ -476,9 +476,11 @@ bpm_update_splits_oa = {
                                 this > 0.3
                             }
                         }
-                        has_global_variable = global_anarchists_split_var
-                        has_variable = local_anarchists_split_var
                         bpm_consciousness_labor_percent > 0.55
+                        AND = {
+                            bpm_consciousness_labor_percent > 0.25
+                            has_global_variable = first_intl_chain_complete_var
+                        }
                     }
                     NOT = {
                         bpm_has_movement_interaction = { int = anarchist_split }
@@ -502,8 +504,11 @@ bpm_update_splits_oa = {
                                 this > 0.3
                             }
                         }
-                        has_variable = local_revsocs_split_var
                         bpm_consciousness_labor_percent > 0.75
+                        AND = {
+                            bpm_consciousness_labor_percent > 0.25
+                            has_global_variable = second_intl_chain_complete_var
+                        }
                     }
                     NOT = {
                         bpm_has_movement_interaction = { int = revsoc_split }
@@ -527,7 +532,11 @@ bpm_update_splits_oa = {
                                 this > 0.3
                             }
                         }
-                        has_variable = local_revsocs_split_var
+                        bpm_consciousness_labor_percent > 0.75
+                        AND = {
+                            bpm_consciousness_labor_percent > 0.25
+                            has_global_variable = second_intl_chain_complete_var
+                        }
                     }
                     NOT = {
                         bpm_has_movement_interaction = { int = refsoc_split }
