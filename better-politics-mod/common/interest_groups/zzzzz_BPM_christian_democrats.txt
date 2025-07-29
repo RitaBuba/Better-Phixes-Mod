@@ -682,7 +682,7 @@
 
 		multiply = { #has researched mass parties
             desc = "Has Mass Parties"
-            value = 0.6
+            value = 0.7
             if = { 
                 limit = { 
                     owner = { 
@@ -705,20 +705,20 @@
 			}
 		}
 
-		if = {
-			limit = { owner = { has_variable = bpm_country_very_undemocratic_var } }
-			multiply = {
-				desc = "NO_DEMOCRACY"
-				value = 1.5
-			}
-		}
-		else_if = {
-			limit = { owner = { has_variable = bpm_country_undemocratic_var } }
-			multiply = {
-				desc = "LIMITED_DEMOCRACY"
-				value = 1.2
-			}
-		}
+		#if = {
+		#	limit = { owner = { has_variable = bpm_country_very_undemocratic_var } }
+		#	multiply = {
+		#		desc = "NO_DEMOCRACY"
+		#		value = 1.5
+		#	}
+		#}
+		#else_if = {
+		#	limit = { owner = { has_variable = bpm_country_undemocratic_var } }
+		#	multiply = {
+		#		desc = "LIMITED_DEMOCRACY"
+		#		value = 1.2
+		#	}
+		#}
 
 		if = {
 			limit = { owner = { bpm_performance_significant_country = yes } }
