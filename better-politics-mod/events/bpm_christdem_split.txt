@@ -115,7 +115,7 @@ bpm_christdem_split.4 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 20
+		var:independence_from_church_variable >= 40
 		NOT = { has_variable = bpm_christian_democrats_sta_ideology }
 	}
 
@@ -217,7 +217,7 @@ bpm_christdem_split.5 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable > 60 # Rerum Novarum must be announced!
+		var:independence_from_church_variable > 120 # Rerum Novarum must be announced!
 		NOT = { has_variable = bpm_christian_democrats_eco_ideology }
 	}
 
@@ -364,7 +364,7 @@ bpm_christdem_split.6 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 10
+		var:independence_from_church_variable >= 20
 		NOT = { has_variable = bpm_christian_democrats_rel_ideology }
 	}
 
@@ -461,7 +461,7 @@ bpm_christdem_split.7 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable > 50
+		var:independence_from_church_variable > 100
 		has_global_variable = global_rerum_novarum_issued_var
 		NOT = { has_variable = bpm_christian_democrats_wel_ideology }
 		NOT = { has_variable = cant_progress_sorry_var }
@@ -525,7 +525,7 @@ bpm_christdem_split.7 = {
 			custom_tooltip = {
 				text = welfare_leaning_state_eco_35_tt
 				je:je_bpm_christian_or_democrat ?= { 
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 35
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
 				}
 			}
 		}
@@ -575,9 +575,9 @@ bpm_christdem_split.7 = {
 			has_technology_researched = corporatism
 			
 			custom_tooltip = {
-				text = welfare_leaning_state_eco_75_tt
+				text = welfare_leaning_state_eco_40_tt
 				je:je_bpm_christian_or_democrat ?= { 
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 65
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 40
 				}
 			}
 		}
@@ -612,7 +612,7 @@ bpm_christdem_split.8 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 30
+		var:independence_from_church_variable >= 60
 		NOT = { has_variable = bpm_christian_democrats_cit_ideology }
 	}
 
@@ -1020,7 +1020,7 @@ bpm_christdem_split.12 = {
 	}
 
 	immediate = {
-		set_variable = bpm_christian_democrats_program_completed
+		#set_variable = bpm_christian_democrats_program_completed
 	}
 
 	after = {

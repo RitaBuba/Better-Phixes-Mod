@@ -338,7 +338,6 @@
  je_debating_the_fem_stance: "Coherent stances on women and their rights are currently being developed."
 
  je_finalizing_the_political_program: "Gaining mass popularity and securing full independence from the Church."
- je_securing_full_independence_from_the_church: "Finally deciding if we are Christians, or Democrats."
  
 
  
@@ -347,7 +346,7 @@
 
  socialised_economy_tt: "You have more than or equal to #gold 80%#! on the side of #bold Anti-Capitalism#! in #bold Economical Leaning progress#! Progress Bar"
  welfare_leaning_state_eco_75_tt: "You have more than or equal to #gold 65%#! on the side of #bold Anti-Capitalism#! in #bold Economical Leaning progress#! Progress Bar"
- welfare_leaning_state_eco_35_tt: "You have more than or equal to #gold 35%#! on the side of #bold Distributism#! in #bold Economical Leaning progress#! Progress Bar"
+ welfare_leaning_state_eco_35_tt: "You have less than or equal to #gold 25%#! on the side of #bold Distributism#! in #bold Economical Leaning progress#! Progress Bar"
  distributist_economy_tt: "You have less than or equal to #gold 20%#! on the side of #bold Distributism#! in #bold Economical Leaning progress#! Progress Bar"
  ideological_leaning_christian_democrat_tt: "You have more than or equal to #gold 80%#! on the side of #bold Democracy#! in #bold Ideological Leaning progress#! Progress Bar"
  welfare_leaning_society_welfare_tt: "You have less than or equal to #gold 30%#! on the side of #bold Society#! in #bold Welfare Leaning progress#! Progress Bar"

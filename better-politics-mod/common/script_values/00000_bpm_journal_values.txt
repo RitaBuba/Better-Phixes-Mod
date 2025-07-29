@@ -74,10 +74,14 @@ bpm_je_christian_democrat_ideology_rate = {
 		if = { ### ...served as a backing for pan-national movements... (Germany, Italy)
 			limit = {
 				OR = {
-					country_has_primary_culture = cu:north_german
-					country_has_primary_culture = cu:north_italian
+					owner = {
+						OR = {
+							can_form_nation = ITA
+							can_form_nation = GER
+						}
+					}
+					has_technology_researched = pan-nationalism
 				}
-				has_technology_researched = pan-nationalism
 			}
 			every_interest_group = {
 				limit = {
@@ -1208,15 +1212,24 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 
 			add = {
 				value = 50
-				subtract = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)"
+				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
-				divide = 2.5
+				divide = 1.66
+			}
+		}	
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_BELOW_EXPECTED_AND_TAX"
+
+		if = {
+			limit = {
+				has_global_variable = global_rerum_novarum_issued_var
 			}
 
 			add = {
 				value = bpm_country_fraction_below_expected_sol
-				multiply = 1.33
-				divide = 55
+				multiply = 6.66
 			}
 
 			if = {
@@ -1306,7 +1319,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 			}
-		}	
+		}
 	}
 }
 
