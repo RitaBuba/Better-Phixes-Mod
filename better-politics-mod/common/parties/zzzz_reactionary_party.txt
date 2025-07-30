@@ -216,6 +216,12 @@ reactionary_party = {
 				}
 			}
 			triggered_desc = {
+				desc = party_true_peoples_party
+				trigger = {
+					c:MON ?= this
+				}
+			}
+			triggered_desc = {
 				desc = party_gre_russian
 				trigger = {
 					c:GRE ?= THIS
