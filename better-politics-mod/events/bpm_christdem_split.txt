@@ -1040,7 +1040,7 @@ bpm_christdem_split.12 = {
 		ig:ig_christian_democrats = {
 			add_modifier = {
                 name = bpm_ig_all_alone_again
-                months = normal_modifier_time
+                days = normal_modifier_time
 				is_decaying = yes
             }
 		}

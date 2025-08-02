@@ -27,6 +27,20 @@ bpm_secularist_popularity = {
 	}
 }
 
+bpm_moralist_popularity = {
+	value = 0
+	every_interest_group = {
+		limit = { 
+			OR = {
+				has_ideology = ideology:ideology_rel_radical_moralist
+				has_ideology = ideology:ideology_rel_moralist
+				has_ideology = ideology:ideology_rel_liberal_moralist
+			}
+		}
+		add = ig_clout
+	}
+}
+
 bpm_country_fraction_below_expected_sol = {
 	value = 0
 	every_scope_state = {

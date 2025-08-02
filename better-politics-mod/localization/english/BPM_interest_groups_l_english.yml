@@ -259,7 +259,7 @@
  ig_cotton_whigs_desc:0 "$ig_conservatives_desc$"
 
  ig_paternal_conservatives:0 "Paternal Conservatives"
- ig_paternal_conservatives_desc:0 "Paternal conservatives are a subset of conservatives that attempt to preserve the fundamental status quo with tactical expansions in political rights and social welfare. Examples include Disraeli's Tories and Christian Democrats."
+ ig_paternal_conservatives_desc:0 "Paternal conservatives are a subset of conservatives that attempt to preserve the fundamental status quo with tactical expansions in political rights, reforms and social welfare, usually referencing religion, corporatism or #italic noblesse oblige#!. Examples include Disraeli's Tories, Teddy's Progressive Conservatives, Woeste's Old Right and Bismarckian Conservatives."
 
  ig_progressive_conservatives:0 "Progressive Conservatives"
  ig_progressive_conservatives_desc:0 "$ig_paternal_conservatives_desc$"
