@@ -13,8 +13,11 @@ bpm_rename_christian_democrat_ig = {
 			}
 			has_global_variable = global_rerum_novarum_issued_var
 			has_global_variable = global_variable_graves_de_communi_re
+			owner = {
+				has_variable = variable_christian_democrat_wine_win
+			}
 		}
-		ig:ig_christian_democrats ?= { set_interest_group_name = ig_popularists }
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_popularists_left }
 	}
 
 	else_if = {
@@ -25,11 +28,18 @@ bpm_rename_christian_democrat_ig = {
 			}
 			has_global_variable = global_rerum_novarum_issued_var
 			has_global_variable = global_variable_graves_de_communi_re
-			owner = {
-				has_variable = variable_christian_democrat_wine_win
+		}
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_popularists }
+	}
+
+	else_if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:north_italian
+				country_has_primary_culture = cu:south_italian
 			}
 		}
-		ig:ig_christian_democrats ?= { set_interest_group_name = ig_popularists_left }
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_liberal_catholics }
 	}
 
 	else_if = {
@@ -978,12 +988,18 @@ bpm_rename_conservative_ig = {
 		ig:ig_conservatives ?= { set_interest_group_name = ig_saquaremas }
 	}
 	else_if = {
-		limit = { ig:ig_conservatives ?= { 
-			#has_ideology = ideology:ideology_wel_paternalistic_welfare 
-			bpm_ig_is_paternalistic = yes 
-		} }
+		limit = { 
+			ig:ig_conservatives ?= { 
+				OR = {
+					has_variable = bpm_old_new_wine_conservative_win_variable
+					bpm_ig_is_paternalistic = yes 
+				}
+			} 
+		}
 		if = {
-			limit = { country_has_state_religion = rel:catholic }
+			limit = { 
+				always = no
+			}
 			ig:ig_conservatives ?= { set_interest_group_name = ig_catholic_democrats }
 		}
 		else = {
@@ -1093,8 +1109,28 @@ bpm_rename_conservative_ig = {
 					is_party_type = conservative_party
 				}
 			}
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+			}
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_classical_conservatives }
+	}
+
+	else_if = {
+		limit = {
+			has_global_variable = global_rerum_novarum_issued_var
+			ig:ig_christian_democrats ?= {
+				has_party = yes
+				party = {
+					is_party_type = conservative_party
+				}
+			}
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+				has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+			}
+		}
+		ig:ig_conservatives ?= { set_interest_group_name = ig_christian_democrats_rightwing }
 	}
 
 	# Konstitutionell-Liberale
@@ -1232,6 +1268,7 @@ bpm_rename_reactionary_ig = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
 			}
+			NOT = { ig:ig_christian_democrats = { has_ideology = ideology:ideology_nonexistent } }
 			has_global_variable = global_rerum_novarum_issued_var
 			ig:ig_christian_democrats ?= {
 				has_party = yes

@@ -680,9 +680,6 @@ bpm_create_necessary_movements = {
 		create_political_movement = {
 			type = movement_radical
 		}
-		create_political_movement = {
-			type = movement_labor
-		}
 	}
 
 	if = {
@@ -700,7 +697,14 @@ bpm_create_necessary_movements = {
 
 	if = {
 		limit = {
-			has_global_variable = second_intl_chain_complete_var
+			OR = {
+				AND = {
+					has_global_variable = second_intl_chain_complete_var
+					bpm_consciousness_labor_percent > 0.25
+				}
+				bpm_consciousness_labor_percent > 0.75
+			}
+			
 		}
 		create_political_movement = {
 			type = movement_communist
@@ -715,7 +719,13 @@ bpm_create_necessary_movements = {
 
 	else_if = {
 		limit = {
-			has_global_variable = first_intl_chain_complete_var
+			OR = {
+				AND = {
+					has_global_variable = first_intl_chain_complete_var
+					bpm_consciousness_labor_percent > 0.10
+				}
+				bpm_consciousness_labor_percent > 0.25
+			}
 		}
 		create_political_movement = {
 			type = movement_socialist

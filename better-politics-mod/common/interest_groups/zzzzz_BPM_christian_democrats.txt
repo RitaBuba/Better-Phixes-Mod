@@ -20,6 +20,10 @@
 	enable = {
 		always = yes
 	}
+
+	priority_cultures = {
+		
+	}
 	
 	on_enable = {
 		ig:ig_christian_democrats ?= {
@@ -91,7 +95,7 @@
 	}
 	
 	pop_weight = {
-		value = 35
+		value = 25
 
         # Attraction from being Catholic
         if = {
@@ -426,14 +430,14 @@
 				limit = { is_pop_type = laborers }
 				add = {
 					desc = "POP_LABORERS"
-					value = 10
+					value = 5
 				}
 			}
 			else_if = {
 				limit = { is_pop_type = machinists }
 				add = {
 					desc = "POP_MACHINISTS"
-					value = 5
+					value = 3
 				}
 			}
 		}
@@ -601,9 +605,9 @@
 			desc = "POP_DISCRIMINATED"
 			if = {
 				limit = { 
-					pop_is_discriminated = yes
+					pop_acceptance <= acceptance_status_3
 				}
-				value = 20
+				value = 50
 			}
 		}	
 
@@ -625,21 +629,17 @@
 						}
                     }
                 }
-                value = 2.25
+                value = 2.5
             }
         }
-        multiply = { #has researched corporatism
-            desc = "Has Corporatism"
-            value = 0.8
-            if = { 
-                limit = { 
-                    owner = { 
-                        has_technology_researched = corporatism
-                    }
-                }
-                value = 1.125
-            }
-        }
+
+		if = {
+			limit = { owner = { NOT = { has_technology_researched = corporatism } } }
+			multiply = {
+				desc = "No Corporatism"
+				value = 0.8
+			}
+		}
 
 		multiply = { # Secularised state and place where secularization was relatively significant had Christian Democrats rather weakened (France, Germany)
             desc = "Is a Secular State"
@@ -659,12 +659,12 @@
 
 		multiply = { # Rerum novarum was released. Time to implode whole parties and organizations.
             desc = "Rerum novarum was released"
-            value = 1.0
+            value = 0.7
             if = { 
                 limit = { 
                     has_global_variable = global_rerum_novarum_issued_var
                 }
-                value = 1.3
+                value = 1.0
             }
         }
 
@@ -682,7 +682,7 @@
 
 		multiply = { #has researched mass parties
             desc = "Has Mass Parties"
-            value = 0.5
+            value = 0.7
             if = { 
                 limit = { 
                     owner = { 
@@ -705,33 +705,59 @@
 			}
 		}
 
+		#if = {
+		#	limit = { owner = { has_variable = bpm_country_very_undemocratic_var } }
+		#	multiply = {
+		#		desc = "NO_DEMOCRACY"
+		#		value = 1.5
+		#	}
+		#}
+		#else_if = {
+		#	limit = { owner = { has_variable = bpm_country_undemocratic_var } }
+		#	multiply = {
+		#		desc = "LIMITED_DEMOCRACY"
+		#		value = 1.2
+		#	}
+		#}
+
 		if = {
 			limit = { owner = { bpm_performance_significant_country = yes } }
+			multiply = 0.5
+			if = {
+				limit = {
+					owner = {
+						has_variable = bpm_strong_labor 
+					}
+				}
+				multiply = {
+					desc = "BPM_STRONG_LABOR"
+					value = 2
+				}
+			}
+			else_if = {
+				limit = {
+					owner = {
+						has_variable = bpm_average_labor 
+					}
+				}
+				multiply = {
+					desc = "BPM_AVERAGE_LABOR"
+					value = 4
+				}
+			}
+			
 			multiply = {
 				desc = "LEADER_POPULARITY"
 				scope:interest_group = {
 					leader = {
 						value = popularity
-						multiply = 0.005
+						multiply = 0.01
 						add = 1
-						max = 1.5
-						min = 0.67
+						max = 2.0
+						min = 0.75
 					}
 				}
 			}	
-			multiply = {
-				desc = "STILL_OLIGARCHIC"
-				value = 1.0
-				if = {
-					limit = {
-						owner = {
-							has_law = law_type:law_oligarchy
-							has_law = law_type:law_monarchy
-						}
-					}
-					value = 0.5
-				}
-			}
 			multiply = bpm_ig_agitators_popularity
 			multiply = bpm_ig_ruler_popularity
 			multiply = ig_attraction_from_radicals_and_loyalists
@@ -758,6 +784,16 @@
 		value = 1.0
 		multiply = bpm_commander_assignment_from_laws_factor
 	}	
+
+	executive_weight = {
+		value = 0.3
+		if ={
+			limit = {
+				owner.ig:ig_conservatives = { bpm_interest_group_is_activated = no }
+			}
+			value = 0.0
+		}
+	}	
 	
 	noble_chance = {
 		value = 0.2
@@ -776,6 +812,11 @@
 	female_agitator_chance = {
 		value = 1.0
 		multiply = bpm_female_character_spawn_chance		
+	}
+
+	female_executive_chance = {
+		value = 1.0
+		multiply = bpm_female_character_spawn_chance
 	}
 	
 	# The chance that a commander belonging to this IG takes over leadership when it changes

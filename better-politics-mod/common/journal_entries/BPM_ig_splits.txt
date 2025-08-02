@@ -453,20 +453,20 @@ je_bpm_christian_or_democrat = {
 
 	status_desc = {
 		first_valid = {
-			triggered_desc = {
-				desc = je_securing_full_independence_from_the_church
-				trigger = {
-					has_variable = bpm_christian_democrats_sta_ideology
-					has_variable = bpm_christian_democrats_rel_ideology
-					has_variable = bpm_christian_democrats_dop_ideology
-					has_variable = bpm_christian_democrats_eco_ideology
-					has_variable = bpm_christian_democrats_wel_ideology
-					has_variable = bpm_christian_democrats_cit_ideology
-					has_variable = bpm_christian_democrats_mil_ideology
-					has_variable = bpm_christian_democrats_fem_ideology
-					has_variable = bpm_christian_democrats_program_completed
-				}
-			}
+			#triggered_desc = {
+			#	desc = je_securing_full_independence_from_the_church
+			#	trigger = {
+			#		has_variable = bpm_christian_democrats_sta_ideology
+			#		has_variable = bpm_christian_democrats_rel_ideology
+			#		has_variable = bpm_christian_democrats_dop_ideology
+			#		has_variable = bpm_christian_democrats_eco_ideology
+			#		has_variable = bpm_christian_democrats_wel_ideology
+			#		has_variable = bpm_christian_democrats_cit_ideology
+			#		has_variable = bpm_christian_democrats_mil_ideology
+			#		has_variable = bpm_christian_democrats_fem_ideology
+			#		has_variable = bpm_christian_democrats_program_completed
+			#	}
+			#}
 			triggered_desc = {
 				desc = je_finalizing_the_political_program
 				trigger = {
@@ -591,28 +591,21 @@ je_bpm_christian_or_democrat = {
 				}
 				
 				OR = {
-					any_interest_group = {
-						OR = {
-							OR = {
-								has_ideology = ideology:ideology_rel_secularist
-								has_ideology = ideology:ideology_rel_radical_secularist
-							}
-							bpm_ig_is_socialist = yes
-						}
-						is_powerful = yes
+					custom_tooltip = {
+						text = "tooltip_bpm_country_secularists_are_popular"
+						bpm_secularist_popularity >= 0.2
 					}
-					AND = {
-						any_interest_group = {
-							OR = {
-								bpm_ig_is_religious = yes
-							}
-							is_powerful = yes
-						}
+					custom_tooltip = {
+						text = "tooltip_bpm_country_moralists_are_popular"
+						bpm_moralist_popularity >= 0.25
 						NOT = {
 							country_has_state_religion = rel:catholic
 						}
 					}
-					has_global_variable = global_rerum_novarum_issued_var
+					custom_tooltip = {
+						text = "rerum_novarum_issued_tooltip"
+						has_global_variable = global_rerum_novarum_issued_var
+					}
 				}
 
 				custom_tooltip = {
@@ -849,8 +842,13 @@ je_bpm_christian_or_democrat = {
 	}
 
 	is_progressing = {
-		NOT = {
-			has_variable = cant_progress_sorry_var
+		OR = {
+			NOT = {
+				has_variable = cant_progress_sorry_var
+			}
+			NOT = {
+				ROOT.var:cant_progress_sorry_var = 1
+			}
 		}
 	}
 
@@ -1094,7 +1092,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.05
+						add = 0.066
 					}
 				}
 
@@ -1104,7 +1102,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						subtract = 0.05
+						subtract = 0.088
 					}
 				}
 
@@ -1132,7 +1130,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.025
+							add = 0.033
 						}
 					}
 					else_if = {
@@ -1142,7 +1140,7 @@ je_bpm_christian_or_democrat = {
 							
 						change_variable = {
 							name = independence_from_church_variable
-							add = 0.0125
+							add = 0.025
 						}
 					}
 				}
@@ -1155,14 +1153,14 @@ je_bpm_christian_or_democrat = {
 						limit = {
 							any_interest_group = {
 								is_interest_group_type = ig_liberals
-								ig_clout >= 0.05
+								ig_clout >= 0.033
 							}
 						}
 						change_variable = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_liberals.ig_clout
-								multiply = 1.04
+								multiply = 1.1
 							}
 						}
 					}
@@ -1178,7 +1176,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_radicals.ig_clout
-								multiply = 1.08
+								multiply = 1.2
 							}
 						}
 					}
@@ -1190,7 +1188,7 @@ je_bpm_christian_or_democrat = {
 						change_variable = {
 							name = independence_from_church_variable
 							add = {
-								value = 0.2
+								value = 0.25
 							}
 						}
 					}
@@ -1202,7 +1200,7 @@ je_bpm_christian_or_democrat = {
 						change_variable = {
 							name = independence_from_church_variable
 							subtract = {
-								value = 0.1
+								value = 0.15
 							}
 						}
 					}
@@ -1226,7 +1224,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_liberal_movement.political_movement_support
-								multiply = 0.15
+								multiply = 0.25
 							}
 							else = {
 								value = 0.02
@@ -1248,7 +1246,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_radical_movement.political_movement_support
-								multiply = 0.28
+								multiply = 0.25
 							}
 							else = {
 								value = 0.01
@@ -1378,7 +1376,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.00125
+						add = 0.0025
 					}
 				}
 
@@ -1388,7 +1386,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.0025
+						add = 0.0033
 					}
 				}
 
@@ -1398,7 +1396,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.0025
+						add = 0.0044
 					}
 				}
 
@@ -1408,7 +1406,7 @@ je_bpm_christian_or_democrat = {
 					}
 					change_variable = {
 						name = independence_from_church_variable
-						add = 0.0075
+						add = 0.005
 					}
 				}
 
@@ -1420,7 +1418,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						add = {
 							value = var:bpm_consciousness_liberal
-							multiply = 0.003
+							multiply = 0.0036
 						}
 					}
 				}
@@ -1462,7 +1460,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							subtract = {
 								value = ROOT.ig:ig_conservatives.ig_clout
-								multiply = 1.33
+								multiply = 1.66
 							}
 						}
 					}
@@ -1477,7 +1475,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							subtract = {
 								value = ROOT.ig:ig_reactionaries.ig_clout
-								multiply = 1.66
+								multiply = 2
 							}
 						}
 					}
@@ -1493,7 +1491,7 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							subtract = {
 								value = ROOT.ig:ig_national_liberals.ig_clout
-								multiply = 1.11
+								multiply = 1.33
 							}
 						}
 					}
@@ -1507,7 +1505,7 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						add = {
 							value = ROOT.ig:ig_trade_unions.ig_clout
-							multiply = 0.33
+							multiply = 0.5
 						}
 					}
 				}
@@ -1526,35 +1524,32 @@ je_bpm_christian_or_democrat = {
 					}
 				}
 
-				remove_variable = cant_progress_sorry_var
+				if = {
+					limit = {
+						has_variable = cant_progress_sorry_var
+					}
+					remove_variable = cant_progress_sorry_var
+					change_variable = {
+						name = cant_progress_sorry_var
+						value = 0
+					}
+				}
 				
 				if = {
 					limit = { 
-						OR = {
-							owner ?= {
-								NOT = {
-									has_technology_researched = socialism
-									has_technology_researched = corporatism
-									has_technology_researched = egalitarianism
-									has_technology_researched = nationalism
-								}
-							}
-							ROOT = {
-								NOT = {
-									has_technology_researched = socialism
-									has_technology_researched = corporatism
-									has_technology_researched = egalitarianism
-									has_technology_researched = nationalism
-								}
-							}
+						NOT = {
+							has_global_variable = global_variable_quanta_cura_var_released
 						}
 						ROOT.var:independence_from_church_variable >= 25
 					}
 					set_variable = {
 						name = independence_from_church_variable
-						value = 25
+						value = 50
 					}
-					set_variable = cant_progress_sorry_var
+					#set_variable = {
+					#	name = cant_progress_sorry_var
+					#	value = 1
+					#}
 				}
 
 				else_if = {
@@ -1566,9 +1561,12 @@ je_bpm_christian_or_democrat = {
 					}
 					set_variable = {
 						name = independence_from_church_variable
-						value = 50
+						value = 100
 					}
-					set_variable = cant_progress_sorry_var
+					#set_variable = {
+					#	name = cant_progress_sorry_var
+					#	value = 1
+					#}
 				}
 
 				else_if = {
@@ -1580,14 +1578,17 @@ je_bpm_christian_or_democrat = {
 					}
 					set_variable = {
 						name = independence_from_church_variable
-						value = 75
+						value = 150
 					}
-					set_variable = cant_progress_sorry_var
+					#set_variable = {
+					#	name = cant_progress_sorry_var
+					#	value = 1
+					#}
 				}
 
 				clamp_variable = {
 					name = independence_from_church_variable
-					max = 100
+					max = 200
 					min = 0
 				}
 			}
@@ -1625,7 +1626,7 @@ je_bpm_christian_or_democrat = {
 	complete = {
 		custom_tooltip = {
 			text = "bpm_je_progress_complete"
-			var:independence_from_church_variable >= 100
+			var:independence_from_church_variable >= 200
 			#always = no
 		}
 	}
@@ -1644,8 +1645,8 @@ je_bpm_christian_or_democrat = {
 	}
 
 	goal_add_value = {
-		add = 100
-		max = 100
+		add = 200
+		max = 200
 	}
 
 	weight = 10000
@@ -1661,6 +1662,9 @@ je_bpm_new_wine_in_old_wineskins = {
 	modifiers_while_active = {
 		bpm_new_wine_in_old_wineskins_modifier
 	}
+
+	scripted_progress_bar = bpm_new_wine_scripted_progress_bar
+	scripted_progress_bar = bpm_old_wineskins_scripted_progress_bar
 
 	is_shown_when_inactive = {
 		always = yes
@@ -1712,7 +1716,17 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	possible = {
-		always = no
+		#has_global_variable = global_rerum_novarum_issued_var
+		#ig:ig_christian_democrats = {
+		#	NOT = {
+		#		has_ideology = ideology:ideology_dop_divine_democrat
+		#	}
+		#	OR = {
+		#		has_ideology = ideology:ideology_wel_expanded_public_welfare
+		#		has_ideology = ideology:ideology_wel_social_market_welfare
+		#	}
+		#}
+		always = yes # needs fixing, so it doesn't show up in the journal entry list
 	}
 
 	invalid = {
@@ -1720,11 +1734,224 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	complete = {
-		
+		OR = {
+			AND = {
+				custom_tooltip = {
+					text = "old_wineskins_value_50_tooltip"
+					je:je_bpm_new_wine_in_old_wineskins ?= { 
+						"scripted_bar_progress(bpm_old_wineskins_scripted_progress_bar)" = 50
+					}
+				}
+				custom_tooltip = {
+					text = "christdem_con_difference_tooltip"
+					#bpm_je_christdem_conservative_difference_points >= 10
+				}
+			}
+			AND = {
+				custom_tooltip = {
+					text = "new_wine_value_50_tooltip"
+					je:je_bpm_new_wine_in_old_wineskins ?= { 
+						"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" = 50
+					}
+				}
+				custom_tooltip = {
+					text = "christdem_con_difference_tooltip"
+					#bpm_je_christdem_conservative_difference_points >= 10
+				}
+			}
+		}
 	}
 
 	on_complete = {
+		############################
+		####### Classical Conservatives winning
+		if = {
+			limit = {	
+				always = yes
+			}
 		
+			custom_tooltip = bpm_conservatives_winning_tooltip_tt
+		
+			ig:ig_christian_democrats = {
+				add_modifier = {
+					name = bpm_ig_defeated_in_struggle_for_survival_ig
+					days = long_modifier_time
+					is_decaying = yes
+				}
+		
+				leader = {
+					save_temporary_scope_as = christdem_leader
+				}
+		
+				custom_tooltip = bpm_clacons_win_tt
+				hidden_effect = {
+					scope:christdem_leader = {
+						kill_character = {
+							hidden = yes
+						}
+					}
+				}
+		
+				custom_tooltip = bpm_next_leader_will_receive_tt
+				hidden_effect = {
+					leader = {
+						add_modifier = {
+							name = bpm_ig_defeated_in_struggle_for_survival_leader
+							days = long_modifier_time
+							is_decaying = yes
+						}
+					}
+				}
+		
+				hidden_effect = {
+					bpm_remove_all_wel_ideologies = yes
+					bpm_remove_all_eco_ideologies = yes
+				}
+				add_ideology = ideology_eco_distributist_economy
+				add_ideology = ideology_wel_distributist_welfare
+		
+				set_interest_group_name = ig_social_catholics
+		
+				hidden_effect = {
+					bpm_reorder_ideologies = yes
+				}
+			}
+		
+			ig:ig_conservatives = {
+				hidden_effect = {
+					bpm_remove_all_wel_ideologies = yes
+				}
+				add_ideology = ideology_wel_paternalistic_welfare
+				
+				add_ideology = ideology_corporatist
+		
+				set_interest_group_name = ig_paternal_conservatives
+		
+				hidden_effect = {
+					bpm_reorder_ideologies = yes
+				}
+			}
+		}
+
+
+		if = {
+			limit = {	
+				always = yes
+			}
+		
+			custom_tooltip = bpm_conservatives_winning_tooltip_tt
+		
+			ig:ig_christian_democrats = {
+
+				hidden_effect = {
+					bpm_remove_all_wel_ideologies = yes
+					bpm_remove_all_eco_ideologies = yes
+				}
+				add_ideology = ideology_eco_distributist_economy
+				add_ideology = ideology_wel_distributist_welfare
+
+				add_modifier = {
+					name = bpm_ig_defeated_in_struggle_for_survival_ig
+					days = long_modifier_time
+					is_decaying = yes
+				}
+		
+				leader = {
+					save_temporary_scope_as = christdem_leader
+				}
+		
+				custom_tooltip = bpm_clacons_win_tt
+				hidden_effect = {
+					scope:christdem_leader = {
+						kill_character = {
+							hidden = yes
+						}
+					}
+				}
+		
+				custom_tooltip = bpm_next_leader_will_receive_tt
+				hidden_effect = {
+					leader = {
+						add_modifier = {
+							name = bpm_ig_defeated_in_struggle_for_survival_leader
+							days = long_modifier_time
+							is_decaying = yes
+						}
+					}
+				}
+		
+				
+		
+				set_interest_group_name = ig_social_catholics
+		
+				hidden_effect = {
+					bpm_reorder_ideologies = yes
+				}
+			}
+		
+			ig:ig_conservatives = {
+				add_modifier = {
+					name = bpm_ig_defeated_in_struggle_for_survival_ig
+					days = long_modifier_time
+					is_decaying = yes
+				}
+		
+				leader = {
+					save_temporary_scope_as = clacon_leader
+				}
+		
+				custom_tooltip = bpm_christde_win_tt
+				hidden_effect = {
+					scope:clacon_leader = {
+						kill_character = {
+							hidden = yes
+						}
+					}
+				}
+		
+				custom_tooltip = bpm_next_leader_will_receive_tt
+				hidden_effect = {
+					leader = {
+						add_modifier = {
+							name = bpm_ig_defeated_in_struggle_for_survival_leader
+							days = long_modifier_time
+							is_decaying = yes
+						}
+					}
+				}
+		
+				hidden_effect = {
+					bpm_remove_all_dop_ideologies = yes
+					bpm_remove_all_sta_ideologies = yes
+					bpm_remove_all_eco_ideologies = yes
+					bpm_remove_all_wel_ideologies = yes
+					bpm_remove_all_cit_ideologies = yes
+				}
+
+				add_ideology = ideology_dop_moderate_democrat
+				add_ideology = ideology_sta_federated_state
+				add_ideology = ideology_eco_distributist_economy
+				add_ideology = ideology_wel_distributist_welfare
+
+				if = {
+					limit = {
+						ig:ig_christian_democrats = {
+							has_ideology = ideology:ideology_cit_christian_internationalist
+						}
+					}
+					add_ideology = ideology_cit_multiethnic_nationalist
+				}
+				else = {
+					add_ideology = ideology_cit_nationalist
+				}
+		
+				set_interest_group_name = ig_christian_democrats_rightwing
+		
+				hidden_effect = {
+					bpm_reorder_ideologies = yes
+				}
+			}
+		}
 	}
 
 	on_monthly_pulse = {
@@ -1761,7 +1988,22 @@ je_bpm_new_wine_in_old_wineskins = {
 				name = christdem_traits_var
 				value = bpm_je_christdem_ideological_power
 			}
+
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 1 
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
 		}
+	}
+
+	fail = {
+		
+	}
+
+	on_fail = {
+
 	}
 
 	should_be_pinned_by_default = yes

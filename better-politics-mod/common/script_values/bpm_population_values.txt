@@ -13,6 +13,34 @@ bpm_proletarian_popularity = {
 	}
 }
 
+bpm_secularist_popularity = {
+	value = 0
+	every_interest_group = {
+		limit = { 
+			OR = {
+				has_ideology = ideology:ideology_rel_radical_secularist
+				has_ideology = ideology:ideology_rel_secularist
+				has_ideology = ideology:ideology_rel_atheist
+			}
+		}
+		add = ig_clout
+	}
+}
+
+bpm_moralist_popularity = {
+	value = 0
+	every_interest_group = {
+		limit = { 
+			OR = {
+				has_ideology = ideology:ideology_rel_radical_moralist
+				has_ideology = ideology:ideology_rel_moralist
+				has_ideology = ideology:ideology_rel_liberal_moralist
+			}
+		}
+		add = ig_clout
+	}
+}
+
 bpm_country_fraction_below_expected_sol = {
 	value = 0
 	every_scope_state = {

@@ -908,5 +908,26 @@ bpm_initialize_catholic_interests = {
 			#add_ideology = ideology_corporatist
 			bpm_reorder_ideologies = yes
 		}
+
+		ig:ig_reactionaries ?= {
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							country_has_primary_culture = cu:north_italian
+							country_has_primary_culture = cu:south_italian
+						}
+					}
+				}
+				bpm_remove_all_cit_ideologies = yes
+				add_ideology = ideology_cit_traditional_culture
+				bpm_remove_all_wel_ideologies = yes
+				add_ideology = ideology_wel_religious_welfare
+			}
+
+			set_interest_group_name = ig_conservative_catholics
+
+			bpm_reorder_ideologies = yes
+		}
 	}
 }
