@@ -1,5 +1,6 @@
 ﻿namespace = bpm_christdem_split
 namespace = bpm_christdem_flavour
+namespace = bpm_new_wine_old_wineskins_flavour
 
 bpm_christdem_split.1 = {
 	type = country_event
@@ -748,7 +749,7 @@ bpm_christdem_split.9 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 40
+		var:independence_from_church_variable >= 80
 		NOT = { has_variable = bpm_christian_democrats_dop_ideology }
 	}
 
@@ -853,7 +854,7 @@ bpm_christdem_split.10 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 70
+		var:independence_from_church_variable >= 140
 		NOT = { has_variable = bpm_christian_democrats_mil_ideology }
 	}
 
@@ -942,7 +943,7 @@ bpm_christdem_split.11 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 80
+		var:independence_from_church_variable >= 160
 		NOT = { has_variable = bpm_christian_democrats_fem_ideology }
 	}
 
@@ -1015,7 +1016,7 @@ bpm_christdem_split.12 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable >= 90
+		var:independence_from_church_variable >= 180
 		NOT = { has_variable = bpm_christian_democrats_program_completed }
 	}
 
@@ -1405,7 +1406,7 @@ bpm_christdem_split.50 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
-		var:independence_from_church_variable > 60 # Rerum Novarum must be announced!
+		var:independence_from_church_variable > 120 # Rerum Novarum must be announced!
 		has_variable = bpm_christian_democrats_eco_ideology
 		OR = {
 			AND = {
@@ -1670,6 +1671,179 @@ bpm_christdem_split.51 = {
 		set_variable = {
 			name = bpm_christian_democrats_dop_ideology 
 			value = ideology:ideology_dop_christian_democrat
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bpm_new_wine_old_wineskins_flavour.1 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/southamerica_christianity.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	title = bpm_new_wine_old_wineskins_flavour.1.t
+	desc = bpm_new_wine_old_wineskins_flavour.1.d
+	flavor = bpm_new_wine_old_wineskins_flavour.1.f
+	duration = 3
+
+	dlc = dlc_bpm
+	
+	immediate = {
+		
+	}
+
+	option = {
+		name = bpm_christdem_split.1.a
+		default_option = yes
+
+		ig:ig_conservatives = {
+			leader = {
+				save_temporary_scope_as = clacon_leader
+			}
+		
+			custom_tooltip = bpm_christde_win_tt
+			hidden_effect = {
+				scope:clacon_leader = {
+					kill_character = {
+						hidden = yes
+					}
+				}
+			}
+		
+			custom_tooltip = bpm_next_leader_will_receive_tt
+			hidden_effect = {
+				leader = {
+					add_modifier = {
+						name = bpm_ig_defeated_in_struggle_for_survival_leader
+						days = long_modifier_time
+						is_decaying = yes
+					}
+				}
+			}
+		
+			hidden_effect = {
+				bpm_remove_all_dop_ideologies = yes
+				bpm_remove_all_sta_ideologies = yes
+				bpm_remove_all_eco_ideologies = yes
+				bpm_remove_all_wel_ideologies = yes
+				bpm_remove_all_cit_ideologies = yes
+			}
+
+			add_ideology = ideology_dop_moderate_democrat
+			add_ideology = ideology_sta_federated_state
+			
+			if = {
+				limit = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_eco_centralized_economy
+					}
+				}
+				add_ideology = ideology_eco_modern_interventionist
+			}
+			else = {
+				add_ideology = ideology_eco_distributist_economy
+			}
+
+			add_ideology = ideology_wel_distributist_welfare
+
+			if = {
+				limit = {
+					ig:ig_christian_democrats ?= {
+						has_ideology = ideology:ideology_cit_christian_internationalist
+					}
+				}
+				add_ideology = ideology_cit_multiethnic_nationalist
+			}
+			else = {
+				add_ideology = ideology_cit_nationalist
+			}
+
+			add_ideology = ideology_corporatist
+		
+			set_interest_group_name = ig_christian_democrats_rightwing
+		
+			hidden_effect = {
+				bpm_reorder_ideologies = yes
+			}
+		}
+
+		if = {
+			limit = {
+				exists = ig:ig_christian_democrats
+				ig:ig_christian_democrats ?= {
+					has_party = yes
+					party = {
+						is_party_type = conservative_party
+					}
+				}
+				ig:ig_reactionaries ?= {
+					has_party = yes
+					party = {
+						is_party_type = conservative_party
+					}
+				}
+			}
+			ig:ig_reactionaries = {
+				hidden_effect = {
+					bpm_remove_all_dop_ideologies = yes
+					bpm_remove_all_sta_ideologies = yes
+					bpm_remove_all_eco_ideologies = yes
+					bpm_remove_all_wel_ideologies = yes
+				}
+
+				add_ideology = ideology_dop_authoritarian_democrat
+				add_ideology = ideology_sta_decentralized_state
+				add_ideology = ideology_eco_distributist_economy
+				add_ideology = ideology_wel_distributist_welfare
+
+				add_ideology = ideology_corporatist
+
+				set_interest_group_name = ig_national_conservatives
+			}
+		}
+		if = {
+			limit = {
+				exists = ig:ig_christian_democrats
+				ig:ig_christian_democrats ?= {
+					has_party = yes
+					party = {
+						is_party_type = conservative_party
+					}
+				}
+				ig:ig_devout ?= {
+					has_party = yes
+					party = {
+						is_party_type = conservative_party
+					}
+				}
+			}
+			ig:ig_devout = {
+				hidden_effect = {
+					bpm_remove_all_wel_ideologies = yes
+				}
+				add_ideology = ideology_wel_distributist_welfare
+
+				add_ideology = ideology_corporatist
+			}
 		}
 	}
 }

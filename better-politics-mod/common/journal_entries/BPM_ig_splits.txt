@@ -1666,9 +1666,15 @@ je_bpm_new_wine_in_old_wineskins = {
 	scripted_progress_bar = bpm_new_wine_scripted_progress_bar
 	scripted_progress_bar = bpm_old_wineskins_scripted_progress_bar
 
+	scripted_button = je_bpm_propagate_the_new_wine_button
+	scripted_button = je_bpm_reaffirm_the_old_tastes
+
 	is_shown_when_inactive = {
 		always = yes
 	}
+
+	
+
 
 	immediate = {
 		####################################
@@ -1713,6 +1719,20 @@ je_bpm_new_wine_in_old_wineskins = {
 			name = wine_events_and_other_variable
 			value = 0
 		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives ?= {
+					is_in_government = yes
+				}
+			}
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 2
+					name = bpm_old_wineskins_scripted_progress_bar 
+				}
+			}
+		}
 	}
 
 	possible = {
@@ -1733,222 +1753,43 @@ je_bpm_new_wine_in_old_wineskins = {
 		
 	}
 
+	timeout = 5475
+
+	on_timeout = {
+		
+	}
+
 	complete = {
-		OR = {
-			AND = {
-				custom_tooltip = {
-					text = "old_wineskins_value_50_tooltip"
-					je:je_bpm_new_wine_in_old_wineskins ?= { 
-						"scripted_bar_progress(bpm_old_wineskins_scripted_progress_bar)" = 50
-					}
-				}
-				custom_tooltip = {
-					text = "christdem_con_difference_tooltip"
-					#bpm_je_christdem_conservative_difference_points >= 10
-				}
+		custom_tooltip = {
+			text = "new_wine_value_50_tooltip"
+			je:je_bpm_new_wine_in_old_wineskins ?= { 
+				"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" = 50
 			}
-			AND = {
-				custom_tooltip = {
-					text = "new_wine_value_50_tooltip"
-					je:je_bpm_new_wine_in_old_wineskins ?= { 
-						"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" = 50
-					}
-				}
-				custom_tooltip = {
-					text = "christdem_con_difference_tooltip"
-					#bpm_je_christdem_conservative_difference_points >= 10
-				}
-			}
+		}
+		custom_tooltip = {
+			text = "christdem_con_difference_tooltip"
+			bpm_je_christdem_conservative_difference_points <= 10
 		}
 	}
 
 	on_complete = {
-		############################
-		####### Classical Conservatives winning
 		if = {
 			limit = {	
 				always = yes
+				exists = ig:ig_christian_democrats
 			}
-		
-			custom_tooltip = bpm_conservatives_winning_tooltip_tt
-		
-			ig:ig_christian_democrats = {
-				add_modifier = {
-					name = bpm_ig_defeated_in_struggle_for_survival_ig
-					days = long_modifier_time
-					is_decaying = yes
-				}
-		
-				leader = {
-					save_temporary_scope_as = christdem_leader
-				}
-		
-				custom_tooltip = bpm_clacons_win_tt
-				hidden_effect = {
-					scope:christdem_leader = {
-						kill_character = {
-							hidden = yes
-						}
-					}
-				}
-		
-				custom_tooltip = bpm_next_leader_will_receive_tt
-				hidden_effect = {
-					leader = {
-						add_modifier = {
-							name = bpm_ig_defeated_in_struggle_for_survival_leader
-							days = long_modifier_time
-							is_decaying = yes
-						}
-					}
-				}
-		
-				hidden_effect = {
-					bpm_remove_all_wel_ideologies = yes
-					bpm_remove_all_eco_ideologies = yes
-				}
-				add_ideology = ideology_eco_distributist_economy
-				add_ideology = ideology_wel_distributist_welfare
-		
-				set_interest_group_name = ig_social_catholics
-		
-				hidden_effect = {
-					bpm_reorder_ideologies = yes
-				}
-			}
-		
-			ig:ig_conservatives = {
-				hidden_effect = {
-					bpm_remove_all_wel_ideologies = yes
-				}
-				add_ideology = ideology_wel_paternalistic_welfare
-				
-				add_ideology = ideology_corporatist
-		
-				set_interest_group_name = ig_paternal_conservatives
-		
-				hidden_effect = {
-					bpm_reorder_ideologies = yes
-				}
-			}
-		}
 
+			trigger_event = { id = bpm_new_wine_old_wineskins_flavour.1 days = 1 }
 
-		if = {
-			limit = {	
-				always = yes
-			}
-		
-			custom_tooltip = bpm_conservatives_winning_tooltip_tt
-		
-			ig:ig_christian_democrats = {
-
-				hidden_effect = {
-					bpm_remove_all_wel_ideologies = yes
-					bpm_remove_all_eco_ideologies = yes
-				}
-				add_ideology = ideology_eco_distributist_economy
-				add_ideology = ideology_wel_distributist_welfare
-
-				add_modifier = {
-					name = bpm_ig_defeated_in_struggle_for_survival_ig
-					days = long_modifier_time
-					is_decaying = yes
-				}
-		
-				leader = {
-					save_temporary_scope_as = christdem_leader
-				}
-		
-				custom_tooltip = bpm_clacons_win_tt
-				hidden_effect = {
-					scope:christdem_leader = {
-						kill_character = {
-							hidden = yes
-						}
-					}
-				}
-		
-				custom_tooltip = bpm_next_leader_will_receive_tt
-				hidden_effect = {
-					leader = {
-						add_modifier = {
-							name = bpm_ig_defeated_in_struggle_for_survival_leader
-							days = long_modifier_time
-							is_decaying = yes
-						}
-					}
-				}
-		
-				
-		
-				set_interest_group_name = ig_social_catholics
-		
-				hidden_effect = {
-					bpm_reorder_ideologies = yes
-				}
-			}
-		
+			custom_tooltip = bpm_christdems_winning_tooltip_tt
+			
+			custom_tooltip = bpm_christian_democratic_ideas_more_widespread_tt
+			
 			ig:ig_conservatives = {
 				add_modifier = {
 					name = bpm_ig_defeated_in_struggle_for_survival_ig
 					days = long_modifier_time
 					is_decaying = yes
-				}
-		
-				leader = {
-					save_temporary_scope_as = clacon_leader
-				}
-		
-				custom_tooltip = bpm_christde_win_tt
-				hidden_effect = {
-					scope:clacon_leader = {
-						kill_character = {
-							hidden = yes
-						}
-					}
-				}
-		
-				custom_tooltip = bpm_next_leader_will_receive_tt
-				hidden_effect = {
-					leader = {
-						add_modifier = {
-							name = bpm_ig_defeated_in_struggle_for_survival_leader
-							days = long_modifier_time
-							is_decaying = yes
-						}
-					}
-				}
-		
-				hidden_effect = {
-					bpm_remove_all_dop_ideologies = yes
-					bpm_remove_all_sta_ideologies = yes
-					bpm_remove_all_eco_ideologies = yes
-					bpm_remove_all_wel_ideologies = yes
-					bpm_remove_all_cit_ideologies = yes
-				}
-
-				add_ideology = ideology_dop_moderate_democrat
-				add_ideology = ideology_sta_federated_state
-				add_ideology = ideology_eco_distributist_economy
-				add_ideology = ideology_wel_distributist_welfare
-
-				if = {
-					limit = {
-						ig:ig_christian_democrats = {
-							has_ideology = ideology:ideology_cit_christian_internationalist
-						}
-					}
-					add_ideology = ideology_cit_multiethnic_nationalist
-				}
-				else = {
-					add_ideology = ideology_cit_nationalist
-				}
-		
-				set_interest_group_name = ig_christian_democrats_rightwing
-		
-				hidden_effect = {
-					bpm_reorder_ideologies = yes
 				}
 			}
 		}
@@ -1956,6 +1797,18 @@ je_bpm_new_wine_in_old_wineskins = {
 
 	on_monthly_pulse = {
 		effect = {
+			scope:journal_entry = {
+				set_variable = { 
+					name = christdem_ideological_power_variable
+					value = "scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" 
+				}
+
+				set_variable = { 
+					name = clacon_ideological_power_variable
+					value = "scripted_bar_progress(bpm_old_wineskins_scripted_progress_bar)" 
+				}
+			}
+
 			############################
 			####### Scopes
 			ig:ig_christian_democrats = {
@@ -1999,11 +1852,91 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	fail = {
-		
+		custom_tooltip = {
+			text = "old_wineskins_value_50_tooltip"
+			je:je_bpm_new_wine_in_old_wineskins ?= { 
+				"scripted_bar_progress(bpm_old_wineskins_scripted_progress_bar)" = 50
+			}
+		}
+		custom_tooltip = {
+			text = "christdem_con_difference_tooltip"
+			bpm_je_christdem_conservative_difference_points >= -10
+		}
 	}
 
 	on_fail = {
+		############################
+		####### Classical Conservatives winning
+		if = {
+			limit = {	
+				always = yes
+				exists = ig:ig_conservatives
+			}
+		
+			custom_tooltip = bpm_conservatives_winning_tooltip_tt
 
+			ig:ig_conservatives = {
+				hidden_effect = {
+					bpm_remove_all_wel_ideologies = yes
+				}
+				add_ideology = ideology_wel_paternalistic_welfare
+				
+				add_ideology = ideology_corporatist
+		
+				set_interest_group_name = ig_paternal_conservatives
+		
+				hidden_effect = {
+					bpm_reorder_ideologies = yes
+				}
+			}
+		
+			ig:ig_christian_democrats = {
+				add_modifier = {
+					name = bpm_ig_defeated_in_struggle_for_survival_ig
+					days = long_modifier_time
+					is_decaying = yes
+				}
+		
+				leader = {
+					save_temporary_scope_as = christdem_leader
+				}
+		
+				custom_tooltip = bpm_clacons_win_tt
+				hidden_effect = {
+					scope:christdem_leader = {
+						kill_character = {
+							hidden = yes
+						}
+					}
+				}
+		
+				custom_tooltip = bpm_next_leader_will_receive_tt
+				hidden_effect = {
+					leader = {
+						add_modifier = {
+							name = bpm_ig_defeated_in_struggle_for_survival_leader
+							days = long_modifier_time
+							is_decaying = yes
+						}
+					}
+				}
+		
+				hidden_effect = {
+					bpm_remove_all_wel_ideologies = yes
+					bpm_remove_all_eco_ideologies = yes
+				}
+				add_ideology = ideology_eco_distributist_economy
+				add_ideology = ideology_wel_distributist_welfare
+		
+				set_interest_group_name = ig_social_catholics
+		
+				hidden_effect = {
+					bpm_reorder_ideologies = yes
+				}
+			}
+		
+			
+		}
 	}
 
 	should_be_pinned_by_default = yes

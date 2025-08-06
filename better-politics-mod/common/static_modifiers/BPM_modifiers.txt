@@ -1350,6 +1350,22 @@ bpm_ig_defeated_in_struggle_for_survival_leader = {
 bpm_ig_defeated_in_struggle_for_survival_ig = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
 	
-	interest_group_pop_attraction_mult = -0.1
+	interest_group_pop_attraction_mult = -0.25
 	interest_group_pol_str_mult = -0.5
+}
+
+bpm_new_wine_taste_propaganda = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+
+	building_throughput_add = -0.1
+	country_shopkeepers_pol_str_mult = -0.25
+	country_capitalists_pol_str_mult = -0.25
+}
+
+bpm_reaffirm_the_old_tastes = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	
+	state_political_strength_from_wealth_mult = 0.25
+	country_bureaucracy_mult = -0.1
+	capitalists_investment_pool_efficiency_mult = 0.1
 }
