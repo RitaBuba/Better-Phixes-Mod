@@ -1377,12 +1377,204 @@ je_bpm_split_christdem_progress_bar_rate = {
 ##################################################
 ################################ WINE CONTENT:
 
+bpm_je_christdem_conservative_difference_points = {
+	value = 0
+
+	add = {
+		value = ROOT.je:je_bpm_christian_or_democrat.var:christdem_ideological_power_variable
+		subtract = ROOT.je:je_bpm_christian_or_democrat.var:clacon_ideological_power_variable
+	}
+}
+
 bpm_je_christdem_ideological_power = {
 	value = 0
 
 	add = {
 		desc = "BPM_VALUE_BASE"
 		value = 5
+	}
+}
+
+bpm_je_christdem_ideological_power_gain = {
+	value = 0
+
+	add = {
+		desc = "BPM_VALUE_FROM_LEADER_POPULARITY"
+		every_scope_character = {
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				has_role = politician
+			}
+			add = popularity
+		}
+		divide = 1234
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_CHRISTIAN_DEMOCRATIC_CLOUT"
+		if = {
+			limit = {
+				exists = ig:ig_trade_unions
+			}
+			add = ROOT.ig:ig_christian_democrats.interest_group_population_percentage # ig_clout
+			multiply = 5
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_MOVEMENTS_CHRISTDEM"
+
+		if = {
+			limit = {
+				always = yes
+			}
+			every_political_movement = {
+				limit = {
+					is_political_movement_type = movement_labor
+				}
+				add = {
+					value = political_movement_support
+					multiply = 10
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				always = yes
+			}
+			every_political_movement = {
+				limit = {
+					is_political_movement_type = movement_radical
+				}
+				add = {
+					value = political_movement_support
+					multiply = 10
+				}
+			}
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_TRAITS"
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = direct
+					}
+				}
+			}
+
+			add = 0.01
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = persistent
+					}
+				}
+			}
+
+			add = 0.01
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = reckless
+					}
+				}
+			}
+
+			subtract = 0.015
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = meticulous
+					}
+				}
+			}
+
+			add = 0.01
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = charismatic
+					}
+				}
+			}
+
+			add = 0.02
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = pious
+					}
+				}
+			}
+
+			add = 0.02
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = imposing
+					}
+				}
+			}
+
+			add = 0.01
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = master_bureaucrat
+					}
+				}
+			}
+
+			add = 0.01
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = grifter
+					}
+				}
+			}
+
+			add = 0.005
+		}
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = ruthless
+					}
+				}
+			}
+
+			add = 0.005
+		}
 	}
 }
 
