@@ -11,19 +11,19 @@
 		}
 	}
 
-	complete = {
-		OR = {
-			NOT = {
-				is_in_same_power_bloc = c:GBR
-			}
-			AND = {
-				custom_tooltip = {
-					text = je_bpm_bnap_the_question_of_british_rule_complete
-					bpm_british_engagement = 100
-				}
-			}
-		}
-	}
+	# complete = {
+	# 	OR = {
+	# 		NOT = {
+	# 			is_in_same_power_bloc = c:GBR
+	# 		}
+	# 		AND = {
+	# 			custom_tooltip = {
+	# 				text = je_bpm_bnap_the_question_of_british_rule_complete
+	# 				bpm_british_engagement = 100
+	# 			}
+	# 		}
+	# 	}
+	# }
 
     possible = {
         bpm_is_bnap_player = yes

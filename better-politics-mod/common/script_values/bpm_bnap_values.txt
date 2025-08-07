@@ -33,7 +33,7 @@ bpm_british_administrative_payments_percent = {
         limit = {
             has_variable = bpm_bnap_admin_pay_fixed
         }
-        subtract = 0.15
+        subtract = 0.5
     }
     else = {
         subtract = bpm_british_administrative_payment_debuff
@@ -54,7 +54,7 @@ bpm_british_administrative_payment_debuff = {
 
 bpm_british_administrative_payment_percent_for_tt = {
     add = {
-        value = 0.2
+        value = 0.1
         desc = "bpm_bnap_british_payments_percent_base_value"
     }
 

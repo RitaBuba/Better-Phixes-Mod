@@ -152,3 +152,38 @@ bnap_columbia_button = {
 		}
 	}
 }
+
+bnap_statehood_button = {
+	name = "bpm_bnap_statehood_button"
+	desc = "bpm_bnap_statehood_button_desc"
+
+	visible = { 
+		c:CAN ?= this
+        NOT = { has_variable = bpm_bnap_statehood_bid }
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	possible = {
+        custom_tooltip = {
+            text = "bpm_bnap_statehood_button_trigger_desc"
+            
+            je:je_bpm_bnap_between_lion_and_eagle ?= {
+                "scripted_bar_progress(je_bpm_bnap_ble_us_brit_attachment)" <= 10
+            }
+            NOT = { has_variable = bpm_canada_dominion }
+        }
+        c:GBR ?= {
+	    	relations:root <= relations_threshold:poor
+	    }
+	}
+
+	effect = {
+		c:USA = {
+            trigger_event = { id = bpm_bnap_patriots_events.4 days = 30 popup = yes }
+        }
+        set_variable = bpm_bnap_statehood_bid
+	}
+}
