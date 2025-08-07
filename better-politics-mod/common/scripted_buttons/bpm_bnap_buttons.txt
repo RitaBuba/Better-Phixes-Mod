@@ -8,7 +8,7 @@
     }
 
     ai_chance = {
-        value = 5
+        value = 100
     }
 
     possible = {
@@ -45,6 +45,10 @@ bpm_bnap_responsible_government_button = {
     visible = {
         NOT = { has_variable = bpm_bnap_responsible_government_button_disabled }
         bpm_british_engagement < 60
+    }
+
+    ai_chance = {
+        value = 100
     }
     
     possible = {
@@ -138,6 +142,36 @@ bnap_columbia_button = {
             owns_entire_state_region = STATE_MANITOBA
             owns_entire_state_region = STATE_SASKATCHEWAN
             owns_entire_state_region = STATE_ALBERTA
+        }
+        s:STATE_ONTARIO = {
+            any_scope_building = {
+				is_building_type = building_railway
+				level >= 2
+			}
+        }
+        s:STATE_MANITOBA = {
+            any_scope_building = {
+				is_building_type = building_railway
+				level >= 1
+			}
+        }
+        s:STATE_SASKATCHEWAN = {
+            any_scope_building = {
+				is_building_type = building_railway
+				level >= 1
+			}
+        }
+        s:STATE_ALBERTA = {
+            any_scope_building = {
+				is_building_type = building_railway
+				level >= 1
+			}
+        }
+        s:STATE_BRITISH_COLUMBIA = {
+            any_scope_building = {
+				is_building_type = building_railway
+				level >= 2
+			}
         }
 	}
 

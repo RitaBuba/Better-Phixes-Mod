@@ -342,10 +342,10 @@ bpm_bnap_confederation_events.6 = {
 
     option = {
         name = bpm_bnap_confederation_events.6.a
-		add_modifier = {
-			name = bpm_bnap_can_big_money
-			months = 12
-		}
+		# add_modifier = {
+		# 	name = bpm_bnap_can_big_money
+		# 	months = 12
+		# }
         annex_with_incorporation = c:ORG
 		set_variable = je_west_canada_complete
     }

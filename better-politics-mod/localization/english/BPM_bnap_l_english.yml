@@ -92,8 +92,8 @@
   je_west_canada_reason: "With the confederation of the eastern colonies into the Dominion, the question of whether to extend this confederstion westward has become topic of discussion. The HBC has long held control over the whole of the Hudson Bay drainage and western plains, but has long struggled to turn a profit from their administration, and Britain may be willing to facilitate a sale. Farther to the west lies the colony of British Columbia; threatened by American expansion, they may be willing to join the confederation should we manage to bridge the continent with iron...\n\n#lore "He shall have dominion also from sea to sea, and from the river unto the ends of the earth..."\n\n—Psalm 72:8#!"
   bnap_rupert_button:0 "Make an Offer for Rupert's Land"
   bnap_rupert_button_desc:0 "Reach out to our contacts in London and the HBC to make an offer."
-  bnap_columbia_button:0 "Open negotiations with British Columbia"
-  bnap_columbia_button_desc:0 "Begin negotiations to integrate British Columbia"
+  bnap_columbia_button:0 "Confederate with British Columbia"
+  bnap_columbia_button_desc:0 "Announce the completion of a transcontinental railway and conffederate with British Columbia."
   has_rupert_sale_cooldown_tt:0 "Has not made an offer recently."
 
   bpm_bnap_responsible_government:0 "Responsible Government"
