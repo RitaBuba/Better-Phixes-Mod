@@ -47,7 +47,7 @@ ITA = {
 	required_states_fraction = 0.6
 
 	ai_will_do = { 
-		has_technology_researched = pan-nationalism 
+		has_technology_researched = nationalism 
 		NOT = {
 			has_law = law_type:law_autocracy
 			OR = {
@@ -61,6 +61,10 @@ ITA = {
 		OR = {
 			country_has_primary_culture = cu:north_italian
 			country_has_primary_culture = cu:south_italian
+		}
+		custom_tooltip = {
+			text = je_italian_unification_idea_trigger_desc
+			has_global_variable = peoples_springtime_happened
 		}
 	}
 	

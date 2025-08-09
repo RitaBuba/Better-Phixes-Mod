@@ -19,6 +19,7 @@
  bpm_labor_igs_not_insurrectionary:0 "No [concept_bpm_ig_is_labor] [concept_interest_group] is [Concept('concept_revolution', '$concept_revolutionary$')]."
 
  je_german_unification_idea_trigger_desc: "Has completed the $je_german_unification_idea$ [concept_journal_entry] and the #bold Springtime of Peoples#! has concluded."
+ je_italian_unification_idea_trigger_desc: "#bold Springtime of Peoples#! has concluded."
 # TUTORIAL
  je_bpm_winds_of_change:0 "Winds of Change (Tutorial)"
  je_bpm_winds_of_change_status:0 "Learn about Political Rigidity."
