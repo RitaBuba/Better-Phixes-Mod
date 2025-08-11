@@ -272,7 +272,7 @@ bpm_loyalist_population_fraction = {
 bpm_consciousness_number_of_states = {
 	value = 0
 	every_scope_state = {
-		add = 1
+		add = 0.5
 	}
 }
 
