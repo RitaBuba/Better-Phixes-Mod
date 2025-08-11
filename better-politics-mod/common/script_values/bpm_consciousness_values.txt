@@ -38,10 +38,7 @@
 		round = yes
 		desc = bpm_consciousness_labor_change_urbanization_desc
 	}
-	multiply = {
-		value = 1
-		add = modifier:country_bpm_labor_consciousness_target_mult
-	}
+
 	divide = {
 		value = bpm_consciousness_number_of_states
 		desc = bpm_consciousness_labor_change_states_divide_desc
@@ -117,6 +114,10 @@
 			value = -25
 			desc = "bpm_consciousness_labor_target_second_intl_desc"
 		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_bpm_labor_consciousness_target_mult
 	}
 	min = 0
 	max = 100
