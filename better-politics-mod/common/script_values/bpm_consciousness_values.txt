@@ -1,5 +1,51 @@
 ﻿bpm_consciousness_labor_target = {
 	value = 0
+	add = {
+		value = 0
+		every_scope_state = {
+			add = bpm_consciousness_labor_change_manufacturing
+		}
+		round = yes
+		desc = bpm_consciousness_labor_change_manufacturing_desc
+	}
+	add = {
+		value = 0
+		every_scope_state = {
+			add = bpm_consciousness_labor_change_service
+		}
+		round = yes
+		desc = bpm_consciousness_labor_change_service_desc
+	}
+	add = {
+		value = 0
+		every_scope_state = {
+			add = bpm_consciousness_labor_change_extraction
+		}
+		round = yes
+		desc = bpm_consciousness_labor_change_extraction_desc
+	}
+	add = {
+		value = 0
+		every_scope_state = {
+			add = {
+				value = total_urbanization
+				divide = 20
+				multiply = state_population
+				divide = owner.total_population
+			}
+		}
+		divide = 5
+		round = yes
+		desc = bpm_consciousness_labor_change_urbanization_desc
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_bpm_labor_consciousness_target_mult
+	}
+	divide = {
+		value = bpm_consciousness_number_of_states
+		desc = bpm_consciousness_labor_change_states_divide_desc
+	}
 	if = {
 		limit = {
 			has_technology_researched = urbanization
@@ -71,52 +117,6 @@
 			value = -25
 			desc = "bpm_consciousness_labor_target_second_intl_desc"
 		}
-	}
-	add = {
-		value = 0
-		every_scope_state = {
-			add = bpm_consciousness_labor_change_manufacturing
-		}
-		round = yes
-		desc = bpm_consciousness_labor_change_manufacturing_desc
-	}
-	add = {
-		value = 0
-		every_scope_state = {
-			add = bpm_consciousness_labor_change_service
-		}
-		round = yes
-		desc = bpm_consciousness_labor_change_service_desc
-	}
-	add = {
-		value = 0
-		every_scope_state = {
-			add = bpm_consciousness_labor_change_extraction
-		}
-		round = yes
-		desc = bpm_consciousness_labor_change_extraction_desc
-	}
-	add = {
-		value = 0
-		every_scope_state = {
-			add = {
-				value = total_urbanization
-				divide = 20
-				multiply = state_population
-				divide = owner.total_population
-			}
-		}
-		divide = 5
-		round = yes
-		desc = bpm_consciousness_labor_change_urbanization_desc
-	}
-	multiply = {
-		value = 1
-		add = modifier:country_bpm_labor_consciousness_target_mult
-	}
-	divide = {
-		value = bpm_consciousness_number_of_states
-		desc = bpm_consciousness_labor_change_states_divide_desc
 	}
 	min = 0
 	max = 100
@@ -296,6 +296,7 @@ bpm_consciousness_labor_change_manufacturing_building = {
 		value = private_ownership_fraction
 		add = 0.5
 	}
+	multiply = 1.5
 }
 
 bpm_consciousness_labor_change_service = {
@@ -315,7 +316,7 @@ bpm_consciousness_labor_change_service = {
 
 bpm_consciousness_labor_change_service_building = {
 	value = level
-	multiply = 0.5
+	multiply = 2
 }
 
 bpm_consciousness_labor_change_extraction = {
