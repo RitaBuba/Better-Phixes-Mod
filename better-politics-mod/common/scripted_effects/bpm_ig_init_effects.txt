@@ -553,7 +553,7 @@ bpm_initialize_patcons = {
 
 			add_ideology = ideology_rel_moralist
 
-			add_ideology = ideology_eco_distributist_economy
+			add_ideology = ideology_eco_moderate_distributist
 
 			if = {
 				limit = { ROOT = { country_has_state_religion = rel:catholic } }

@@ -255,7 +255,7 @@ bpm_christdem_split.5 = {
 			hidden_effect = {
 				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = ideology_eco_distributist_economy
+			add_ideology = ideology_eco_moderate_distributist
 		}
 		
 	}
@@ -574,13 +574,6 @@ bpm_christdem_split.7 = {
 			#	}
 			#}
 			has_technology_researched = corporatism
-			
-			custom_tooltip = {
-				text = welfare_leaning_state_eco_40_tt
-				je:je_bpm_christian_or_democrat ?= { 
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 40
-				}
-			}
 		}
 
 		ig:ig_christian_democrats = {
@@ -783,12 +776,24 @@ bpm_christdem_split.9 = {
 
 		ig:ig_christian_democrats = {
 			hidden_effect = {
+				bpm_remove_all_gov_ideologies = yes
 				bpm_remove_all_dop_ideologies = yes
 			}
+			if = {
+				limit = { 
+					owner = {
+						OR = {
+							bpm_country_is_republic = yes
+							bpm_country_is_latin_american = yes
+						}
+					}
+				}
+				add_ideology = ideology_gov_liberal_republican
+			}
+
+			else = { add_ideology = ideology_gov_moderate_monarchist }
 			add_ideology = ideology_dop_christian_democrat
 		}
-
-		
 	}
 
 	option = { #### Divine Democrat
@@ -807,8 +812,22 @@ bpm_christdem_split.9 = {
 
 		ig:ig_christian_democrats = {
 			hidden_effect = {
+				bpm_remove_all_gov_ideologies = yes
 				bpm_remove_all_dop_ideologies = yes
 			}
+			if = {
+				limit = { 
+					owner = {
+						OR = {
+							bpm_country_is_republic = yes
+							bpm_country_is_latin_american = yes
+						}
+					}
+				}
+				add_ideology = ideology_gov_liberal_republican
+			}
+
+			else = { add_ideology = ideology_gov_moderate_monarchist }
 			add_ideology = ideology_dop_divine_democrat
 		}
 	}
@@ -828,8 +847,22 @@ bpm_christdem_split.9 = {
 
 		ig:ig_christian_democrats = {
 			hidden_effect = {
+				bpm_remove_all_gov_ideologies = yes
 				bpm_remove_all_dop_ideologies = yes
 			}
+			if = {
+				limit = { 
+					owner = {
+						OR = {
+							bpm_country_is_republic = yes
+							bpm_country_is_latin_american = yes
+						}
+					}
+				}
+				add_ideology = ideology_gov_liberal_republican
+			}
+
+			else = { add_ideology = ideology_gov_moderate_monarchist }
 			add_ideology = ideology_dop_illiberal_democrat
 		}
 	}
@@ -1431,7 +1464,7 @@ bpm_christdem_split.50 = {
 
 			AND = {
 				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_eco_distributist_economy
+					has_ideology = ideology:ideology_eco_moderate_distributist
 				}
 				
 				je:je_bpm_christian_or_democrat ?= { 
@@ -1454,7 +1487,7 @@ bpm_christdem_split.50 = {
 		trigger = {
 			ig:ig_christian_democrats = {
 				NOT = {
-					has_ideology = ideology:ideology_eco_distributist_economy
+					has_ideology = ideology:ideology_eco_moderate_distributist
 				}
 			}
 			je:je_bpm_christian_or_democrat ?= { 
@@ -1466,11 +1499,11 @@ bpm_christdem_split.50 = {
 			hidden_effect = {
 				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = ideology_eco_distributist_economy
+			add_ideology = ideology_eco_moderate_distributist
 		}
 		set_variable = {
 			name = bpm_christian_democrats_eco_ideology 
-			value = ideology:ideology_eco_distributist_economy
+			value = ideology:ideology_eco_moderate_distributist
 		}
 	}
 
@@ -1760,7 +1793,7 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 				add_ideology = ideology_eco_modern_interventionist
 			}
 			else = {
-				add_ideology = ideology_eco_distributist_economy
+				add_ideology = ideology_eco_moderate_distributist
 			}
 
 			add_ideology = ideology_wel_distributist_welfare
@@ -1812,7 +1845,7 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 
 				add_ideology = ideology_dop_authoritarian_democrat
 				add_ideology = ideology_sta_decentralized_state
-				add_ideology = ideology_eco_distributist_economy
+				add_ideology = ideology_eco_moderate_distributist
 				add_ideology = ideology_wel_distributist_welfare
 
 				add_ideology = ideology_corporatist

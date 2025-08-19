@@ -641,6 +641,27 @@ je_bpm_christian_or_democrat = {
 			value = 1
 		}
 
+		scope:journal_entry = {
+			set_variable = { 
+				name = ideological_leaning_bar_variable
+				value = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" 
+			}
+			set_variable = { 
+			name = economical_leaning_bar_variable
+				value = "scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" 
+			}
+		}
+
+		set_variable = { 
+			name = ideological_leaning_bar_variable
+			value = "scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" 
+		}
+
+		set_variable = { 
+			name = economical_leaning_bar_variable
+			value = "scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" 
+		}
+
 		trigger_event = {
 			id = bpm_christdem_split.1
 			popup = yes
@@ -860,7 +881,6 @@ je_bpm_christian_or_democrat = {
 
 	on_monthly_pulse = {
 		effect = {
-
 			scope:journal_entry = {
 				set_variable = { 
 					name = ideological_leaning_bar_variable
@@ -1925,7 +1945,7 @@ je_bpm_new_wine_in_old_wineskins = {
 					bpm_remove_all_wel_ideologies = yes
 					bpm_remove_all_eco_ideologies = yes
 				}
-				add_ideology = ideology_eco_distributist_economy
+				add_ideology = ideology_eco_moderate_distributist
 				add_ideology = ideology_wel_distributist_welfare
 		
 				set_interest_group_name = ig_social_catholics

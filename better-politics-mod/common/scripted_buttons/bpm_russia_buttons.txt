@@ -429,7 +429,10 @@ je_bpm_propagate_the_new_wine_button = {
 		custom_tooltip = {
 			text = bpm_je_modernizers_button_on_cooldown_tt
 			NOT = { 
-				has_variable = bpm_je_new_wine_promoted_var
+				OR = {
+					has_variable = bpm_je_old_wineskins_promoted_var
+					has_variable = bpm_je_new_wine_promoted_var
+				}
 			}
 		}
 	}
@@ -497,7 +500,10 @@ je_bpm_reaffirm_the_old_tastes = {
 		custom_tooltip = {
 			text = bpm_je_modernizers_button_on_cooldown_tt
 			NOT = { 
-				has_variable = bpm_je_old_wineskins_promoted_var
+				OR = {
+					has_variable = bpm_je_old_wineskins_promoted_var
+					has_variable = bpm_je_new_wine_promoted_var
+				}
 			}
 		}
 	}
