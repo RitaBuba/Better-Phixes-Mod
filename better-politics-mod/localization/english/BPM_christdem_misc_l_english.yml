@@ -806,6 +806,7 @@
  bpm_christian_and_righteous_cause_leader: "Pious and Conservative"
  bpm_christian_and_righteous_cause_state: "A Truly Catholic State"
  bpm_critically_criticized: "Critically Criticized"
+ bpm_minor_party_created: "Independent Minor Party Created"
 
  
  available_because_you_have_clacon_tt: "An additional modifier will be added because have a [Concept('concept_state_religion', 'Christian State Religion')] or [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] are [concept_in_government]."

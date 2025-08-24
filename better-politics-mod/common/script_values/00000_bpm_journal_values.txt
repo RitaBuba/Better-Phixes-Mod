@@ -763,7 +763,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				limit = {
 					has_law = law_type:law_interventionism
 				}
-				add = {
+				subtract = {
 					value = 0.0033
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
@@ -840,8 +840,10 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_ideology = ideology:ideology_nonexistent
 					}
 				}
-				add = ig_clout
-				multiply = 1.1
+				add = {
+					value = ig_clout
+					multiply = 1.33
+				}
 			}
 			
 			every_interest_group = {
@@ -851,13 +853,16 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_ideology = ideology:ideology_eco_interventionist
 						has_ideology = ideology:ideology_eco_proletarian_economy
 						has_ideology = ideology:ideology_eco_socialist_autarky
+						is_interest_group_type = ig_trade_unions
 					}
 					NOT = {
 						has_ideology = ideology:ideology_nonexistent
 					}
 				}
-				subtract = ig_clout
-				multiply = 1.66
+				subtract = {
+					value = ig_clout
+					multiply = 1.66
+				}
 			}
 		}
 	}
@@ -1116,7 +1121,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				value = 50
 				add = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
-				divide = 2.5
+				#divide = 2.5
+				multiply = 1.66
 				#max = 0
 			}
 
