@@ -1656,6 +1656,7 @@ je_bpm_christian_or_democrat = {
 			id = bpm_christdem_split.13
 		}
 		custom_tooltip = ig_christian_democrats_distinct_tt
+		custom_tooltip = ig_christian_democrats_no_more_ideologies_tt
 	}
 
 	progressbar = yes
@@ -1756,27 +1757,45 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	possible = {
-		#has_global_variable = global_rerum_novarum_issued_var
-		#ig:ig_christian_democrats = {
-		#	NOT = {
-		#		has_ideology = ideology:ideology_dop_divine_democrat
-		#	}
-		#	OR = {
-		#		has_ideology = ideology:ideology_wel_expanded_public_welfare
-		#		has_ideology = ideology:ideology_wel_social_market_welfare
-		#	}
-		#}
-		always = yes # needs fixing, so it doesn't show up in the journal entry list
+		has_global_variable = global_rerum_novarum_issued_var
+		ig:ig_christian_democrats = {
+			NOT = {
+				has_ideology = ideology:ideology_dop_divine_democrat
+			}
+			OR = {
+				has_ideology = ideology:ideology_wel_expanded_public_welfare
+				has_ideology = ideology:ideology_wel_social_market_welfare
+			}
+		}
+		ig:ig_christian_democrats ?= {
+			has_party = yes
+			party = {
+				is_party_type = conservative_party
+			}
+		}
+		#always = yes # needs fixing, so it doesn't show up in the journal entry list
 	}
 
 	invalid = {
 		
 	}
 
-	timeout = 5475
+	timeout = 5475 # 3650
 
 	on_timeout = {
-		
+		if = {
+			limit = {	
+				always = yes
+				exists = ig:ig_christian_democrats
+			}
+
+			custom_tooltip = bpm_status_quo_tooltip_tt
+
+			trigger_event = { 
+				id = bpm_new_wine_old_wineskins_flavour.3 
+				#days = 1 
+			}
+		}
 	}
 
 	complete = {
@@ -1786,10 +1805,10 @@ je_bpm_new_wine_in_old_wineskins = {
 				"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" = 50
 			}
 		}
-		custom_tooltip = {
-			text = "christdem_con_difference_tooltip"
-			bpm_je_christdem_conservative_difference_points <= 10
-		}
+		#custom_tooltip = {
+		#	text = "christdem_con_difference_tooltip"
+		#	bpm_je_christdem_conservative_difference_points <= 10
+		#}
 	}
 
 	on_complete = {
@@ -1799,10 +1818,15 @@ je_bpm_new_wine_in_old_wineskins = {
 				exists = ig:ig_christian_democrats
 			}
 
-			trigger_event = { id = bpm_new_wine_old_wineskins_flavour.1 days = 1 }
-
-			custom_tooltip = bpm_christdems_winning_tooltip_tt
+			#custom_tooltip = bpm_christdems_winning_tooltip_tt
 			
+			trigger_event = { 
+				id = bpm_new_wine_old_wineskins_flavour.1
+				#days = 1 
+			}
+
+			set_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+
 			custom_tooltip = bpm_christian_democratic_ideas_more_widespread_tt
 			
 			ig:ig_conservatives = {
@@ -1815,7 +1839,7 @@ je_bpm_new_wine_in_old_wineskins = {
 		}
 	}
 
-	on_monthly_pulse = {
+	on_weekly_pulse = { 
 		effect = {
 			scope:journal_entry = {
 				set_variable = { 
@@ -1828,7 +1852,22 @@ je_bpm_new_wine_in_old_wineskins = {
 					value = "scripted_bar_progress(bpm_old_wineskins_scripted_progress_bar)" 
 				}
 			}
+		}
+	}
 
+	on_monthly_pulse = {
+		random_events = {
+		 	65 = 0
+		 	5 = bpm_new_wine_old_wineskins_flavour.4
+			5 = bpm_new_wine_old_wineskins_flavour.5
+			5 = bpm_new_wine_old_wineskins_flavour.6
+			5 = bpm_new_wine_old_wineskins_flavour.7
+			5 = bpm_new_wine_old_wineskins_flavour.8
+			5 = bpm_new_wine_old_wineskins_flavour.9
+			5 = bpm_new_wine_old_wineskins_flavour.10
+		}
+
+		effect = {
 			############################
 			####### Scopes
 			ig:ig_christian_democrats = {
@@ -1878,86 +1917,115 @@ je_bpm_new_wine_in_old_wineskins = {
 				"scripted_bar_progress(bpm_old_wineskins_scripted_progress_bar)" = 50
 			}
 		}
-		custom_tooltip = {
-			text = "christdem_con_difference_tooltip"
-			bpm_je_christdem_conservative_difference_points >= -10
-		}
+		#custom_tooltip = {
+		#	text = "christdem_con_difference_tooltip"
+		#	bpm_je_christdem_conservative_difference_points >= -10
+		#}
 	}
 
 	on_fail = {
-		############################
-		####### Classical Conservatives winning
 		if = {
 			limit = {	
 				always = yes
-				exists = ig:ig_conservatives
+				exists = ig:ig_christian_democrats
 			}
-		
-			custom_tooltip = bpm_conservatives_winning_tooltip_tt
 
-			ig:ig_conservatives = {
-				hidden_effect = {
-					bpm_remove_all_wel_ideologies = yes
-				}
-				add_ideology = ideology_wel_paternalistic_welfare
-				
-				add_ideology = ideology_corporatist
-		
-				set_interest_group_name = ig_paternal_conservatives
-		
-				hidden_effect = {
-					bpm_reorder_ideologies = yes
-				}
+			#custom_tooltip = bpm_conservatives_winning_tooltip_tt
+
+			set_local_variable = bpm_old_new_wine_conservative_win_variable
+			
+			trigger_event = { 
+				id = bpm_new_wine_old_wineskins_flavour.2 
+				#days = 1 
 			}
-		
+
+			custom_tooltip = bpm_christian_democratic_ideas_more_suppressed_tt
+			
 			ig:ig_christian_democrats = {
 				add_modifier = {
 					name = bpm_ig_defeated_in_struggle_for_survival_ig
 					days = long_modifier_time
 					is_decaying = yes
 				}
-		
-				leader = {
-					save_temporary_scope_as = christdem_leader
-				}
-		
-				custom_tooltip = bpm_clacons_win_tt
-				hidden_effect = {
-					scope:christdem_leader = {
-						kill_character = {
-							hidden = yes
-						}
-					}
-				}
-		
-				custom_tooltip = bpm_next_leader_will_receive_tt
-				hidden_effect = {
-					leader = {
-						add_modifier = {
-							name = bpm_ig_defeated_in_struggle_for_survival_leader
-							days = long_modifier_time
-							is_decaying = yes
-						}
-					}
-				}
-		
-				hidden_effect = {
-					bpm_remove_all_wel_ideologies = yes
-					bpm_remove_all_eco_ideologies = yes
-				}
-				add_ideology = ideology_eco_moderate_distributist
-				add_ideology = ideology_wel_distributist_welfare
-		
-				set_interest_group_name = ig_social_catholics
-		
-				hidden_effect = {
-					bpm_reorder_ideologies = yes
-				}
 			}
-		
-			
 		}
 	}
 
 	should_be_pinned_by_default = yes
+}
+
+
+je_bpm_clay_forming_an_organism = {
+	icon = "gfx/interface/icons/invention_icons/corporatism.dds"
+
+	group = bpm_je_group_interest_groups
+	
+	modifiers_while_active = {
+		#bpm_new_wine_in_old_wineskins_modifier
+	}
+
+	#scripted_progress_bar = bpm_new_wine_scripted_progress_bar
+	#scripted_progress_bar = bpm_old_wineskins_scripted_progress_bar
+
+	#scripted_button = je_bpm_propagate_the_new_wine_button
+	#scripted_button = je_bpm_reaffirm_the_old_tastes
+
+	is_shown_when_inactive = {
+		always = yes
+	}
+
+
+	immediate = {
+		
+	}
+
+	possible = {
+		has_global_variable = global_rerum_novarum_issued_var
+		custom_tooltip = {
+			text = "tooltip_bpm_country_organicists_popular"
+			bpm_organicists_popularity >= 0.2
+		} 
+
+		ig:ig_reactionaries = {
+				is_in_government = yes
+			}
+		
+		
+		always = yes # needs fixing, so it doesn't show up in the journal entry list
+	}
+
+	invalid = {
+		
+	}
+
+	timeout = 5475
+
+	on_timeout = {
+		
+	}
+
+	complete = {
+		
+	}
+
+	on_complete = {
+		
+	}
+
+	on_monthly_pulse = {
+		
+	}
+
+	fail = {
+		
+	}
+
+	on_fail = {
+		
+	}
+
+	should_be_pinned_by_default = yes
+
+
+
 }

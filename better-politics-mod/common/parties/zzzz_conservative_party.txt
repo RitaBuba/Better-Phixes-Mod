@@ -681,6 +681,30 @@ conservative_party = {
 				desc = "from_patriarchy"
 			}
 		}
+		if = {
+			limit = {
+				is_interest_group_type = ig_agrarian_populists
+				owner = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+					ig:ig_christian_democrats ?= {
+						has_party = yes
+						party = { 
+							is_party_type = conservative_party 
+						}
+					}
+					ig:ig_agrarian_populists ?= {
+						ig_clout <= 0.15
+					}
+				}
+			}
+			add = {
+				value = 25
+				desc = "bpm_from_catholic_whites"
+			}
+		}
 		if = { # conservatives like police
 			limit = {
 				has_ideology = ideology:ideology_sta_powerful_state

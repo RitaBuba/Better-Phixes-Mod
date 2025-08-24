@@ -1745,7 +1745,7 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 	}
 
 	option = {
-		name = bpm_christdem_split.1.a
+		name = bpm_new_wine_old_wineskins_flavour.1.a
 		default_option = yes
 
 		ig:ig_conservatives = {
@@ -1762,7 +1762,7 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 				}
 			}
 		
-			custom_tooltip = bpm_next_leader_will_receive_tt
+			custom_tooltip = bpm_next_leader_will_receive_clacon_tt
 			hidden_effect = {
 				leader = {
 					add_modifier = {
@@ -1786,8 +1786,10 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 			
 			if = {
 				limit = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_eco_centralized_economy
+					owner = {
+						ig:ig_christian_democrats = {
+							has_ideology = ideology:ideology_eco_centralized_economy
+						}
 					}
 				}
 				add_ideology = ideology_eco_modern_interventionist
@@ -1800,8 +1802,10 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 
 			if = {
 				limit = {
-					ig:ig_christian_democrats ?= {
-						has_ideology = ideology:ideology_cit_christian_internationalist
+					owner = {
+						ig:ig_christian_democrats ?= {
+							has_ideology = ideology:ideology_cit_christian_internationalist
+						}
 					}
 				}
 				add_ideology = ideology_cit_multiethnic_nationalist
@@ -1816,41 +1820,6 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 		
 			hidden_effect = {
 				bpm_reorder_ideologies = yes
-			}
-		}
-
-		if = {
-			limit = {
-				exists = ig:ig_christian_democrats
-				ig:ig_christian_democrats ?= {
-					has_party = yes
-					party = {
-						is_party_type = conservative_party
-					}
-				}
-				ig:ig_reactionaries ?= {
-					has_party = yes
-					party = {
-						is_party_type = conservative_party
-					}
-				}
-			}
-			ig:ig_reactionaries = {
-				hidden_effect = {
-					bpm_remove_all_dop_ideologies = yes
-					bpm_remove_all_sta_ideologies = yes
-					bpm_remove_all_eco_ideologies = yes
-					bpm_remove_all_wel_ideologies = yes
-				}
-
-				add_ideology = ideology_dop_authoritarian_democrat
-				add_ideology = ideology_sta_decentralized_state
-				add_ideology = ideology_eco_moderate_distributist
-				add_ideology = ideology_wel_distributist_welfare
-
-				add_ideology = ideology_corporatist
-
-				set_interest_group_name = ig_national_conservatives
 			}
 		}
 		if = {
@@ -1876,6 +1845,575 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 				add_ideology = ideology_wel_distributist_welfare
 
 				add_ideology = ideology_corporatist
+			}
+		}
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.2 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/southamerica_christianity.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	title = bpm_new_wine_old_wineskins_flavour.2.t
+	desc = bpm_new_wine_old_wineskins_flavour.2.d
+	flavor = bpm_new_wine_old_wineskins_flavour.2.f
+	duration = 3
+
+	dlc = dlc_bpm
+	
+	immediate = {
+		
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.2.a
+		default_option = yes
+
+		ig:ig_conservatives = {
+			hidden_effect = {
+				bpm_remove_all_wel_ideologies = yes
+			}
+			add_ideology = ideology_wel_paternalistic_welfare
+			
+			add_ideology = ideology_corporatist
+			set_interest_group_name = ig_paternal_conservatives
+		
+			hidden_effect = {
+				bpm_reorder_ideologies = yes
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_ig_defeated_in_struggle_for_survival_ig
+				days = long_modifier_time
+				is_decaying = yes
+			}
+		
+			leader = {
+				save_temporary_scope_as = christdem_leader
+			}
+		
+			custom_tooltip = bpm_clacons_win_tt
+			hidden_effect = {
+				scope:christdem_leader = {
+					kill_character = {
+						hidden = yes
+					}
+				}
+			}
+		
+			custom_tooltip = bpm_next_leader_will_receive_tt
+			hidden_effect = {
+				leader = {
+					add_modifier = {
+						name = bpm_ig_defeated_in_struggle_for_survival_leader
+						days = long_modifier_time
+						is_decaying = yes
+					}
+				}
+			}
+		
+			hidden_effect = {
+				bpm_remove_all_wel_ideologies = yes
+				bpm_remove_all_eco_ideologies = yes
+			}
+			add_ideology = ideology_eco_moderate_distributist
+			add_ideology = ideology_wel_distributist_welfare
+		
+			set_interest_group_name = ig_social_catholics
+		
+			hidden_effect = {
+				bpm_reorder_ideologies = yes
+			}
+		}
+
+		ig:ig_devout = {
+			hidden_effect = {
+				bpm_remove_all_wel_ideologies = yes
+			}
+			add_ideology = ideology_wel_paternalistic_welfare
+			add_ideology = ideology_corporatist
+		}
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.3 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/southamerica_christianity.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	title = bpm_new_wine_old_wineskins_flavour.3.t
+	desc = bpm_new_wine_old_wineskins_flavour.3.d
+	flavor = bpm_new_wine_old_wineskins_flavour.3.f
+	duration = 3
+
+	dlc = dlc_bpm
+	
+	immediate = {
+		
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.3.a
+		default_option = yes
+	}
+}
+
+############### UNCHALLANGED RIGHT-WING LEADER
+
+bpm_new_wine_old_wineskins_flavour.4 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/unspecific_politicians_arguing.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	title = bpm_new_wine_old_wineskins_flavour.4.t
+	desc = bpm_new_wine_old_wineskins_flavour.4.d
+	flavor = bpm_new_wine_old_wineskins_flavour.4.f
+	duration = 3
+
+	dlc = dlc_bpm
+	
+	immediate = {
+		ig:ig_conservatives = {
+			leader = {
+				save_scope_as = unchallanged_right_winger
+			}
+		}
+		set_local_variable = no_more_woeste_var
+	}
+
+	trigger = {
+		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		NOT = {
+			has_variable = no_more_woeste_var
+		}
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.4.a
+		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_increase_value_2_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 2
+					name = bpm_old_wineskins_scripted_progress_bar 
+				}
+			}
+		}
+
+		add_modifier = {
+			name = bpm_struggle_for_workers
+			days = short_modifier_time
+			is_decaying = yes
+		}
+
+		ig:ig_conservatives = {
+			leader = {
+				add_modifier = {
+					name = bpm_unchallanged_right_wing_leader
+					days = medium_modifier_time
+					is_decaying = yes
+				}
+				add_trait = imposing
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_stubborn_ig
+				days = medium_modifier_time
+			}
+		}
+	}
+}
+
+############### LOCAL FACTIONAL COOPERATION
+
+bpm_new_wine_old_wineskins_flavour.5 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/unspecific_signed_contract.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	title = bpm_new_wine_old_wineskins_flavour.5.t
+	desc = bpm_new_wine_old_wineskins_flavour.5.d
+	flavor = bpm_new_wine_old_wineskins_flavour.5.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	immediate = {
+		
+	}
+
+	trigger = {
+		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.5.a
+		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_increase_value_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 1
+					name = bpm_old_wineskins_scripted_progress_bar 
+				}
+			}
+		}
+
+		custom_tooltip = {
+			text = bpm_je_new_wine_decrease_value_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -1
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_open_electoral_lists
+				days = short_modifier_time
+			}
+		}
+
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = bpm_weakened
+				days = short_modifier_time
+				is_decaying = yes
+			}
+		}
+	}
+}
+
+############### SUPPORT FROM A POWERFUL BISHOP
+
+bpm_new_wine_old_wineskins_flavour.6 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/southamerica_christianity.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	title = bpm_new_wine_old_wineskins_flavour.6.t
+	desc = bpm_new_wine_old_wineskins_flavour.6.d
+	flavor = bpm_new_wine_old_wineskins_flavour.6.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	immediate = {
+		
+	}
+
+	trigger = {
+		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.6.a
+		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_new_wine_increase_value_2_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 2
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_support_from_church_officials
+				days = short_modifier_time
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_devout = {
+			add_modifier = {
+				name = bpm_ideological_involvement
+				days = short_modifier_time
+				is_decaying = yes
+			}
+		}
+	}
+}
+
+############### STRONG ARTICLE FROM CONSERVATIVE NEWSPAPER
+
+bpm_new_wine_old_wineskins_flavour.7 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/unspecific_ruler_speaking_to_people.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+	title = bpm_new_wine_old_wineskins_flavour.7.t
+	desc = bpm_new_wine_old_wineskins_flavour.7.d
+	flavor = bpm_new_wine_old_wineskins_flavour.7.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	immediate = {
+		ig:ig_conservatives = {
+			leader = {
+				save_scope_as = clacon_leader
+			}
+		}
+	}
+
+	trigger = {
+		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.7.a
+		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_increase_value_2_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 2
+					name = bpm_old_wineskins_scripted_progress_bar 
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						OR = {
+							has_law = law_type:law_state_religion
+							has_law = law_type:law_freedom_of_conscience
+						}
+						ig:ig_conservatives = {
+							is_in_government = yes
+						}
+					}
+				}
+			}
+
+			custom_tooltip = available_because_you_have_clacon_tt
+			add_modifier = {
+				name = bpm_christian_and_righteous_cause_leader
+				days = short_modifier_time
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_conservatives = {
+			leader = {
+				add_modifier = {
+					name = bpm_christian_and_righteous_cause_leader
+					days = short_modifier_time
+					is_decaying = yes
+				}
+			}
+			add_modifier = {
+				name = bpm_christian_and_righteous_cause
+				days = short_modifier_time
+				is_decaying = yes
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_critically_criticized
+				days = short_modifier_time
+				is_decaying = yes
+			}
+		}
+	}
+}
+
+############### MINOR PARTY CREATED
+
+bpm_new_wine_old_wineskins_flavour.8 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/southamerica_election.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_election.dds"
+	title = bpm_new_wine_old_wineskins_flavour.8.t
+	desc = bpm_new_wine_old_wineskins_flavour.8.d
+	flavor = bpm_new_wine_old_wineskins_flavour.8.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	immediate = {
+		
+	}
+
+	trigger = {
+		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.8.a
+		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_new_wine_increase_value_2_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 2
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_minor_party_created
+				days = medium_modifier_time
+			}
+		}
+	}
+}
+
+############### SUPPORTIVE BISHOP PRESSED INTO OPPOSITION
+
+bpm_new_wine_old_wineskins_flavour.9 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	title = bpm_new_wine_old_wineskins_flavour.9.t
+	desc = bpm_new_wine_old_wineskins_flavour.9.d
+	flavor = bpm_new_wine_old_wineskins_flavour.9.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	immediate = {
+		owner.py:conservative_party = {
+			save_scope_as = conservative_party_scope
+		}
+	}
+
+	trigger = {
+		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.9.a
+		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_increase_value_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 1
+					name = bpm_old_wineskins_scripted_progress_bar 
+				}
+			}
+		}
+
+		custom_tooltip = {
+			text = bpm_je_new_wine_decrease_value_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -1
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
+
+		ig:ig_devout = {
+			add_modifier = {
+				name = bpm_weakened
+				days = short_modifier_time
+				is_decaying = yes
+			}
+		}
+	}
+}
+
+############### RISING ANTAGONISM BETWEEN BOTH PARTIES
+
+bpm_new_wine_old_wineskins_flavour.10 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	title = bpm_new_wine_old_wineskins_flavour.10.t
+	desc = bpm_new_wine_old_wineskins_flavour.10.d
+	flavor = bpm_new_wine_old_wineskins_flavour.10.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	immediate = {
+		
+	}
+
+	trigger = {
+		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.10.a
+		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_new_wine_increase_value_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 1
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_increase_value_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = 1
+					name = bpm_old_wineskins_scripted_progress_bar 
+				}
+			}
+		}
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_stubborn_ig
+				days = medium_modifier_time
+			}
+		}
+
+		ig:ig_conservatives = {
+			add_modifier = {
+				name = bpm_stubborn_ig
+				days = medium_modifier_time
 			}
 		}
 	}
