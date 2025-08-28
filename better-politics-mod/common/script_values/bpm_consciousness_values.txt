@@ -1057,55 +1057,7 @@ bpm_consciousness_liberal_change = {
 	# 	desc = bpm_consciousness_liberal_change_literacy_rate_desc
 	# }
 }
-	
-#### MANUFACTURING CONCENTRATION ####
 
-bpm_manufacturing_concentration_sum_weight_sq = {
-	value = 0
-	every_scope_state = {
-		add = {
-			value = {
-				value = bpm_manufacturing_concentration
-				divide = owner.bpm_manufacturing_concentration_sum
-			}
-			multiply = {
-				value = bpm_manufacturing_concentration
-				divide = owner.bpm_manufacturing_concentration_sum
-			}
-		}
-	}
-	multiply = bpm_manufacturing_concentration_sum
-}
-
-bpm_manufacturing_concentration_sum = {
-	value = 0
-	every_scope_state = {
-		add = bpm_manufacturing_concentration
-	}
-}
-
-bpm_manufacturing_concentration = {
-	value = 0
-	every_scope_building = {
-		limit = {
-			is_building_group = bg_manufacturing
-			level > 0
-		}
-		add = level
-	}
-	divide = {
-		value = building_levels_in_state
-		min = 1
-	}
-}
-
-#####################################
-
-	# add = {
-	# 	value = modifier:country_liberal_consciousness_change_add
-	# 	desc = bpm_consciousness_liberal_change_modifier_desc
-	# }
-}
 
 bpm_consciousness_liberal_change_findist = {
 	every_scope_building = {
