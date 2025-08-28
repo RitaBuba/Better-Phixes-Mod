@@ -883,7 +883,7 @@ bpm_consciousness_liberal_target = {
 		desc = bpm_consciousness_liberal_change_findist_desc
 	}
 	add = {
-		value = 70
+		value = 140
 		multiply = literacy_rate
 		desc = bpm_consciousness_liberal_change_literacy_rate_desc
 	}
@@ -931,7 +931,16 @@ bpm_financial_concentration = {
 			}
 			level > 0
 		}
-		add = level
+		add = {
+			value = level
+			if = {
+				limit = {
+					is_building_type = building_financial_district
+				}
+			}
+			divide = 4
+		}
+
 	}
 	divide = {
 		value = building_levels_in_state
