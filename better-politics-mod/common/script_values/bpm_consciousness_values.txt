@@ -1055,7 +1055,10 @@ bpm_consciousness_liberal_change = {
 	# 	multiply = literacy_rate
 	# 	divide = 10
 	# 	desc = bpm_consciousness_liberal_change_literacy_rate_desc
-	# }#### MANUFACTURING CONCENTRATION ####
+	# }
+}
+	
+#### MANUFACTURING CONCENTRATION ####
 
 bpm_manufacturing_concentration_sum_weight_sq = {
 	value = 0
