@@ -96,6 +96,58 @@ bpm_christdem_split.2 = {
 	}
 }
 
+bpm_christdem_split.3 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/southamerica_christianity.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	title = bpm_christdem_split.3.t
+	desc = bpm_christdem_split.3.d
+	flavor = bpm_christdem_split.3.f
+	
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+		has_journal_entry = je_bpm_christian_or_democrat
+		var:independence_from_church_variable >= 20
+		NOT = { has_variable = bpm_christian_democrats_rel_ideology }
+	}
+
+	immediate = {
+		set_variable = bpm_christian_democrats_rel_ideology
+	}
+
+	after = {
+		change_variable = { name = christian_democrats_ideology_change add = 1 }
+		ig:ig_christian_democrats = {
+			hidden_effect = {
+				bpm_reorder_ideologies = yes
+			}
+		}
+	}
+
+	option = {
+		name = bpm_christdem_split.3.a
+
+		default_option = yes
+
+		highlighted_option = yes
+
+
+	}
+
+	option = {
+		name = bpm_christdem_split.3.b
+
+		default_option = yes
+	}
+}
+
 
 
 ################ State power and decentralisation
@@ -177,7 +229,7 @@ bpm_christdem_split.4 = {
 				custom_tooltip = {
 					text = liberal_nationalist_movement_support_radicalism_tt
 					OR = {
-						var:bpm_national_liberal_movement.political_movement_support >= 0.1
+						var:bpm_national_liberal_movement.political_movement_support >= 0.2
 						var:bpm_national_liberal_movement.political_movement_radicalism >= 0.3
 					}
 				}
@@ -189,7 +241,7 @@ bpm_christdem_split.4 = {
 					}
 					is_powerful = yes
 				}
-				always = yes
+				#always = yes
 			}
 		}
 
@@ -255,7 +307,7 @@ bpm_christdem_split.5 = {
 			hidden_effect = {
 				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = ideology_eco_moderate_distributist
+			add_ideology = ideology_eco_distributist_economy
 		}
 		
 	}
@@ -367,6 +419,7 @@ bpm_christdem_split.6 = {
 		has_journal_entry = je_bpm_christian_or_democrat
 		var:independence_from_church_variable >= 20
 		NOT = { has_variable = bpm_christian_democrats_rel_ideology }
+		always = no
 	}
 
 	immediate = {
@@ -404,6 +457,8 @@ bpm_christdem_split.6 = {
 	option = {
 		name = bpm_christdem_split.6.b
 
+		default_option = yes
+
 		highlighted_option = yes
 		trigger = {
 			custom_tooltip = {
@@ -418,7 +473,7 @@ bpm_christdem_split.6 = {
 			hidden_effect = {
 				bpm_remove_all_rel_ideologies = yes
 			}
-			add_ideology = ideology_rel_liberal_moralist
+			add_ideology = ideology_rel_modern_moralist
 		}
 	}
 
@@ -1190,6 +1245,10 @@ bpm_christdem_flavour.1 = { # Primate of ROOT proclaims support for democracy (L
 		}
 	}
 
+	cooldown = {
+		years = 10
+	}
+
 	after = {
 		
 	}
@@ -1298,6 +1357,10 @@ bpm_christdem_flavour.3 = { # All alone: Catholics against the world
 		ig:ig_christian_democrats = {
 			ig_clout <= 0.05
 		}
+	}
+
+	cooldown = {
+		years = 8
 	}
 
 	immediate = {
@@ -1464,7 +1527,7 @@ bpm_christdem_split.50 = {
 
 			AND = {
 				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_eco_moderate_distributist
+					has_ideology = ideology:ideology_eco_distributist_economy
 				}
 				
 				je:je_bpm_christian_or_democrat ?= { 
@@ -1487,7 +1550,7 @@ bpm_christdem_split.50 = {
 		trigger = {
 			ig:ig_christian_democrats = {
 				NOT = {
-					has_ideology = ideology:ideology_eco_moderate_distributist
+					has_ideology = ideology:ideology_eco_distributist_economy
 				}
 			}
 			je:je_bpm_christian_or_democrat ?= { 
@@ -1499,11 +1562,11 @@ bpm_christdem_split.50 = {
 			hidden_effect = {
 				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = ideology_eco_moderate_distributist
+			add_ideology = ideology_eco_distributist_economy
 		}
 		set_variable = {
 			name = bpm_christian_democrats_eco_ideology 
-			value = ideology:ideology_eco_moderate_distributist
+			value = ideology:ideology_eco_distributist_economy
 		}
 	}
 
@@ -1795,7 +1858,7 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 				add_ideology = ideology_eco_modern_interventionist
 			}
 			else = {
-				add_ideology = ideology_eco_moderate_distributist
+				add_ideology = ideology_eco_distributist_economy
 			}
 
 			add_ideology = ideology_wel_distributist_welfare
@@ -1921,7 +1984,7 @@ bpm_new_wine_old_wineskins_flavour.2 = {
 				bpm_remove_all_wel_ideologies = yes
 				bpm_remove_all_eco_ideologies = yes
 			}
-			add_ideology = ideology_eco_moderate_distributist
+			add_ideology = ideology_eco_distributist_economy
 			add_ideology = ideology_wel_distributist_welfare
 		
 			set_interest_group_name = ig_social_catholics
@@ -2416,5 +2479,35 @@ bpm_new_wine_old_wineskins_flavour.10 = {
 				days = medium_modifier_time
 			}
 		}
+	}
+}
+
+############### New Wine in Wineskins
+
+bpm_new_wine_old_wineskins_flavour.11 = {
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/middleeast_middleclass_cafe.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	title = bpm_new_wine_old_wineskins_flavour.10.t
+	desc = bpm_new_wine_old_wineskins_flavour.10.d
+	flavor = bpm_new_wine_old_wineskins_flavour.10.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	immediate = {
+		
+	}
+
+	trigger = {
+		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.10.a
+		default_option = yes	
 	}
 }

@@ -1,9 +1,38 @@
-﻿bpm_rerum_novarum = {
+﻿bpm_quanta_cura = {
 	type = country
-	group = "country_revolution_notification_group"
 	days = 28
 
-	texture = "gfx/interface/icons/notification_icons/revolution.dds"
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+
+	notification_type = toast
+	color = neutral
+}
+
+bpm_immortale_dei = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+
+	notification_type = toast
+	color = neutral
+}
+
+bpm_rerum_novarum = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/interest_group.dds"
+
+	notification_type = toast
+	color = neutral
+}
+
+bpm_graves_de_communi_re = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/elections.dds"
 
 	notification_type = toast
 	color = neutral

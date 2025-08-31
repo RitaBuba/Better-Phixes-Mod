@@ -454,22 +454,22 @@ liberal_party = {
 				desc = "bpm_from_moderatism"
 			}
 		}
-		if = { # Test-Unionists in Belgium
-			limit = {
-				is_interest_group_type = ig_christian_democrats
-				exists = owner.py:liberal_party
-				owner = { 
-					this = c:BEL
-				}
-				NOT = {
-					has_global_variable = peoples_springtime_happened
-				}
-			}
-			add = {
-				value = 25
-				desc = "from_belgian_unionism"
-			}
-		}
+		#if = { # Test-Unionists in Belgium
+		#	limit = {
+		#		is_interest_group_type = ig_christian_democrats
+		#		exists = owner.py:liberal_party
+		#		owner = { 
+		#			this = c:BEL
+		#		}
+		#		NOT = {
+		#			has_global_variable = peoples_springtime_happened
+		#		}
+		#	}
+		#	add = {
+		#		value = 25
+		#		desc = "from_belgian_unionism"
+		#	}
+		#}
 		if = {
 			limit = {
 				owner = { bpm_country_has_historical_two_party_system = yes }

@@ -72,7 +72,7 @@ religious_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_centre_party
+				desc = party_ger_zentrum
 				trigger = {
 					OR = {
 						country_has_primary_culture = cu:north_german

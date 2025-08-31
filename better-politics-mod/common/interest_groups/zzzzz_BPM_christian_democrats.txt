@@ -109,7 +109,7 @@
             }
             add = { 
                 desc = "Catholic Religion"
-                value = 50
+                value = 25
             }
         }
 
@@ -174,7 +174,7 @@
 					limit = {
 						owner = {
 							ig:ig_christian_democrats = {
-								has_ideology = ideology:ideology_eco_moderate_distributist # CSP example:
+								has_ideology = ideology:ideology_eco_distributist_economy # CSP example:
 							}
 						}
 					}
@@ -270,7 +270,7 @@
 			limit = {
 				owner = {
 					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_eco_moderate_distributist # CSP example:
+						has_ideology = ideology:ideology_eco_distributist_economy # CSP example:
 					}
 				}
 			}
@@ -629,7 +629,7 @@
 						}
                     }
                 }
-                value = 2.5
+                value = 3
             }
         }
 

@@ -676,8 +676,8 @@ ideology_dop_divine_democrat = {
 		law_technocracy = disapprove
 		law_military_junta = strongly_disapprove
 		law_landed_voting = neutral
-		law_wealth_voting = approve
-		law_census_voting = strongly_approve
+		law_wealth_voting = strongly_approve
+		law_census_voting = approve
 		law_universal_suffrage = disapprove
 		law_anarchy = strongly_disapprove
 		law_colonial_admin = disapprove
@@ -697,7 +697,7 @@ ideology_dop_divine_democrat = {
 	}
 
 	lawgroup_labor_unions = {
-		law_illegal_labor_unions = disapprove
+		law_illegal_labor_unions = neutral
 		law_state_controlled_labor_unions = strongly_disapprove
 		law_limited_labor_unions = approve
 		law_syndicalism = strongly_disapprove
@@ -815,7 +815,7 @@ ideology_dop_organic_democrat = {
 
 	lawgroup_labor_unions = {
 		law_illegal_labor_unions = disapprove
-		law_state_controlled_labor_unions = disapprove
+		law_state_controlled_labor_unions = neutral
 		law_limited_labor_unions = approve
 		law_syndicalism = disapprove
 		law_all_labor_unions_allowed = approve

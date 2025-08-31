@@ -125,8 +125,12 @@ bpm_1st_commie_rev.3 = { # Handles first major revolution
 						bpm_ig_is_socialist = yes
 						NOT = { has_global_variable = global_revsocs_split_var }
 					}
+					OR = {
 					is_interest_group_type = ig_conservatives
 					is_interest_group_type = ig_reactionaries
+					is_interest_group_type = ig_christian_democrats
+					is_interest_group_type = ig_fascists
+				}
 				}
 				NOT = { has_modifier = bpm_emboldened_ig }
 			}
@@ -141,5 +145,7 @@ bpm_1st_commie_rev.3 = { # Handles first major revolution
 	option = {
 		name = bpm_1st_commie_rev.3.a
 		default_option = yes
+
+		set_global_variable = global_first_major_rightwing_answer
 	}
 }

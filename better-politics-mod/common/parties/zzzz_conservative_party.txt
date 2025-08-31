@@ -696,13 +696,29 @@ conservative_party = {
 						}
 					}
 					ig:ig_agrarian_populists ?= {
-						ig_clout <= 0.15
+						is_powerful = no
 					}
 				}
 			}
 			add = {
 				value = 25
 				desc = "bpm_from_catholic_whites"
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					is_interest_group_type = ig_conservatives
+					is_interest_group_type = ig_christian_democrats
+				}
+				owner = {
+					has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+				}
+			}
+			add = {
+				value = 25
+				desc = "bpm_from_new_wine_journal_entry"
 			}
 		}
 		if = { # conservatives like police
@@ -1001,6 +1017,9 @@ conservative_party = {
 		else_if = {
 			limit = {
 				is_interest_group_type = ig_christian_democrats
+				NOT = {
+					country_has_state_religion = rel:catholic
+				}
 			}
 			add = {
 				value = -10
