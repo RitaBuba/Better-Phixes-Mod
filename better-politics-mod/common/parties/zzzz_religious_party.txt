@@ -49,13 +49,6 @@ religious_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_clerical_party
-				trigger = {
-					exists = c:FRA
-					THIS = c:FRA
-				}
-			}
-			triggered_desc = {
 				desc = party_union_of_the_russian_people
 				trigger = {
 					exists = c:RUS

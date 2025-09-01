@@ -855,8 +855,8 @@ bpm_initialize_catholic_interests = {
 				limit = { 
 					owner = {
 						OR = {
-							bpm_country_is_republic = yes
 							bpm_country_is_latin_american = yes
+							this ?= c:SWI
 						}
 						NOT = {
 							this ?= c:FRA

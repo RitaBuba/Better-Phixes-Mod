@@ -19,31 +19,12 @@
 	}
 
 	possible = {
-		#custom_tooltip = {
-		#	text = "Country is in Europe"
-		#	bpm_country_is_in_europe = yes
-		#}
-		custom_tooltip = {
-			text = "bpm_first_intl_happened"
-			has_global_variable = first_intl_chain_complete_var
-			has_global_variable = je_christian_democracy_progress
-		}
-		has_global_variable = je_christian_democracy_progress
-		#hidden_trigger = {
-		#	NOT = {
-		#		has_global_variable = global_rerum_novarum_issued_var
-		#	}
-		#}
-		any_country = {
-			country_rank = rank_value:great_power
-			bpm_country_is_in_europe = yes
-			#NOT = {
-			#	OR = {
-			#		this = c:TUR
-			#		this = c:RUS
-			#	}
-			#}
-			has_technology_researched = corporatism
+		OR = {
+			religion_percent_country = { 
+				target = rel:catholic
+				value >= 0.1
+			}
+			country_has_state_religion = rel:catholic
 		}
 	}
 
@@ -120,6 +101,16 @@ je_bpm_the_holy_see_sees = {
 	possible = {
 		always = yes
 	}
+	
+	#possible = {
+	#	OR = {
+	#		religion_percent_country = { 
+	#			target = rel:catholic
+	#			value >= 0.1
+	#		}
+	#		country_has_state_religion = rel:catholic
+	#	}
+	#}
 
 	invalid = {
 		
@@ -134,6 +125,39 @@ je_bpm_the_holy_see_sees = {
 	}
 
 	on_monthly_pulse = {
+
+		if = { 
+			limit = {
+				country_rank = rank_value:great_power
+			}
+			change_global_variable = {
+				name = je_papal_encyclicals_global_variable
+				add = {
+					value = ig:ig_radicals.ig_clout
+					add = ig:ig_socialists.ig_clout
+					multiply = 1.66
+				}
+			}
+		}
+
+		else_if = { 
+			limit = {
+				NOT = {
+					country_rank = rank_value:great_power
+				}
+			}
+			change_global_variable = {
+				name = je_papal_encyclicals_global_variable
+				add = {
+					value = ig:ig_radicals.ig_clout
+					add = ig:ig_socialists.ig_clout
+					multiply = 1.33
+				}
+			}
+		}
+
+		#bpm_calculate_frankfurt_parliament_seats = yes
+
 		########################### Encyclicals values
 
 		### Qui pluribus
@@ -189,8 +213,8 @@ je_bpm_the_holy_see_sees = {
 	}
 
 	goal_add_value = {
-		add = 1000
-		max = 1000
+		add = 500
+		max = 500
 	}
 
 	weight = 150
