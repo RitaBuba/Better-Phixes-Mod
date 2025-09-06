@@ -19,31 +19,12 @@
 	}
 
 	possible = {
-		#custom_tooltip = {
-		#	text = "Country is in Europe"
-		#	bpm_country_is_in_europe = yes
-		#}
-		custom_tooltip = {
-			text = "bpm_first_intl_happened"
-			has_global_variable = first_intl_chain_complete_var
-			has_global_variable = je_christian_democracy_progress
-		}
-		has_global_variable = je_christian_democracy_progress
-		#hidden_trigger = {
-		#	NOT = {
-		#		has_global_variable = global_rerum_novarum_issued_var
-		#	}
-		#}
-		any_country = {
-			country_rank = rank_value:great_power
-			bpm_country_is_in_europe = yes
-			#NOT = {
-			#	OR = {
-			#		this = c:TUR
-			#		this = c:RUS
-			#	}
-			#}
-			has_technology_researched = corporatism
+		OR = {
+			religion_percent_country = { 
+				target = rel:catholic
+				value >= 0.1
+			}
+			country_has_state_religion = rel:catholic
 		}
 	}
 
@@ -109,6 +90,10 @@ je_bpm_the_holy_see_sees = {
 		always = yes
 	}
 
+	scripted_progress_bar = bpm_new_wine_scripted_progress_bar
+	
+	scripted_button = je_bpm_propagate_the_new_wine_button
+
 	immediate = {
 		
 	}
@@ -116,6 +101,16 @@ je_bpm_the_holy_see_sees = {
 	possible = {
 		always = yes
 	}
+	
+	#possible = {
+	#	OR = {
+	#		religion_percent_country = { 
+	#			target = rel:catholic
+	#			value >= 0.1
+	#		}
+	#		country_has_state_religion = rel:catholic
+	#	}
+	#}
 
 	invalid = {
 		
@@ -128,16 +123,98 @@ je_bpm_the_holy_see_sees = {
 	on_complete = {
 		
 	}
+
+	on_monthly_pulse = {
+
+		if = { 
+			limit = {
+				country_rank = rank_value:great_power
+			}
+			change_global_variable = {
+				name = je_papal_encyclicals_global_variable
+				add = {
+					value = ig:ig_radicals.ig_clout
+					add = ig:ig_socialists.ig_clout
+					multiply = 1.66
+				}
+			}
+		}
+
+		else_if = { 
+			limit = {
+				NOT = {
+					country_rank = rank_value:great_power
+				}
+			}
+			change_global_variable = {
+				name = je_papal_encyclicals_global_variable
+				add = {
+					value = ig:ig_radicals.ig_clout
+					add = ig:ig_socialists.ig_clout
+					multiply = 1.33
+				}
+			}
+		}
+
+		#bpm_calculate_frankfurt_parliament_seats = yes
+
+		########################### Encyclicals values
+
+		### Qui pluribus
+
+		# + Progress of the 1848 JE
+		# + Popularity of Radical Liberals, Moderate Liberals, National Liberals and Socialists (bigger for Great Powers)
+		# + Popularity of Radical & Liberal-Nationalist Movements (bigger for Great Powers)
+		# + Revolutions, Takeovers and Rebellions in Europe
+
+		### Quanta cura
+
+		# + Popularity of Secular Interest Groups (bigger for Great Powers)
+		# + Popularity of Moderate Liberals (bigger for Great Powers)
+		# + Laws that support democracy, secularisation, republicanism, political centralization (bigger for Great Powers)
+
+		### Quod apostolici muneris?
+
+		### Immortale dei
+
+		# + Having freedom of conscience/total separation; public schools; (bigger for Great Powers)
+		# + Popularity of Social/Radical Liberals; Socialists; and of IGs that support secularisation/state religion to weaken Catholicism (like in Germany)
+		# + Lack of democratic laws and elected bureaucrats (bigger for Great Powers)
+
+		### Rerum novarum
+
+		# + Standard of Living of everybody
+		# + Lack of social welfare laws and IGs supportive of it
+		# + Lack of free labor unions 
+		# + Laissez-faire laws (bigger for Great Powers)
+		# + Lack of decentralized laws (bigger for Great Powers)
+		# + Popularity of Socialist Interest Groups and Movements (bigger for Great Powers)
+
+		### Graves de communi re
+
+		# + Popularity of Christian Democrats and National Conservatives (bigger for Great Powers)
+		# + Popularity of opposing Conservatives
+		# + Progress of the Wine Content JE
+		# + Popularity of Socialist Interest Groups
+
+		### Singulari quadam?
+
+		### Quadragesimo anno
+
+		# + Popularity of Christian Democrats, National Conservatives and Fascists (bigger for Great Powers)
+		# + Popularity of Socialist Interest Groups and Movements (bigger for Great Powers)
+		# ?
+	}
 	
 	progressbar = yes
 	
-	current_value = {
+	current_value = { ##### Major Encyclicals
 		value = global_var:je_papal_encyclicals_global_variable
 	}
 
 	goal_add_value = {
-		add = 100
-		max = 100
+		add = 500
+		max = 500
 	}
 
 	weight = 150

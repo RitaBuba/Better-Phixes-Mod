@@ -49,13 +49,6 @@ religious_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_clerical_party
-				trigger = {
-					exists = c:FRA
-					THIS = c:FRA
-				}
-			}
-			triggered_desc = {
 				desc = party_union_of_the_russian_people
 				trigger = {
 					exists = c:RUS
@@ -72,7 +65,7 @@ religious_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_centre_party
+				desc = party_ger_zentrum
 				trigger = {
 					OR = {
 						country_has_primary_culture = cu:north_german
@@ -81,11 +74,20 @@ religious_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_conservative_catholics
+				desc = party_ueci
 				trigger = {
 					OR = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_french_liberal_action
+				trigger = {
+					OR = {
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:occitan
 					}
 				}
 			}
@@ -171,6 +173,63 @@ religious_party = {
 		value = {
 			value = -5
 			desc = "base_value"
+		}
+
+		if = { # French Liberal Action
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				owner = { 
+					OR = {
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:occitan
+					}
+					OR = {
+						has_law = law_type:law_parliamentary_republic
+						has_law = law_type:law_presidential_republic
+					}
+					bpm_secularist_popularity >= 0.15
+				}
+				ig:ig_christian_democrats = {
+					OR = {
+						has_ideology = ideology_gov_liberal_republican
+						has_ideology = ideology:ideology_gov_liberal_republican
+					}
+				}
+			}
+			add = {
+				value = 25
+				desc = "from_reconcillation_with_liberalism"
+			}
+		}
+
+		if = { # Unione Elettorale Cattolica Italiana
+			limit = {
+				OR = {
+					is_interest_group_type = ig_christian_democrats
+					is_interest_group_type = ig_conservatives
+					is_interest_group_type = ig_reactionaries
+				}
+				owner = { 
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+					has_law = law_type:law_elected_bureaucrats
+					OR = {
+						bpm_secularist_popularity >= 0.2
+						NOT = {
+							has_law = law_type:law_state_religion
+						}
+					}
+					NOT = {
+						has_variable = bpm_old_new_wine_christian_democrat_win_variable
+					}
+				}
+			}
+			add = {
+				value = 25
+				desc = "from_catholic_political_involment"
+			}
 		}
 
 		if = {

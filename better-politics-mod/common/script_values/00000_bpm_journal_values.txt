@@ -12,12 +12,6 @@ bpm_je_christian_democrat_ideology_rate = {
 		}
 	}
 
-	add = { ##### Countries with significant peasantry (not farmers!) were more progressive (Poland, Czechoslovakia, Italy)
-		desc = "BPM_VALUE_FROM_PEASANT_POPULATION"
-		value = var:bpm_peasant_population_yandev_var
-		multiply = 0.077 # 0.04
-	}
-
 	##### This was moved down to class-focused values!
 
 	#add = { ##### Countries with modern machinery, technology and automatization also had more progressive Christian Democrats (France, Belgium, Netherlands)
@@ -42,21 +36,6 @@ bpm_je_christian_democrat_ideology_rate = {
 				multiply = 0.01
 			}
 		}
-		if = { ### As well as socialists were also a bit more progressive, likely due to pragmatism! (France, Italy, Czechoslovakia)
-			limit = {
-				has_global_variable = first_intl_chain_complete_var
-			}
-			every_interest_group = {
-				limit = {
-					OR = {
-						bpm_ig_is_socialist = yes
-						is_interest_group_type = ig_reformist_socialists
-					}
-					ig_clout >= 0.01
-				}
-				add = ig_clout
-			}
-		}
 	}
 
 	add = { ##### Countries where liberalism was omnipresent... (France, Germany, Italy)
@@ -67,21 +46,22 @@ bpm_je_christian_democrat_ideology_rate = {
 			}
 			add = {
 				value = ROOT.var:bpm_consciousness_liberal
-				multiply = 0.0077
+				multiply = 0.0066
 			}
 		}
 
 		if = { ### ...served as a backing for pan-national movements... (Germany, Italy)
 			limit = {
-				OR = {
-					owner = {
-						OR = {
-							can_form_nation = ITA
-							can_form_nation = GER
-						}
-					}
-					has_technology_researched = pan-nationalism
-				}
+				#OR = {
+				#	owner = {
+				#		OR = {
+				#			can_form_nation = ITA
+				#			can_form_nation = GER
+				#		}
+				#	}
+				#	has_technology_researched = pan-nationalism
+				#}
+				always = yes
 			}
 			every_interest_group = {
 				limit = {
@@ -97,7 +77,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				add = {
 					value = political_movement_support
-					multiply = 15
+					multiply = 1.11
 				}
 			}
 		}
@@ -118,7 +98,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				add = {
 					value = ig_clout
-					multiply = 0.33
+					multiply = 1.05
 				}
 			}
 			every_interest_group = {
@@ -127,7 +107,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				add = {
 					value = ig_clout
-					multiply = 0.66
+					multiply = 1.33
 				}
 			}
 			every_interest_group = {
@@ -136,7 +116,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 0.99
+					multiply = 1.66
 				}
 			}
 		}
@@ -148,13 +128,12 @@ bpm_je_christian_democrat_ideology_rate = {
 		if = { ### Can't be liberal if they moved towards authoritarianism themselves!
 			limit = {
 				ig:ig_christian_democrats = {
-					#NOT = {
-					#	AND = {
-					#		is_in_government = yes
-					#		has_ideology = ideology:ideology_dop_illiberal_democrat
-					#	}
-					#}
-					bpm_ig_is_marginal = no
+					NOR = {
+						is_in_government = yes
+						has_ideology = ideology:ideology_dop_illiberal_democrat
+					}
+					#bpm_ig_is_marginal = no
+					#always = yes
 				}
 			}
 
@@ -189,9 +168,9 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 			}
 
-			else_if = { # Universal suffrage makes catholic laymen more inclined to defend them and their own labour-focused interests (Everywhere pretty much)
+			else_if = { # Wealth-based and education-based voting drives them to the left but less so (Italan Popularists, Belgian New Right)
 				limit = {
-					has_law = law_type:law_universal_suffrage
+					has_law = law_type:law_organic_democracy
 				}
 				add = {
 					value = 0.002
@@ -206,7 +185,7 @@ bpm_je_christian_democrat_ideology_rate = {
 					}
 				}
 				add = {
-					value = 0.00025
+					value = 0.001
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -217,7 +196,6 @@ bpm_je_christian_democrat_ideology_rate = {
 			if = { # Reactionary and anti-labor legislation and laws drive them towards more left-wing positions.
 				limit = {
 					OR = {
-						has_law = law_type:law_limited_labor_unions
 						has_law = law_type:law_illegal_labor_unions
 						has_law = law_type:law_state_controlled_labor_unions
 					}
@@ -230,12 +208,12 @@ bpm_je_christian_democrat_ideology_rate = {
 			else_if = { # Syndicalist-eqsue and free labour are something Christian Democrats strive for and will try to defend the current state of things.
 				limit = {
 					OR = {
-						has_law = law_type:law_all_labor_unions_allowed
 						has_law = law_type:law_syndicalism
+						has_law = law_type:law_limited_labor_unions
 					}
 				}
 				add = {
-					value = 0.0025
+					value = 0.002
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -269,21 +247,11 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 			}
 
-			else_if = { # A moderate status quo is rather good for them...
-				limit = {
-					has_law = law_type:law_separated_powers
-				}
-				add = {
-					value = 0.002
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
-				}
-			}
-
 			else_if = { # Too much liberalism is very bad!
 				limit = {
 					has_law = law_type:law_supreme_legislature
 				}
-				add = {
+				subtract = {
 					value = 0.005
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
@@ -307,8 +275,8 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				add = {
 					value = political_movement_support
-					multiply = ROOT.ig:ig_christian_democrats.ig_clout
-					multiply = 33
+					#multiply = ROOT.ig:ig_christian_democrats.ig_clout
+					multiply = 1.11
 				}
 			}
 		}
@@ -323,8 +291,8 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				add = {
 					value = political_movement_support
-					multiply = ROOT.ig:ig_christian_democrats.ig_clout
-					multiply = 30
+					#multiply = ROOT.ig:ig_christian_democrats.ig_clout
+					multiply = 1.33
 				}
 			}
 		}
@@ -339,8 +307,8 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				add = {
 					value = political_movement_support
-					multiply = ROOT.ig:ig_christian_democrats.ig_clout
-					multiply = 30
+					#multiply = ROOT.ig:ig_christian_democrats.ig_clout
+					multiply = 1.22
 				}
 			}
 		}
@@ -518,7 +486,7 @@ bpm_je_christian_democrat_ideology_rate = {
 			value = 50
 			subtract = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
 			multiply = ROOT.ig:ig_christian_democrats.ig_clout
-			divide = 3
+			divide = 2.5
 		}
 
 		if = { ### Essentially a negative modifier
@@ -532,9 +500,9 @@ bpm_je_christian_democrat_ideology_rate = {
 		}
 
 		subtract = {
-			value = 1.33
+			value = bpm_loyalist_population_fraction
 			multiply = bpm_loyalist_population_fraction
-			multiply = 1.33
+			multiply = 1.66
 		}
 
 		#else_if = { ### Lots of loyalists will keep them relatively moderate 
@@ -562,6 +530,128 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 			}
 			subtract = -0.2
+		}
+	}
+
+	add = { ##### As Christian Democrats progress, they should retain their goal of retaining moderation wherever they currently are.
+		desc = "BPM_VALUE_FROM_SOCIALIST_MOVEMENTS_IGS_AND_AUTHORITARIANISM"
+
+		if = { ### Essentially a negative modifier
+			limit = {
+				any_interest_group = {
+					bpm_ig_is_socialist = yes
+				}
+			}
+			every_interest_group = {
+				limit = {
+					OR = {
+						bpm_ig_is_socialist = yes
+						is_interest_group_type = ig_reformist_socialists
+						is_interest_group_type = ig_anarchists
+					}
+					NOT = {
+						has_ideology = ideology:ideology_nonexistent
+					}
+				}
+				subtract = {
+					value = ig_clout
+					multiply = 1.33
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				always = yes
+			}
+			every_political_movement = {
+				limit = {
+					OR = {
+						is_political_movement_type = movement_socialist
+						is_political_movement_type = movement_reformist_socialist
+						is_political_movement_type = movement_communist
+						is_political_movement_type = movement_anarchist
+					}
+				}
+				subtract = {
+					value = political_movement_support
+					multiply = 1.2
+				}
+			}
+		}
+	}
+
+	add = { ##### Countries with significant peasantry/farmers that formed the BASE of Christian Democrats were conservative; (Austria, Lithuania)
+		desc = "BPM_VALUE_FROM_PEASANT_POPULATION_COMPETITION_WITH_AGRPOPS_LAND_REFORM_POWER"
+		
+		subtract = {
+			value = var:bpm_peasant_population_yandev_var
+			multiply = 0.077 # 0.04
+		}
+
+		if = { ### If both are together then Christian Democrats will be far more progressive (Italy, Belgium)
+			limit = {
+				ig:ig_agrarian_populists = {
+					OR = {
+						is_member_of_party = owner.py:conservative_party
+						is_member_of_party = owner.py:religious_party
+					}
+				}
+				ig:ig_christian_democrats = {
+					OR = {
+						is_member_of_party = owner.py:conservative_party
+						is_member_of_party = owner.py:religious_party
+					}
+				}
+			}
+
+			every_interest_group = {
+				limit = {
+					is_interest_group_type = ig_agrarian_populists
+				}
+				add = {
+					value = ig_clout
+					multiply = 1.66
+				}
+			}
+		}
+
+		else_if = { ### If both compete then Christian Democrats will be far more conservative (Poland, Austria, Lithuania)
+			limit = {
+				ig:ig_agrarian_populists = {
+					NOR = {
+						is_member_of_party = owner.py:conservative_party
+						is_member_of_party = owner.py:religious_party
+					}
+				}
+			}
+
+			every_interest_group = {
+				limit = {
+					is_interest_group_type = ig_agrarian_populists
+				}
+				subtract = {
+					value = ig_clout
+					multiply = 1.66
+				}
+			}
+		}
+
+		if = { # Strong inclination towards land reform is needed the peasant movement is strong
+			limit = {
+				ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable <= 66
+			}
+			every_political_movement = {
+				limit = {
+					OR = {
+						is_political_movement_type = movement_land_reform
+					}
+				}
+				add = {
+					value = political_movement_support
+					multiply = 1.33
+				}
+			}
 		}
 	}
 
@@ -652,7 +742,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				add = {
 					value = ROOT.var:bpm_laborer_population_yandev_var
-					multiply = 0.2 # 0.05 - Counter-balance for the 'reactionary' shopkeepers and farmers!
+					multiply = 0.25 # 0.05 - Counter-balance for the 'reactionary' shopkeepers and farmers!
 				}
 				add = {
 					value = ROOT.var:bpm_machinist_population_yandev_var
@@ -675,7 +765,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			}
 			add = {
 				value = ROOT.var:bpm_consciousness_labor
-				multiply = 0.0077
+				multiply = 0.011
 			}
 		}
 		else = {
@@ -688,11 +778,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 		
 		if = {
 			limit = {
-				has_variable = bpm_peasant_population_yandev_var
-			}
-			add = {
-				value = ROOT.var:bpm_peasant_population_yandev_var
-				multiply = 0.05 # 0.04
+				has_variable = bpm_laborer_population_yandev_var
 			}
 			add = {
 				value = ROOT.var:bpm_laborer_population_yandev_var
@@ -762,7 +848,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				limit = {
 					has_law = law_type:law_interventionism
 				}
-				add = {
+				subtract = {
 					value = 0.0033
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
@@ -811,18 +897,21 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			limit = {
 				any_interest_group = {
 					OR = {
-						has_ideology = ideology:ideology_eco_laissez_faire # Libs, Business, Market Liberals
-						has_ideology = ideology:ideology_eco_modernizer # Late Libs, Radicals
-						has_ideology = ideology:ideology_eco_conservative_agrarian # Conservatives, Reactionaries, some Devout etc.
-						has_ideology = ideology:ideology_eco_modern_agrarian # Agrpops, Village Interests
-					}
-					OR = {
-						has_ideology = ideology:ideology_eco_autarky # Fascists
-						has_ideology = ideology:ideology_eco_interventionist # Most National Liberals, Patcons
-						has_ideology = ideology:ideology_eco_proletarian_economy # All Socialists.
-						has_ideology = ideology:ideology_eco_socialist_mixed_economy # Social Democrats
+						OR = {
+							has_ideology = ideology:ideology_eco_laissez_faire # Libs, Business, Market Liberals
+							has_ideology = ideology:ideology_eco_modernizer # Late Libs, Radicals
+							has_ideology = ideology:ideology_eco_conservative_agrarian # Conservatives, Reactionaries, some Devout etc.
+							has_ideology = ideology:ideology_eco_modern_agrarian # Agrpops, Village Interests
+						}
+						OR = {
+							has_ideology = ideology:ideology_eco_autarky # Fascists
+							has_ideology = ideology:ideology_eco_interventionist # Most National Liberals, Patcons
+							has_ideology = ideology:ideology_eco_proletarian_economy # All Socialists.
+							has_ideology = ideology:ideology_eco_socialist_mixed_economy # Social Democrats
+						}
 					}
 				}
+				ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable <= 66
  			}
 			every_interest_group = {
 				limit = {
@@ -830,14 +919,18 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_ideology = ideology:ideology_eco_laissez_faire
 						has_ideology = ideology:ideology_eco_modernizer
 						has_ideology = ideology:ideology_eco_conservative_agrarian
+						has_ideology = ideology:ideology_eco_modern_agrarian
 					}
 					NOT = {
 						has_ideology = ideology:ideology_nonexistent
 					}
 				}
-				add = ig_clout
-				multiply = 1.55
+				add = {
+					value = ig_clout
+					multiply = 1.22
+				}
 			}
+			
 			every_interest_group = {
 				limit = {
 					OR = {
@@ -845,13 +938,16 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_ideology = ideology:ideology_eco_interventionist
 						has_ideology = ideology:ideology_eco_proletarian_economy
 						has_ideology = ideology:ideology_eco_socialist_autarky
+						is_interest_group_type = ig_trade_unions
 					}
 					NOT = {
 						has_ideology = ideology:ideology_nonexistent
 					}
 				}
-				subtract = ig_clout
-				multiply = 1.33
+				subtract = {
+					value = ig_clout
+					multiply = 1.33
+				}
 			}
 		}
 	}
@@ -936,203 +1032,201 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 		if = {
 			limit = {
 				ig:ig_christian_democrats = {
-					NOR = {
-						has_ideology = ideology:ideology_wel_social_market_welfare
-						leader = {
-							has_ideology = ideology:ideology_market_liberal
-						}
-					}
+					#ig_clout >= 0.009
+					always = yes
 				}
 			}
+
 			if = {
 				limit = {
-					OR = {
+					owner = {
 						has_law = law_type:law_no_health_system
-						AND = {
-							has_law = law_type:law_private_health_insurance
-							owner = {
-								institution_investment_level = { 
-									institution = institution_health_system value < 3 
-								}
-							}
-						}
 					}
-					add = {
-						value = 0.005
-						divide = ROOT.ig:ig_christian_democrats.ig_clout
-					}
-					if = {
-						limit = {
-							owner = {
-								institution_investment_level = { 
-									institution = institution_health_system 
-									value != 0
-								}
-							}
-						}
-						add = {
-							value = 3
-							subtract = "institution_investment_level(institution_health_system)"
-							multiply = ROOT.ig:ig_christian_democrats.ig_clout
-							divide = 2.5
-						}
-					}
+				}
+				add = {
+					value = 0.001
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
 
+			else_if = {
+				limit = {
+					owner = {
+						institution_investment_level = { 
+							institution = institution_health_system value < 3
+						}
+					}
+				}
+				add = {
+					value = 3
+					subtract = "institution_investment_level(institution_health_system)"
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					divide = 750
+				}
+			}
+
+
+			###################
+
 			if = {
 				limit = {
-					OR = {
+					owner = {
 						has_law = law_type:law_no_schools
-						AND = {
-							OR = {
-								has_law = law_type:law_private_schools
-								has_law = law_type:law_public_schools
-							}
-							owner = {
-								institution_investment_level = { 
-									institution = institution_schools value < 3 
-								}
-							}
-						}
 					}
-					add = {
-						value = 0.005
-						divide = ROOT.ig:ig_christian_democrats.ig_clout
-					}
-					if = {
-						limit = {
-							owner = {
-								institution_investment_level = { 
-									institution = institution_schools 
-									value != 0
-								}
-							}
-						}
-						add = {
-							value = 3
-							subtract = "institution_investment_level(institution_schools)"
-							multiply = ROOT.ig:ig_christian_democrats.ig_clout
-							divide = 2.5
-						}
-					}
+				}
+				add = {
+					value = 0.001
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
 
+			else_if = {
+				limit = {
+					owner = {
+						institution_investment_level = { 
+							institution = institution_schools value < 3
+						}
+					}
+				}
+				add = {
+					value = 3
+					subtract = "institution_investment_level(institution_schools)"
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					divide = 750
+				}
+			}
+
+			#######################
+
 			if = {
 				limit = {
-					OR = {
+					owner = {
 						has_law = law_type:law_no_workers_rights
-						owner = {
-							institution_investment_level = { 
-								institution = institution_workplace_safety value < 3 
-							}
-						}
 					}
-					add = {
-						value = 0.005
-						divide = ROOT.ig:ig_christian_democrats.ig_clout
-					}
-					if = {
-						limit = {
-							owner = {
-								institution_investment_level = { 
-									institution = institution_workplace_safety 
-									value != 0
-								}
-							}
-						}
-						add = {
-							value = 3
-							subtract = "institution_investment_level(institution_workplace_safety)"
-							multiply = ROOT.ig:ig_christian_democrats.ig_clout
-							divide = 2.5
-						}
-					}
+				}
+				add = {
+					value = 0.001
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
 
-			if = {
+			else_if = {
 				limit = {
-					OR = {
-						has_law = law_type:law_poor_laws
-						has_law = law_type:law_no_social_security
-						owner = {
-							institution_investment_level = { 
-								institution = institution_social_security value < 3 
-							}
-						}
-					}
-					add = {
-						value = 0.005
-						divide = ROOT.ig:ig_christian_democrats.ig_clout
-					}
-					if = {
-						limit = {
-							OR = {
-								has_law = law_type:law_wage_subsidies
-								has_law = law_type:law_old_age_pension
-							}
-							owner = {
-								institution_investment_level = { 
-									institution = institution_social_security 
-									value != 0
-								}
-							}
-						}
-						add = {
-							value = 3
-							subtract = "institution_investment_level(institution_social_security)"
-							multiply = ROOT.ig:ig_christian_democrats.ig_clout
-							divide = 2.5
+					owner = {
+						institution_investment_level = { 
+							institution = institution_workplace_safety value < 3
 						}
 					}
 				}
+				add = {
+					value = 3
+					subtract = "institution_investment_level(institution_workplace_safety)"
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					divide = 750
+				}
 			}
+
+			###########################
+
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_no_social_security
+					}
+				}
+				add = {
+					value = 0.001
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
+				}
+			}
+
+			else_if = {
+				limit = {
+					owner = {
+						institution_investment_level = { 
+							institution = institution_social_security value < 4
+						}
+					}
+				}
+				add = {
+					value = 4
+					subtract = "institution_investment_level(institution_social_security)"
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					divide = 500
+				}
+			}
+
 
 			if = {
 				limit = {
 					OR = {
 						has_law = law_type:law_child_labor_allowed
 						has_law = law_type:law_restricted_child_labor
-						has_law = law_type:law_compulsory_primary_school
 					}
-					add = {
-						value = 0.005
-						divide = ROOT.ig:ig_christian_democrats.ig_clout
-					}
+				}
+				add = {
+					value = 0.002
+					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
 		}
 	}
 
-	add = { # Countries with a proper, conservative and strong middle-class had Christdems more reactionary anti-capitalist, populist etc. (Poland, Austria)
-		desc = "BPM_VALUE_FROM_MIDDLE_CLASS_LANDOWNER_POPULATION"
+	add = {
+		desc = "BPM_VALUE_FROM_BELOW_EXPECTED_SOL"
+	
+		add = {
+			value = bpm_country_fraction_below_expected_sol
+			multiply = bpm_country_fraction_below_expected_sol
+			#multiply = bpm_country_fraction_below_expected_sol
+			multiply = 44
+		}
+	}
 
-		if = { # Countries with a strong middle class (Shopkeepers, Farmers) (To show orientation towards them)
+
+	add = { ##### Countries with significant peasantry/farmers that competed for rural voters (since their primary support wasn't in the cities)
+		desc = "BPM_VALUE_FROM_PEASANTS_COMPETITION_FOR_MINOR_PRODUCTION" # (Poland, Czechia, Austria, Lithuania)
+		
+		if = {
 			limit = {
-				OR = {
-					has_variable = bpm_shopkeeper_population_yandev_var
-					has_variable = bpm_farmer_population_yandev_var
-					has_variable = bpm_clergymen_population_yandev_var
-					has_variable = bpm_aristocrat_population_yandev_var
+				has_variable = bpm_peasant_population_yandev_var
+			}
+			subtract = {
+				value = ROOT.var:bpm_peasant_population_yandev_var
+				multiply = 0.066 # 0.04
+			}
+		}
+
+		if = { ### Competing with other interest groups for agrarian voters
+			limit = {
+				ig:ig_agrarian_populists = {
+					NOR = {
+						is_member_of_party = owner.py:conservative_party
+						is_member_of_party = owner.py:religious_party
+					}
 				}
 			}
-			subtract = {
-				value = ROOT.var:bpm_shopkeeper_population_yandev_var
-				multiply = 0.66
+
+			every_interest_group = {
+				limit = {
+					is_interest_group_type = ig_agrarian_populists
+				}
+				subtract = {
+					value = ig_clout
+					multiply = 2.5
+				}
 			}
-			subtract = {
-				value = ROOT.var:bpm_farmer_population_yandev_var
-				multiply = 0.66
-			}
-			subtract = {
-				value = ROOT.var:bpm_clergymen_population_yandev_var
-				multiply = 0.66
-			}
-			subtract = {
-				value = ROOT.var:bpm_aristocrat_population_yandev_var
-				multiply = 1.66
+
+			every_political_movement = {
+				limit = {
+					OR = {
+						is_political_movement_type = movement_land_reform
+					}
+				}
+				add = {
+					value = political_movement_support
+					multiply = 1.33
+				}
 			}
 		}
 	}
@@ -1144,19 +1238,15 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			limit = {
 				NOT = {
 					has_global_variable = global_rerum_novarum_issued_var
-					AND = {
-						has_technology_researched = corporatism
-						has_technology_researched = mechanized_workshops
-						has_technology_researched = mutual_funds
-					}
 				}
 			}
 
 			subtract = {
-				value = 50
+				value = 0
 				add = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
-				divide = 3.33
+				#divide = 2.5
+				multiply = 5
 				#max = 0
 			}
 
@@ -1183,7 +1273,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.44
+					multiply = 1.1
 				}
 			}
 
@@ -1198,9 +1288,27 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 
 				subtract = {
-					value = 1.66
+					value = 1.33
 					multiply = ROOT.ig:ig_christian_democrats.ig_clout
-					multiply = 2.5
+					multiply = 1.22
+				}
+			}
+
+			if = { # Moderation from being in a non-Catholic state
+				limit = {
+					owner = {
+						NOT = {
+							country_has_state_religion = rel:catholic
+						}
+					}
+				}
+
+				add = {
+					value = 50
+					subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
+					multiply = ROOT.ig:ig_christian_democrats.ig_clout
+					#divide = 1.66
+					multiply = 4.44
 				}
 			}
 		}
@@ -1209,62 +1317,6 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			limit = {
 				has_global_variable = global_rerum_novarum_issued_var
 			}
-
-			add = {
-				value = 50
-				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
-				multiply = ROOT.ig:ig_christian_democrats.ig_clout
-				divide = 1.66
-			}
-		}	
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_BELOW_EXPECTED_AND_TAX"
-
-		if = {
-			limit = {
-				has_global_variable = global_rerum_novarum_issued_var
-			}
-
-			add = {
-				value = bpm_country_fraction_below_expected_sol
-				multiply = 6.66
-			}
-
-			if = {
-				limit = {
-					average_sol <= 15.0
-				}
-				add = {
-					value = 15
-					subtract = average_sol
-					divide = 100
-					multiply = 1.33
-					min = 0.0
-					#max = 1.0 # (1-0.66)*3 will be 1.02, so we clamp it for nice numbers
-				}
-			}
-
-			else_if = {
-				limit = {
-					average_sol >= 15.0
-				}
-				subtract = {
-					value = average_sol
-					divide = 100
-					subtract = 15
-					multiply = 2.5
-					min = 0.0
-				}
-			}
-
-			#add = { # Around 3.66 times the average SoL for the wealthy.
-			#	value = average_sol
-			#	multiply = 3.66
-			#
-			#	divide = 125
-			#}
 
 			if = { ### Unjust taxation is evil, and we suffer so much! Or do we?
 				limit = {
@@ -1317,6 +1369,147 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						value = 0.0033
 						divide = ROOT.ig:ig_christian_democrats.ig_clout
 					}
+				}
+			}
+
+			if = {
+				limit = {
+					tax_level = very_low
+				}
+				multiply = 0.33
+			}
+			else_if = {
+				limit = {
+					tax_level = low
+				}
+				multiply = 0.66
+			}
+			else_if = {
+				limit = {
+					tax_level = medium
+				}
+				multiply = 1
+			}
+			else_if = {
+				limit = {
+					tax_level = high
+				}
+				multiply = 1.66
+			}
+			else_if = {
+				limit = {
+					tax_level = very_high
+				}
+				multiply = 2.33
+			}
+
+			add = {
+				value = 50
+				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
+				multiply = ROOT.ig:ig_christian_democrats.ig_clout
+				#divide = 1.66
+				multiply = 2.5
+			}
+
+			if = {
+				limit = {
+					average_sol <= 15.0
+				}
+				add = {
+					value = 15
+					subtract = average_sol
+					divide = 15
+					multiply = 1.66
+					min = 0.0
+					#max = 1.0 # (1-0.66)*3 will be 1.02, so we clamp it for nice numbers
+				}
+			}
+
+			else_if = {
+				limit = {
+					average_sol >= 15.0
+				}
+				subtract = {
+					value = average_sol
+					divide = 20
+					subtract = 15
+					multiply = 3
+					min = 0.0
+				}
+			}
+		}	
+	}
+
+	add = { # Countries with a proper, conservative and strong middle-class had Christdems more reactionary anti-capitalist, populist etc. (Poland, Austria)
+		desc = "BPM_VALUE_FROM_MIDDLE_CLASS_LANDOWNER_POPULATION"
+
+		if = { # Countries with a strong middle class (Shopkeepers, Farmers) (To show orientation towards them)
+			limit = {
+				OR = {
+					has_variable = bpm_shopkeeper_population_yandev_var
+					has_variable = bpm_farmer_population_yandev_var
+					has_variable = bpm_clergymen_population_yandev_var
+					has_variable = bpm_aristocrat_population_yandev_var
+				}
+			}
+			subtract = {
+				value = ROOT.var:bpm_shopkeeper_population_yandev_var
+				multiply = 1.66
+			}
+			subtract = {
+				value = ROOT.var:bpm_farmer_population_yandev_var
+				multiply = 1.33
+			}
+			subtract = {
+				value = ROOT.var:bpm_clergymen_population_yandev_var
+				multiply = 1.66
+			}
+			subtract = {
+				value = ROOT.var:bpm_aristocrat_population_yandev_var
+				multiply = 3.33
+			}
+		}
+	}
+
+	add = { # Cooperation with business always ended up in becoming more and more pro-capitalist. Examples being the main line of CSP.
+		desc = "BPM_VALUE_FROM_BUSINESS_AND_LAISSEZ_FAIRE_IN_PARTY_WITH_CHRISTDEMS"
+
+		if = { # Countries with a strong middle class (Shopkeepers, Farmers) (To show orientation towards them)
+			limit = {
+				NOT = {
+					has_law = law_type:law_laissez_faire
+				}
+			}
+			every_interest_group = {
+				limit = {
+					OR = {
+						is_interest_group_type = ig_industrialists
+						#has_ideology = ideology:ideology_eco_laissez_faire
+					}
+					NOT = {
+						has_ideology = ideology:ideology_nonexistent
+					}
+				}
+				subtract = {
+					value = ig_clout
+					multiply = 6.66
+				}
+			}
+		}
+		else = {
+			every_interest_group = {
+				limit = {
+					OR = {
+						is_interest_group_type = ig_industrialists
+						#has_ideology = ideology:ideology_eco_laissez_faire
+					}
+					NOT = {
+						has_ideology = ideology:ideology_nonexistent
+					}
+				}
+				add = {
+					value = ig_clout
+					multiply = 3.33
 				}
 			}
 		}
@@ -1399,6 +1592,32 @@ bpm_je_christdem_ideological_power_gain = {
 	value = 0
 
 	add = {
+		desc = "BPM_VALUE_FROM_CLOUT_DIFFERENCE"
+		if = {
+			limit = {
+				bpm_conservative_christdem_clout_difference >= 0.0
+			}
+			add = {
+				value = bpm_conservative_christdem_clout_difference
+				multiply = 1.33
+			}
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_LABOR_CONCIOUSNESS"
+		if = {
+			limit = {
+				has_variable = bpm_consciousness_labor
+			}
+			add = {
+				value = ROOT.var:bpm_consciousness_labor
+				multiply = 0.0066
+			}
+		}
+	}
+
+	add = {
 		desc = "BPM_VALUE_FROM_LEADER_POPULARITY"
 		every_scope_character = {
 			limit = {
@@ -1407,17 +1626,29 @@ bpm_je_christdem_ideological_power_gain = {
 			}
 			add = popularity
 		}
-		divide = 1234
+		multiply = 0.0022
 	}
 
 	add = {
-		desc = "BPM_VALUE_FROM_CHRISTIAN_DEMOCRATIC_CLOUT"
+		desc = "BPM_VALUE_FROM_RADICAL_CLOUT"
 		if = {
 			limit = {
-				exists = ig:ig_trade_unions
+				always = yes
 			}
-			add = ROOT.ig:ig_christian_democrats.interest_group_population_percentage # ig_clout
-			multiply = 5
+			every_interest_group = {
+				limit = {
+					OR = {
+						is_interest_group_type = ig_trade_unions
+						is_interest_group_type = ig_radicals
+						is_interest_group_type = ig_socialists
+						is_interest_group_type = ig_reformist_socialists
+						is_interest_group_type = ig_revolutionist_socialists
+						is_interest_group_type = ig_anarchist
+					}
+				}
+				add = interest_group_population_percentage
+			}
+			multiply = 10
 		}
 	}
 
@@ -1430,11 +1661,17 @@ bpm_je_christdem_ideological_power_gain = {
 			}
 			every_political_movement = {
 				limit = {
-					is_political_movement_type = movement_labor
+					OR = {
+						is_political_movement_type = movement_labor
+						is_political_movement_type = movement_socialist
+						is_political_movement_type = movement_reformist_socialist
+						is_political_movement_type = movement_communist
+						is_political_movement_type = movement_anarchist
+					}
 				}
 				add = {
 					value = political_movement_support
-					multiply = 10
+					multiply = 1.25
 				}
 			}
 		}
@@ -1449,14 +1686,15 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 				add = {
 					value = political_movement_support
-					multiply = 10
+					multiply = 1.1
 				}
 			}
 		}
 	}
 
 	add = {
-		desc = "BPM_VALUE_FROM_TRAITS"
+		desc = "BPM_VALUE_FROM_TRAITS_BASIC"
+
 		if = {
 			limit = {
 				ig:ig_christian_democrats = {
@@ -1466,7 +1704,7 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 			}
 
-			add = 0.01
+			add = 0.1
 		}
 
 		if = {
@@ -1478,7 +1716,7 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 			}
 
-			add = 0.01
+			add = 0.1
 		}
 
 		if = {
@@ -1490,7 +1728,7 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 			}
 
-			subtract = 0.015
+			subtract = 0.15
 		}
 
 		if = {
@@ -1502,31 +1740,7 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 			}
 
-			add = 0.01
-		}
-
-		if = {
-			limit = {
-				ig:ig_christian_democrats = {
-					leader = {
-						has_trait = charismatic
-					}
-				}
-			}
-
-			add = 0.02
-		}
-
-		if = {
-			limit = {
-				ig:ig_christian_democrats = {
-					leader = {
-						has_trait = pious
-					}
-				}
-			}
-
-			add = 0.02
+			add = 0.1
 		}
 
 		if = {
@@ -1538,7 +1752,7 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 			}
 
-			add = 0.01
+			add = 0.1
 		}
 
 		if = {
@@ -1550,7 +1764,7 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 			}
 
-			add = 0.01
+			add = 0.1
 		}
 
 		if = {
@@ -1562,7 +1776,7 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 			}
 
-			add = 0.005
+			subtract = 0.2
 		}
 		if = {
 			limit = {
@@ -1573,21 +1787,58 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 			}
 
-			add = 0.005
+			add = 0.05
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_TRAITS_STRONG"
+		
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = charismatic
+					}
+				}
+			}
+
+			add = 0.2
+		}
+
+		if = {
+			limit = {
+				ig:ig_christian_democrats = {
+					leader = {
+						has_trait = pious
+					}
+				}
+			}
+
+			add = 0.2
 		}
 	}
 }
 
-bpm_je_clacon_ideological_power = {
+bpm_je_clacon_ideological_power_gain = {
 	value = 0
 
 	add = {
-		desc = "BPM_VALUE_BASE"
-		value = 50
+		desc = "BPM_VALUE_FROM_LOW_LIBERAL_CONCIOUSNESS"
+		limit = {
+			has_variable = bpm_consciousness_liberal
+		}
+		add = {
+			value = ROOT.var:bpm_consciousness_liberal
+			multiply = -1
+			add = 75
+			multiply = 0.0075
+		}
 	}
 
 	add = {
-		desc = "BPM_VALUE_FROM_CHARACTER_POPULARITY"
+		desc = "BPM_VALUE_FROM_LEADER_POPULARITY_CON"
 		every_scope_character = {
 			limit = {
 				is_interest_group_type = ig_conservatives
@@ -1595,38 +1846,69 @@ bpm_je_clacon_ideological_power = {
 			}
 			add = popularity
 		}
-		divide = 2
+		multiply = 0.0022
 	}
 
 	add = {
-		desc = "BPM_VALUE_FROM_IG_CLOUT"
-		
-		every_interest_group = {
-			limit = {
-				is_interest_group_type = ig_conservatives
-			}
-			add = ig_clout
-			multiply = 50
-			max = 10
-		}
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_EVENTS_AND_OTHER"
-		
+		desc = "BPM_VALUE_FROM_LIBERAL_CONSERVATIVE_CLOUT"
 		if = {
 			limit = {
-				has_variable = wine_events_and_other_variable
+				always = yes
 			}
+			every_interest_group = {
+				limit = {
+					OR = {
+						is_interest_group_type = ig_national_liberals
+						is_interest_group_type = ig_market_liberals
+						is_interest_group_type = ig_liberals
+					}
+				}
+				add = interest_group_population_percentage
+			}
+			multiply = 20
+		}
+	}
 
-			add = {
-				value = ROOT.ig:ig_conservatives.var:wine_events_and_other_variable
+	add = {
+		desc = "BPM_VALUE_FROM_MOVEMENTS_CLACON"
+
+		if = {
+			limit = {
+				always = yes
+			}
+			every_political_movement = {
+				limit = {
+					OR = {
+						is_political_movement_type = movement_national_liberal
+						is_political_movement_type = movement_laissez_faire
+					}
+				}
+				add = {
+					value = political_movement_support
+					multiply = 1.55
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				always = yes
+			}
+			every_political_movement = {
+				limit = {
+					is_political_movement_type = movement_liberal
+				}
+				add = {
+					value = political_movement_support
+					multiply = 1.11
+				}
 			}
 		}
 	}
 
 	add = {
-		desc = "BPM_VALUE_FROM_TRAITS"
+		desc = "BPM_VALUE_FROM_TRAITS_BASIC"
+
 		if = {
 			limit = {
 				ig:ig_conservatives = {
@@ -1636,7 +1918,7 @@ bpm_je_clacon_ideological_power = {
 				}
 			}
 
-			add = 10
+			add = 0.1
 		}
 
 		if = {
@@ -1648,7 +1930,7 @@ bpm_je_clacon_ideological_power = {
 				}
 			}
 
-			add = 10
+			add = 0.1
 		}
 
 		if = {
@@ -1660,7 +1942,7 @@ bpm_je_clacon_ideological_power = {
 				}
 			}
 
-			subtract = 15
+			subtract = 0.15
 		}
 
 		if = {
@@ -1672,31 +1954,7 @@ bpm_je_clacon_ideological_power = {
 				}
 			}
 
-			add = 10
-		}
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = charismatic
-					}
-				}
-			}
-
-			add = 20
-		}
-
-		if = {
-			limit = {
-				ig:ig_christian_democrats = {
-					leader = {
-						has_trait = pious
-					}
-				}
-			}
-
-			add = 20
+			add = 0.1
 		}
 
 		if = {
@@ -1708,7 +1966,7 @@ bpm_je_clacon_ideological_power = {
 				}
 			}
 
-			add = 10
+			add = 0.1
 		}
 
 		if = {
@@ -1720,7 +1978,7 @@ bpm_je_clacon_ideological_power = {
 				}
 			}
 
-			add = 15
+			add = 0.1
 		}
 
 		if = {
@@ -1732,7 +1990,7 @@ bpm_je_clacon_ideological_power = {
 				}
 			}
 
-			add = 5
+			subtract = 0.2
 		}
 		if = {
 			limit = {
@@ -1743,7 +2001,408 @@ bpm_je_clacon_ideological_power = {
 				}
 			}
 
-			add = 5
+			add = 0.05
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_TRAITS_STRONG"
+		
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = charismatic
+					}
+				}
+			}
+
+			add = 0.2
+		}
+
+		if = {
+			limit = {
+				ig:ig_conservatives = {
+					leader = {
+						has_trait = pious
+					}
+				}
+			}
+
+			add = 0.2
+		}
+	}
+}
+
+bpm_organicists_popularity = {
+	value = 0
+	every_interest_group = {
+		limit = { 
+			OR = {
+				has_ideology = ideology:ideology_dop_organic_democrat
+				has_ideology = ideology:ideology_dop_organic_power
+				has_ideology = ideology:ideology_dop_state_power
+				is_interest_group_type = ig_christian_democrats
+			}
+		}
+		add = ig_clout
+	}
+}
+
+bpm_political_catholicism_popularity = {
+	value = 0
+	every_interest_group = {
+		limit = { 
+			OR = {
+				AND = {
+					is_interest_group_type = ig_conservatives
+					owner = {
+						has_variable = bpm_old_new_wine_conservative_win_variable
+					}
+				}
+				AND = {
+					is_interest_group_type = ig_reactionaries
+					has_ideology = ideology:ideology_dop_organic_democrat
+				}
+				is_interest_group_type = ig_christian_democrats
+			}
+		}
+		add = ig_clout
+	}
+	if = {
+		limit = {
+			owner = {
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+			}
+		}
+		every_interest_group = {
+			limit = {
+				is_interest_group_type = ig_agrarian_populists
+			}
+			add = ig_clout
+		}
+	}
+}
+
+bpm_conservative_christdem_clout_difference = {
+	value = 0
+	every_interest_group = {
+		limit = { 
+			is_interest_group_type = ig_christian_democrats
+		}
+		add = ig_clout
+	}
+
+	every_interest_group = {
+		limit = { 
+			is_interest_group_type = ig_conservatives
+		}
+		subtract = ig_clout
+	}
+}
+
+bpm_secularist_popularity = {
+	value = 0
+	every_interest_group = {
+		limit = { 
+			OR = {
+				has_ideology = ideology:ideology_rel_radical_secularist
+				has_ideology = ideology:ideology_rel_secularist
+				has_ideology = ideology:ideology_rel_atheist
+			}
+		}
+		add = ig_clout
+	}
+}
+
+bpm_moralist_popularity = {
+	value = 0
+	every_interest_group = {
+		limit = { 
+			OR = {
+				has_ideology = ideology:ideology_rel_radical_moralist
+				has_ideology = ideology:ideology_rel_moralist
+				has_ideology = ideology:ideology_rel_modern_moralist
+			}
+		}
+		add = ig_clout
+	}
+}
+
+bpm_radlibs_socialists_popularity = {
+	value = 0
+
+	if = {
+		limit = {
+			country_rank = rank_value:great_power
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_interest_group = {
+			limit = { 
+				is_interest_group_type = ig_radicals
+				is_interest_group_type = ig_socialists
+			}
+			add = {
+				value = ig_clout
+				multiply = 1.66
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			NOT = {
+				country_rank = rank_value:great_power
+			}
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_interest_group = {
+			limit = { 
+				is_interest_group_type = ig_radicals
+				is_interest_group_type = ig_socialists
+			}
+			add = {
+				value = ig_clout
+				multiply = 1.66
+			}
+		}
+	}
+
+	every_country = {
+		limit = {
+			NOT = {
+				country_rank = rank_value:great_power
+			}
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_interest_group = {
+			limit = { 
+				OR = {
+					is_interest_group_type = ig_radicals
+					is_interest_group_type = ig_socialists
+				}
+			}
+			add = {
+				value = ig_clout
+				multiply = 1.33
+			}
+		}
+	}
+}
+
+bpm_modlibs_popularity = {
+	value = 0
+	every_country = {
+		limit = {
+			country_rank = rank_value:great_power
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_interest_group = {
+			limit = { 
+				is_interest_group_type = ig_liberals
+			}
+			add = {
+				value = ig_clout
+				multiply = 1.44
+			}
+		}
+	}
+
+	every_country = {
+		limit = {
+			NOT = {
+				country_rank = rank_value:great_power
+			}
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_interest_group = {
+			limit = { 
+				is_interest_group_type = ig_liberals
+			}
+			add = {
+				value = ig_clout
+				multiply = 1.11
+			}
+		}
+	}
+}
+
+bpm_natlib_popularity = {
+	value = 0
+	every_country = {
+		limit = {
+			country_rank = rank_value:great_power
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_interest_group = {
+			limit = { 
+				is_interest_group_type = ig_national_liberals
+			}
+			add = {
+				value = ig_clout
+				multiply = 1.33
+			}
+		}
+	}
+
+	every_country = {
+		limit = {
+			NOT = {
+				country_rank = rank_value:great_power
+			}
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_interest_group = {
+			limit = { 
+				is_interest_group_type = ig_national_liberals
+			}
+			add = {
+				value = ig_clout
+				multiply = 1
+			}
+		}
+	}
+}
+
+bpm_liberal_movements_strength = {
+	value = 0
+	every_country = {
+		limit = {
+			country_rank = rank_value:great_power
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = movement_liberal
+			}
+			add = {
+				value = political_movement_support
+				divide = 2
+			}
+		}
+
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = movement_radical
+			}
+			add = {
+				value = political_movement_support
+				divide = 1.5
+			}
+		}
+
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = movement_national_liberal
+			}
+			add = {
+				value = political_movement_support
+				divide = 1.25
+			}
+		}
+	}
+
+	every_country = {
+		limit = {
+			NOT = {
+				country_rank = rank_value:great_power
+			}
+			OR = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.2
+				}
+				country_has_state_religion = rel:catholic
+			}
+		}
+
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = movement_liberal
+			}
+			add = {
+				value = political_movement_support
+				divide = 3
+			}
+		}
+
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = movement_radical
+			}
+			add = {
+				value = political_movement_support
+				divide = 2
+			}
+		}
+		every_political_movement = {
+			limit = {
+				is_political_movement_type = movement_national_liberal
+			}
+			add = {
+				value = political_movement_support
+				divide = 2
+			}
 		}
 	}
 }

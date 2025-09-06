@@ -160,6 +160,10 @@ ita_conservative_party_name = {
 				has_law = law_type:law_census_voting
 				has_law = law_type:law_universal_suffrage
 			}
+			ig:ig_christian_democrats = {
+				is_member_of_party = owner.py:conservative_party
+			}
+			bpm_political_catholicism_popularity >= 0.15
 		}
 		localization_key = party_ita_peoples
 	}

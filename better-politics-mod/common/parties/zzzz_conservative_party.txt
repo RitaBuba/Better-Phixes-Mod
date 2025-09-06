@@ -681,6 +681,46 @@ conservative_party = {
 				desc = "from_patriarchy"
 			}
 		}
+		if = {
+			limit = {
+				is_interest_group_type = ig_agrarian_populists
+				owner = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+					ig:ig_christian_democrats ?= {
+						has_party = yes
+						party = { 
+							is_party_type = conservative_party 
+						}
+					}
+					ig:ig_agrarian_populists ?= {
+						is_powerful = no
+					}
+				}
+			}
+			add = {
+				value = 25
+				desc = "bpm_from_catholic_whites"
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					is_interest_group_type = ig_conservatives
+					is_interest_group_type = ig_christian_democrats
+				}
+				owner = {
+					has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+				}
+			}
+			add = {
+				value = 25
+				desc = "bpm_from_new_wine_journal_entry"
+			}
+		}
 		if = { # conservatives like police
 			limit = {
 				has_ideology = ideology:ideology_sta_powerful_state
@@ -977,6 +1017,9 @@ conservative_party = {
 		else_if = {
 			limit = {
 				is_interest_group_type = ig_christian_democrats
+				NOT = {
+					country_has_state_religion = rel:catholic
+				}
 			}
 			add = {
 				value = -10

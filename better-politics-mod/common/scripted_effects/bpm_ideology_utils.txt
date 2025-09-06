@@ -212,6 +212,7 @@ bpm_remove_all_dop_ideologies = {
 		remove_ideology = ideology_dop_syndicalist
 		remove_ideology = ideology_dop_metropole_loyalist
 		remove_ideology = ideology_dop_organic_power
+		remove_ideology = ideology_dop_organic_democrat
 	}
 }
 
@@ -222,7 +223,7 @@ bpm_remove_all_rel_ideologies = {
 		remove_ideology = ideology_rel_radical_secularist
 		remove_ideology = ideology_rel_secularist
 		remove_ideology = ideology_rel_moralist
-		remove_ideology = ideology_rel_liberal_moralist
+		remove_ideology = ideology_rel_modern_moralist
 		remove_ideology = ideology_rel_radical_moralist
 		remove_ideology = ideology_rel_pragmatic_moralist
 	}
@@ -449,6 +450,7 @@ bpm_re_add_dop_ideology = {
 		bpm_re_add_ideology = { TYPE = dop IDEOLOGY = ideology_dop_state_unionist }
 		bpm_re_add_ideology = { TYPE = dop IDEOLOGY = ideology_dop_metropole_loyalist }
 		bpm_re_add_ideology = { TYPE = dop IDEOLOGY = ideology_dop_organic_power }
+		bpm_re_add_ideology = { TYPE = dop IDEOLOGY = ideology_dop_organic_democrat }
 	}
 }
 
@@ -459,7 +461,7 @@ bpm_re_add_rel_ideology = {
 		bpm_re_add_ideology = { TYPE = rel IDEOLOGY = ideology_rel_radical_secularist }
 		bpm_re_add_ideology = { TYPE = rel IDEOLOGY = ideology_rel_secularist }
 		bpm_re_add_ideology = { TYPE = rel IDEOLOGY = ideology_rel_moralist }
-		bpm_re_add_ideology = { TYPE = rel IDEOLOGY = ideology_rel_liberal_moralist }
+		bpm_re_add_ideology = { TYPE = rel IDEOLOGY = ideology_rel_modern_moralist }
 		bpm_re_add_ideology = { TYPE = rel IDEOLOGY = ideology_rel_radical_moralist }
 		bpm_re_add_ideology = { TYPE = rel IDEOLOGY = ideology_rel_pragmatic_moralist }
 	}

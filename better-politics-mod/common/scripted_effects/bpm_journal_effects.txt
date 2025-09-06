@@ -656,142 +656,83 @@ bpm_calculate_frankfurt_parliament_seats = {
 	# }
 }
 
-bpm_je_christian_democrat_progress_rate_update = {
-	set_global_variable = { name = je_christian_democracy_progress_rate value = 0 }
-	set_global_variable = { name = je_christian_democracy_progress_from_base value = -2.0 } # Base rate
+bpm_je_the_holy_see_sees_update = {
 
-	# CALCS --------------------------
-	set_global_variable = { name = je_christian_democracy_progress_from_powerful_igs value = 0 }
-	set_global_variable = { name = je_christian_democracy_progress_from_influential_igs value = 0 }
-	set_global_variable = { name = je_christian_democracy_progress_from_agitators value = 0 }
-	set_global_variable = { name = je_christian_democracy_progress_from_socialist_movements value = 0 }
-	set_global_variable = { name = je_christian_democracy_progress_from_radical_movements value = 0 }
-	set_global_variable = { name = je_christian_democracy_progress_from_laissez_faire_movements value = 0 }
-	set_global_variable = { name = je_christian_democracy_progress_from_moralist_powerful_igs value = 0 }
-	#set_global_variable = { name = je_christian_democracy_progress_from_moralist_influential_igs value = 0 }
-	
-
-	every_country = {
+	if = {
 		limit = {
-			country_rank = rank_value:great_power
-		}
-
-		every_political_movement = {
-			limit = {
-				bpm_movement_is_socialist = yes
-				NOT = { is_political_movement_type = movement_labor }
-			}
-			if = {
-				limit = {
-					political_movement_support >= 0.2
-				}
-				change_global_variable = { name = je_christian_democracy_progress_from_socialist_movements add = 0.25 }
-			}
-			else_if = {
-				limit = {
-					political_movement_support >= 0.1
-				}
-				change_global_variable = { name = je_christian_democracy_progress_from_socialist_movements add = 0.1 }
+			NOT = {
+				has_global_variable = global_variable_qui_pluribius
 			}
 		}
 
-		every_political_movement = {
-			limit = {
-				bpm_movement_is_progressive_liberal = yes
-				NOT = { is_political_movement_type = movement_labor }
-			}
-			if = {
-				limit = {
-					political_movement_support >= 0.2
-				}
-				change_global_variable = { name = je_christian_democracy_progress_from_radical_movements add = 0.1 }
-			}
-			else_if = {
-				limit = {
-					political_movement_support >= 0.1
-				}
-				change_global_variable = { name = je_christian_democracy_progress_from_radical_movements add = 0.05 }
+		set_global_variable = { name = je_papal_encyclicals_global_variable_rate value = 0 }
+
+		# CALCS --------------------------
+
+		###### Will make use of scripted values, and some other stuff idk
+
+		set_global_variable = { name = je_papal_encyclicals_global_variable_1848_progress value = 0 }
+		set_global_variable = { name = je_papal_encyclicals_global_variable_radicals_socialists_clout value = 0 }
+		set_global_variable = { name = je_papal_encyclicals_global_variable_moderate_liberals_clout value = 0 }
+		set_global_variable = { name = je_papal_encyclicals_global_variable_national_liberals_clout value = 0 }
+		set_global_variable = { name = je_papal_encyclicals_global_variable_liberal_movements value = 0 }
+		
+		change_global_variable = { 
+			name = je_papal_encyclicals_global_variable_1848_progress 
+			add = {
+				value = global_var:bpm_je_march_to_radicalism_progress
+				multiply = 0.033
 			}
 		}
 
-		every_political_movement = {
+		########## RADICALS
+
+		every_country = {
 			limit = {
-				bpm_movement_is_laissez_faire = yes
-				NOT = { is_political_movement_type = movement_labor }
+				country_rank = rank_value:great_power
 			}
-			if = {
-				limit = {
-					political_movement_support >= 0.2
+
+			change_global_variable = { 
+				name = je_papal_encyclicals_global_variable_radicals_socialists_clout 
+				add = {
+					value = bpm_radlibs_socialists_popularity
 				}
-				change_global_variable = { name = je_christian_democracy_progress_from_laissez_faire_movements add = 0.15 }
-			}
-			else_if = {
-				limit = {
-					political_movement_support >= 0.1
-				}
-				change_global_variable = { name = je_christian_democracy_progress_from_laissez_faire_movements add = 0.1 }
 			}
 		}
 
-		every_interest_group = {
-			limit = {
-				bpm_ig_is_left_wing = yes
-				bpm_ig_is_marginal = no
-			}
-
-			if = {
-				limit = { is_powerful = yes	}
-				change_global_variable = { name = je_christian_democracy_progress_from_powerful_igs add = 0.1 }
-			} 
-			else = {
-				change_global_variable = { name = je_christian_democracy_progress_from_influential_igs add = 0.05 }
+		change_global_variable = { 
+			name = je_papal_encyclicals_global_variable_moderate_liberals_clout 
+			add = {
+				value = bpm_modlibs_popularity
 			}
 		}
 
-		every_interest_group = {
-			limit = {
-				bpm_ig_is_religious = yes
-			}
-
-			if = {
-				limit = { is_powerful = yes	}
-				change_global_variable = { name = je_christian_democracy_progress_from_moralist_powerful_igs add = -0.2 }
-			} 
-			else = {
-				change_global_variable = { name = je_christian_democracy_progress_from_moralist_influential_igs add = -0.05 }
+		change_global_variable = { 
+			name = je_papal_encyclicals_global_variable_national_liberals_clout 
+			add = {
+				value = bpm_natlib_popularity
 			}
 		}
 
-		every_scope_character = {
-			limit = {
-				has_role = agitator
-				OR = {
-					law_stance = {
-						law = law_type:law_council_republic
-						value > neutral
-					}
-					interest_group = {
-						law_stance = {
-							law = law_type:law_council_republic
-							value > neutral
-						}
-					}
-				}
+		change_global_variable = { 
+			name = je_papal_encyclicals_global_variable_national_liberals_clout 
+			add = {
+				value = bpm_liberal_movements_strength
 			}
-			change_global_variable = { name = je_christian_democracy_progress_from_agitators add = 0.1 }
 		}
 	}
 
 	# TOTAL --------------------------
-	change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_base }
-	change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_powerful_igs }
-	change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_influential_igs }
-	change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_agitators }
-	change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_socialist_movements }
-	change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_radical_movements }
-	change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_laissez_faire_movements }
-	change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_moralist_powerful_igs }
-	#change_global_variable = { name = je_christian_democracy_progress_rate add = global_var:je_christian_democracy_progress_from_moralist_influential_igs }
+	change_global_variable = { name = je_papal_encyclicals_global_variable_rate add = global_var:je_papal_encyclicals_global_variable_1848_progress }
+	change_global_variable = { name = je_papal_encyclicals_global_variable_rate add = global_var:je_papal_encyclicals_global_variable_radicals_socialists_clout }
+	change_global_variable = { name = je_papal_encyclicals_global_variable_rate add = global_var:je_papal_encyclicals_global_variable_moderate_liberals_clout }
+	change_global_variable = { name = je_papal_encyclicals_global_variable_rate add = global_var:je_papal_encyclicals_global_variable_national_liberals_clout }
+	change_global_variable = { name = je_papal_encyclicals_global_variable_rate add = global_var:je_papal_encyclicals_global_variable_liberal_movements }
+
+	change_global_variable = {
+		name = je_papal_encyclicals_global_variable
+		add = je_papal_encyclicals_global_variable_rate
+	}
 }
 
 bpm_je_christian_or_democrat_je_update = {

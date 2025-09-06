@@ -72,6 +72,7 @@ concept_bpm_ig_is_anti_democratic = {}
 # TRADITIONALIST IGS
 concept_bpm_ig_is_theocratic = {}
 concept_bpm_ig_is_traditionalist = {}
+concept_bpm_ig_is_organicist = {}
 # FASCIST IGS
 concept_bpm_ig_is_fascist = {}
 concept_bpm_ig_is_radical_right = {}

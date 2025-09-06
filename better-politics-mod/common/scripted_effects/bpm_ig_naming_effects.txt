@@ -7,6 +7,15 @@
 bpm_rename_christian_democrat_ig = {
 	if = {
 		limit = {
+			owner = {
+				has_local_variable = bpm_old_new_wine_conservative_win_variable
+			}
+		}
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_social_catholics }
+	}
+	
+	else_if = {
+		limit = {
 			OR = {
 				country_has_primary_culture = cu:north_italian
 				country_has_primary_culture = cu:south_italian
@@ -14,7 +23,7 @@ bpm_rename_christian_democrat_ig = {
 			has_global_variable = global_rerum_novarum_issued_var
 			has_global_variable = global_variable_graves_de_communi_re
 			owner = {
-				has_variable = variable_christian_democrat_wine_win
+				has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
 			}
 		}
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_popularists_left }
@@ -29,17 +38,7 @@ bpm_rename_christian_democrat_ig = {
 			has_global_variable = global_rerum_novarum_issued_var
 			has_global_variable = global_variable_graves_de_communi_re
 		}
-		ig:ig_christian_democrats ?= { set_interest_group_name = ig_popularists }
-	}
-
-	else_if = {
-		limit = {
-			OR = {
-				country_has_primary_culture = cu:north_italian
-				country_has_primary_culture = cu:south_italian
-			}
-		}
-		ig:ig_christian_democrats ?= { set_interest_group_name = ig_liberal_catholics }
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_young_christian_democrats }
 	}
 
 	else_if = {
@@ -59,6 +58,24 @@ bpm_rename_christian_democrat_ig = {
 		}
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_chadecy }
 	}
+
+	else_if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:flemish
+				country_has_primary_culture = cu:wallonian
+			}
+			NOT = {
+				this = c:LUX
+			}
+			has_global_variable = global_rerum_novarum_issued_var
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+				has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+			}
+		}
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_left_catholics }
+	}
 	
 	else_if = {
 		limit = {
@@ -70,7 +87,9 @@ bpm_rename_christian_democrat_ig = {
 				this = c:LUX
 			}
 			has_global_variable = global_rerum_novarum_issued_var
-			has_local_variable = bpm_old_new_wine_var
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+			}
 		}
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_young_right }
 	}
@@ -85,7 +104,9 @@ bpm_rename_christian_democrat_ig = {
 					is_party_type = conservative_party
 				}
 			}
-			has_local_variable = bpm_old_new_wine_var
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+			}
 		}
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_innovateuren }
 	}
@@ -390,6 +411,17 @@ bpm_rename_intelligentsia_ig = {
 #
 
 bpm_rename_agpop_ig = {
+	ig:ig_agrarian_populists ?= {
+		if = {
+			limit = {
+				AND = {
+					has_ideology = ideology:ideology_eco_modern_agrarian
+					has_ideology = ideology:ideology_eco_agrarian_socialist
+				}
+			}
+			remove_ideology = ideology_eco_modern_agrarian
+		}
+	}
 	if = {
 		limit = { 
 			country_has_primary_culture = cu:russian
@@ -432,6 +464,23 @@ bpm_rename_agpop_ig = {
 		}
 		ig:ig_agrarian_populists ?= { set_interest_group_name = ig_bauernbewegung }
 	}
+	else_if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:north_italian
+				country_has_primary_culture = cu:south_italian
+			}
+			has_global_variable = global_rerum_novarum_issued_var
+			ig:ig_agrarian_populists ?= {
+				has_party = yes
+				party = {
+					is_party_type = conservative_party
+				}
+			}
+		}
+		ig:ig_agrarian_populists ?= { set_interest_group_name = ig_bianchi }
+	}
+	
 	else = {
 		ig:ig_agrarian_populists ?= { set_interest_group_name = ig_agrarian_populists }
 	}
@@ -1001,12 +1050,14 @@ bpm_rename_conservative_ig = {
 	}
 	else_if = {
 		limit = { 
-			ig:ig_conservatives ?= { 
-				OR = {
-					has_variable = bpm_old_new_wine_conservative_win_variable
-					bpm_ig_is_paternalistic = yes 
+			OR = {
+				owner = {
+					has_local_variable = bpm_old_new_wine_conservative_win_variable
 				}
-			} 
+				ig:ig_conservatives ?= { 
+					bpm_ig_is_paternalistic = yes 
+				} 
+			}
 		}
 		if = {
 			limit = { 
@@ -1075,7 +1126,9 @@ bpm_rename_conservative_ig = {
 					is_party_type = conservative_party
 				}
 			}
-			has_local_variable = bpm_old_new_wine_var
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+			}
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_agrarian_conservatives }
 	}
@@ -1089,11 +1142,29 @@ bpm_rename_conservative_ig = {
 			has_global_variable = global_rerum_novarum_issued_var
 			has_global_variable = global_variable_graves_de_communi_re
 			owner = {
-				has_variable = variable_christian_democrat_wine_win
+				has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
 			}
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_popularists_right }
 	}
+	else_if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:flemish
+				country_has_primary_culture = cu:wallonian
+			}
+			NOT = {
+				this = c:LUX
+			}
+			has_global_variable = global_rerum_novarum_issued_var
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+				has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+			}
+		}
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_right_catholics }
+	}
+
 	else_if = {
 		limit = {
 			OR = {
@@ -1107,7 +1178,9 @@ bpm_rename_conservative_ig = {
 					is_party_type = conservative_party
 				}
 			}
-			has_local_variable = bpm_old_new_wine_var
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+			}
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_old_right }
 	}
@@ -1123,9 +1196,33 @@ bpm_rename_conservative_ig = {
 			}
 			owner = {
 				has_local_variable = bpm_old_new_wine_var
+				NOT = {
+					OR = {
+						has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+						has_local_variable = bpm_old_new_wine_conservative_win_variable
+					}
+				}
 			}
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_classical_conservatives }
+	}
+
+	else_if = {
+		limit = {
+			has_global_variable = global_rerum_novarum_issued_var
+			ig:ig_christian_democrats ?= {
+				has_party = yes
+				party = {
+					is_party_type = conservative_party
+				}
+			}
+			country_has_primary_culture = cu:czech
+			owner = {
+				has_local_variable = bpm_old_new_wine_var
+				has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+			}
+		}
+		ig:ig_conservatives ?= { set_interest_group_name = ig_konservativni_lidovci }
 	}
 
 	else_if = {
@@ -1144,6 +1241,7 @@ bpm_rename_conservative_ig = {
 		}
 		ig:ig_conservatives ?= { set_interest_group_name = ig_christian_democrats_rightwing }
 	}
+	
 
 	# Konstitutionell-Liberale
 	else_if = {
@@ -1274,30 +1372,7 @@ bpm_rename_reactionary_ig = {
 		}
 		ig:ig_reactionaries ?= { set_interest_group_name = ig_konservative }
 	}
-	else_if = {
-		limit = {
-			OR = {
-				country_has_primary_culture = cu:north_italian
-				country_has_primary_culture = cu:south_italian
-			}
-			NOT = { ig:ig_christian_democrats = { has_ideology = ideology:ideology_nonexistent } }
-			has_global_variable = global_rerum_novarum_issued_var
-			ig:ig_christian_democrats ?= {
-				has_party = yes
-				party = {
-					is_party_type = conservative_party
-				}
-			}
-			ig:ig_reactionaries ?= {
-				has_party = yes
-				party = {
-					is_party_type = conservative_party
-				}
-			}
-			#ROOT.ig_reactionaries.ig_clout <= ROOT.ig_christian_democrats.ig_clout
-		}
-		ig:ig_reactionaries ?= { set_interest_group_name = ig_conservative_catholics }
-	}
+	
 	else_if = {
 		limit = {
 			bpm_country_is_pre_constitutional = yes
@@ -1320,10 +1395,92 @@ bpm_rename_reactionary_ig = {
 	}
 	else_if = {
 		limit = {
-			 ig:ig_reactionaries ?= { bpm_ig_is_democrat = yes }
+			ig:ig_reactionaries ?= { 
+				OR = {
+					bpm_ig_is_democrat = yes 
+					has_ideology = ideology:ideology_dop_organic_democrat
+				}
+			}
+			has_global_variable = global_variable_quanta_cura_var_released
+			has_global_variable = global_rerum_novarum_issued_var
 		}
 		ig:ig_reactionaries ?= { set_interest_group_name = ig_national_conservatives }
 	}
+	else_if = {
+		limit = {
+			ig:ig_reactionaries ?= { 
+				OR = {
+					bpm_ig_is_democrat = yes 
+					has_ideology = ideology:ideology_dop_organic_democrat
+				}
+			}
+			this = c:AUS
+			has_global_variable = global_variable_quanta_cura_var_released
+			has_global_variable = global_rerum_novarum_issued_var
+		}
+		ig:ig_reactionaries ?= { set_interest_group_name = ig_oreliten }
+	}
+	else_if = {
+		limit = {
+			ig:ig_reactionaries ?= { 
+				OR = {
+					bpm_ig_is_democrat = yes 
+					has_ideology = ideology:ideology_dop_organic_democrat
+				}
+			}
+			this = c:AUS
+			NOT = {
+				has_law = law_type:law_monarchy
+			}
+			has_global_variable = global_variable_quanta_cura_var_released
+			has_global_variable = global_rerum_novarum_issued_var
+		}
+		ig:ig_reactionaries ?= { set_interest_group_name = ig_seipeliten }
+	}
+	else_if = {
+		limit = {
+			ig:ig_reactionaries ?= { 
+				OR = {
+					bpm_ig_is_democrat = yes 
+					has_ideology = ideology:ideology_dop_organic_democrat
+				}
+			}
+			country_has_primary_culture = cu:czech
+			has_global_variable = global_variable_quanta_cura_var_released
+			has_global_variable = global_rerum_novarum_issued_var
+		}
+		ig:ig_reactionaries ?= { set_interest_group_name = ig_cath_nat_cons }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:north_italian
+				country_has_primary_culture = cu:south_italian
+			}
+			has_global_variable = global_variable_graves_de_communi_re
+			#ROOT.ig_reactionaries.ig_clout <= ROOT.ig_christian_democrats.ig_clout
+		}
+		ig:ig_reactionaries ?= { set_interest_group_name = ig_conservative_catholics }
+	}
+	else_if = {
+		limit = {
+			ig:ig_reactionaries ?= { 
+				OR = {
+					has_ideology = ideology:ideology_dop_organic_democrat
+					has_ideology = ideology:ideology_dop_organic_power
+				}
+			}
+			has_global_variable = global_rerum_novarum_issued_var
+			owner = {
+				religion_percent_country = { 
+					target = rel:catholic
+					value >= 0.6
+				}
+			}
+		}
+		ig:ig_reactionaries ?= { set_interest_group_name = ig_national_conservatives_catholic }
+	}
+	
 	else = {
 		ig:ig_reactionaries ?= { set_interest_group_name = ig_reactionaries }
 	}

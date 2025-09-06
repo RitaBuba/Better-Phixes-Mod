@@ -235,7 +235,17 @@ bpm_initialize_natlibs = {
 			}
 			else = { add_ideology = ideology_cit_nationalist }
 			if = {
-				limit = { ROOT = c:USA }
+				limit = { 
+					ROOT = {
+						OR = {
+							this = c:USA
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+							country_has_primary_culture = cu:north_italian
+							country_has_primary_culture = cu:south_italian
+						}
+					}
+				}
 				add_ideology = ideology_rel_secularist
 			}
 			else_if = {
@@ -515,14 +525,25 @@ bpm_initialize_fascists = {
 				limit = {
 					ROOT = { country_has_state_religion = rel:catholic }
 				}
+				bpm_remove_all_gov_ideologies = yes
 				bpm_remove_all_dop_ideologies = yes
 				add_ideology = ideology_dop_organic_power
-				bpm_remove_all_sta_ideologies = yes
-				add_ideology = ideology_sta_organic_state
+				bpm_reorder_ideologies = yes
+			}
+			else = {
+				bpm_remove_all_dop_ideologies = yes
+				add_ideology = ideology_dop_organic_power
 				bpm_remove_all_cit_ideologies = yes
-				add_ideology = ideology_cit_multiethnic_nationalist
-				bpm_remove_all_wel_ideologies = yes
-				add_ideology = ideology_wel_distributist_welfare
+				add_ideology = ideology_cit_ethnonationalist
+
+				bpm_remove_all_eco_ideologies = yes
+				add_ideology = ideology_cit_distributist_economy
+				bpm_remove_all_rel_ideologies = yes
+				add_ideology = ideology_wel_religious_welfare
+				
+				bpm_remove_all_mil_ideologies = yes
+				add_ideology = ideology_jingoist
+
 				bpm_reorder_ideologies = yes
 			}
 		}
@@ -834,8 +855,11 @@ bpm_initialize_catholic_interests = {
 				limit = { 
 					owner = {
 						OR = {
-							bpm_country_is_republic = yes
 							bpm_country_is_latin_american = yes
+							this ?= c:SWI
+						}
+						NOT = {
+							this ?= c:FRA
 						}
 					}
 				}
