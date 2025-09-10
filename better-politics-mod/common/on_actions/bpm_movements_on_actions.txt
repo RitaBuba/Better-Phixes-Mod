@@ -242,6 +242,7 @@ bpm_update_splits_oa = {
                                 this > 0.3
                             }
                         }
+                        bpm_consciousness_liberal_percent > 0.25
                     }
                     NOT = {
                         bpm_has_movement_interaction = { int = liberal_split }
@@ -265,6 +266,7 @@ bpm_update_splits_oa = {
                                 this > 0.3
                             }
                         }
+                        bpm_consciousness_liberal_percent > 0.3
                     }
                     NOT = {
                         bpm_has_movement_interaction = { int = radical_split }
@@ -292,6 +294,7 @@ bpm_update_splits_oa = {
                                 this > 0.3
                             }
                         }
+                        bpm_consciousness_liberal_percent > 0.35
                     }
                     bpm_has_movement_interaction = { int = liberal_split }
                     NOT = {
