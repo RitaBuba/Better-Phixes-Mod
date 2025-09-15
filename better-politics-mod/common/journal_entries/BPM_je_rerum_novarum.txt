@@ -86,138 +86,1014 @@ je_bpm_the_holy_see_sees = {
 
 	group = bpm_je_group_global
 
-	is_shown_when_inactive = {
-		always = yes
+	transferable = yes
+	can_revolution_inherit = yes
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_current_encyclical_graves_de_communi_re
+				trigger = {
+					has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
+					has_global_variable = global_variable_qui_pluribus_encyclical
+					has_global_variable = global_variable_quanta_cura_var_released
+					has_global_variable = global_variable_immortale_dei_var_released
+					has_global_variable = global_rerum_novarum_issued_var
+					NOT = {
+						has_global_variable = global_variable_graves_de_communi_re
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_current_encyclical_rerum_novarum
+				trigger = {
+					has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
+					has_global_variable = global_variable_qui_pluribus_encyclical
+					has_global_variable = global_variable_quanta_cura_var_released
+					has_global_variable = global_variable_immortale_dei_var_released
+					NOT = {
+						has_global_variable = global_rerum_novarum_issued_var
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_current_encyclical_immortale_dei
+				trigger = {
+					has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
+					has_global_variable = global_variable_qui_pluribus_encyclical
+					has_global_variable = global_variable_quanta_cura_var_released
+					NOT = {
+						has_global_variable = global_variable_immortale_dei_var_released
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_current_encyclical_quanta_cura
+				trigger = {
+					has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+					has_global_variable = global_variable_qui_pluribus_encyclical
+					NOT = {
+						has_global_variable = global_variable_quanta_cura_var_released
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_current_encyclical_qui_pluribus
+				trigger = {
+					has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+					NOT = {
+						has_global_variable = global_variable_qui_pluribus_encyclical
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_current_encyclical_no_major_being_promulgated
+				trigger = {
+					OR = {
+						NOT = { 
+							has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+						}
+						AND = {
+							NOT = {
+								has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
+							}
+							has_global_variable = global_variable_qui_pluribus_encyclical
+							has_global_variable = global_variable_quanta_cura_var_released
+						}
+						AND = {
+							NOT = {
+								has_global_variable = GLOBAL_VARIABLE_pope_pius_x
+							}
+							has_global_variable = global_rerum_novarum_issued_var
+							has_global_variable = global_variable_immortale_dei_var_released
+							has_global_variable = global_variable_graves_de_communi_re
+						}
+						AND = {
+							has_global_variable = GLOBAL_VARIABLE_pope_pius_xi
+							has_global_variable = global_variable_quadragesimo_anno
+						}
+						#AND = {
+						#	NOT = {
+						#		has_global_variable = GLOBAL_VARIABLE_pope_beneditct_xv
+						#	}
+						#	has_global_variable = wip
+						#}
+						#AND = {
+						#	NOT = {
+						#		has_global_variable = GLOBAL_VARIABLE_pope_pius_xi
+						#	}
+						#	has_global_variable = wip
+						#}
+					}
+				}
+			}
+		}
 	}
 
-	scripted_progress_bar = bpm_new_wine_scripted_progress_bar
-	
-	scripted_button = je_bpm_propagate_the_new_wine_button
-
-	immediate = {
-		
+	is_shown_when_inactive = {
+		always = yes
 	}
 
 	possible = {
 		always = yes
 	}
-	
-	#possible = {
-	#	OR = {
-	#		religion_percent_country = { 
-	#			target = rel:catholic
-	#			value >= 0.1
-	#		}
-	#		country_has_state_religion = rel:catholic
-	#	}
-	#}
 
-	invalid = {
-		
+	immediate = {
+		set_global_variable = {
+			name = je_papal_encyclicals_global_variable
+			value = 2
+		}
 	}
 
-	complete = {
-		
+	is_progressing = {
+		OR = {
+			NOT = {
+				has_variable = cant_progress_sorry_var
+			}
+			NOT = {
+				ROOT.var:cant_progress_sorry_var = 1
+			}
+		}
 	}
 
-	on_complete = {
-		
+	on_yearly_pulse = {
+		events = {
+			
+		}
 	}
 
 	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					scope:journal_entry = {
+						is_progressing = yes
+					}
+				}
 
-		if = { 
-			limit = {
-				country_rank = rank_value:great_power
-			}
-			change_global_variable = {
-				name = je_papal_encyclicals_global_variable
-				add = {
-					value = ig:ig_radicals.ig_clout
-					add = ig:ig_socialists.ig_clout
-					multiply = 1.66
+				if = { ##### Pope setup
+					limit = {
+						always = yes
+					}
+
+					if = {
+						limit = {
+							game_date >= 1.6.1846
+							NOT = {
+								has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+							}
+						}
+
+						set_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+
+						owner = {
+							post_notification = bpm_pope_pius_ix_begun
+						}
+					}
+
+					else_if = {
+						limit = {
+							game_date >= 7.2.1878
+							NOT = {
+								has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
+							}
+						}
+
+						set_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
+
+						owner = {
+							post_notification = bpm_pope_leo_xiii_begun
+						}
+					}
+
+					else_if = {
+						limit = {
+							game_date >= 20.7.1903
+							NOT = {
+								has_global_variable = GLOBAL_VARIABLE_pope_piux_x
+							}
+						}
+
+						set_global_variable = GLOBAL_VARIABLE_pope_piux_x
+
+						owner = {
+							post_notification = bpm_pope_pius_x_begun
+						}
+					}
+
+					else_if = {
+						limit = {
+							game_date >= 20.8.1914
+							NOT = {
+								has_global_variable = GLOBAL_VARIABLE_pope_benedict_xv
+							}
+						}
+
+						set_global_variable = GLOBAL_VARIABLE_pope_benedict_xv
+
+						owner = {
+							post_notification = bpm_pope_benedict_xv_begun
+						}
+					}
+
+					else_if = {
+						limit = {
+							game_date >= 22.1.1922
+							NOT = {
+								has_global_variable = GLOBAL_VARIABLE_pope_pius_xi
+							}
+						}
+
+						set_global_variable = GLOBAL_VARIABLE_pope_pius_xi
+
+						owner = {
+							post_notification = bpm_pope_pius_xi_begun
+						}
+					}
+				}
+
+				if = {
+					limit = {
+						always = yes
+					}
+
+					if = {
+						limit = {
+							NOT = {
+								has_global_variable = global_variable_qui_pluribus_encyclical
+							}
+							has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+							global_var:je_papal_encyclicals_global_variable >= 750
+						}
+
+						set_global_variable = global_variable_qui_pluribus_encyclical
+
+						owner = {
+							post_notification = bpm_qui_pluribus
+						}
+					}
+
+					else_if = {
+						limit = {
+							NOT = {
+								has_global_variable = global_variable_quanta_cura_var_released
+							}
+							has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+							global_var:je_papal_encyclicals_global_variable >= 750
+						}
+
+						set_global_variable = global_variable_quanta_cura_var_released
+
+						owner = {
+							post_notification = bpm_quanta_cura
+						}
+					}
+
+					else_if = {
+						limit = {
+							NOT = {
+								has_global_variable = global_variable_immortale_dei_var_released
+							}
+							global_var:je_papal_encyclicals_global_variable >= 750
+						}
+
+						set_global_variable = global_variable_immortale_dei_var_released
+
+						owner = {
+							post_notification = bpm_immortale_dei
+						}
+					}
+
+					else_if = {
+						limit = {
+							NOT = {
+								has_global_variable = global_rerum_novarum_issued_var
+							}
+							global_var:je_papal_encyclicals_global_variable >= 750
+						}
+
+						set_global_variable = global_rerum_novarum_issued_var
+
+						owner = {
+							post_notification = bpm_rerum_novarum
+						}
+					}
+				}
+
+				if = {
+					limit = {
+						NOT = {
+							has_global_variable = global_variable_qui_pluribus_encyclical
+						}
+						has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+					}
+
+					if = { ##### Radicals make the Church cry
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							country_rank = rank_value:great_power
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_radicals.ig_clout
+								add = ig:ig_socialists.ig_clout
+								multiply = 1.66
+							}
+						}
+					}
+
+					else_if = { ##### Radicals make the Church cry
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							NOT = {
+								country_rank = rank_value:great_power
+							}
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_radicals.ig_clout
+								add = ig:ig_socialists.ig_clout
+								multiply = 1.33
+							}
+						}
+					}
+
+					if = { ##### 
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							bpm_country_is_in_europe = yes
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = global_var:je_papal_encyclicals_global_variable_1848_progress
+								multiply = 0.033
+							}
+						}
+					}
+
+					if = { ##### Radicals make the Church cry
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							country_rank = rank_value:great_power
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_liberals.ig_clout
+								multiply = 1.33
+							}
+						}
+					}
+
+					else_if = { ##### Radicals make the Church cry
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							NOT = {
+								country_rank = rank_value:great_power
+							}
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_liberals.ig_clout
+								multiply = 1.15
+							}
+						}
+					}
+
+					if = { ##### 
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_national_liberals.ig_clout
+								multiply = 1.33
+							}
+						}
+					}
+
+					if = {
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							any_political_movement = {
+								is_political_movement_type = movement_liberal
+							}
+						}
+						change_variable = {
+							name = independence_from_church_variable
+							add = {
+								value = ROOT.var:bpm_liberal_movement.political_movement_support
+								divide = 2.5
+							}
+						}
+					}
+
+					if = {
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							any_political_movement = {
+								is_political_movement_type = movement_radical
+							}
+						}
+						change_variable = {
+							name = independence_from_church_variable
+							add = {
+								value = ROOT.var:bpm_socialist_movement.political_movement_support
+								divide = 1.88
+							}
+						}
+					}
+				}
+
+				else_if = {
+					limit = {
+						NOT = {
+							has_global_variable = global_variable_quanta_cura_var_released
+						}
+						has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+					}
+
+					if = { ##### Radicals make the Church cry
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							country_rank = rank_value:great_power
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_radicals.ig_clout
+								add = ig:ig_socialists.ig_clout
+								multiply = 1.88
+							}
+						}
+					}
+
+					else_if = { ##### Radicals make the Church cry
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							NOT = {
+								country_rank = rank_value:great_power
+							}
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_radicals.ig_clout
+								add = ig:ig_socialists.ig_clout
+								multiply = 1.22
+							}
+						}
+					}
+
+					if = { ##### 
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							country_rank = rank_value:great_power
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_liberals.ig_clout
+								multiply = 1.44
+							}
+						}
+					}
+
+					else_if = { ##### 
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							NOT = {
+								country_rank = rank_value:great_power
+							}
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_liberals.ig_clout
+								multiply = 1.11
+							}
+						}
+					}
+
+					if = { ##### Democracy is bad-bad!
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+
+						if = {
+							limit = {
+								has_law = law_type:law_wealth_voting
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = government_legitimacy
+									multiply = 0.004
+									subtract = 0.4
+								}
+							}
+						}
+
+						else_if = {
+							limit = {
+								has_law = law_type:law_census_suffrage
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = government_legitimacy
+									
+									multiply = 0.008
+									subtract = 0.3
+								}
+							}
+						}
+
+						else_if = {
+							limit = {
+								has_law = law_type:law_universal_suffrage
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = government_legitimacy
+									multiply = 0.012
+									subtract = 0.2
+								}
+							}
+						}
+					}
+
+					if = { ##### Secularising schools and the state is no-go!
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+
+						if = {
+							limit = {
+								has_law = law_type:law_public_schools
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = 0.0033
+								}
+							}
+						}
+
+						if = {
+							limit = {
+								has_law = law_type:law_freedom_of_conscience
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = 0.002
+								}
+							}
+						}
+
+						else_if = {
+							limit = {
+								has_law = law_type:law_total_separation
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = 0.004
+								}
+							}
+						}
+
+						else_if = {
+							limit = {
+								has_law = law_type:law_state_atheism
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = 0.005
+								}
+							}
+						}
+					}
+				}
+
+				########## IMMORTALE DEI
+
+				else_if = {
+					limit = {
+						NOT = {
+							has_global_variable = global_variable_immortale_dei_var_released
+						}
+						has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
+					}
+
+					if = { ##### Secularists, Socialists and evil protestant moralists are very evil
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							country_rank = rank_value:great_power
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_radicals.ig_clout
+								add = ig:ig_socialists.ig_clout
+								add = ig:ig_reformist_socialists.ig_clout
+								add = ig:ig_revolutionist_socialists.ig_clout
+								add = ig:ig_anarchists.ig_clout
+								multiply = 1.33
+							}
+						}
+					}
+
+					else_if = { ##### Secularists, Socialists and evil protestant moralists are very evil
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							NOT = {
+								country_rank = rank_value:great_power
+							}
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_radicals.ig_clout
+								add = ig:ig_socialists.ig_clout
+								add = ig:ig_reformist_socialists.ig_clout
+								add = ig:ig_revolutionist_socialists.ig_clout
+								add = ig:ig_anarchists.ig_clout
+								divide = 2
+							}
+						}
+					}
+
+					if = { ##### Okay guys now loyalty to the state and Catholic involvment is what we need.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+
+						if = {
+							limit = {
+								NOT = {
+									has_law = law_type:law_census_suffrage
+									has_law = law_type:law_universal_suffrage
+								}
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = government_legitimacy
+									multiply = 0.004
+									subtract = 0.4
+								}
+							}
+						}
+					}
+
+					if = { ##### Elected bureaucrats and state decentralization is okay.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+
+						if = {
+							limit = {
+								NOT = {
+									has_law = law_type:law_elected_bureaucrats
+								}
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = government_legitimacy
+									multiply = 0.002
+									subtract = 0.2
+								}
+							}
+						}
+					}
+
+					if = { ##### Secularising schools and the state is no-go! (But less painful idk)
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+
+						if = {
+							limit = {
+								has_law = law_type:law_public_schools
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = 0.0033
+								}
+							}
+						}
+
+						else_if = {
+							limit = {
+								has_law = law_type:law_total_separation
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = 0.004
+								}
+							}
+						}
+
+						else_if = {
+							limit = {
+								has_law = law_type:law_state_atheism
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = 0.005
+								}
+							}
+						}
+					}
+				}
+
+				########## RERUM NOVARUM
+
+				else_if = {
+					limit = {
+						NOT = {
+							has_global_variable = global_rerum_novarum_issued_var
+						}
+						has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
+					}
+
+					if = { ##### Socialists of all colors and movements too, they are very evil.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							#country_rank = rank_value:great_power
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_socialists.ig_clout
+								add = ig:ig_reformist_socialists.ig_clout
+								add = ig:ig_revolutionist_socialists.ig_clout
+								add = ig:ig_anarchists.ig_clout
+								multiply = 1.33
+							}
+						}
+					}
+
+					if = { ##### ...movements too, they are very evil.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							#country_rank = rank_value:great_power
+							any_political_movement = {
+								is_political_movement_type = movement_socialist
+							}
+						}
+						change_variable = {
+							name = independence_from_church_variable
+							add = {
+								value = ROOT.var:bpm_socialist_movement.political_movement_support
+								divide = 8
+							}
+						}
+					}
+
+					if = { ##### ...movements too, they are very evil.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							#country_rank = rank_value:great_power
+							any_political_movement = {
+								is_political_movement_type = movement_reformist_socialist
+							}
+						}
+
+						change_variable = {
+							name = independence_from_church_variable
+							add = {
+								value = ROOT.var:bpm_reformist_socialist_movement.political_movement_support
+								divide = 6
+							}
+						}
+					}
+
+					if = { ##### ...movements too, they are very evil.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							#country_rank = rank_value:great_power
+							any_political_movement = {
+								is_political_movement_type = movement_anarchist
+							}
+						}
+
+						change_variable = {
+							name = independence_from_church_variable
+							add = {
+								value = ROOT.var:bpm_anarchist_movement.political_movement_support
+								divide = 4
+							}
+						}
+					}
+
+					if = { ##### ...movements too, they are very evil.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							#country_rank = rank_value:great_power
+							any_political_movement = {
+								is_political_movement_type = movement_communist
+							}
+						}
+
+						change_variable = {
+							name = independence_from_church_variable
+							add = {
+								value = ROOT.var:bpm_communist_movement.political_movement_support
+								divide = 3.33
+							}
+						}
+					}
+
+					if = { ##### Groups that like DON'T like Public Welfare.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+							#country_rank = rank_value:great_power
+						}
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = ig:ig_conservatives.ig_clout
+								add = ig:ig_liberals.ig_clout
+								add = ig:ig_market_liberals.ig_clout
+								add = ig:ig_national_liberals.ig_clout
+								divide = 2
+							}
+						}
+					}
+
+					if = { ##### Okay guys now loyalty to the state and Catholic involvment is what we need.
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+
+						if = {
+							limit = {
+								NOT = {
+									has_law = law_type:law_census_suffrage
+									has_law = law_type:law_universal_suffrage
+								}
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = government_legitimacy
+									multiply = 0.004
+									subtract = 0.4
+								}
+							}
+						}
+					}
+
+					if = { ##### Lack of labor unions
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+
+						if = {
+							limit = {
+								NOT = {
+									has_law = law_type:all_labor_unions_allowed
+								}
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = ROOT.var:bpm_labor_movement.political_movement_support
+								}
+							}
+						}
+
+						if = {
+							limit = {
+								has_law = law_type:law_laissez_faire
+							}
+	
+							change_global_variable = {
+								name = je_papal_encyclicals_global_variable
+								add = {
+									value = 0.0025
+								}
+							}
+						}
+					}
+
+					if = { ##### Average SoL
+						limit = {
+							bpm_country_is_majority_catholic = yes
+						}
+
+						change_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							add = {
+								value = 15
+								subtract = ROOT.average_sol
+								divide = 333
+							}
+						}
+					}
 				}
 			}
 		}
+		
+		events = {
+			########################### Encyclicals values
 
-		else_if = { 
-			limit = {
-				NOT = {
-					country_rank = rank_value:great_power
-				}
-			}
-			change_global_variable = {
-				name = je_papal_encyclicals_global_variable
-				add = {
-					value = ig:ig_radicals.ig_clout
-					add = ig:ig_socialists.ig_clout
-					multiply = 1.33
-				}
-			}
+			### Qui pluribus
+
+			# + Progress of the 1848 JE
+			# + Popularity of Radical Liberals, Moderate Liberals, National Liberals and Socialists (bigger for Great Powers)
+			# + Popularity of Radical & Liberal-Nationalist Movements (bigger for Great Powers)
+			# + Revolutions, Takeovers and Rebellions in Europe
+
+			### Quanta cura
+
+			# + Popularity of Secular Interest Groups (bigger for Great Powers)
+			# + Popularity of Moderate Liberals (bigger for Great Powers)
+			# + Laws that support democracy, secularisation, republicanism, political centralization (bigger for Great Powers)
+
+			### Quod apostolici muneris?
+
+			### Immortale dei
+
+			# + Having freedom of conscience/total separation; public schools; (bigger for Great Powers)
+			# + Popularity of Social/Radical Liberals; Socialists; and of IGs that support secularisation/state religion to weaken Catholicism (like in Germany)
+			# + Lack of democratic laws and elected bureaucrats (bigger for Great Powers)
+
+			### Rerum novarum
+
+			# + Standard of Living of everybody
+			# + Lack of social welfare laws and IGs supportive of it
+			# + Lack of free labor unions 
+			# + Laissez-faire laws (bigger for Great Powers)
+			# + Lack of decentralized laws (bigger for Great Powers)
+			# + Popularity of Socialist Interest Groups and Movements (bigger for Great Powers)
+
+			### Graves de communi re
+
+			# + Popularity of Christian Democrats and National Conservatives (bigger for Great Powers)
+			# + Popularity of opposing Conservatives
+			# + Progress of the Wine Content JE
+			# + Popularity of Socialist Interest Groups
+
+			### Singulari quadam?
+
+			### Quadragesimo anno
+
+			# + Popularity of Christian Democrats, National Conservatives and Fascists (bigger for Great Powers)
+			# + Popularity of Socialist Interest Groups and Movements (bigger for Great Powers)
+			# ?
 		}
-
-		#bpm_calculate_frankfurt_parliament_seats = yes
-
-		########################### Encyclicals values
-
-		### Qui pluribus
-
-		# + Progress of the 1848 JE
-		# + Popularity of Radical Liberals, Moderate Liberals, National Liberals and Socialists (bigger for Great Powers)
-		# + Popularity of Radical & Liberal-Nationalist Movements (bigger for Great Powers)
-		# + Revolutions, Takeovers and Rebellions in Europe
-
-		### Quanta cura
-
-		# + Popularity of Secular Interest Groups (bigger for Great Powers)
-		# + Popularity of Moderate Liberals (bigger for Great Powers)
-		# + Laws that support democracy, secularisation, republicanism, political centralization (bigger for Great Powers)
-
-		### Quod apostolici muneris?
-
-		### Immortale dei
-
-		# + Having freedom of conscience/total separation; public schools; (bigger for Great Powers)
-		# + Popularity of Social/Radical Liberals; Socialists; and of IGs that support secularisation/state religion to weaken Catholicism (like in Germany)
-		# + Lack of democratic laws and elected bureaucrats (bigger for Great Powers)
-
-		### Rerum novarum
-
-		# + Standard of Living of everybody
-		# + Lack of social welfare laws and IGs supportive of it
-		# + Lack of free labor unions 
-		# + Laissez-faire laws (bigger for Great Powers)
-		# + Lack of decentralized laws (bigger for Great Powers)
-		# + Popularity of Socialist Interest Groups and Movements (bigger for Great Powers)
-
-		### Graves de communi re
-
-		# + Popularity of Christian Democrats and National Conservatives (bigger for Great Powers)
-		# + Popularity of opposing Conservatives
-		# + Progress of the Wine Content JE
-		# + Popularity of Socialist Interest Groups
-
-		### Singulari quadam?
-
-		### Quadragesimo anno
-
-		# + Popularity of Christian Democrats, National Conservatives and Fascists (bigger for Great Powers)
-		# + Popularity of Socialist Interest Groups and Movements (bigger for Great Powers)
-		# ?
 	}
-	
+
+	on_yearly_pulse = {
+
+	}
+
+	complete = {
+	}
+
+	on_complete = {
+	}
+
 	progressbar = yes
-	
-	current_value = { ##### Major Encyclicals
-		value = global_var:je_papal_encyclicals_global_variable
+
+	current_value = {
+		value = global_var:je_papal_encyclicals_global_variable 
 	}
 
 	goal_add_value = {
-		add = 500
-		max = 500
+		add = 750
+		max = 750
 	}
 
-	weight = 150
-
+	weight = 10000
 	should_be_pinned_by_default = yes
 }

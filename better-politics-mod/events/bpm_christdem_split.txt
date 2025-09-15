@@ -373,7 +373,7 @@ bpm_christdem_split.5 = {
 					has_ideology = ideology:ideology_dop_christian_democrat
 				}
 				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_dop_illiberal_democrat
+					has_ideology = ideology:ideology_dop_conservative_democrat
 				}
 			}
 		}
@@ -581,7 +581,7 @@ bpm_christdem_split.7 = {
 			custom_tooltip = {
 				text = welfare_leaning_state_eco_35_tt
 				je:je_bpm_christian_or_democrat ?= { 
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 33
 				}
 			}
 		}
@@ -879,7 +879,7 @@ bpm_christdem_split.9 = {
 				bpm_remove_all_dop_ideologies = yes
 			}
 
-			add_ideology = ideology_dop_illiberal_democrat
+			add_ideology = ideology_dop_conservative_democrat
 		}
 	}
 }
@@ -920,29 +920,10 @@ bpm_christdem_split.10 = {
 		}
 	}
 
-	option = { #### Defensive Patriotic
-		name = bpm_christdem_split.10.a
-
-		default_option = yes
-
-		highlighted_option = yes
-		trigger = {
-			always = yes
-		}
-
-		ig:ig_christian_democrats = {
-			hidden_effect = {
-				bpm_remove_all_mil_ideologies = yes
-			}
-			add_ideology = ideology_mil_defensive_patriot
-		}
-
-		
-	}
-
 	option = { #### Liberal-Patriotic
 		name = bpm_christdem_split.10.b
 
+		default_option = yes
 		highlighted_option = yes
 		trigger = {
 			always = yes
@@ -1634,7 +1615,7 @@ bpm_christdem_split.51 = {
 
 			AND = {
 				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_dop_illiberal_democrat
+					has_ideology = ideology:ideology_dop_conservative_democrat
 				}
 				
 				je:je_bpm_christian_or_democrat ?= { 
@@ -1657,7 +1638,7 @@ bpm_christdem_split.51 = {
 		trigger = {
 			ig:ig_christian_democrats = {
 				NOT = {
-					has_ideology = ideology:ideology_dop_illiberal_democrat
+					has_ideology = ideology:ideology_dop_conservative_democrat
 				}
 			}
 			je:je_bpm_christian_or_democrat ?= { 
@@ -1669,11 +1650,11 @@ bpm_christdem_split.51 = {
 			hidden_effect = {
 				bpm_remove_all_dop_ideologies = yes
 			}
-			add_ideology = ideology_dop_illiberal_democrat
+			add_ideology = ideology_dop_conservative_democrat
 		}
 		set_variable = {
 			name = bpm_christian_democrats_dop_ideology 
-			value = ideology:ideology_dop_illiberal_democrat
+			value = ideology:ideology_dop_conservative_democrat
 		}
 	}
 

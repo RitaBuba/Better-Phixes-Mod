@@ -114,3 +114,18 @@ bpm_old_wineskins_scripted_progress_bar = {
 	min_value = 0
 	max_value = 50
 }
+
+je_bpm_encyclical_values_progress_bar = {
+	name = "je_bpm_modernizers_dialectic_progress_bar"
+	desc = "je_bpm_modernizers_dialectic_progress_bar_desc"
+
+	default = yes
+
+	monthly_progress = {
+		value = bpm_je_encyclical_values_rate
+	}
+
+	start_value = 0
+	min_value = 0
+    max_value = 1000
+}

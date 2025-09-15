@@ -706,7 +706,7 @@ ideology_dop_divine_democrat = {
 	}
 }
 
-ideology_dop_illiberal_democrat = {
+ideology_dop_conservative_democrat = {
 	icon = "gfx/interface/icons/ideology_icons/dop_ideology/oligarch.dds"
 	priority = 1000
     lawgroup_distribution_of_power = {

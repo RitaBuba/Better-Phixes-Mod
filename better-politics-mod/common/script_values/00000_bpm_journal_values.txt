@@ -130,7 +130,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				ig:ig_christian_democrats = {
 					NOR = {
 						is_in_government = yes
-						has_ideology = ideology:ideology_dop_illiberal_democrat
+						has_ideology = ideology:ideology_dop_conservative_democratrat
 					}
 					#bpm_ig_is_marginal = no
 					#always = yes
@@ -2130,6 +2130,31 @@ bpm_moralist_popularity = {
 			}
 		}
 		add = ig_clout
+	}
+}
+
+bpm_je_encyclical_values_rate = {
+	value = 0
+
+	add = {
+		desc = "BPM_VALUE_FROM_RADLIBS_SOCIALIST_CLOUT"
+		
+		every_country = {
+			limit = {
+				country_rank = rank_value:great_power
+			}
+
+			every_interest_group = {
+				limit = { 
+					is_interest_group_type = ig_radicals
+					is_interest_group_type = ig_socialists
+				}
+				add = {
+					value = ig_clout
+					multiply = 1.22
+				}
+			}
+		}
 	}
 }
 

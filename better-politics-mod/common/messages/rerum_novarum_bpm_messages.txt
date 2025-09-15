@@ -1,4 +1,60 @@
-﻿bpm_quanta_cura = {
+﻿bpm_pope_pius_ix_begun = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+
+	notification_type = toast
+	color = neutral
+}
+bpm_pope_leo_xiii_begun = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+
+	notification_type = toast
+	color = neutral
+}
+bpm_pope_pius_x_begun = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+
+	notification_type = toast
+	color = neutral
+}
+bpm_pope_benedict_xv_begun = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+
+	notification_type = toast
+	color = neutral
+}
+bpm_pope_pius_xi_begun = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+
+	notification_type = toast
+	color = neutral
+}
+
+bpm_qui_pluribus = {
+	type = country
+	days = 28
+
+	texture = "gfx/interface/icons/notification_icons/authority.dds"
+
+	notification_type = toast
+	color = neutral
+}
+
+bpm_quanta_cura = {
 	type = country
 	days = 28
 

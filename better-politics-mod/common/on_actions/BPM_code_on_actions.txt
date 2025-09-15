@@ -458,6 +458,12 @@ on_bpm_monthly_pulse_country = {
 			set_variable = bpm_1848_famine_activated
 		}
 		if = {
+			limit = {
+				game_date < 1936.1.1
+			}
+			bpm_je_the_holy_see_sees_update = yes
+		}
+		if = {
 			limit = { 
 				has_global_variable = first_intl_chain_complete_var 
 				owner = { global_country_ranking = 1 } # Making trigger happer once per month because paradox apparently has no on_action for global events??? what? how??

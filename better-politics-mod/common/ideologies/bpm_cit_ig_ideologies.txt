@@ -302,14 +302,14 @@ ideology_cit_traditional_culture = {
 }
 
 ideology_cit_christian_internationalist = {
-	icon = "gfx/interface/icons/ideology_icons/cit_ideology/multiethnic_nationalist.dds"
+	icon = "gfx/interface/icons/ideology_icons/cit_ideology/internationalist.dds"
 	priority = 1000
     lawgroup_citizenship = {
 		law_ethnostate = strongly_disapprove
 		law_national_supremacy = disapprove
-		law_racial_segregation = neutral
-		law_cultural_exclusion = strongly_approve
-		law_multicultural = approve
+		law_racial_segregation = disapprove
+		law_cultural_exclusion = approve
+		law_multicultural = strongly_approve
 	}
 
     lawgroup_migration = {
@@ -320,7 +320,7 @@ ideology_cit_christian_internationalist = {
 
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = strongly_approve
-		law_repeatable_culture_promote_democratic_values = approve
+		law_repeatable_culture_promote_democratic_values = strongly_approve
 		law_repeatable_culture_promote_socialist_values = disapprove
 		law_repeatable_culture_promote_patriotic_values = approve
 		law_repeatable_culture_promote_absolutist_values = strongly_disapprove

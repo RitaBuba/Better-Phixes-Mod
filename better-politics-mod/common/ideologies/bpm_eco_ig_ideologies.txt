@@ -1105,7 +1105,7 @@ ideology_eco_distributist_economy = {
 
 	lawgroup_repeatable_economy = {
 		law_repeatable_economy_liberalization = approve
-		law_repeatable_economy_agricultural_investment = approve
+		law_repeatable_economy_agricultural_investment = strongly_approve
 		law_repeatable_economy_peasant_corvee = disapprove
 		law_repeatable_economy_public_works = approve
 		law_repeatable_economy_forced_industrialization = strongly_disapprove
