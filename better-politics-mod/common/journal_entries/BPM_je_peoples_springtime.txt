@@ -144,14 +144,14 @@ je_springtime_of_the_peoples = {
 
 	immediate = {
 		trigger_event = { id = 1848.4 }
+		# if = {
+		# 	limit = {
+		# 		exists = c:AUS
+        #     	this = c:AUS
+		# 	}
+		# 	trigger_event = { id = peoples_springtime.9 days = 90 popup = yes}
+		# }
 		if = {
-			limit = {
-				exists = c:AUS
-            	this = c:AUS
-			}
-			trigger_event = { id = peoples_springtime.9 days = 90 popup = yes}
-		}
-		else_if = {
 			limit = {
 				exists = c:PRU
 				this = c:PRU
