@@ -293,6 +293,22 @@ religious_party = {
 			}
 		}
 
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+			}
+
+			add = {
+				value = -50
+				desc = "from_no_reason_to_exist"
+			}
+		}
+
 		if = { # nobody will join if the christdems don't join
 			limit = {
 				NOT = { is_interest_group_type = ig_christian_democrats }

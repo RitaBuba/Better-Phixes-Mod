@@ -140,7 +140,12 @@ je_bpm_the_holy_see_sees = {
 			triggered_desc = {
 				desc = je_current_encyclical_qui_pluribus
 				trigger = {
-					has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+					OR = {
+						has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+						NOT = {
+							has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+						}
+					}
 					NOT = {
 						has_global_variable = global_variable_qui_pluribus_encyclical
 					}
@@ -150,9 +155,9 @@ je_bpm_the_holy_see_sees = {
 				desc = je_current_encyclical_no_major_being_promulgated
 				trigger = {
 					OR = {
-						NOT = { 
-							has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
-						}
+						#NOT = { 
+						#	has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+						#}
 						AND = {
 							NOT = {
 								has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
@@ -238,7 +243,7 @@ je_bpm_the_holy_see_sees = {
 
 					if = {
 						limit = {
-							game_date >= 1.6.1846
+							game_date >= 1846.6.1
 							NOT = {
 								has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
 							}
@@ -253,7 +258,7 @@ je_bpm_the_holy_see_sees = {
 
 					else_if = {
 						limit = {
-							game_date >= 7.2.1878
+							game_date >= 1878.2.7
 							NOT = {
 								has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
 							}
@@ -268,7 +273,7 @@ je_bpm_the_holy_see_sees = {
 
 					else_if = {
 						limit = {
-							game_date >= 20.7.1903
+							game_date >= 1903.7.20
 							NOT = {
 								has_global_variable = GLOBAL_VARIABLE_pope_piux_x
 							}
@@ -283,7 +288,7 @@ je_bpm_the_holy_see_sees = {
 
 					else_if = {
 						limit = {
-							game_date >= 20.8.1914
+							game_date >= 1914.8.20
 							NOT = {
 								has_global_variable = GLOBAL_VARIABLE_pope_benedict_xv
 							}
@@ -298,7 +303,7 @@ je_bpm_the_holy_see_sees = {
 
 					else_if = {
 						limit = {
-							game_date >= 22.1.1922
+							game_date >= 1922.1.22
 							NOT = {
 								has_global_variable = GLOBAL_VARIABLE_pope_pius_xi
 							}
@@ -309,6 +314,7 @@ je_bpm_the_holy_see_sees = {
 						owner = {
 							post_notification = bpm_pope_pius_xi_begun
 						}
+						
 					}
 				}
 
@@ -331,6 +337,11 @@ je_bpm_the_holy_see_sees = {
 						owner = {
 							post_notification = bpm_qui_pluribus
 						}
+
+						set_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							value = 0
+						}
 					}
 
 					else_if = {
@@ -347,6 +358,11 @@ je_bpm_the_holy_see_sees = {
 						owner = {
 							post_notification = bpm_quanta_cura
 						}
+
+						set_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							value = 0
+						}
 					}
 
 					else_if = {
@@ -361,6 +377,59 @@ je_bpm_the_holy_see_sees = {
 
 						owner = {
 							post_notification = bpm_immortale_dei
+						}
+
+						hidden_effect = {
+							every_country = {
+								if = {
+									limit = {
+										OR = {
+											religion_percent_country = { 
+												target = rel:catholic
+												value >= 0.75
+											}
+											country_has_state_religion = rel:catholic
+										}
+									}
+
+									ig:ig_reactionaries = {
+										bpm_remove_all_rel_ideologies = yes
+										add_ideology = ideology_rel_modern_moralist
+										bpm_remove_all_cit_ideologies = yes
+										add_ideology = ideology_cit_multiethnic_nationalist
+										bpm_remove_all_mil_ideologies = yes
+										add_ideology = ideology_mil_patriotic_liberal
+
+										bpm_reorder_ideologies = yes
+									}
+
+									ig:ig_christian_democrats = {
+										if = {
+											limit = { 
+												owner = {
+													OR = {
+														bpm_country_is_republic = yes
+														bpm_country_is_latin_american = yes
+													}
+												}
+											}
+											add_ideology = ideology_gov_liberal_republican
+										}
+
+										else = { add_ideology = ideology_gov_moderate_monarchist }
+
+										bpm_remove_all_rel_ideologies = yes
+										add_ideology = ideology_rel_modern_moralist
+
+										bpm_reorder_ideologies = yes
+									}
+								}
+							}
+						}
+
+						set_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							value = 0
 						}
 					}
 
@@ -377,6 +446,68 @@ je_bpm_the_holy_see_sees = {
 						owner = {
 							post_notification = bpm_rerum_novarum
 						}
+
+						hidden_effect = {
+							every_country = {
+								remove_variable = cant_progress_sorry_var
+
+								if = {
+									limit = {
+										OR = {
+											religion_percent_country = { 
+												target = rel:catholic
+												value >= 0.1
+											}
+											country_has_state_religion = rel:catholic
+											religion_percent_country = { 
+												target = rel:protestant
+												value >= 0.1
+											}
+										}
+									}
+
+									ig:ig_reactionaries = {
+										bpm_remove_all_gov_ideologies = yes
+
+										bpm_remove_all_dop_ideologies = yes
+										add_ideology = ideology_dop_organic_democrat
+										bpm_remove_all_sta_ideologies = yes
+										add_ideology = ideology_sta_organic_state
+										bpm_remove_all_eco_ideologies = yes
+										add_ideology = ideology_eco_distributist_economy
+										bpm_remove_all_wel_ideologies = yes
+										add_ideology = ideology_wel_distributist_welfare
+
+										bpm_reorder_ideologies = yes
+									}
+								}
+							}
+						}
+
+						set_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							value = 0
+						}
+					}
+
+					else_if = {
+						limit = {
+							NOT = {
+								has_global_variable = global_variable_graves_de_communi_re
+							}
+							global_var:je_papal_encyclicals_global_variable >= 750
+						}
+
+						set_global_variable = global_variable_graves_de_communi_re
+
+						owner = {
+							post_notification = bpm_graves_de_communi_re
+						}
+
+						set_global_variable = {
+							name = je_papal_encyclicals_global_variable
+							value = 0
+						}
 					}
 				}
 
@@ -385,7 +516,7 @@ je_bpm_the_holy_see_sees = {
 						NOT = {
 							has_global_variable = global_variable_qui_pluribus_encyclical
 						}
-						has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
+						#has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
 					}
 
 					if = { ##### Radicals make the Church cry

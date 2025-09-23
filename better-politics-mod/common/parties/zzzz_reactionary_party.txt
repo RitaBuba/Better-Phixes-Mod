@@ -6,6 +6,13 @@ reactionary_party = {
 	name = {
 		first_valid = {
 			triggered_desc = {
+				desc = party_national_organization
+				trigger = {
+					has_law = law_type:law_no_parties_allowed
+					has_law = law_type:law_outlawed_dissent
+				}
+			}
+			triggered_desc = {
 				desc = party_reactionary_fra
 				trigger = {
 					c:FRA ?= THIS
@@ -678,6 +685,40 @@ reactionary_party = {
 			add = {
 				value = 25
 				desc = "from_organicism"
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					has_law = law_type:law_outlawed_dissent
+				}
+				OR = {
+					bpm_ig_is_institutional = yes
+					bpm_ig_is_organic_democrat = yes
+				}
+			}
+
+			add = {
+				value = 50
+				desc = "from_outlawed_dissent_no_parties_allowed"
+			}
+		}
+
+		else_if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+			}
+
+			add = {
+				value = -50
+				desc = "from_no_reason_to_exist"
 			}
 		}
 

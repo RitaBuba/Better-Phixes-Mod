@@ -12,6 +12,7 @@ concept_bpm_global_je = { }
 # Party ban 
 concept_bpm_party_ban = { }
 
+concept_bpm_bannable_parties = {}
 concept_bpm_bannable_reactionaries = { }
 concept_bpm_bannable_socialists = { }
 concept_bpm_bannable_reactionaries_plus = { }

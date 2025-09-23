@@ -523,7 +523,12 @@ bpm_initialize_fascists = {
 		ig:ig_reactionaries ?= {
 			if = {
 				limit = {
-					ROOT = { country_has_state_religion = rel:catholic }
+					ROOT = { 
+						country_has_state_religion = rel:catholic 
+						NOT = {
+							has_law	= law_type:law_organic_democracy
+						}
+					}
 				}
 				bpm_remove_all_gov_ideologies = yes
 				bpm_remove_all_dop_ideologies = yes
@@ -536,9 +541,12 @@ bpm_initialize_fascists = {
 				bpm_remove_all_cit_ideologies = yes
 				add_ideology = ideology_cit_ethnonationalist
 
+				bpm_remove_all_sta_ideologies = yes
+				add_ideology = ideology_sta_organic_state
+
 				bpm_remove_all_eco_ideologies = yes
-				add_ideology = ideology_cit_distributist_economy
-				bpm_remove_all_rel_ideologies = yes
+				add_ideology = ideology_eco_distributist_economy
+				bpm_remove_all_wel_ideologies = yes
 				add_ideology = ideology_wel_religious_welfare
 				
 				bpm_remove_all_mil_ideologies = yes

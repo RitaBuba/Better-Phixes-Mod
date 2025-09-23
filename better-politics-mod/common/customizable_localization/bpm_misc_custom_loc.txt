@@ -198,7 +198,7 @@ bpm_papal_name_global_variable = {
 		trigger = {
 			has_global_variable = GLOBAL_VARIABLE_pope_pius_xi
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_pius_xi
 	}
 
@@ -206,7 +206,7 @@ bpm_papal_name_global_variable = {
 		trigger = {
 			has_global_variable = GLOBAL_VARIABLE_pope_beneditct_xv
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_benedtict_xv
 	}
 
@@ -214,7 +214,7 @@ bpm_papal_name_global_variable = {
 		trigger = {
 			has_global_variable = GLOBAL_VARIABLE_pope_pius_x
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_pius_x
 	}
 
@@ -222,7 +222,7 @@ bpm_papal_name_global_variable = {
 		trigger = {
 			has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_leo_xiii
 	}
 
@@ -230,7 +230,7 @@ bpm_papal_name_global_variable = {
 		trigger = {
 			has_global_variable = GLOBAL_VARIABLE_pope_pius_ix
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_pius_ix
 	}
 
@@ -262,7 +262,7 @@ bpm_personal_papal_ideology_global_variable = {
 				}
 			}
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_reactionary_ig
 	}
 
@@ -270,14 +270,14 @@ bpm_personal_papal_ideology_global_variable = {
 		trigger = {
 			has_global_variable = GLOBAL_VARIABLE_pope_beneditct_xv
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_conservative
 	}
 	text = {
 		trigger = {
 			has_global_variable = GLOBAL_VARIABLE_pope_leo_xiii
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_reformist
 	}
 
@@ -288,7 +288,7 @@ bpm_personal_papal_ideology_global_variable = {
 				has_global_variable = peoples_springtime_happened
 			}
 		}
-		fallback = yes
+		#fallback = yes
 		localization_key = pope_liberal
 	}
 }

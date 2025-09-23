@@ -7,6 +7,12 @@ social_democrat_party = {
 	name = {
 		first_valid = {
 			triggered_desc = {
+				desc = party_trade_union_syndicates
+				trigger = {
+					has_law = law_type:law_no_parties_allowed
+				}
+			}
+			triggered_desc = {
 				desc = party_socdem_gbr
 				trigger = {
 					exists = c:GBR
@@ -622,6 +628,24 @@ social_democrat_party = {
 			add = {	
 				value = -5
 				desc = from_marked_liberal_sd
+			}
+		}
+		if = { # Trade Unions, Syndicates etc. are represented too
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+				OR = {
+					is_interest_group_type = ig_trade_unions
+				}
+			}
+
+			add = {
+				value = 50
+				desc = "from_professional_interests_no_parties_allowed"
 			}
 		}
 		if = { # anti-censorship

@@ -459,6 +459,21 @@
 				desc = "from_isolationist"
 			}
 		}
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+			}
+
+			add = {
+				value = -50
+				desc = "from_no_reason_to_exist"
+			}
+		}
 		if = { # conservatives like police
 			limit = {
 				law_stance = {

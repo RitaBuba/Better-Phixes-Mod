@@ -886,7 +886,7 @@
 
 
  pope_liberal: "@ig_liberals! #yellow Liberal#!"
- pope_reformist: "@ig_reformists_socialists! #pink Reformist#!"
+ pope_reformist: "@ig_reformist_socialists! #pink Reformist#!"
  pope_reactionary_ig: "@ig_reactionaries! #purple Reactionary#!"
  pope_conservative: "@ig_conservatives! #blue Conservative#!"
  
@@ -904,8 +904,8 @@
  je_bpm_encyclical_progress_effects: "WIP"
 
  je_current_encyclical_no_major_being_promulgated: "No major encyclical is being written at the moment."
- je_current_encyclical_qui_pluribus: "Encyclical ‘#italic #bold Qui pluribus#!#!’ is being written."
- je_current_encyclical_quanta_cura: "Encyclical ‘#italic #bold Quanta cura#!#!’ is being written."
- je_current_encyclical_immortale_dei: "Encyclical ‘#italic #bold Immortale dei#!#!’ is being written."
- je_current_encyclical_rerum_novarum: "Encyclical ‘#italic #bold Rerum novarum#!#!’ is being written."
- je_current_encyclical_graves_de_communi_re: "Encyclical ‘#italic #bold Graves de communi re#!#!’ is being written."
+ je_current_encyclical_qui_pluribus: "Ideas of the incoming encyclical ‘#italic #bold Qui pluribus#!#!’ are spreading."
+ je_current_encyclical_quanta_cura: "Ideas of the incoming encyclical ‘#italic #bold Quanta cura#!#!’ are spreading."
+ je_current_encyclical_immortale_dei: "Ideas of the incoming encyclical ‘#italic #bold Immortale dei#!#!’ are spreading."
+ je_current_encyclical_rerum_novarum: "Ideas of the incoming encyclical ‘#italic #bold Rerum novarum#!#!’ are spreading."
+ je_current_encyclical_graves_de_communi_re: "Ideas of the incoming encyclical ‘#italic #bold Graves de communi re#!#!’ are spreading."
