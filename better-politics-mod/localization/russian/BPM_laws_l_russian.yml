@@ -140,8 +140,8 @@
  bpm_decorative_modify_employment_clerks_per_workplace_safety_investment:0 "@clerks! Занятость клерков за уровень [Concept('concept_institution', 'института')] [GetInstitutionType('institution_workplace_safety').GetName]"
 
 # Trade Unions
- lawgroup_labor_unions:0 "Профсоюзы"
- lawgroup_labor_unions_desc:0 "Эти законы определяют ландшафт представительства труда, регулируя, как рабочие могут организовываться и защищать свои права, придерживаясь различных идеологических и государственных ограничений."
+ lawgroup_labour_associations:0 "Профсоюзы"
+ lawgroup_labour_associations_desc:0 "Эти законы определяют ландшафт представительства труда, регулируя, как рабочие могут организовываться и защищать свои права, придерживаясь различных идеологических и государственных ограничений."
 
  law_combination_acts:0 "Незаконные профсоюзы"
  law_combination_acts_desc:0 "Любая форма профсоюза строго запрещена, и участие в таких организациях является незаконным."

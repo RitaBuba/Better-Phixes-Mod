@@ -43,7 +43,7 @@ ideology_wel_laborist = {
 		law_protected_leisure = approve
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = disapprove
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = disapprove

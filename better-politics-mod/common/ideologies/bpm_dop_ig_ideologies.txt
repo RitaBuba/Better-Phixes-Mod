@@ -27,7 +27,7 @@ ideology_dop_party_socialist = {
 		law_elected_bureaucrats = approve
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = strongly_disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -64,7 +64,7 @@ ideology_dop_anarchist = {
 		law_supreme_legislature = neutral
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = strongly_disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -101,7 +101,7 @@ ideology_dop_party_state = {
 		law_supreme_legislature = strongly_disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = approve
 		law_corporatized_unions = strongly_approve
 		law_anti_strike_laws = disapprove
@@ -139,7 +139,7 @@ ideology_dop_radical_democrat = {
 		law_supreme_legislature = approve
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = disapprove
@@ -178,7 +178,7 @@ ideology_dop_moderate_democrat = {
 		law_supreme_legislature = neutral
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = neutral
 		law_corporatized_unions = neutral
 		law_anti_strike_laws = approve
@@ -215,7 +215,7 @@ ideology_dop_authoritarian_democrat = {
 		law_supreme_legislature = disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = approve
 		law_corporatized_unions = approve
 		law_anti_strike_laws = approve
@@ -254,7 +254,7 @@ ideology_dop_autocrat = {
 
     
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = approve
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -294,7 +294,7 @@ ideology_dop_oligarch = {
 
     
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = approve
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -340,7 +340,7 @@ ideology_dop_technocrat = {
 
     
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = neutral
 		law_corporatized_unions = approve
 		law_anti_strike_laws = disapprove
@@ -378,7 +378,7 @@ ideology_dop_traditional_power = {
 		law_elected_bureaucrats = disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = neutral
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -432,7 +432,7 @@ ideology_dop_meritocratic_autocrat = {
 		law_elected_bureaucrats = disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = neutral
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -462,7 +462,7 @@ ideology_dop_unionist = {
 	priority = 1000
     
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = disapprove
@@ -476,7 +476,7 @@ ideology_dop_unionist = {
 ideology_dop_state_unionist = {
 	icon = "gfx/interface/icons/ideology_icons/dop_ideology/state_power.dds"
 	priority = 1000
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = neutral
 		law_corporatized_unions = approve
 		law_anti_strike_laws = disapprove
@@ -508,7 +508,7 @@ ideology_dop_syndical_unionist = {
 		law_military_junta = disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = disapprove
@@ -541,7 +541,7 @@ ideology_dop_syndicalist = {
 
     
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = disapprove
@@ -574,7 +574,7 @@ ideology_dop_anarcho_syndicalist = {
 
 	
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = strongly_disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -641,7 +641,7 @@ ideology_dop_organic_power = {
 
     
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = approve
 		law_corporatized_unions = strongly_approve
 		law_anti_strike_laws = disapprove

@@ -2219,7 +2219,7 @@ ideology_socialist_leader = {
 		law_commercialized_agriculture = neutral
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -2446,7 +2446,7 @@ ideology_syndicalist = {
 		law_council_republic = strongly_approve
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = disapprove
@@ -2660,7 +2660,7 @@ ideology_social_democrat = {
 		law_old_age_pension = strongly_approve
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = disapprove
 		law_anti_strike_laws = disapprove
@@ -2866,7 +2866,7 @@ ideology_communist = {
 		law_extraction_economy = strongly_disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = neutral
 		law_anti_strike_laws = disapprove
@@ -3112,7 +3112,7 @@ ideology_vanguardist = {
 		law_free_trade = strongly_disapprove
 	}				
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = strongly_disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -3737,7 +3737,7 @@ ideology_anarchist = {
 		law_commercialized_agriculture = disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = strongly_disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -3984,7 +3984,7 @@ ideology_anarchist_syndicalist = {
 		law_commercialized_agriculture = disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = strongly_disapprove
 		law_corporatized_unions = strongly_disapprove
 		law_anti_strike_laws = strongly_disapprove
@@ -6691,7 +6691,7 @@ ideology_corporatist_leader = {
 		law_protected_leisure = disapprove
 	}
 
-	lawgroup_labor_unions = {
+	lawgroup_labour_associations = {
 		law_combination_acts = neutral
 		law_corporatized_unions = strongly_approve
 		law_anti_strike_laws = disapprove
