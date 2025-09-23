@@ -44,10 +44,10 @@ ideology_wel_laborist = {
 	}
 
 	lawgroup_labor_unions = {
-		law_illegal_labor_unions = disapprove
-		law_state_controlled_labor_unions = disapprove
-		law_limited_labor_unions = disapprove
-		law_all_labor_unions_allowed = approve
+		law_combination_acts = disapprove
+		law_corporatized_unions = disapprove
+		law_anti_strike_laws = disapprove
+		law_right_to_associate = approve
 		law_socialist_labor_unions = neutral
 		law_syndicalism = neutral
 	}
