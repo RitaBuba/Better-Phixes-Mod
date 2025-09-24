@@ -337,7 +337,7 @@
 
  BPM_VALUE_FROM_LEFTWING_LEADER_AND_AGITATORS: "[concept_popularity] of [concept_bpm_ig_is_left_wing] [Concept('concept_leader', 'Leaders')] and [Concept('concept_agitator', 'Agitators')]"
 
- BPM_VALUE_FROM_NO_LABOR_UNIONS_LAW: "Lack of [GetLawType('law_all_labor_unions_allowed').GetName] [concept_law]"
+ BPM_VALUE_FROM_NO_LABOR_UNIONS_LAW: "Lack of [GetLawType('law_right_to_associate').GetName] [concept_law]"
 
  BPM_VALUE_TOO_ILLIBERAL_LAWS: "Too illiberal [Concept('concept_law', 'Laws')]"
 
