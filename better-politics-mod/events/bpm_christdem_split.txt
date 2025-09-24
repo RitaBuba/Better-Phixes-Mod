@@ -1,6 +1,7 @@
 ﻿namespace = bpm_christdem_split
 namespace = bpm_christdem_flavour
 namespace = bpm_new_wine_old_wineskins_flavour
+namespace = bpm_papal_encyclicals
 
 bpm_christdem_split.1 = {
 	type = country_event
@@ -2451,5 +2452,178 @@ bpm_new_wine_old_wineskins_flavour.11 = {
 	option = {
 		name = bpm_new_wine_old_wineskins_flavour.10.a
 		default_option = yes	
+	}
+}
+
+bpm_papal_encyclicals.1 = { # Quanta cura
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+	icon = "gfx/interface/icons/event_icons/secondIntl.dds"
+	title = bpm_papal_encyclicals.1.t
+	desc = bpm_papal_encyclicals.1.d
+	flavor = bpm_papal_encyclicals.1.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+
+	}
+
+	immediate = {
+		set_global_variable = global_variable_quanta_cura_var_released
+		
+	}
+
+	option = {
+		name = bpm_papal_encyclicals.1.a
+		default_option = yes
+	}
+}
+
+bpm_papal_encyclicals.2 = { # Immortale dei
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+	icon = "gfx/interface/icons/event_icons/secondIntl.dds"
+	title = bpm_papal_encyclicals.2.t
+	desc = bpm_papal_encyclicals.2.d
+	flavor = bpm_papal_encyclicals.2.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+
+	}
+
+	immediate = {
+		set_global_variable = global_variable_immortale_dei_var_released
+		hidden_effect = {
+			every_country = {
+				if = {
+					limit = {
+						OR = {
+							religion_percent_country = { 
+								target = rel:catholic
+								value >= 0.75
+							}
+							country_has_state_religion = rel:catholic
+						}
+					}
+
+					ig:ig_reactionaries = {
+						bpm_remove_all_rel_ideologies = yes
+						add_ideology = ideology_rel_modern_moralist
+						bpm_remove_all_cit_ideologies = yes
+						add_ideology = ideology_cit_multiethnic_nationalist
+						bpm_remove_all_mil_ideologies = yes
+						add_ideology = ideology_mil_patriotic_liberal
+
+						bpm_reorder_ideologies = yes
+					}
+
+					ig:ig_christian_democrats = {
+						if = {
+							limit = { 
+								owner = {
+									OR = {
+										bpm_country_is_republic = yes
+										bpm_country_is_latin_american = yes
+									}
+								}
+							}
+							add_ideology = ideology_gov_liberal_republican
+						}
+
+						else = { add_ideology = ideology_gov_moderate_monarchist }
+
+						bpm_remove_all_rel_ideologies = yes
+						add_ideology = ideology_rel_modern_moralist
+
+						bpm_reorder_ideologies = yes
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = bpm_papal_encyclicals.2.a
+		default_option = yes
+	}
+}
+
+bpm_papal_encyclicals.3 = { # Rerum novarum
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+	icon = "gfx/interface/icons/event_icons/secondIntl.dds"
+	title = bpm_papal_encyclicals.3.t
+	desc = bpm_papal_encyclicals.3.d
+	flavor = bpm_papal_encyclicals.3.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+
+	}
+
+	immediate = {
+		set_global_variable = global_rerum_novarum_issued_var
+
+		hidden_effect = {
+			every_country = {
+				remove_variable = cant_progress_sorry_var
+				if = {
+					limit = {
+						OR = {
+							religion_percent_country = { 
+								target = rel:catholic
+								value >= 0.1
+							}
+							country_has_state_religion = rel:catholic
+							AND = {
+								religion_percent_country = { 
+									target = rel:protestant
+									value >= 0.1
+								}
+								bpm_country_is_in_europe = yes
+							}
+						}
+					}
+
+					ig:ig_reactionaries = {
+						bpm_remove_all_gov_ideologies = yes
+						bpm_remove_all_dop_ideologies = yes
+						add_ideology = ideology_dop_organic_democrat
+						bpm_remove_all_sta_ideologies = yes
+						add_ideology = ideology_sta_organic_state
+						bpm_remove_all_eco_ideologies = yes
+						add_ideology = ideology_eco_distributist_economy
+						bpm_remove_all_wel_ideologies = yes
+						add_ideology = ideology_wel_distributist_welfare
+
+						bpm_reorder_ideologies = yes
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = bpm_papal_encyclicals.3.a
+		default_option = yes
 	}
 }
