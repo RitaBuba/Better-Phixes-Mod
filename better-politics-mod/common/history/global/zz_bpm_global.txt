@@ -28,7 +28,15 @@
 	}
 
 	every_country = {
-		activate_law = law_type:law_right_to_associate
+		if = {
+			limit = {
+				country_is_in_europe = no
+			}
+			activate_law = law_type:law_right_to_associate
+		}
+		else = {
+			activate_law = law_type:law_guild_system
+		}
 	}
 
 	bpm_setup_global_laws_varlists = yes
