@@ -1,5 +1,10 @@
 ﻿GLOBAL = {
-	set_global_variable = bpm_2_3_save_var
+	set_global_variable = bpm_2_4_save_var
+
+	set_global_variable = {
+		name = bpm_je_march_to_radicalism_progress
+		value = 0
+	}
 
 	bpm_set_vanilla_ideologies_list = yes
 
