@@ -346,20 +346,8 @@ law_repeatable_culture_affirmative_action = {
 	on_enact = {
 		custom_tooltip = bpm_law_effect_tt_repeatable_stronger_from_culture
 		custom_tooltip = bpm_law_effect_tt_repeatable_strength_influenced_by_ig_support
-		
-		every_scope_culture = {
-			limit = {
-				root = {
-					country_average_cultural_acceptance = {
-						target = prev
-						value <= 70
-					}
-				}
-			}
-			add_fervor = { value = 2 multiply = root.bpm_repeatable_law_affirmative_action_power min = 0 }
-		}
-
-		every_scope_state = {
+		custom_tooltip = bpm_law_effect_tt_repeatable_culture_affirmative_action
+		hidden_effect = {
 			every_scope_culture = {
 				limit = {
 					root = {
@@ -369,7 +357,21 @@ law_repeatable_culture_affirmative_action = {
 						}
 					}
 				}
-				add_acceptance = { culture = this value = { value = 4 multiply = root.bpm_repeatable_law_affirmative_action_power min = 0 } }
+				add_fervor = { value = 2 multiply = root.bpm_repeatable_law_affirmative_action_power min = 0 }
+			}
+	
+			every_scope_state = {
+				every_scope_culture = {
+					limit = {
+						root = {
+							country_average_cultural_acceptance = {
+								target = prev
+								value <= 70
+							}
+						}
+					}
+					add_acceptance = { culture = this value = { value = 4 multiply = root.bpm_repeatable_law_affirmative_action_power min = 0 } }
+				}
 			}
 		}
 

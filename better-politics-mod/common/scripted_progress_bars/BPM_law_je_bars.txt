@@ -5,36 +5,42 @@ je_bpm_multicultural_upgrade_progress_bar = {
 	default_green = yes
 
     monthly_progress = {
-		every_interest_group = {
-			limit = {
-				law_stance = {
-					law = law_type:law_multicultural
-					value < neutral
+		add = {
+			value = 0
+			desc = "bpm_multicultural_upgrade_from_anti_multiculturalists"
+			every_interest_group = {
+				limit = {
+					law_stance = {
+						law = law_type:law_multicultural
+						value < neutral
+					}
+					OR = {
+						is_powerful = yes
+						is_in_government = yes
+					}
 				}
-				OR = {
-					is_powerful = yes
-					is_in_government = yes
+				add = {
+					add = -1
 				}
-			}
-			add = {
-				desc = "bpm_multicultural_upgrade_from_anti_multiculturalists"
-				add = -1
 			}
 		}
-		every_interest_group = {
-			limit = {
-				law_stance = {
-					law = law_type:law_multicultural
-					value > neutral
+		add = {
+			value = 0
+			desc = "bpm_multicultural_upgrade_from_multiculturalists"
+			every_interest_group = {
+				limit = {
+					law_stance = {
+						law = law_type:law_multicultural
+						value > neutral
+					}
+					OR = {
+						is_powerful = yes
+						is_in_government = yes
+					}
 				}
-				OR = {
-					is_powerful = yes
-					is_in_government = yes
+				add = {
+					add = 0.1
 				}
-			}
-			add = {
-				desc = "bpm_multicultural_upgrade_from_multiculturalists"
-				add = 0.1
 			}
 		}
 	}
@@ -51,33 +57,40 @@ je_bpm_total_separation_upgrade_progress_bar = {
 	default_green = yes
 
     monthly_progress = {
-		every_interest_group = {
-			limit = {
-				bpm_ig_is_religious = yes
-				OR = {
-					is_powerful = yes
-					is_in_government = yes
+		value = 0
+		add = {
+			value = 0
+			desc = "bpm_total_separation_upgrade_from_anti_secularists"
+			every_interest_group = {
+				limit = {
+					bpm_ig_is_religious = yes
+					OR = {
+						is_powerful = yes
+						is_in_government = yes
+					}
 				}
-			}
-			add = {
-				desc = "bpm_total_separation_upgrade_from_anti_secularists"
-				add = -1
+				add = {
+					add = -1
+				}
 			}
 		}
-		every_interest_group = {
-			limit = {
-				law_stance = {
-					law = law_type:law_repeatable_religion_promote_secular_values
-					value > neutral
+		add = {
+			value = 0
+			desc = "bpm_total_separation_upgrade_from_secularists"
+			every_interest_group = {
+				limit = {
+					law_stance = {
+						law = law_type:law_repeatable_religion_promote_secular_values
+						value > neutral
+					}
+					OR = {
+						is_powerful = yes
+						is_in_government = yes
+					}
 				}
-				OR = {
-					is_powerful = yes
-					is_in_government = yes
+				add = {
+					add = 0.25
 				}
-			}
-			add = {
-				desc = "bpm_total_separation_upgrade_from_secularists"
-				add = 0.25
 			}
 		}
 	}
@@ -94,33 +107,39 @@ je_bpm_women_rights_upgrade_progress_bar = {
 	default_green = yes
 
     monthly_progress = {
-		every_interest_group = {
-			limit = {
-				bpm_ig_is_sexist = yes
-				OR = {
-					is_powerful = yes
-					is_in_government = yes
+		add = {
+			value = 0
+			desc = "bpm_womens_rights_upgrade_from_sexists"
+			every_interest_group = {
+				limit = {
+					bpm_ig_is_sexist = yes
+					OR = {
+						is_powerful = yes
+						is_in_government = yes
+					}
 				}
-			}
-			add = {
-				desc = "bpm_womens_rights_upgrade_from_sexists"
-				add = -1
+				add = {
+					add = -1
+				}
 			}
 		}
-		every_interest_group = {
-			limit = {
-				law_stance = {
-					law = law_type:law_womens_suffrage
-					value = strongly_approve
+		add = {
+			value = 0
+			desc = "bpm_womens_rights_upgrade_from_super_feminists"
+			every_interest_group = {
+				limit = {
+					law_stance = {
+						law = law_type:law_womens_suffrage
+						value = strongly_approve
+					}
+					OR = {
+						is_powerful = yes
+						is_in_government = yes
+					}
 				}
-				OR = {
-					is_powerful = yes
-					is_in_government = yes
+				add = {
+					add = 0.25
 				}
-			}
-			add = {
-				desc = "bpm_womens_rights_upgrade_from_super_feminists"
-				add = 0.25
 			}
 		}
 	}

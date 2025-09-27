@@ -176,6 +176,7 @@
 
  law_repeatable_culture_affirmative_action:0 "Affirmative Action"
  law_repeatable_culture_affirmative_action_desc:0 "Provide quotas and cultural privileges for various minority groups in our country."
+ bpm_law_effect_tt_repeatable_culture_affirmative_action:0 "@information! #blue Will increase [Concept('concept_fervor', 'Fervor')] and [Concept('concept_acceptance', 'Acceptance')] of all the discriminated cultures in your country.#!"
 
  law_repeatable_culture_promote_socialist_values:0 "Promote Socialist Values"
  law_repeatable_culture_promote_socialist_values_desc:0 "Affirm our commitment to the world of liberty and equality for all."

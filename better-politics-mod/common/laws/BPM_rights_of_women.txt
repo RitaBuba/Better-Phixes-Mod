@@ -278,8 +278,7 @@ law_womens_suffrage_upgraded = {
 	modifier = {
 		state_working_adult_ratio_add = 0.15
 		state_birth_rate_mult = -0.05
-		country_production_tech_research_speed = 0.25
-		country_society_tech_research_speed = 0.25
+		country_tech_research_speed_mult = 0.25
 		country_institution_suffrage_max_investment_add = 1
 	}
 
