@@ -1,4 +1,4 @@
-﻿bpm_initialize_agpops = {
+bpm_initialize_agpops = {
 	if = {
 		limit = { 
 			ig:ig_agrarian_populists ?= { 
