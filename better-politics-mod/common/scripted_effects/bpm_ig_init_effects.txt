@@ -1,4 +1,4 @@
-﻿bpm_initialize_agpops = {
+bpm_initialize_agpops = {
 	if = {
 		limit = { 
 			ig:ig_agrarian_populists ?= { 
@@ -523,7 +523,12 @@ bpm_initialize_fascists = {
 		ig:ig_reactionaries ?= {
 			if = {
 				limit = {
-					ROOT = { country_has_state_religion = rel:catholic }
+					ROOT = { 
+						country_has_state_religion = rel:catholic 
+						NOT = {
+							has_law	= law_type:law_organic_democracy
+						}
+					}
 				}
 				bpm_remove_all_gov_ideologies = yes
 				bpm_remove_all_dop_ideologies = yes
@@ -536,9 +541,12 @@ bpm_initialize_fascists = {
 				bpm_remove_all_cit_ideologies = yes
 				add_ideology = ideology_cit_ethnonationalist
 
+				bpm_remove_all_sta_ideologies = yes
+				add_ideology = ideology_sta_organic_state
+
 				bpm_remove_all_eco_ideologies = yes
-				add_ideology = ideology_cit_distributist_economy
-				bpm_remove_all_rel_ideologies = yes
+				add_ideology = ideology_eco_distributist_economy
+				bpm_remove_all_wel_ideologies = yes
 				add_ideology = ideology_wel_religious_welfare
 				
 				bpm_remove_all_mil_ideologies = yes
@@ -883,6 +891,8 @@ bpm_initialize_catholic_interests = {
 			else = {
 				add_ideology = ideology_dop_placeholder
 			}
+
+			add_ideology = ideology_eco_traditional_agrarian
 			
 			add_ideology = ideology_sta_regionalized_state
 			
@@ -930,27 +940,6 @@ bpm_initialize_catholic_interests = {
 			add_ideology = ideology_particularist
 			add_ideology = ideology_moralist
 			#add_ideology = ideology_corporatist
-			bpm_reorder_ideologies = yes
-		}
-
-		ig:ig_reactionaries ?= {
-			if = {
-				limit = {
-					owner = {
-						OR = {
-							country_has_primary_culture = cu:north_italian
-							country_has_primary_culture = cu:south_italian
-						}
-					}
-				}
-				bpm_remove_all_cit_ideologies = yes
-				add_ideology = ideology_cit_traditional_culture
-				bpm_remove_all_wel_ideologies = yes
-				add_ideology = ideology_wel_religious_welfare
-			}
-
-			set_interest_group_name = ig_conservative_catholics
-
 			bpm_reorder_ideologies = yes
 		}
 	}

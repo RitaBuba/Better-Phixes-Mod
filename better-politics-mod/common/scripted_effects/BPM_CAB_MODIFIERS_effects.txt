@@ -823,7 +823,7 @@ bpm_reload_institution_modifiers_social_security = {
                 MOD = bpm_workplace_safety_unions_modifier
             }
 
-            bpm_reload_modifier_inst_singlet = {
+           bpm_reload_modifier_inst_singlet = {
                 IG1 = christian_democrats
                 INST = workplace_safety
                 MOD = bpm_workplace_safety_christdem_modifier
@@ -1231,7 +1231,7 @@ bpm_reload_institution_modifiers_centralization = {
                 MOD = bpm_centralization_libs_modifier
             }
 
-            bpm_reload_modifier_inst_triplet = {
+            bpm_reload_modifier_inst_singlet = {
                 IG1 = christian_democrats
                 INST = centralization
                 MOD = bpm_centralization_christdems_modifier
@@ -1948,7 +1948,11 @@ bpm_reload_institution_modifiers_diplomacy = {
                 IG1 = reformist_socialists
                 IG2 = revolutionist_socialists
                 IG3 = socialists
-                IG4 = christian_democrats
+                INST = diplomacy
+                MOD = bpm_diplomacy_socs_modifier
+            }
+        bpm_reload_modifier_inst_singlet = {
+                IG1 = christian_democrats
                 INST = diplomacy
                 MOD = bpm_diplomacy_socs_modifier
             }

@@ -130,7 +130,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				ig:ig_christian_democrats = {
 					NOR = {
 						is_in_government = yes
-						has_ideology = ideology:ideology_dop_illiberal_democrat
+						has_ideology = ideology:ideology_dop_conservative_democratrat
 					}
 					#bpm_ig_is_marginal = no
 					#always = yes
@@ -402,59 +402,69 @@ bpm_je_christian_democrat_ideology_rate = {
 		desc = "BPM_VALUE_FROM_PAPACY"
 		if = {
 			limit = {
-				c:PAP = {
-					ruler = {
-						has_ideology = ideology:ideology_theocrat
-					}
-				}
+				game_date >= 1922.1.22
 			}
-			add = -0.5
+			add = -0.25
 		}
 		else_if = {
 			limit = {
-				c:PAP = {
-					ruler = {
-						has_ideology = ideology:ideology_moderate
-					}
-				}
+				game_date >= 1914.8.20
 			}
-			add = -0.3
-			if = {
-				limit = {
-					country_has_state_religion = rel:catholic
-				}
-				subtract = {
-					value = ROOT.ig:ig_devout.ig_clout
-					multiply = 1.66
-					if = {
-						limit = {
-							ig:ig_devout = {
-								leader = {
-									has_ideology = ideology:ideology_theocrat
-								}
+			add = 0.25
+		}
+		else_if = {
+			limit = {
+				game_date >= 1903.8.20
+			}
+			add = -0.25
+		}
+		else_if = {
+			limit = {
+				game_date >= 1878.2.7
+			}
+			add = 0.33
+		}
+		else_if = {
+			limit = {
+				game_date <= 1878.2.7
+			}
+			add = -0.5
+		}
+		if = {
+			limit = {
+				country_has_state_religion = rel:catholic
+			}
+			subtract = {
+				value = ROOT.ig:ig_devout.ig_clout
+				multiply = 1.66
+				if = {
+					limit = {
+						ig:ig_devout = {
+							leader = {
+								has_ideology = ideology:ideology_theocrat
 							}
 						}
-						multiply = 1.33
 					}
-				}
-			}
-			else_if = {
-				limit = {
-					country_has_state_religion = rel:catholic
-					ig:ig_devout = {
-						leader = {
-							OR = {
-								has_ideology = ideology:ideology_radical
-								has_ideology = ideology:ideology_land_reformer
-								# has_ideology = ideology:ideology_liberal_democrat
-							}
-						}
-					}
-				}
-				add = {
-					value = ROOT.ig:ig_devout.ig_clout
 					multiply = 1.33
 				}
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_state_religion = rel:catholic
+				ig:ig_devout = {
+					leader = {
+						OR = {
+							has_ideology = ideology:ideology_radical
+							has_ideology = ideology:ideology_land_reformer
+							# has_ideology = ideology:ideology_liberal_democrat
+						}
+					}
+				}
+			}
+			add = {
+				value = ROOT.ig:ig_devout.ig_clout
+				multiply = 1.33
 			}
 		}
 
@@ -927,7 +937,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				add = {
 					value = ig_clout
-					multiply = 1.22
+					multiply = 1.33
 				}
 			}
 			
@@ -1179,7 +1189,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			value = bpm_country_fraction_below_expected_sol
 			multiply = bpm_country_fraction_below_expected_sol
 			#multiply = bpm_country_fraction_below_expected_sol
-			multiply = 44
+			multiply = 50
 		}
 	}
 
@@ -1241,12 +1251,12 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 			}
 
-			subtract = {
+			add = {
 				value = 0
-				add = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
+				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				#divide = 2.5
-				multiply = 5
+				divide = 3.33
 				#max = 0
 			}
 
@@ -1273,7 +1283,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.1
+					multiply = 2.33
 				}
 			}
 
@@ -1288,9 +1298,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 
 				subtract = {
-					value = 1.33
-					multiply = ROOT.ig:ig_christian_democrats.ig_clout
-					multiply = 1.22
+					value = 0.2
 				}
 			}
 
@@ -1638,13 +1646,29 @@ bpm_je_christdem_ideological_power_gain = {
 			every_interest_group = {
 				limit = {
 					OR = {
-						is_interest_group_type = ig_trade_unions
 						is_interest_group_type = ig_radicals
 						is_interest_group_type = ig_socialists
 						is_interest_group_type = ig_reformist_socialists
 						is_interest_group_type = ig_revolutionist_socialists
 						is_interest_group_type = ig_anarchist
 					}
+				}
+				add = ig_clout
+			}
+			divide = 1.66
+			multiply = 1.33
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_TRADE_UNIONS_CLOUT"
+		if = {
+			limit = {
+				always = yes
+			}
+			every_interest_group = {
+				limit = {
+					is_interest_group_type = ig_trade_unions
 				}
 				add = interest_group_population_percentage
 			}
@@ -1672,6 +1696,7 @@ bpm_je_christdem_ideological_power_gain = {
 				add = {
 					value = political_movement_support
 					multiply = 1.25
+					divide = 1.5
 				}
 			}
 		}
@@ -1686,15 +1711,33 @@ bpm_je_christdem_ideological_power_gain = {
 				}
 				add = {
 					value = political_movement_support
-					multiply = 1.1
+					multiply = 1.33
+					divide = 1.66
 				}
 			}
 		}
 	}
 
 	add = {
-		desc = "BPM_VALUE_FROM_TRAITS_BASIC"
+		desc = "BPM_VALUE_FROM_LEGITIMACY_AND_LACKING_UNIVERSAL_SUFFRAGE"
 
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_universal_suffrage
+				}
+			}
+			add = {
+				value = government_legitimacy
+				multiply = 0.004
+				subtract = 0.5
+			}
+		}
+	}
+
+	add = {
+		desc = "BPM_VALUE_FROM_TRAITS_BASIC"
+		
 		if = {
 			limit = {
 				ig:ig_christian_democrats = {
@@ -1794,7 +1837,6 @@ bpm_je_christdem_ideological_power_gain = {
 	add = {
 		desc = "BPM_VALUE_FROM_TRAITS_STRONG"
 		
-
 		if = {
 			limit = {
 				ig:ig_christian_democrats = {
@@ -2130,6 +2172,31 @@ bpm_moralist_popularity = {
 			}
 		}
 		add = ig_clout
+	}
+}
+
+bpm_je_encyclical_values_rate = {
+	value = 0
+
+	add = {
+		desc = "BPM_VALUE_FROM_RADLIBS_SOCIALIST_CLOUT"
+		
+		every_country = {
+			limit = {
+				country_rank = rank_value:great_power
+			}
+
+			every_interest_group = {
+				limit = { 
+					is_interest_group_type = ig_radicals
+					is_interest_group_type = ig_socialists
+				}
+				add = {
+					value = ig_clout
+					multiply = 1.22
+				}
+			}
+		}
 	}
 }
 

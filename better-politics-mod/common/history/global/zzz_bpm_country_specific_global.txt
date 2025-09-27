@@ -78,10 +78,12 @@
 			bpm_remove_all_ban_ideologies = yes
 			bpm_remove_all_rel_ideologies = yes
 			bpm_remove_all_eco_ideologies = yes
+			bpm_remove_all_cit_ideologies = yes
 			add_ideology = ideology_rel_secularist
 			add_ideology = ideology_sta_decentralized_state
 			add_ideology = ideology_ban_averse
 			add_ideology = ideology_eco_antebellum_economy
+			add_ideology = ideology_cit_nationalist
 		}
 
 		ig:ig_landowners = {
@@ -117,7 +119,7 @@
 		}
 
 		activate_law = law_type:law_no_womens_rights # Women couldn't hold property until ~1839
-		activate_law = law_type:law_all_labor_unions_allowed # de jure illegal till 1842 but de facto legal after the 1835 general strike
+		activate_law = law_type:law_right_to_associate # de jure illegal till 1842 but de facto legal after the 1835 general strike
 	}
 
 	c:TUR = {
@@ -196,6 +198,13 @@
 			bpm_remove_all_cit_ideologies = yes
 			add_ideology = ideology_cit_multiethnic_nationalist
 		}
+		every_interest_group = {
+			limit = {
+				bpm_ig_is_traditionalist = yes
+			}
+			bpm_remove_all_eco_ideologies = yes
+			add_ideology = ideology_eco_trad_isolationist
+		}
 		ig:ig_petty_bourgeoisie = {
 			bpm_remove_all_exe_ideologies = yes
 			add_ideology = ideology_exe_traditional
@@ -222,7 +231,7 @@
 				set_ruling_party = yes
 			}				
 		}
-		activate_law = law_type:law_limited_labor_unions
+		activate_law = law_type:law_anti_strike_laws
 		ig:ig_industrialists ?= { 
 			add_modifier = {
 				name = bpm_empowered_ig
@@ -240,7 +249,7 @@
 	}
 	every_country = {
 		limit = { is_subject_of = c:GBR }
-		activate_law = law_type:law_limited_labor_unions
+		activate_law = law_type:law_anti_strike_laws
 		if = {
 			limit = { bpm_country_is_in_new_world = yes }
 			activate_law = law_type:law_national_militia
@@ -269,7 +278,7 @@
 				set_ruling_party = yes
 			}				
 		}
-		activate_law = law_type:law_illegal_labor_unions
+		activate_law = law_type:law_combination_acts
 
 		#bpm_initialize_cabinet = yes
 		#every_scope_character = {
@@ -286,7 +295,7 @@
 				set_ruling_party = yes
 			}				
 		}
-		activate_law = law_type:law_illegal_labor_unions
+		activate_law = law_type:law_combination_acts
 	}
 
 	c:NET = {
@@ -506,6 +515,19 @@
 		}
 		ig:ig_landowners ?= {
 			set_interest_group_name = ig_mesafint
+		}
+	}
+
+	every_country = {
+		limit = {
+			bpm_country_is_in_new_world = yes
+			NOT = {
+				this = c:USA
+			}
+		}
+		ig:ig_reactionaries = {
+			bpm_remove_all_cit_ideologies = yes
+			add_ideology = ideology_cit_ethnonationalist
 		}
 	}
 

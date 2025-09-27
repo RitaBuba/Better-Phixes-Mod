@@ -757,7 +757,7 @@ radical_party = {
 						has_law = law_type:law_child_labor_allowed
 						has_law = law_type:law_no_social_security
 						has_law = law_type:law_unregulated_work_time
-						has_law = law_type:law_illegal_labor_unions
+						has_law = law_type:law_combination_acts
 					}
 					NOR = { 
 						has_technology_researched = socialism
@@ -791,6 +791,21 @@ radical_party = {
 			add = {
 				value = 3
 				desc = "from_no_or_religious_schools"
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+			}
+
+			add = {
+				value = -50
+				desc = "from_no_reason_to_exist"
 			}
 		}
 		if = { # lack of women's rights

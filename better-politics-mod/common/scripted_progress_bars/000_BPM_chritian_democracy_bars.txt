@@ -100,17 +100,13 @@ bpm_new_wine_scripted_progress_bar = {
 	max_value = 50
 }
 
-bpm_old_wineskins_scripted_progress_bar = {
-	name = "je_bpm_old_wineskins_scripted_progress_bar_name"
-	desc = "je_bpm_old_wineskins_scripted_progress_bar_desc"
+bpm_old_wine_paternalism_progress_bar = {
+	name = "bpm_old_wine_paternalism_progress_bar_name"
+	desc = "bpm_old_wine_paternalism_progress_bar_desc"
 
-	default_bad = yes
+	default_green = yes
 
-	monthly_progress = {
-		value = bpm_je_clacon_ideological_power_gain
-	}
-
-	start_value = 3
+	start_value = 0
 	min_value = 0
-	max_value = 50
+	max_value = 7
 }

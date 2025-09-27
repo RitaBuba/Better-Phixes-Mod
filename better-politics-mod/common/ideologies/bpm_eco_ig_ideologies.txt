@@ -114,7 +114,7 @@ ideology_eco_traditional_agrarian = {
 		law_interventionism = neutral
 		law_agrarianism = approve
 		law_industry_banned = disapprove
-		law_laissez_faire = disapprove
+		law_laissez_faire = strongly_disapprove
 		law_cooperative_ownership = strongly_disapprove
 		law_command_economy = strongly_disapprove
 		law_extraction_economy = disapprove
@@ -1105,7 +1105,7 @@ ideology_eco_distributist_economy = {
 
 	lawgroup_repeatable_economy = {
 		law_repeatable_economy_liberalization = approve
-		law_repeatable_economy_agricultural_investment = approve
+		law_repeatable_economy_agricultural_investment = strongly_approve
 		law_repeatable_economy_peasant_corvee = disapprove
 		law_repeatable_economy_public_works = approve
 		law_repeatable_economy_forced_industrialization = strongly_disapprove

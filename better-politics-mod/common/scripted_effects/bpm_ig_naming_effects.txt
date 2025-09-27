@@ -1,4 +1,4 @@
-﻿#
+#
 #
 # INSTITUTIONAL
 #
@@ -152,23 +152,12 @@ bpm_rename_christian_democrat_ig = {
 	}
 	else_if = {
 		limit = {
-			country_has_primary_culture = cu:south_german
-			this = c:AUS
-			has_global_variable = global_rerum_novarum_issued_var
-			ig:ig_christian_democrats = {
-				ig_clout <= 0.05
-			}
-		}
-		ig:ig_christian_democrats ?= { set_interest_group_name = ig_vienna_movement }
-	}
-	else_if = {
-		limit = {
-			country_has_primary_culture = cu:south_german
-			this = c:AUS
+			country_has_primary_culture = cu:dutch
 			has_global_variable = global_rerum_novarum_issued_var
 		}
-		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_socials }
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_rooms_katholiek }
 	}
+	
 	else_if = {
 		limit = {
 			OR = {
@@ -236,7 +225,7 @@ bpm_rename_trade_unions_ig = {
 	}
 	else_if = {
 		limit = {
-			has_law = law_type:law_illegal_labor_unions
+			has_law = law_type:law_combination_acts
 		}
 		ig:ig_trade_unions ?= { set_interest_group_name = ig_labor_radicals }
 	}
@@ -250,7 +239,7 @@ bpm_rename_trade_unions_ig = {
 	}
 	else_if = {
 		limit = {
-			has_law = law_type:law_all_labor_unions_allowed
+			has_law = law_type:law_right_to_associate
 			NOT = { has_variable = union_law_introduced_var }
 		}
 		ig:ig_trade_unions ?= { set_interest_group_name = ig_urban_workers }
@@ -1354,7 +1343,14 @@ bpm_rename_reactionary_ig = {
 	}
 	else_if = {
 		limit = {
-			ig:ig_reactionaries ?= { has_ideology = ideology:ideology_sta_organic_state }
+			ig:ig_reactionaries ?= { 
+				bpm_ig_is_organic_democrat = yes
+			}
+			OR = {
+				country_has_primary_culture = cu:spanish
+				country_has_primary_culture = cu:portugese
+				country_has_primary_culture = cu:french
+			}
 		}
 		ig:ig_reactionaries ?= { set_interest_group_name = ig_integralists }
 	}
@@ -1398,11 +1394,9 @@ bpm_rename_reactionary_ig = {
 			ig:ig_reactionaries ?= { 
 				OR = {
 					bpm_ig_is_democrat = yes 
-					has_ideology = ideology:ideology_dop_organic_democrat
+					bpm_ig_is_organic_democrat = yes
 				}
 			}
-			has_global_variable = global_variable_quanta_cura_var_released
-			has_global_variable = global_rerum_novarum_issued_var
 		}
 		ig:ig_reactionaries ?= { set_interest_group_name = ig_national_conservatives }
 	}
@@ -1423,10 +1417,7 @@ bpm_rename_reactionary_ig = {
 	else_if = {
 		limit = {
 			ig:ig_reactionaries ?= { 
-				OR = {
-					bpm_ig_is_democrat = yes 
-					has_ideology = ideology:ideology_dop_organic_democrat
-				}
+				has_ideology = ideology:ideology_dop_organic_power
 			}
 			this = c:AUS
 			NOT = {
@@ -1439,18 +1430,22 @@ bpm_rename_reactionary_ig = {
 	}
 	else_if = {
 		limit = {
-			ig:ig_reactionaries ?= { 
-				OR = {
-					bpm_ig_is_democrat = yes 
-					has_ideology = ideology:ideology_dop_organic_democrat
-				}
-			}
-			country_has_primary_culture = cu:czech
-			has_global_variable = global_variable_quanta_cura_var_released
+			country_has_primary_culture = cu:polish
 			has_global_variable = global_rerum_novarum_issued_var
 		}
-		ig:ig_reactionaries ?= { set_interest_group_name = ig_cath_nat_cons }
+		ig:ig_reactionaries ?= { set_interest_group_name = ig_mlodzi_endecy }
 	}
+	else_if = {
+		limit = {
+			country_has_primary_culture = cu:flemish
+			has_global_variable = global_rerum_novarum_issued_var
+			ig:ig_fascists ?= {
+				ig_clout > 0.009
+			}
+		}
+		ig:ig_reactionaries ?= { set_interest_group_name = ig_rexists }
+	}
+	
 	else_if = {
 		limit = {
 			OR = {
@@ -1465,10 +1460,7 @@ bpm_rename_reactionary_ig = {
 	else_if = {
 		limit = {
 			ig:ig_reactionaries ?= { 
-				OR = {
-					has_ideology = ideology:ideology_dop_organic_democrat
-					has_ideology = ideology:ideology_dop_organic_power
-				}
+				bpm_ig_is_organic_democrat = yes
 			}
 			has_global_variable = global_rerum_novarum_issued_var
 			owner = {

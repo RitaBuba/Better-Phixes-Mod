@@ -290,7 +290,7 @@
   bpm_workplace_safety_commies_modifier_desc: "[GetStaticModifier('bpm_workplace_safety_commies_modifier').GetDesc]"
   bpm_workplace_safety_ruries_modifier_desc: "[GetStaticModifier('bpm_workplace_safety_ruries_modifier').GetDesc]"
   bpm_workplace_safety_unions_modifier_desc: "[GetStaticModifier('bpm_workplace_safety_unions_modifier').GetDesc]"
-  bpm_workplace_safety_chd_modifier_desc: "[GetStaticModifier('bpm_workplace_safety_christdem_modifier').GetDesc]"
+  bpm_workplace_safety_christdem_modifier_desc: "[GetStaticModifier('bpm_workplace_safety_christdem_modifier').GetDesc]"
   bpm_workplace_safety_neutraling_modifier_desc: "[GetStaticModifier('bpm_workplace_safety_neutraling_modifier').GetDesc]"
   bpm_workplace_safety_attraction_modifier_desc: "[GetStaticModifier('bpm_workplace_safety_attraction_modifier').GetDesc]"
   # -- Home Affairs --
@@ -308,7 +308,7 @@
   bpm_home_affairs_attraction_modifier_desc: "[GetStaticModifier('bpm_home_affairs_attraction_modifier').GetDesc]"
   # -- CENTRALIZATION --
   bpm_centralization_agpops_modifier_desc: "[GetStaticModifier('bpm_centralization_agpops_modifier').GetDesc]"
-  bpm_centralization_chd_modifier_desc: "[GetStaticModifier('bpm_centralization_christdems_modifier').GetDesc]"
+  bpm_centralization_christdems_modifier_desc: "[GetStaticModifier('bpm_centralization_christdems_modifier').GetDesc]"
   bpm_centralization_cons_modifier_desc: "[GetStaticModifier('bpm_centralization_cons_modifier').GetDesc]"
   bpm_centralization_libs_modifier_desc: "[GetStaticModifier('bpm_centralization_libs_modifier').GetDesc]"
   bpm_centralization_neutralidg_modifier_desc: "[GetStaticModifier('bpm_centralization_neutralidg_modifier').GetDesc]"
