@@ -328,7 +328,7 @@ ideology_traditionalist = {
 			owner = {
 				has_law = law_type:law_no_womens_rights
 				has_law = law_type:law_state_religion
-				NOT = { has_law = law_type:law_multicultural }
+				NOT = { has_law_or_variant = law_type:law_multicultural }
 			}
 		}
 	}
@@ -1594,7 +1594,7 @@ ideology_feminist = {
 		bpm_interest_group_is_activated = yes
 		owner = { 
 			has_technology_researched = feminism 
-			NOT = { has_law = law_type:law_womens_suffrage }
+			NOT = { has_law_or_variant = law_type:law_womens_suffrage }
 		}
 		bpm_ig_is_radical_right = no
 	}
@@ -1606,7 +1606,7 @@ ideology_feminist = {
 			if = {
 				limit = {
 					owner = {
-						has_law = law_type:law_womens_suffrage
+						has_law_or_variant = law_type:law_womens_suffrage
 					}
 				}
 				add = -200
@@ -1673,14 +1673,14 @@ ideology_feminist = {
     		bpm_interest_group_is_activated = yes
     		owner = { 
     			has_technology_researched = feminism 
-    			NOT = { has_law = law_type:law_womens_suffrage }
+    			NOT = { has_law_or_variant = law_type:law_womens_suffrage }
     		}
     		bpm_ig_is_radical_right = no
     	}
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_womens_suffrage
+				has_law_or_variant = law_type:law_womens_suffrage
 			}
 		}
 
@@ -6020,7 +6020,7 @@ ideology_humanitarian = {
 		#		NOT = { bpm_country_laws_are_racist = yes }
 		#		has_law = law_type:law_guaranteed_liberties
 		#		has_law = law_type:law_protected_speech
-		#		has_law = law_type:law_womens_suffrage
+		#		has_law_or_variant = law_type:law_womens_suffrage
 		#		has_law = law_type:law_compulsory_primary_school
 		#	}
 		#}
@@ -6038,7 +6038,7 @@ ideology_humanitarian = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 				}
 			}
 			add = -10
@@ -6062,7 +6062,7 @@ ideology_humanitarian = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 				}
 			}
 			add = -10
@@ -6162,7 +6162,7 @@ ideology_humanitarian = {
     		#		NOT = { bpm_country_laws_are_racist = yes }
     		#		has_law = law_type:law_guaranteed_liberties
     		#		has_law = law_type:law_protected_speech
-    		#		has_law = law_type:law_womens_suffrage
+    		#		has_law_or_variant = law_type:law_womens_suffrage
     		#		has_law = law_type:law_compulsory_primary_school
     		#	}
     		#}
@@ -6184,7 +6184,7 @@ ideology_humanitarian = {
 				NOT = { bpm_country_laws_are_racist = yes }
 				has_law = law_type:law_guaranteed_liberties
 				has_law = law_type:law_protected_speech
-				has_law = law_type:law_womens_suffrage
+				has_law_or_variant = law_type:law_womens_suffrage
 				has_law = law_type:law_compulsory_primary_school
 			}
 		}
@@ -6202,7 +6202,7 @@ ideology_humanitarian = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 				}
 			}
 			add = -10
@@ -6226,7 +6226,7 @@ ideology_humanitarian = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 				}
 			}
 			add = -10
@@ -7587,7 +7587,7 @@ ideology_humanitarian_royalist = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 				}
 			}
 			add = -25
@@ -7603,7 +7603,7 @@ ideology_humanitarian_royalist = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 				}
 			}
 			add = -25
@@ -7730,7 +7730,7 @@ ideology_humanitarian_royalist = {
 				has_law = law_type:law_monarchy
 				NOT = { bpm_country_laws_are_racist = yes }
 				has_law = law_type:law_guaranteed_liberties
-				has_law = law_type:law_womens_suffrage
+				has_law_or_variant = law_type:law_womens_suffrage
 				has_law = law_type:law_compulsory_primary_school
 			}
 		}
@@ -9041,7 +9041,7 @@ ideology_utilitarian_leader = {
 				OR = {
 					has_law = law_type:law_compulsory_primary_school
 					has_law = law_type:law_public_schools
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 					has_law = law_type:law_graduated_taxation
 					has_law = law_type:law_proportional_taxation
 				}
@@ -9280,7 +9280,7 @@ ideology_despotic_utopian = {
 						has_law = law_type:law_technocracy
 						has_law = law_type:law_single_party_state
 					}
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 					has_law = law_type:law_isolationism
 				}
 			}
@@ -9403,7 +9403,7 @@ ideology_despotic_utopian = {
 						has_law = law_type:law_technocracy
 						has_law = law_type:law_single_party_state
 					}
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 					has_law = law_type:law_isolationism
 				}
 			}

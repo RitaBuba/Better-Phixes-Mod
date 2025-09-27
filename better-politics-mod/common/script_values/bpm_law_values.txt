@@ -160,6 +160,35 @@ bpm_repeatable_law_promote_patriotic_values_effect_power = {
 	min = 0
 }
 
+bpm_repeatable_law_affirmative_action_power = {
+	value = 0
+	add = root.institution:institution_culture.investment
+
+	every_interest_group = {
+		limit = {
+			OR = {
+				is_in_government = yes
+				is_powerful = yes
+			}
+		}
+		if = {
+			limit = { law_stance = { law = law_type:law_repeatable_culture_affirmative_action	value = strongly_disapprove	} }
+			add = -1
+		} else_if = {
+			limit = { law_stance = { law = law_type:law_repeatable_culture_affirmative_action	value = disapprove	} }
+			add = -0.5
+		} else_if = {
+			limit = { law_stance = { law = law_type:law_repeatable_culture_affirmative_action	value = approve	} }
+			add = 0.5
+		} else_if = {
+			limit = { law_stance = { law = law_type:law_repeatable_culture_affirmative_action	value = strongly_approve	} }
+			add = 1
+		}
+	}
+
+	min = 0
+}
+
 bpm_repeatable_law_promote_socialist_values_effect_power = {
 	value = 0
 	add = root.institution:institution_culture.investment

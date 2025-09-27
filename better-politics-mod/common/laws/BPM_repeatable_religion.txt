@@ -207,6 +207,17 @@ law_repeatable_religion_promote_secular_values = {
 				multiply = 0.1
 			}
 		}
+
+		if = {
+			limit = { has_law = law_type:law_total_separation }
+
+			custom_tooltip = {
+				text = bpm_je_total_separation_upgrade_advance_25
+				je:je_bpm_total_separation_upgrade ?= {
+					add_progress = { value = 25 name = je_bpm_total_separation_upgrade_progress_bar }
+				}
+			}
+		}
 		
 		bpm_finalize_repeatable_law = {
 			LAW = law_repeatable_religion_promote_secular_values

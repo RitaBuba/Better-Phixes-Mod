@@ -1,14 +1,27 @@
 ﻿l_english:
+# Modifiers
+ bpm_decorative_upgradable_law:0 "Law can be Improved"
+ bpm_decorative_upgradable_law_desc:0 "Passing this law opens up a possibility, in some specific cases, of improving it into a more potent form, replacing it with a better variant."
+
 # Nationality
- law_multicultural:0 "Cosmopolitanism"
+ law_multicultural:0 "Legal Cosmopolitanism"
+ law_multicultural_desc:0 "On paper, there is no legal discrimination between different nationalities and cultures in the country. In practice, the primary cultures are still given preferential treatment, albeit with less zeal than before."
+ law_multicultural_upgraded:0 "Full Cosmopolitanism"
+ law_multicultural_upgraded_desc:0 "There is no legal discrimination between different nationalities and cultures in the country. The different cultures are given equal rights, and an ability to thrive as much as possible, with primary culture's privileges being minimised."
 
 # Religion
- law_total_separation:0 "Secularism"
- law_total_separation_desc:0 "Religion is de-emphasised and removed as much as possible from interfering in civil institutions. Discrimination based on religion in society at large is not practiced, but atheist values may be promoted."
+ law_total_separation:0 "Legal Secularism"
+ law_total_separation_desc:0 "Religion is, on paper, not a factor in civil institutions. The practical implementation of this policy however still gives the state religion a degree of preferential treatment."
+ law_total_separation_upgraded:0 "Full Secularism"
+ law_total_separation_upgraded_desc:0 "Religion is de-emphasised and removed as much as possible from interfering in civil institutions. Discrimination based on religion in society at large is not practiced, but atheist values may be promoted."
 
 # Womens Rights
  law_no_womens_rights:0 "Traditional Family"
  law_no_womens_rights_desc:0 "Whether by convention or by law, the sexes are expected to follow a division of labor according to the traditional familial structure of their culture."
+ law_womens_suffrage:0 "Legal Female Equality"
+ law_womens_suffrage_desc:0 "Women are given, on paper, the same legal rights as men, including the right to vote. The practical implementation of this equality is, of course, far more unequal."
+ law_womens_suffrage_upgraded:0 "Avant-Garde Gender Norms"
+ law_womens_suffrage_upgraded_desc:0 "Women and men have full legal equality. Traditional gender norms have weakened (or removed) legal protections, opening up venues for more unorthodox practices, such as mandatory creches or decriminalized homosexuality, to mixed results in social acceptance."
 
 # Distribution of Power
  law_military_junta:0 "Military Junta"

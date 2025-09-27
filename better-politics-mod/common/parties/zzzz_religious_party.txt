@@ -296,7 +296,7 @@ religious_party = {
 			limit = {
 				has_ideology = ideology:ideology_patriarchal
 				owner = {
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 				}
 			}
 			add = {

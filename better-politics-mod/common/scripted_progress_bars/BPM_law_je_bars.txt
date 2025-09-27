@@ -1,0 +1,131 @@
+je_bpm_multicultural_upgrade_progress_bar = {
+	name = "je_bpm_multicultural_upgrade_progress_bar"
+	desc = "je_bpm_multicultural_upgrade_progress_bar_desc"
+
+	default_green = yes
+
+    monthly_progress = {
+		every_interest_group = {
+			limit = {
+				law_stance = {
+					law = law_type:law_multicultural
+					value < neutral
+				}
+				OR = {
+					is_powerful = yes
+					is_in_government = yes
+				}
+			}
+			add = {
+				desc = "bpm_multicultural_upgrade_from_anti_multiculturalists"
+				add = -1
+			}
+		}
+		every_interest_group = {
+			limit = {
+				law_stance = {
+					law = law_type:law_multicultural
+					value > neutral
+				}
+				OR = {
+					is_powerful = yes
+					is_in_government = yes
+				}
+			}
+			add = {
+				desc = "bpm_multicultural_upgrade_from_multiculturalists"
+				add = 0.1
+			}
+		}
+	}
+
+	start_value = 0
+	min_value = 0
+	max_value = 100
+}
+
+je_bpm_total_separation_upgrade_progress_bar = {
+	name = "je_bpm_total_separation_upgrade_progress_bar"
+	desc = "je_bpm_total_separation_upgrade_progress_bar_desc"
+
+	default_green = yes
+
+    monthly_progress = {
+		every_interest_group = {
+			limit = {
+				bpm_ig_is_religious = yes
+				OR = {
+					is_powerful = yes
+					is_in_government = yes
+				}
+			}
+			add = {
+				desc = "bpm_total_separation_upgrade_from_anti_secularists"
+				add = -1
+			}
+		}
+		every_interest_group = {
+			limit = {
+				law_stance = {
+					law = law_type:law_repeatable_religion_promote_secular_values
+					value > neutral
+				}
+				OR = {
+					is_powerful = yes
+					is_in_government = yes
+				}
+			}
+			add = {
+				desc = "bpm_total_separation_upgrade_from_secularists"
+				add = 0.25
+			}
+		}
+	}
+
+	start_value = 0
+	min_value = 0
+	max_value = 100
+}
+
+je_bpm_women_rights_upgrade_progress_bar = {
+	name = "je_bpm_women_rights_upgrade_progress_bar"
+	desc = "je_bpm_women_rights_upgrade_progress_bar_desc"
+
+	default_green = yes
+
+    monthly_progress = {
+		every_interest_group = {
+			limit = {
+				bpm_ig_is_sexist = yes
+				OR = {
+					is_powerful = yes
+					is_in_government = yes
+				}
+			}
+			add = {
+				desc = "bpm_womens_rights_upgrade_from_sexists"
+				add = -1
+			}
+		}
+		every_interest_group = {
+			limit = {
+				law_stance = {
+					law = law_type:law_womens_suffrage
+					value = strongly_approve
+				}
+				OR = {
+					is_powerful = yes
+					is_in_government = yes
+				}
+			}
+			add = {
+				desc = "bpm_womens_rights_upgrade_from_super_feminists"
+				add = 0.25
+			}
+		}
+	}
+
+	start_value = 0
+	min_value = 0
+	max_value = 100
+}
