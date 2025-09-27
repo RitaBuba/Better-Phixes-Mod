@@ -207,7 +207,7 @@
 				limit = { strata = lower }
 				add = {
 					desc = "PATCON_LOWER_CLASS"
-					value = 50
+					value = 25
 				}
 			}
 			else_if = {
@@ -217,11 +217,15 @@
 					value = 75
 				}
 			}
-			else_if = {
-				limit = { is_pop_type = capitalists }
-				add = {
-					desc = "PATCON_CAPITALISTS"
-					value = 30
+
+			multiply = { # Graves de communi re was released. Time to implode whole parties and organizations.
+				desc = "Graves de communi re was released"
+				value = 1.0
+				if = { 
+					limit = { 
+						has_global_variable = global_variable_graves_de_communi_re
+					}
+					value = 0.75
 				}
 			}
 		}

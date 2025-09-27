@@ -189,7 +189,7 @@
 				}
 				multiply = {
 					desc = "BPM_STRONG_LABOR"
-					value = 20
+					value = 4 # 20
 				}
 			}
 			else_if = {

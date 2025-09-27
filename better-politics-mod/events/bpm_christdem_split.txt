@@ -79,7 +79,7 @@ bpm_christdem_split.2 = {
             add_modifier = {
                 name = bpm_ig_gaining_support
                 multiplier = 2
-                months = normal_modifier_time
+                days = normal_modifier_time
             }
         }
 	}
@@ -1878,20 +1878,6 @@ bpm_new_wine_old_wineskins_flavour.2 = {
 		name = bpm_new_wine_old_wineskins_flavour.2.a
 		default_option = yes
 
-		ig:ig_conservatives = {
-			hidden_effect = {
-				bpm_remove_all_wel_ideologies = yes
-			}
-			add_ideology = ideology_wel_paternalistic_welfare
-			
-			add_ideology = ideology_corporatist
-			set_interest_group_name = ig_paternal_conservatives
-		
-			hidden_effect = {
-				bpm_reorder_ideologies = yes
-			}
-		}
-
 		ig:ig_christian_democrats = {
 			add_modifier = {
 				name = bpm_ig_defeated_in_struggle_for_survival_ig
@@ -2011,8 +1997,8 @@ bpm_new_wine_old_wineskins_flavour.4 = {
 			text = bpm_je_old_wineskins_increase_value_2_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 2
-					name = bpm_old_wineskins_scripted_progress_bar 
+					value = -2
+					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
 		}
@@ -2027,8 +2013,8 @@ bpm_new_wine_old_wineskins_flavour.4 = {
 			leader = {
 				add_modifier = {
 					name = bpm_unchallanged_right_wing_leader
-					days = medium_modifier_time
-					is_decaying = yes
+					days = -1
+					#is_decaying = yes
 				}
 				add_trait = imposing
 			}
@@ -2037,7 +2023,7 @@ bpm_new_wine_old_wineskins_flavour.4 = {
 		ig:ig_christian_democrats = {
 			add_modifier = {
 				name = bpm_stubborn_ig
-				days = medium_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -2075,8 +2061,8 @@ bpm_new_wine_old_wineskins_flavour.5 = {
 			text = bpm_je_old_wineskins_increase_value_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 1
-					name = bpm_old_wineskins_scripted_progress_bar 
+					value = -1
+					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
 		}
@@ -2200,8 +2186,8 @@ bpm_new_wine_old_wineskins_flavour.7 = {
 			text = bpm_je_old_wineskins_increase_value_2_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 2
-					name = bpm_old_wineskins_scripted_progress_bar 
+					value = -2
+					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
 		}
@@ -2295,7 +2281,7 @@ bpm_new_wine_old_wineskins_flavour.8 = {
 		ig:ig_christian_democrats = {
 			add_modifier = {
 				name = bpm_minor_party_created
-				days = medium_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -2335,8 +2321,8 @@ bpm_new_wine_old_wineskins_flavour.9 = {
 			text = bpm_je_old_wineskins_increase_value_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 1
-					name = bpm_old_wineskins_scripted_progress_bar 
+					value = -1
+					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
 		}
@@ -2378,7 +2364,19 @@ bpm_new_wine_old_wineskins_flavour.10 = {
 	dlc = dlc_bpm
 
 	immediate = {
+		ig:ig_conservatives = {
+			hidden_effect = {
+				bpm_remove_all_wel_ideologies = yes
+			}
+			add_ideology = ideology_wel_paternalistic_welfare
+			
+			add_ideology = ideology_corporatist
+			set_interest_group_name = ig_paternal_conservatives
 		
+			hidden_effect = {
+				bpm_reorder_ideologies = yes
+			}
+		}
 	}
 
 	trigger = {
@@ -2403,8 +2401,8 @@ bpm_new_wine_old_wineskins_flavour.10 = {
 			text = bpm_je_old_wineskins_increase_value_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 1
-					name = bpm_old_wineskins_scripted_progress_bar 
+					value = -1
+					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
 		}
@@ -2412,14 +2410,14 @@ bpm_new_wine_old_wineskins_flavour.10 = {
 		ig:ig_christian_democrats = {
 			add_modifier = {
 				name = bpm_stubborn_ig
-				days = medium_modifier_time
+				days = normal_modifier_time
 			}
 		}
 
 		ig:ig_conservatives = {
 			add_modifier = {
 				name = bpm_stubborn_ig
-				days = medium_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -2446,7 +2444,7 @@ bpm_new_wine_old_wineskins_flavour.11 = {
 	}
 
 	trigger = {
-		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
 	}
 
 	option = {
@@ -2454,6 +2452,8 @@ bpm_new_wine_old_wineskins_flavour.11 = {
 		default_option = yes	
 	}
 }
+
+
 
 bpm_papal_encyclicals.1 = { # Quanta cura
 	type = country_event
@@ -2625,5 +2625,541 @@ bpm_papal_encyclicals.3 = { # Rerum novarum
 	option = {
 		name = bpm_papal_encyclicals.3.a
 		default_option = yes
+	}
+}
+
+bpm_papal_encyclicals.4 = { # Graves de communi re
+	type = country_event
+	placement = root
+
+	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
+	icon = "gfx/interface/icons/event_icons/secondIntl.dds"
+	title = bpm_papal_encyclicals.4.t
+	desc = bpm_papal_encyclicals.4.d
+	flavor = bpm_papal_encyclicals.4.f
+	duration = 3
+
+	dlc = dlc_bpm
+
+	trigger = {
+
+	}
+
+	immediate = {
+		set_global_variable = global_variable_graves_de_communi_re
+	}
+
+	option = {
+		name = bpm_papal_encyclicals.4.a
+		default_option = yes
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.100 = { # Expanding/Limiting Franchise (in disfavour of workers)
+
+	type = country_event
+
+	dlc = dlc_bpm
+
+	event_image = {
+		video = "southamerica_election"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	title = bpm_new_wine_old_wineskins_flavour.100.t
+	desc = bpm_new_wine_old_wineskins_flavour.100.d
+	flavor = bpm_new_wine_old_wineskins_flavour.100.f
+
+	duration = 3
+
+	cooldown = {
+		years = 100
+	}
+
+	trigger = {
+		has_law = law_type:law_census_suffrage
+		ig:ig_conservatives = {
+			is_in_government = yes
+		}
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.100.a
+		default_option = yes
+
+		change_variable = {
+			name = bpm_old_wine_paternalism_progress_bar_var
+			add = 1
+		}
+
+		add_modifier = {
+			name = bpm_curia_system_voting
+			days = long_modifier_time
+			is_decaying = yes
+		}
+
+		add_modifier = {
+			name = bpm_municipality_elections_bill
+			days = long_modifier_time
+			is_decaying = yes
+		}
+
+		ig:ig_conservatives = {
+			add_modifier = {
+				name = bpm_entrenching_power
+				days = normal_modifier_time
+			}
+		}
+
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology_dop_radical_democrat
+					is_interest_group_type = ig_christian_democrats
+				}
+			}
+			add_modifier = {
+				name = bpm_stubborn_ig
+				days = normal_modifier_time
+			}
+		}
+
+		je:je_bpm_new_wine_in_old_wineskins = {
+			add_progress = { value = 1 name = bpm_old_wine_paternalism_progress_bar }
+		}
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.101 = { # Workshop Regulations Act
+
+	type = country_event
+
+	dlc = dlc_bpm
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	title = bpm_new_wine_old_wineskins_flavour.101.t
+	desc = bpm_new_wine_old_wineskins_flavour.101.d
+	flavor = bpm_new_wine_old_wineskins_flavour.101.f
+
+	duration = 3
+
+	cooldown = {
+		years = 100
+	}
+
+	trigger = {
+		has_law = law_type:law_regulatory_bodies
+		ig:ig_conservatives = {
+			is_in_government = yes
+		}
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.101.a
+		default_option = yes
+
+		change_variable = {
+			name = bpm_old_wine_paternalism_progress_bar_var
+			add = 1
+		}
+
+		je:je_bpm_new_wine_in_old_wineskins = {
+			add_progress = { value = 1 name = bpm_old_wine_paternalism_progress_bar }
+		}
+
+		add_modifier = {
+			name = bpm_paternalistic_policy
+			days = normal_modifier_time
+			is_decaying = yes
+		}
+
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_wel_expanded_public_welfare
+					has_ideology = ideology:ideology_wel_social_market_welfare
+					has_ideology = ideology:ideology_wel_public_welfare
+					is_interest_group_type = ig_christian_democrats
+				}
+			}
+			add_modifier = {
+				name = bpm_dissatisfied_with_paternalism
+				days = normal_modifier_time
+			}
+		}
+
+		ig:ig_conservatives = {
+			add_modifier = {
+				name = bpm_entrenching_power
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.102 = { # Agricultural Modernization Act
+
+	type = country_event
+
+	dlc = dlc_bpm
+
+	event_image = {
+		video = "africa_prosperous_farm"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	title = bpm_new_wine_old_wineskins_flavour.102.t
+	desc = bpm_new_wine_old_wineskins_flavour.102.d
+	flavor = bpm_new_wine_old_wineskins_flavour.102.f
+
+	duration = 3
+
+	cooldown = {
+		years = 100
+	}
+
+	trigger = {
+		ig:ig_conservatives = {
+			is_in_government = yes
+		}
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.102.a
+		default_option = yes
+
+		change_variable = {
+			name = bpm_old_wine_paternalism_progress_bar_var
+			add = 1
+		}
+
+		je:je_bpm_new_wine_in_old_wineskins = {
+			add_progress = { value = 1 name = bpm_old_wine_paternalism_progress_bar }
+		}
+
+		add_modifier = {
+			name = bpm_agricultural_reforms
+			days = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.103 = { # Religious Schools Funding Act
+
+	type = country_event
+
+	dlc = dlc_bpm
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = bpm_new_wine_old_wineskins_flavour.103.t
+	desc = bpm_new_wine_old_wineskins_flavour.103.d
+	flavor = bpm_new_wine_old_wineskins_flavour.103.f
+
+	duration = 3
+
+	cooldown = {
+		years = 100
+	}
+
+	trigger = {
+		ig:ig_conservatives = {
+			is_in_government = yes
+		}
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.103.a
+		default_option = yes
+
+		change_variable = {
+			name = bpm_old_wine_paternalism_progress_bar_var
+			add = 1
+		}
+
+		je:je_bpm_new_wine_in_old_wineskins = {
+			add_progress = { value = 1 name = bpm_old_wine_paternalism_progress_bar }
+		}
+
+		add_modifier = {
+			name = bpm_religious_schools_funded
+			days = normal_modifier_time
+			is_decaying = yes
+		}
+
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_wel_expanded_public_welfare
+					has_ideology = ideology:ideology_wel_social_market_welfare
+					has_ideology = ideology:ideology_wel_public_welfare
+					is_interest_group_type = ig_christian_democrats
+				}
+			}
+			add_modifier = {
+				name = bpm_dissatisfied_with_paternalism
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.104 = { # Minor regulatory reforms.
+
+	type = country_event
+
+	dlc = dlc_bpm
+
+	event_image = {
+		video = "asia_factory_accident"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	title = bpm_new_wine_old_wineskins_flavour.104.t
+	desc = bpm_new_wine_old_wineskins_flavour.104.d
+	flavor = bpm_new_wine_old_wineskins_flavour.104.f
+
+	duration = 3
+
+	cooldown = {
+		years = 100
+	}
+
+	trigger = {
+		ig:ig_conservatives = {
+			is_in_government = yes
+		}
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.104.a
+		default_option = yes
+
+		change_variable = {
+			name = bpm_old_wine_paternalism_progress_bar_var
+			add = 1
+		}
+
+		je:je_bpm_new_wine_in_old_wineskins = {
+			add_progress = { value = 1 name = bpm_old_wine_paternalism_progress_bar }
+		}
+
+		ig:ig_conservatives = {
+			add_modifier = {
+				name = bpm_entrenching_power
+				days = normal_modifier_time
+			}
+		}
+
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_wel_expanded_public_welfare
+					has_ideology = ideology:ideology_wel_social_market_welfare
+					has_ideology = ideology:ideology_wel_public_welfare
+					is_interest_group_type = ig_christian_democrats
+				}
+			}
+			add_modifier = {
+				name = bpm_dissatisfied_with_paternalism
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.105 = { # Bill for Wage Support
+
+	type = country_event
+
+	dlc = dlc_bpm
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	title = bpm_new_wine_old_wineskins_flavour.105.t
+	desc = bpm_new_wine_old_wineskins_flavour.105.d
+	flavor = bpm_new_wine_old_wineskins_flavour.105.f
+
+	duration = 3
+
+	cooldown = {
+		years = 100
+	}
+
+	trigger = {
+		has_law = law_type:law_wage_subsidies
+		ig:ig_conservatives = {
+			is_in_government = yes
+		}
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.105.a
+		default_option = yes
+
+		change_variable = {
+			name = bpm_old_wine_paternalism_progress_bar_var
+			add = 1
+		}
+
+		je:je_bpm_new_wine_in_old_wineskins = {
+			add_progress = { value = 1 name = bpm_old_wine_paternalism_progress_bar }
+		}
+
+		ig:ig_conservatives = {
+			add_modifier = {
+				name = bpm_entrenching_power
+				days = normal_modifier_time
+			}
+		}
+
+		add_modifier = {
+			name = bpm_barebones_wage
+			days = normal_modifier_time
+			is_decaying = yes
+		}
+
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_wel_expanded_public_welfare
+					has_ideology = ideology:ideology_wel_social_market_welfare
+					has_ideology = ideology:ideology_wel_public_welfare
+					is_interest_group_type = ig_christian_democrats
+				}
+			}
+			add_modifier = {
+				name = bpm_dissatisfied_with_paternalism
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+bpm_new_wine_old_wineskins_flavour.106 = { # Bill for Sunday rest
+
+	type = country_event
+
+	dlc = dlc_bpm
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	title = bpm_new_wine_old_wineskins_flavour.106.t
+	desc = bpm_new_wine_old_wineskins_flavour.106.d
+	flavor = bpm_new_wine_old_wineskins_flavour.106.f
+
+	duration = 3
+
+	cooldown = {
+		years = 100
+	}
+
+	trigger = {
+		has_law = law_type:law_token_time_regulations
+		ig:ig_conservatives = {
+			is_in_government = yes
+		}
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = bpm_new_wine_old_wineskins_flavour.105.a
+		default_option = yes
+
+		change_variable = {
+			name = bpm_old_wine_paternalism_progress_bar_var
+			add = 1
+		}
+
+		je:je_bpm_new_wine_in_old_wineskins = {
+			add_progress = { value = 1 name = bpm_old_wine_paternalism_progress_bar }
+		}
+
+		ig:ig_devout = {
+			add_modifier = {
+				name = bpm_empowered_church_institutions
+				days = normal_modifier_time
+				is_decaying = yes
+			}
+		}
+
+		every_interest_group = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_wel_expanded_public_welfare
+					has_ideology = ideology:ideology_wel_social_market_welfare
+					has_ideology = ideology:ideology_wel_public_welfare
+					is_interest_group_type = ig_christian_democrats
+				}
+			}
+			add_modifier = {
+				name = bpm_dissatisfied_with_paternalism
+				days = normal_modifier_time
+			}
+		}
 	}
 }

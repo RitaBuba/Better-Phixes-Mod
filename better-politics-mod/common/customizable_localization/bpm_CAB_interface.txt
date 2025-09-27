@@ -860,7 +860,7 @@ bpm_minister_of_workplace_safety_modifier = {
                 }
             }
         }
-        localization_key = bpm_workplace_safety_chd_modifier_desc
+        localization_key = bpm_workplace_safety_christdem_modifier_desc
     }
 
     
@@ -1074,7 +1074,7 @@ bpm_minister_of_centralization_modifier = {
                 }
             }
         }
-        localization_key = bpm_centralization_chd_modifier_desc
+        localization_key = bpm_centralization_christdems_modifier_desc
     }
 
     

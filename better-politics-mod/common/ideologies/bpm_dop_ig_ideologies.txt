@@ -700,7 +700,7 @@ ideology_dop_divine_democrat = {
 		law_corporatized_unions = strongly_disapprove
 		law_anti_strike_laws = approve
 		law_syndicalism = strongly_disapprove
-		law_right_to_associate = approve
+		law_right_to_associate = neutral
 		law_socialist_labor_unions = strongly_disapprove
 	}
 }

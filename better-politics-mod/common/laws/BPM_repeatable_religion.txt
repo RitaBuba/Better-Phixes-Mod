@@ -102,6 +102,17 @@ law_repeatable_religion_promote_state_religion = {
 	}
 
 	on_enact = {
+		if = { 
+			limit = {
+				has_journal_entry = je_bpm_new_wine_in_old_wineskins
+				ig:ig_conservatives = {
+					is_in_government = yes
+				}
+			}
+			custom_tooltip = bpm_law_effect_tt_repeatable_different_wine_content
+			trigger_event = bpm_new_wine_old_wineskins_flavour.103
+		}
+
 		bpm_add_political_stability_normal = yes
 
 		custom_tooltip = bpm_law_effect_tt_repeatable_stronger_from_culture

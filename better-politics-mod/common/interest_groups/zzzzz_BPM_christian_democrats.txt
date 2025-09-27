@@ -95,7 +95,7 @@
 	}
 	
 	pop_weight = {
-		value = 25
+		value = 25 # 35
 
         # Attraction from being Catholic
         if = {
@@ -245,7 +245,7 @@
 						}
 					}
 					add = {
-						value = 3
+						value = 5
 					}
 				}
 
@@ -264,70 +264,95 @@
 			}
 		}
 
-		# IDEOLOGY-BASED ATTRACTION: ECONOMY
+		if = {
+			limit = { strata = lower }
+			add = {
+				desc = "LOWER_CLASS"
+				value = 0
+				
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_eco_distributist_economy
+							}
+						}
+					}
+					add = {
+						value = 20
+					}
+				}
+
+				else_if = {
+					limit = { 
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_eco_modern_interventionist # Popularists, Young Right, Dutch Christian Democrats
+							}
+						}
+					}
+					add = {
+						value = 35
+					}
+				}
+				else_if = {
+					limit = { 
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_eco_centralized_economy # late Polish Chadecy
+							}
+						}
+					}
+					add = {
+						value = 50
+					}
+				}
+
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_dop_conservative_democrat
+							}
+						}
+					}
+					add = {
+						value = 10
+					}
+				}
+
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_dop_christian_democrat
+							}
+						}
+					}
+					add = {
+						value = 5
+					}
+				}
+
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								OR = {
+									has_ideology = ideology:ideology_wel_social_market_welfare
+									has_ideology = ideology:ideology_wel_expanded_public_welfare
+								}
+							}
+						}
+					}
+					add = {
+						value = 5
+					}
+				}
+			}
+		}
 
 		if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_eco_distributist_economy # CSP example:
-					}
-				}
-			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 25
-				}
-			}
-			else_if = {
-				limit = {
-					is_pop_type = capitalists
-				}
-				add = {
-					desc = "POP_CAPITALISTS"
-					value = 75
-				}
-			}
-			else_if = {
-				limit = {
-					is_pop_type = aristocrats
-				}
-				add = {
-					desc = "POP_ARISTOCRATS"
-					value = 10
-				}
-			}
-		}
-
-		else_if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_eco_modern_interventionist # Popularists, Young Right, Dutch Christian Democrats
-					}
-				}
-			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 50
-				}
-			}
-			else_if = {
-				limit = {
-					is_pop_type = capitalists
-				}
-				add = {
-					desc = "POP_CAPITALISTS"
-					value = 50
-				}
-			}
-		}
-
-		else_if = {
 			limit = {
 				owner = {
 					ig:ig_christian_democrats = {
@@ -336,13 +361,6 @@
 				}
 			}
 			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 75
-				}
-			}
-			else_if = {
 				limit = {
 					is_pop_type = capitalists
 				}
@@ -362,7 +380,7 @@
 			}
 		}
 
-		else_if = {
+		if = {
 			limit = {
 				owner = {
 					ig:ig_christian_democrats = {
@@ -398,207 +416,45 @@
 			}
 		}
 
-		# IDEOLOGY-BASED ATTRACTION: DEMOCRACY
-
 		if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_dop_conservative_democrat # CSP, LKDP
-					}
+			limit = { 
+				OR = {
+					is_pop_type = officers
+					is_pop_type = soldiers
 				}
 			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 10
-				}
-			}
-			
-		}
-
-		else_if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_dop_christian_democrat
-					}
-				}
-			}
-			if = {
-				limit = { is_pop_type = laborers }
-				add = {
-					desc = "POP_LABORERS"
-					value = 5
-				}
-			}
-			else_if = {
-				limit = { is_pop_type = machinists }
-				add = {
-					desc = "POP_MACHINISTS"
-					value = 3
-				}
-			}
-		}
-
-
-		# Nationalism 
-
-		if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						OR = {
-							has_ideology = ideology:ideology_cit_christian_internationalist
-							has_ideology = ideology:ideology_cit_liberal_nationalist
+			add = {
+				desc = "Serving the Nation"
+				value = 0
+				
+				if = {
+					limit = {
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_mil_patriotic_liberal
+							}
 						}
 					}
+					add = {
+						value = 10
+					}
 				}
-			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 2
-				}
-			}
-		}
 
-		# WELFARE 
-
-		else_if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_wel_social_market_welfare
+				else_if = {
+					limit = { 
+						owner = {
+							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_mil_antimilitarist
+							}
+						}
+					}
+					add = {
+						value = 5
 					}
 				}
 			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 1
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_wel_expanded_public_welfare
-					}
-				}
-			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 2
-				}
-			}
 		}
 
-		# WELFARE 
-
-		else_if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_wel_social_market_welfare
-					}
-				}
-			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 1
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_wel_expanded_public_welfare
-					}
-				}
-			}
-			if = {
-				limit = { strata = lower }
-				add = {
-					desc = "LOWER_CLASS"
-					value = 2
-				}
-			}
-		}
-
-		# Religion
-
-		if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_rel_moralist
-					}
-				}
-			}
-			if = {
-				limit = { is_pop_type = clergymen }
-				add = {
-					desc = "CLERGYMEN"
-					value = 5
-				}
-			}
-		}
-
-		# Military
-
-		if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_mil_patriotic_liberal
-					}
-				}
-			}
-			if = {
-				limit = { is_pop_type = officers }
-				add = {
-					desc = "OFFICERS"
-					value = 1
-				}
-			}
-
-			if = {
-				limit = { is_pop_type = soldiers }
-				add = {
-					desc = "SOLDIERS"
-					value = 1
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				owner = {
-					ig:ig_christian_democrats = {
-						has_ideology = ideology:ideology_mil_defensive_patriot
-					}
-				}
-			}
-
-			if = {
-				limit = { is_pop_type = soldiers }
-				add = {
-					desc = "SOLDIERS"
-					value = 2
-				}
-			}
-		}
-		
 
         #Attraction from being discriminated (see the efforts by Zentrum under Poles etc)
         add = {
@@ -731,7 +587,7 @@
 				}
 				multiply = {
 					desc = "BPM_STRONG_LABOR"
-					value = 20
+					value = 4
 				}
 			}
 			else_if = {

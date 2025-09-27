@@ -891,6 +891,8 @@ bpm_initialize_catholic_interests = {
 			else = {
 				add_ideology = ideology_dop_placeholder
 			}
+
+			add_ideology = ideology_eco_traditional_agrarian
 			
 			add_ideology = ideology_sta_regionalized_state
 			

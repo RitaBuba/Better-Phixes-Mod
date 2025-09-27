@@ -1256,17 +1256,14 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	scripted_progress_bar = bpm_new_wine_scripted_progress_bar
-	scripted_progress_bar = bpm_old_wineskins_scripted_progress_bar
+	scripted_progress_bar = bpm_old_wine_paternalism_progress_bar
 
 	scripted_button = je_bpm_propagate_the_new_wine_button
-	scripted_button = je_bpm_reaffirm_the_old_tastes
+	#scripted_button = je_bpm_reaffirm_the_old_tastes
 
 	is_shown_when_inactive = {
 		always = yes
 	}
-
-	
-
 
 	immediate = {
 		####################################
@@ -1325,7 +1322,6 @@ je_bpm_new_wine_in_old_wineskins = {
 				}
 			}
 		}
-
 		trigger_event = {
 			id = bpm_new_wine_old_wineskins_flavour.11
 			popup = yes
@@ -1333,28 +1329,38 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	possible = {
-		has_global_variable = global_rerum_novarum_issued_var
-		ig:ig_christian_democrats = {
-			NOT = {
-				has_ideology = ideology:ideology_dop_divine_democrat
-			}
-			OR = {
-				has_ideology = ideology:ideology_wel_expanded_public_welfare
-				has_ideology = ideology:ideology_wel_social_market_welfare
+		custom_tooltip = {
+			text = "rerum_novarum_issued_tooltip"
+			has_global_variable = global_rerum_novarum_issued_var
+		}
+		custom_tooltip = {
+			text = "christdems_dont_have_divine_and_are_rather_progressive_welfare"
+			ig:ig_christian_democrats = {
+				NOT = {
+					has_ideology = ideology_dop_divine_democrat
+				}
+				OR = {
+					has_ideology = ideology_wel_expanded_public_welfare
+					has_ideology = ideology_wel_social_market_welfare
+				}
 			}
 		}
-		ig:ig_christian_democrats ?= {
-			has_party = yes
-			party = {
-				is_party_type = conservative_party
+		custom_tooltip = {
+			text = "christdems_cons_in_the_same_party"
+			ig:ig_christian_democrats = {
+				has_party = yes
+				party = {
+					is_party_type = conservative_party
+				}
+			}
+			ig:ig_conservatives = {
+				has_party = yes
+				party = {
+					is_party_type = conservative_party
+				}
 			}
 		}
-		ig:ig_conservatives ?= {
-			has_party = yes
-			party = {
-				is_party_type = conservative_party
-			}
-		}
+		
 		#always = yes # needs fixing, so it doesn't show up in the journal entry list
 	}
 
@@ -1362,7 +1368,7 @@ je_bpm_new_wine_in_old_wineskins = {
 		
 	}
 
-	timeout = 5475 # 3650
+	timeout = 3650 # 5475
 
 	on_timeout = {
 		if = {
@@ -1387,10 +1393,6 @@ je_bpm_new_wine_in_old_wineskins = {
 				"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" = 50
 			}
 		}
-		#custom_tooltip = {
-		#	text = "christdem_con_difference_tooltip"
-		#	bpm_je_christdem_conservative_difference_points <= 10
-		#}
 	}
 
 	on_complete = {
@@ -1399,12 +1401,9 @@ je_bpm_new_wine_in_old_wineskins = {
 				always = yes
 				exists = ig:ig_christian_democrats
 			}
-
-			#custom_tooltip = bpm_christdems_winning_tooltip_tt
 			
 			trigger_event = { 
 				id = bpm_new_wine_old_wineskins_flavour.1
-				#days = 1 
 			}
 
 			set_local_variable = bpm_old_new_wine_christian_democrat_win_variable
@@ -1434,6 +1433,15 @@ je_bpm_new_wine_in_old_wineskins = {
 					value = "scripted_bar_progress(bpm_old_wineskins_scripted_progress_bar)" 
 				}
 			}
+		}
+		events = {
+			bpm_new_wine_old_wineskins_flavour.100 # Expanding/Limiting Franchise (in disfavour of workers)
+			bpm_new_wine_old_wineskins_flavour.101 # Introduced Limited Regulations
+			#bpm_new_wine_old_wineskins_flavour.102 # Agriculture bill
+			#bpm_new_wine_old_wineskins_flavour.103 # Empowering the Church greatly
+			#bpm_new_wine_old_wineskins_flavour.104 # Improving life overall
+			bpm_new_wine_old_wineskins_flavour.105 # Wage subsidies passed
+			bpm_new_wine_old_wineskins_flavour.106 # Sunday Rest Act
 		}
 	}
 
@@ -1482,27 +1490,14 @@ je_bpm_new_wine_in_old_wineskins = {
 				name = christdem_traits_var
 				value = bpm_je_christdem_ideological_power
 			}
-
-			je:je_bpm_new_wine_in_old_wineskins = {
-				add_progress = { 
-					value = 1 
-					name = bpm_new_wine_scripted_progress_bar 
-				}
-			}
 		}
 	}
 
 	fail = {
 		custom_tooltip = {
-			text = "old_wineskins_value_50_tooltip"
-			je:je_bpm_new_wine_in_old_wineskins ?= { 
-				"scripted_bar_progress(bpm_old_wineskins_scripted_progress_bar)" = 50
-			}
+			text = "old_wineskins_paternalism_progress_tooltip"
+			var:bpm_old_wine_paternalism_progress_bar_var >= 6
 		}
-		#custom_tooltip = {
-		#	text = "christdem_con_difference_tooltip"
-		#	bpm_je_christdem_conservative_difference_points >= -10
-		#}
 	}
 
 	on_fail = {
@@ -1534,80 +1529,4 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	should_be_pinned_by_default = yes
-}
-
-
-je_bpm_clay_forming_an_organism = {
-	icon = "gfx/interface/icons/invention_icons/corporatism.dds"
-
-	group = bpm_je_group_interest_groups
-	
-	modifiers_while_active = {
-		#bpm_new_wine_in_old_wineskins_modifier
-	}
-
-	#scripted_progress_bar = bpm_new_wine_scripted_progress_bar
-	#scripted_progress_bar = bpm_old_wineskins_scripted_progress_bar
-
-	#scripted_button = je_bpm_propagate_the_new_wine_button
-	#scripted_button = je_bpm_reaffirm_the_old_tastes
-
-	is_shown_when_inactive = {
-		always = no
-	}
-
-
-	immediate = {
-		
-	}
-
-	possible = {
-		has_global_variable = global_rerum_novarum_issued_var
-		custom_tooltip = {
-			text = "tooltip_bpm_country_organicists_popular"
-			bpm_organicists_popularity >= 0.2
-		} 
-
-		ig:ig_reactionaries = {
-			is_in_government = yes
-		}
-		
-		
-		always = no # needs fixing, so it doesn't show up in the journal entry list
-	}
-
-	invalid = {
-		
-	}
-
-	timeout = 5475
-
-	on_timeout = {
-		
-	}
-
-	complete = {
-		
-	}
-
-	on_complete = {
-		
-	}
-
-	on_monthly_pulse = {
-		
-	}
-
-	fail = {
-		
-	}
-
-	on_fail = {
-		
-	}
-
-	should_be_pinned_by_default = yes
-
-
-
 }
