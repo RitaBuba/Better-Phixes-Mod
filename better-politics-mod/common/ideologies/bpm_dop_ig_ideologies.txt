@@ -492,6 +492,7 @@ ideology_dop_state_unionist = {
 		law_corporatized_unions = approve
 		law_anti_strike_laws = disapprove
 		law_right_to_associate = strongly_disapprove
+    
 		law_socialist_labor_unions = disapprove
 		law_syndicalism = strongly_disapprove
 	}
@@ -699,7 +700,7 @@ ideology_dop_divine_democrat = {
 		law_combination_acts = neutral
 		law_corporatized_unions = strongly_disapprove
 		law_anti_strike_laws = approve
-		law_syndicalism = strongly_disapprove
+    law_syndicalism = strongly_disapprove
 		law_right_to_associate = neutral
 		law_socialist_labor_unions = strongly_disapprove
 	}
@@ -740,7 +741,7 @@ ideology_dop_conservative_democrat = {
 		law_anti_strike_laws = strongly_approve
 		law_syndicalism = disapprove
 		law_right_to_associate = neutral
-		law_socialist_labor_unions = strongly_disapprove
+    law_socialist_labor_unions = strongly_disapprove
 	}
 }
 
@@ -818,6 +819,7 @@ ideology_dop_organic_democrat = {
 		law_anti_strike_laws = neutral
 		law_syndicalism = disapprove
 		law_right_to_associate = approve
+    
 		law_socialist_labor_unions = strongly_disapprove
 	}
 }
@@ -857,6 +859,6 @@ ideology_dop_organic_power = {
 		law_anti_strike_laws = neutral
 		law_syndicalism = strongly_disapprove
 		law_right_to_associate = strongly_disapprove
-		law_socialist_labor_unions = strongly_disapprove
+    law_socialist_labor_unions = strongly_disapprove
 	}
 }

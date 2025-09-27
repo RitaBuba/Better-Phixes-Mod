@@ -1,4 +1,4 @@
-﻿namespace = bpm_christdem_split
+namespace = bpm_christdem_split
 namespace = bpm_christdem_flavour
 namespace = bpm_new_wine_old_wineskins_flavour
 namespace = bpm_papal_encyclicals

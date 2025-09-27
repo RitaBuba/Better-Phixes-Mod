@@ -84,4 +84,9 @@
 			set_company_establishment_date = 1746.1.1
 		}
 	}
+	c:BEL ?= {
+		ig:ig_christian_democrats = {
+			add_ruling_interest_group = yes
+		}
+	}
 }
