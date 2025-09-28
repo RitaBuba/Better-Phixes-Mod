@@ -214,7 +214,7 @@ law_repeatable_religion_promote_secular_values = {
 			custom_tooltip = {
 				text = bpm_je_total_separation_upgrade_advance_25
 				je:je_bpm_total_separation_upgrade ?= {
-					add_progress = { value = 25 name = je_bpm_total_separation_upgrade_progress_bar }
+					add_progress = { value = root.bpm_repeatable_law_promote_secular_values_upgrade_progress name = je_bpm_total_separation_upgrade_progress_bar }
 				}
 			}
 		}

@@ -407,9 +407,9 @@
  bpm_womens_rights_upgrade_from_sexists:0 "From Antifeminists"
  bpm_womens_rights_upgrade_from_super_feminists:0 "From Radical Feminists"
 
- bpm_je_multicultural_upgrade_advance_25:0 "Progress in $je_bpm_multicultural_upgrade$ advances by #variable 25#!."
- bpm_je_women_rights_upgrade_advance_25:0 "Progress in $je_bpm_women_rights_upgrade$ advances by #variable 25#!."
- bpm_je_total_separation_upgrade_advance_25:0 "Progress in $je_bpm_total_separation_upgrade$ advances by #variable 25#!."
+ bpm_je_multicultural_upgrade_advance_25:0 "Progress in #bold $je_bpm_multicultural_upgrade$#! advances by #variable [GetPlayer.MakeScope.ScriptValue('bpm_repeatable_law_affirmative_action_power_upgrade_progress')|G0]#!."
+ bpm_je_women_rights_upgrade_advance_25:0 "Progress in #bold $je_bpm_women_rights_upgrade$#! advances by #variable [GetPlayer.MakeScope.ScriptValue('bpm_repeatable_law_promote_socialist_values_effect_power_upgrade_progress')|G0]#!."
+ bpm_je_total_separation_upgrade_advance_25:0 "Progress in #bold $je_bpm_total_separation_upgrade$#! advances by #variable [GetPlayer.MakeScope.ScriptValue('bpm_repeatable_law_promote_secular_values_upgrade_progress')|G0]#!."
 
 # MISC REPLACEMENT
  bpm_red_scare_unlock_tt: "A #N worker's revolution#! has occurred in any [concept_country] with a [concept_rank] of #variable Major Power#! or above."

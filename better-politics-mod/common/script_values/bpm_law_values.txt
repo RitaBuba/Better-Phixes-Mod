@@ -51,6 +51,13 @@ bpm_repeatable_law_promote_secular_values_conversion_percent = {
 	multiply = 100
 }
 
+bpm_repeatable_law_promote_secular_values_upgrade_progress = {
+	value = 1
+	add = root.institution:institution_culture.investment
+	add = root.bpm_non_religious_igs_in_government_or_powerful
+	multiply = 3
+}
+
 bpm_repeatable_law_anti_religious_violence_conversion_percent = {
 	value = 1
 	add = root.institution:institution_home_affairs.investment
@@ -160,6 +167,18 @@ bpm_repeatable_law_promote_patriotic_values_effect_power = {
 	min = 0
 }
 
+bpm_repeatable_law_promote_patriotic_values_power_fervor = {
+	value = 1
+	multiply = bpm_repeatable_law_promote_patriotic_values_effect_power 
+	min = 0
+}
+
+bpm_repeatable_law_promote_patriotic_values_power_acceptance = {
+	value = -4
+	multiply = bpm_repeatable_law_promote_patriotic_values_effect_power 
+	max = 0
+}
+
 bpm_repeatable_law_affirmative_action_power = {
 	value = 0
 	add = root.institution:institution_culture.investment
@@ -186,6 +205,24 @@ bpm_repeatable_law_affirmative_action_power = {
 		}
 	}
 
+	min = 1
+}
+
+bpm_repeatable_law_affirmative_action_power_fervor = {
+	value = 1
+	multiply = bpm_repeatable_law_affirmative_action_power 
+	min = 0
+}
+
+bpm_repeatable_law_affirmative_action_power_acceptance = {
+	value = 4
+	multiply = bpm_repeatable_law_affirmative_action_power 
+	min = 0
+}
+
+bpm_repeatable_law_affirmative_action_power_upgrade_progress = {
+	value = 3
+	multiply = bpm_repeatable_law_affirmative_action_power 
 	min = 0
 }
 
@@ -215,6 +252,12 @@ bpm_repeatable_law_promote_socialist_values_effect_power = {
 		}
 	}
 
+	min = 0
+}
+
+bpm_repeatable_law_promote_socialist_values_effect_power_upgrade_progress = {
+	value = 3
+	multiply = bpm_repeatable_law_promote_socialist_values_effect_power 
 	min = 0
 }
 
