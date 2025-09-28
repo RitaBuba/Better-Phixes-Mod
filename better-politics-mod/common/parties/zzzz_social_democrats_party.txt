@@ -645,7 +645,7 @@ social_democrat_party = {
 
 			add = {
 				value = 50
-				desc = "from_professional_interests_no_parties_allowed"
+				desc = "from_trade_union_interests_no_parties_allowed"
 			}
 		}
 		if = { # anti-censorship

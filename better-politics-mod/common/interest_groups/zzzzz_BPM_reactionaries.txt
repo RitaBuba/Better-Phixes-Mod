@@ -231,7 +231,7 @@
 		}
 
 		# PATCON
-		if = {
+		else_if = {
 			limit = {
 				scope:interest_group = { 
 					#has_ideology = ideology:ideology_wel_paternalistic_welfare 

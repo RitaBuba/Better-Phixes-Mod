@@ -311,7 +311,7 @@ ideology_cit_traditional_culture = {
 }
 
 ideology_cit_christian_internationalist = {
-	icon = "gfx/interface/icons/ideology_icons/cit_ideology/internationalist.dds"
+	icon = "gfx/interface/icons/ideology_icons/cit_ideology/christian_internationalist.dds"
 	priority = 1000
     lawgroup_citizenship = {
 		law_subjecthood = strongly_disapprove

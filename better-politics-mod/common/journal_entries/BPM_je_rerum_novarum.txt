@@ -1,4 +1,4 @@
-je_bpm_errors_of_the_world = {
+﻿je_bpm_errors_of_the_world = {
 	icon = "gfx/interface/icons/invention_icons/egalitarianism.dds"
 
 	group = bpm_je_group_global
@@ -10,15 +10,15 @@ je_bpm_errors_of_the_world = {
 
 	possible = {
 		custom_tooltip = {
-			text = "bpm_je_trigger_peoples_springtime_happened"
+			text = "bpm_je_trigger_bpm_peoples_springtime_happened"
 			OR = {
-				has_global_variable = peoples_springtime_happened
+				has_global_variable = bpm_peoples_springtime_happened
 				game_date > 1855.1.1
 			}
 		}
 		trigger_if = {
 			limit = {
-				has_global_variable = peoples_springtime_happened
+				has_global_variable = bpm_peoples_springtime_happened
 			}
 			custom_tooltip = {
 				text = "bpm_je_trigger_peoples_springtime_not_recent"
@@ -277,8 +277,11 @@ je_bpm_immortal_god = {
 	}
 
 	possible = {
-		has_global_variable = global_variable_quanta_cura_var_released
-		always = yes
+		
+		custom_tooltip = {
+			text = "Quanta cura has been issued"
+			has_global_variable = global_variable_quanta_cura_var_released
+		}
 	}
 
 	immediate = {
@@ -536,8 +539,11 @@ je_bpm_light_amidst_darkness = {
 	}
 
 	possible = {
-		has_global_variable = global_variable_immortale_dei_var_released
-		always = yes
+		custom_tooltip = {
+			text = "Graves de communi re has been issued"
+			has_global_variable = global_variable_immortale_dei_var_released
+		}
+		#always = yes
 	}
 
 	immediate = {
@@ -790,7 +796,10 @@ je_bpm_graves_de_communi_re = {
 	}
 
 	possible = {
-		has_global_variable = global_rerum_novarum_issued_var
+		custom_tooltip = {
+			text = "rerum_novarum_issued_tooltip"
+			has_global_variable = global_rerum_novarum_issued_var
+		}
 		#always = yes
 	}
 
