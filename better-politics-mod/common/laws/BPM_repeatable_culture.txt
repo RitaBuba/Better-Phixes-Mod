@@ -276,6 +276,10 @@ law_repeatable_culture_promote_patriotic_values = {
 					}
 				}
 			}
+
+			every_primary_culture = {
+				add_fervor = root.bpm_repeatable_law_promote_patriotic_values_power_fervor
+			}
 		}
 
 		#custom_tooltip = bpm_law_effect_tt_repeatable_promote_patriotic_values_assimilation
@@ -547,6 +551,10 @@ law_repeatable_culture_promote_ultranationalist_values = {
 					   is_decaying = yes
 					}
 				}
+			}
+
+			every_primary_culture = {
+				add_fervor = root.bpm_repeatable_law_promote_patriotic_values_power_fervor
 			}
 		}
 
