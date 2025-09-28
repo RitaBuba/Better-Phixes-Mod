@@ -149,7 +149,7 @@ je_bpm_christian_or_democrat = {
 				
 				custom_tooltip = {
 					text = "People's Springtime has fully ended."
-					has_global_variable = peoples_springtime_happened
+          has_global_variable = bpm_peoples_springtime_happened
 				}
 				
 				OR = {

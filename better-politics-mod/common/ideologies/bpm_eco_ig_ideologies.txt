@@ -1060,7 +1060,7 @@ ideology_eco_slave_colonialist = {
 }
 
 ideology_eco_distributist_economy = {
-	icon = "gfx/interface/icons/ideology_icons/eco_ideology/interventionist.dds"
+	icon = "gfx/interface/icons/ideology_icons/eco_ideology/distributist_economy.dds"
 	priority = 1000
     lawgroup_economic_system = {
 		law_traditionalism = strongly_disapprove
@@ -1113,7 +1113,7 @@ ideology_eco_distributist_economy = {
 }
 
 ideology_eco_modern_interventionist = {
-	icon = "gfx/interface/icons/ideology_icons/eco_ideology/interventionist.dds"
+	icon = "gfx/interface/icons/ideology_icons/eco_ideology/modern_interventionist.dds"
 	priority = 1000
     lawgroup_economic_system = {
 		law_traditionalism = strongly_disapprove
@@ -1166,7 +1166,7 @@ ideology_eco_modern_interventionist = {
 }
 
 ideology_eco_centralized_economy = {
-	icon = "gfx/interface/icons/ideology_icons/eco_ideology/socialist_mixed_economy.dds"
+	icon = "gfx/interface/icons/ideology_icons/eco_ideology/centralized_economy.dds"
 	priority = 1000
     lawgroup_economic_system = {
 		law_traditionalism = strongly_disapprove

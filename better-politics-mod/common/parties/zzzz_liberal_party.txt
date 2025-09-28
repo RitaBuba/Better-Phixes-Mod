@@ -480,7 +480,7 @@ liberal_party = {
 		#			this = c:BEL
 		#		}
 		#		NOT = {
-		#			has_global_variable = peoples_springtime_happened
+		#			has_global_variable = bpm_peoples_springtime_happened
 		#		}
 		#	}
 		#	add = {

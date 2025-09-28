@@ -6,7 +6,7 @@ conservative_party = {
 	name = {
 		first_valid = {
 			triggered_desc = {
-				desc = party_christian_social_party
+				desc = party_conservative_aus # party_conservative_aus
 				trigger = {
 					c:AUS ?= THIS
 				}

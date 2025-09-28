@@ -565,7 +565,7 @@ ideology_sta_organic_state = {
 }
 
 ideology_sta_regionalized_state = {
-	icon = "gfx/interface/icons/ideology_icons/sta_ideology/federated_state.dds"
+	icon = "gfx/interface/icons/ideology_icons/sta_ideology/subsidary_state.dds"
 	priority = 1000
 	lawgroup_centralization = {
 		law_unitary = disapprove
