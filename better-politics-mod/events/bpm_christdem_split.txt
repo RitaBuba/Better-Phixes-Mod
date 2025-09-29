@@ -682,13 +682,6 @@ bpm_christdem_split.8 = {
 	option = { #### Internationalism (Franco-Italian Popularists, Young Right movement)
 		name = bpm_christdem_split.8.a
 
-		default_option = yes
-
-		highlighted_option = yes
-		trigger = {
-			
-		}
-
 		ig:ig_christian_democrats = {
 			hidden_effect = {
 				bpm_remove_all_cit_ideologies = yes
@@ -701,13 +694,6 @@ bpm_christdem_split.8 = {
 	option = { #### Imigrant Nationalism
 		name = bpm_christdem_split.8.b
 
-		default_option = yes
-
-		highlighted_option = yes
-		trigger = {
-			bpm_country_is_in_new_world = yes
-		}
-
 		ig:ig_christian_democrats = {
 			hidden_effect = {
 				bpm_remove_all_cit_ideologies = yes
@@ -719,11 +705,6 @@ bpm_christdem_split.8 = {
 	option = { # Multi-Ethnic nationalism (Poland, Austria, Czechoslovakia, Trentino etc)
 		name = bpm_christdem_split.8.c
 
-		highlighted_option = yes
-		trigger = {
-			
-		}
-
 		ig:ig_christian_democrats = {
 			hidden_effect = {
 				bpm_remove_all_cit_ideologies = yes
@@ -734,6 +715,8 @@ bpm_christdem_split.8 = {
 
 	option = { # Liberal Nationalism (Almost all if not actually all)
 		name = bpm_christdem_split.8.d
+
+		default_option = yes
 
 		ig:ig_christian_democrats = {
 			hidden_effect = {
