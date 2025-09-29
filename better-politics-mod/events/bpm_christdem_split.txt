@@ -694,6 +694,10 @@ bpm_christdem_split.8 = {
 	option = { #### Imigrant Nationalism
 		name = bpm_christdem_split.8.b
 
+		trigger = {
+			bpm_country_is_in_new_world = yes
+		}
+
 		ig:ig_christian_democrats = {
 			hidden_effect = {
 				bpm_remove_all_cit_ideologies = yes

@@ -898,7 +898,13 @@ bpm_initialize_catholic_interests = {
 			
 			add_ideology = ideology_cit_traditional_culture
 
-			if = { 
+			if = {
+				limit = {
+					has_global_variable = global_variable_immortale_dei_var_released
+				}
+				add_ideology = ideology_rel_modern_moralist
+			}
+			else_if = { 
 				limit = { 
 					owner = {
 						NOT = {
