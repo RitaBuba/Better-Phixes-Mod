@@ -716,7 +716,7 @@ bpm_christdem_split.8 = {
 		}
 	}
 
-	option = { # Multi-Ethnic nationalism (Poland, Austria, Hungary etc)
+	option = { # Multi-Ethnic nationalism (Poland, Austria, Czechoslovakia, Trentino etc)
 		name = bpm_christdem_split.8.c
 
 		highlighted_option = yes
@@ -743,31 +743,33 @@ bpm_christdem_split.8 = {
 		}
 	}
 
-	option = { # Ethnonationalism? Defo lithuania, very late CSP somewhat
+	option = { # Ethnonationalism? Defo lithuania
 		name = bpm_christdem_split.8.e
 
 		highlighted_option = yes
 		trigger = {
-			custom_tooltip = {
-				text = reactionary_movement_support_radicalism_tt
-				OR = {
-					var:bpm_reactionary_movement.political_movement_support >= 0.1
-					var:bpm_reactionary_movement.political_movement_radicalism >= 0.2
+			OR = {
+				custom_tooltip = {
+					text = reactionary_movement_support_radicalism_tt
+					OR = {
+						var:bpm_reactionary_movement.political_movement_support >= 0.1
+						var:bpm_reactionary_movement.political_movement_radicalism >= 0.2
+					}
 				}
-			}
-			custom_tooltip = {
-				text = liberal_nationalist_movement_support_radicalism_tt
-				OR = {
-					var:bpm_national_liberal_movement.political_movement_support >= 0.1
-					var:bpm_national_liberal_movement.political_movement_radicalism >= 0.3
+				custom_tooltip = {
+					text = liberal_nationalist_movement_support_radicalism_tt
+					OR = {
+						var:bpm_national_liberal_movement.political_movement_support >= 0.2
+						var:bpm_national_liberal_movement.political_movement_radicalism >= 0.3
+					}
 				}
-			}
-			any_interest_group = {
-				OR = {
-					has_ideology = ideology:ideology_cit_nationalist
-					has_ideology = ideology:ideology_cit_ethnonationalist
+				any_interest_group = {
+					OR = {
+						has_ideology = ideology:ideology_cit_nationalist
+						has_ideology = ideology:ideology_cit_ethnonationalist
+					}
+					is_powerful = yes
 				}
-				is_powerful = yes
 			}
 		}
 
