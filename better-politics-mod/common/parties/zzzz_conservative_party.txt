@@ -691,7 +691,7 @@ conservative_party = {
 		if = { # patriarchs more likely to join conservatives with women's suffrage
 			limit = {
 				bpm_ig_is_sexist = yes
-				owner = { has_law = law_type:law_womens_suffrage }
+				owner = { has_law_or_variant = law_type:law_womens_suffrage }
 			}
 			add = {
 				value = 3
