@@ -146,7 +146,7 @@ bpm_country_laws_are_patriarchal = {
 }
 
 bpm_country_has_womens_suffrage = {
-	has_law = law_type:law_womens_suffrage
+	has_law_or_variant = law_type:law_womens_suffrage
 }
 
 bpm_country_laws_are_moralist = {
