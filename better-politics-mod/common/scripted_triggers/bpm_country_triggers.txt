@@ -57,6 +57,16 @@ bpm_country_is_in_europe = {
 	}
 }
 
+bpm_country_is_majority_catholic = {
+	OR = {
+		country_has_state_religion = rel:catholic
+		religion_percent_country = { 
+			target = rel:catholic
+			value >= 0.25 #? 0.75?
+		}
+	}
+}
+
 bpm_country_is_in_germany = {
 	exists = capital
 	capital = {

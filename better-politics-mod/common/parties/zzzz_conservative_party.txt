@@ -6,7 +6,7 @@ conservative_party = {
 	name = {
 		first_valid = {
 			triggered_desc = {
-				desc = party_christian_social_party
+				desc = party_conservative_aus # party_conservative_aus
 				trigger = {
 					c:AUS ?= THIS
 				}
@@ -457,8 +457,18 @@ conservative_party = {
 		}
 		if = { # conservatives love conservativism
 			limit = {
-				bpm_ig_is_moderate_conservative = yes
-				bpm_ig_is_liberal_conservative = no
+				OR = {
+					AND = {
+						bpm_ig_is_moderate_conservative = yes
+						bpm_ig_is_liberal_conservative = no
+					}	
+					AND = {
+						is_interest_group_type = ig_christian_democrats
+						owner = {
+							country_has_state_religion = rel:catholic
+						}
+					}
+				}
 			}
 			add = {
 				value = 15
@@ -524,6 +534,23 @@ conservative_party = {
 				desc = "bpm_from_weak_conservative_ig"
 			}
 		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+			}
+
+			add = {
+				value = -50
+				desc = "from_no_reason_to_exist"
+			}
+		}
+
 		if = { # armed forces will join if a more powerful member has jingoist leader
 			limit = {
 				is_interest_group_type = ig_armed_forces
@@ -671,6 +698,46 @@ conservative_party = {
 				desc = "from_patriarchy"
 			}
 		}
+		if = {
+			limit = {
+				is_interest_group_type = ig_agrarian_populists
+				owner = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+					ig:ig_christian_democrats ?= {
+						has_party = yes
+						party = { 
+							is_party_type = conservative_party 
+						}
+					}
+					ig:ig_agrarian_populists ?= {
+						is_powerful = no
+					}
+				}
+			}
+			add = {
+				value = 25
+				desc = "bpm_from_catholic_whites"
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					is_interest_group_type = ig_conservatives
+					is_interest_group_type = ig_christian_democrats
+				}
+				owner = {
+					has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+				}
+			}
+			add = {
+				value = 25
+				desc = "bpm_from_new_wine_journal_entry"
+			}
+		}
 		if = { # conservatives like police
 			limit = {
 				has_ideology = ideology:ideology_sta_powerful_state
@@ -716,6 +783,42 @@ conservative_party = {
 				desc = "bpm_from_jackson"
 			}
 		}
+
+		###### Christian Democrats and related stuff
+
+		if = { # Christian Democrats take the reign, conservatives become more reactionary-ish (Stańczycy, Orléanists)
+			limit = {
+				is_powerful = yes
+				is_interest_group_type = ig_christian_democrats
+			}
+			add = {
+				value = 10
+				desc = "bpm_from_powerful_christian_democrats"
+			}
+		}
+
+		if = { # Christian Democrats take the reign, conservatives become more reactionary-ish (Stańczycy, Orléanists)
+			limit = {
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_rel_moralist
+					}
+					OR = {
+						any_interest_group = {
+							bpm_ig_is_party_socialist = yes
+							is_powerful = yes
+						}
+						bpm_country_has_historical_two_party_system = yes
+						bpm_country_has_two_party_system = yes
+					}
+				}
+			}
+			add = {
+				value = 15
+				desc = "bpm_from_moralist_opposition"
+			}
+		}
+
 		if = { # imperial brazilian conservatives like centralism
 			limit = {
 				owner = {
@@ -878,6 +981,69 @@ conservative_party = {
 			}
 		}
 
+		if = { # Christian Democrats hate electoralism
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				has_ideology = ideology:ideology_dop_placeholder
+				
+			}
+			add = {
+				value = -25
+				desc = "bpm_from_hostility_towards_democracy"
+			}
+		}
+
+		if = { # Christian Democrats hate cons except when strong radiicals/socialists
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				owner = {
+					NOT = {
+						country_has_state_religion = rel:catholic
+					}
+					any_interest_group = {
+						is_powerful = yes
+						OR = {
+							is_interest_group_type = ig_radicals
+							is_interest_group_type = ig_reformist_socialists
+							is_interest_group_type = ig_revolutionist_socialists
+							is_interest_group_type = ig_anarchists
+						}
+					}
+
+					any_interest_group = {
+						has_party = yes
+						party = {
+							is_party_type = conservative_party
+						}
+						NOR = {
+							has_ideology = ideology:ideology_rel_radical_moralist
+							AND = {
+								has_ideology = ideology:ideology_rel_moralist
+								is_interest_group_type = ig_conservatives
+							}
+						}
+					}
+				}
+			}
+			add = {
+				value = 10
+				desc = "bpm_from_radical_enemy"
+			}
+		}
+
+		else_if = {
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				NOT = {
+					country_has_state_religion = rel:catholic
+				}
+			}
+			add = {
+				value = -10
+				desc = "bpm_from_no_common_enemy"
+			}
+		}
+
 		# ===========================================================================
 		# Hardcoded party affiliation
 		# ===========================================================================
@@ -939,6 +1105,7 @@ conservative_party = {
 					if = { 
 						limit = {
 							OR = {
+								is_interest_group_type = ig_christian_democrats
 								AND = {
 									is_interest_group_type = ig_trade_unions
 									NOT = {
@@ -981,6 +1148,7 @@ conservative_party = {
 				if = {
 					limit = { 
 						OR = {
+							is_interest_group_type = ig_christian_democrats
 							AND = {
 								is_interest_group_type = ig_trade_unions
 								NOT = {
@@ -1011,6 +1179,7 @@ conservative_party = {
 				if = {
 					limit = { 
 						OR = {
+							is_interest_group_type = ig_christian_democrats
 							AND = {
 								is_interest_group_type = ig_trade_unions
 								NOT = {
@@ -1042,6 +1211,7 @@ conservative_party = {
 				}
 				if = {
 					limit = { 
+						is_interest_group_type = ig_christian_democrats
 						OR = {
 							AND = {
 								is_interest_group_type = ig_trade_unions

@@ -1034,7 +1034,7 @@ ideology_radical = {
 			if = {
 				limit = {
 					owner = {
-						has_global_variable = peoples_springtime_happening
+						has_global_variable = bpm_peoples_springtime_happening
 						bpm_country_is_in_europe = yes
 					}
 				}
@@ -9557,5 +9557,162 @@ ideology_reconstructionist = {
 			}
 			add = -100
 		}
+	}
+}
+
+ideology_reactionary_anti_capitalist = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/unused/ideology_leader_reactionary.dds"
+	
+	character_ideology = yes
+	show_in_list = yes
+
+	lawgroup_church_and_state = {
+		law_state_religion = approve
+		law_freedom_of_conscience = approve
+		law_total_separation = strongly_disapprove
+		law_state_atheism = strongly_disapprove
+	}
+
+	lawgroup_trade_policy = {		
+		law_protectionism = strongly_approve
+		law_mercantilism = approve		
+		law_isolationism = disapprove
+		law_free_trade = strongly_disapprove
+	}
+
+    lawgroup_education_system = {
+		law_no_schools = disapprove
+		law_religious_schools = strongly_approve
+		law_private_schools = neutral
+		law_public_schools = approve
+	}
+
+    lawgroup_labor_rights = {
+		law_no_workers_rights = neutral
+		law_regulatory_bodies = approve
+		law_worker_protections = strongly_approve
+	}
+
+	lawgroup_economic_system = {
+		law_traditionalism = strongly_disapprove
+		law_interventionism = approve
+		law_agrarianism = strongly_approve
+		law_industry_banned = strongly_approve
+		law_laissez_faire = neutral
+		law_cooperative_ownership = strongly_approve
+		law_command_economy = disapprove
+		law_extraction_economy = strongly_disapprove
+	}
+
+    lawgroup_land_reform = {
+		law_serfdom = strongly_disapprove
+		law_tenant_farmers = approve
+		law_homesteading = approve
+		law_commercialized_agriculture = neutral
+		law_collectivized_agriculture = strongly_disapprove
+	}
+
+    lawgroup_welfare = {
+		law_no_social_security = neutral
+		law_poor_laws = neutral
+		law_wage_subsidies = approve
+		law_old_age_pension = strongly_approve
+	}
+	
+	interest_group_leader_trigger = {
+		bpm_interest_group_is_activated = yes 
+		owner = { has_technology_researched = corporatism }
+		bpm_ig_is_socialist = no
+		NOT = {
+			has_ideology = ideology:ideology_wel_distributist_welfare
+		}
+	}
+	
+	interest_group_leader_weight = {
+		value = 50
+		if = {
+			limit = {
+				bpm_ig_is_liberal = yes
+				NOT = { is_interest_group_type = ig_national_liberals }	
+			}
+			add = -50
+		}
+		if = {
+			limit = {
+				owner = { has_variable = local_patcon_split_var }
+				OR = {
+					is_interest_group_type = ig_national_liberals
+					is_interest_group_type = ig_conservatives
+					is_interest_group_type = ig_devout
+				}
+			}
+			add = 50
+		}
+		# not very relevant if issues are already addressed
+		if = {
+			limit = {
+				owner = {
+					NOT = {
+						has_law = law_type:law_council_republic
+					}
+					has_law = law_type:law_public_schools
+					has_law = law_type:law_regulatory_bodies
+					has_law = law_type:law_wage_subsidies
+					has_law = law_type:law_state_controlled_labor_unions
+				}
+			}
+			add = -25
+		}
+		# less likely for landowners and devout
+		if = {
+			limit = {
+				is_interest_group_type = ig_landowners
+			}
+			add = -75
+		}
+		# more likely for content trade unions and rural folk outside of council republic
+		if = {
+			limit = {
+				bpm_ig_is_lower_institutional = yes
+				ig_approval >= 0
+				owner = {
+					NOT = { has_law = law_type:law_council_republic }
+				}
+			}
+			add = 25
+		}
+		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won
+		if = {
+			limit = {
+				has_variable = anti_dreyfusard_victory
+			}
+			add = 25
+		}
+	}
+
+	non_interest_group_leader_trigger = {
+        interest_group = {
+    		bpm_interest_group_is_activated = yes 
+    		owner = { has_technology_researched = corporatism }
+    		bpm_ig_is_socialist = no
+    		NOT = {
+    			has_ideology = ideology:ideology_wel_distributist_welfare
+    		}
+    	}
+		# Agitators should have an ideology at odds with current laws
+		NAND = {
+			has_role = agitator
+			owner = {
+				NOT = { has_law = law_type:law_council_republic }
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_regulatory_bodies
+				has_law = law_type:law_compulsory_primary_school
+				has_law = law_type:law_state_controlled_labor_unions
+			}
+		}
+	}
+	
+	non_interest_group_leader_weight = {
+		value = 50
 	}
 }

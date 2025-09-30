@@ -78,10 +78,12 @@
 			bpm_remove_all_ban_ideologies = yes
 			bpm_remove_all_rel_ideologies = yes
 			bpm_remove_all_eco_ideologies = yes
+			bpm_remove_all_cit_ideologies = yes
 			add_ideology = ideology_rel_secularist
 			add_ideology = ideology_sta_decentralized_state
 			add_ideology = ideology_ban_averse
 			add_ideology = ideology_eco_antebellum_economy
+			add_ideology = ideology_cit_nationalist
 		}
 
 		ig:ig_landowners = {
@@ -513,6 +515,19 @@
 		}
 		ig:ig_landowners ?= {
 			set_interest_group_name = ig_mesafint
+		}
+	}
+
+	every_country = {
+		limit = {
+			bpm_country_is_in_new_world = yes
+			NOT = {
+				this = c:USA
+			}
+		}
+		ig:ig_reactionaries = {
+			bpm_remove_all_cit_ideologies = yes
+			add_ideology = ideology_cit_ethnonationalist
 		}
 	}
 

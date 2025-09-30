@@ -60,6 +60,8 @@
  law_party_liberal_only_desc:0 "The radically undemocratic [Concept('concept_party', 'parties')] in this [concept_country] are banned to safeguard liberal-democratic values."
  law_party_single:0 "Single Legal Party"
  law_party_single_desc:0 "Only one [Concept('concept_party', 'Political Party')] in this [concept_country] is legal."
+ law_no_parties_allowed:0 "All Parties Banned"
+ law_no_parties_allowed_desc:0 "No [Concept('concept_party', 'Political Party')] in this [concept_country] is legal."
 
  bpm_decorative_ban_reactionaries:0 "[Concept('concept_bpm_party_ban', 'Ban')] [Concept('concept_bpm_bannable_reactionaries', 'Reactionary Parties')]"
  bpm_decorative_ban_reactionaries_desc:0 "Determines which parties are [Concept('concept_bpm_party_ban', 'banned')]."
@@ -75,9 +77,14 @@
  bpm_decorative_ban_antiliberals_desc:0 "Determines which parties are [Concept('concept_bpm_party_ban', 'banned')]."
  bpm_decorative_ban_everyone_but_ruler:0 "[Concept('concept_bpm_party_ban', 'Ban')] all Non-Ruler [Concept('concept_party', 'Political Parties')]."
  bpm_decorative_ban_everyone_but_ruler_desc:0 "Determines which parties are [Concept('concept_bpm_party_ban', 'banned')]."
+ 
+ bpm_decorative_ban_everyone: "[Concept('concept_bpm_party_ban', 'Ban')] [Concept('concept_bpm_bannable_parties', 'All Parties')]"
+ bpm_decorative_ban_everyone_desc: "Determines which parties are [Concept('concept_bpm_party_ban', 'banned')]"
 
  bpm_disable_single_party_tooltip:0 "This will remove the effects of the Single Party law."
- bpm_enable_single_party_tooltip:0 "This will make all parties, aside from the current ruling one illegal. Every Interest Group outside of that party will go into opposition to the [GetLawType('law_party_single').GetName] [Concept('concept_law', 'law')]."
+ bpm_enable_single_party_tooltip:0 "This will make all parties, aside from the current ruling one illegal. Every Interest Group outside of that party will go into opposition to the [GetLawType('law_party_single').GetName] [Concept('concept_law', 'Law')]."
+
+ bpm_enable_no_parties_tooltip:0 "This will turn all parties into 'factions'. Every Institutional Interest Group will join their respective factions, while Ideological Interest Groups will either join a faction, or go into opposition to the [GetLawType('law_no_parties_allowed').GetName] [Concept('concept_law', 'Law')]."
 # Foreign Policy
  lawgroup_foreign_policy:0 "Foreign Policy"
  lawgroup_foreign_policy_desc:0 "The broad stance of the foreign policy that this [Concept('concept_country', 'country')] may engage in."

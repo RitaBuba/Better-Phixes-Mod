@@ -114,7 +114,17 @@ bpm_update_exe_ideology_crisis = {
                     owner = { has_law = law_type:law_monarchy }
                     OR = {
                         bpm_ig_is_institutional = yes
-                        is_interest_group_type = ig_conservatives
+                        OR = {
+                            is_interest_group_type = ig_conservatives
+                            AND = {
+                                is_interest_group_type = ig_christian_democrats
+                                ig:ig_christian_democrats = {
+                                    NOT = {
+                                        has_ideology = ideology:ideology_nonexistent
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 bpm_set_exe_ideology_weak_rigid = yes
@@ -195,7 +205,7 @@ bpm_set_rest_exe_ideology_ing = {
             }
         }
         bpm_set_exe_ideology_strong_rigid = yes
-    }
+    }z
     else_if = {
         limit = {
             is_interest_group_type = ig_rural_folk
@@ -236,6 +246,17 @@ bpm_set_rest_exe_ideology_idg = {
         }
         if = {
             limit = {
+                is_interest_group_type = ig_christian_democrats
+                ig:ig_christian_democrats = {
+                    NOT = {
+                        has_ideology = ideology:ideology_nonexistent
+                    }
+                }
+            }
+            bpm_set_exe_ideology_weak_rigid = yes
+        }
+        if = {
+            limit = {
                 OR = {
                     bpm_ig_is_liberal = yes
                     bpm_ig_is_left_wing = yes
@@ -263,7 +284,10 @@ bpm_set_rest_exe_ideology_idg = {
         }
         else_if = {
             limit = {
-                is_interest_group_type = ig_conservatives
+                OR = {
+                    is_interest_group_type = ig_conservatives
+                    is_interest_group_type = ig_christian_democrats
+                }
             }
             if = {
                 limit = {

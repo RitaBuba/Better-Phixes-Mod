@@ -49,13 +49,6 @@ religious_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_clerical_party
-				trigger = {
-					exists = c:FRA
-					THIS = c:FRA
-				}
-			}
-			triggered_desc = {
 				desc = party_union_of_the_russian_people
 				trigger = {
 					exists = c:RUS
@@ -72,23 +65,29 @@ religious_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_zentrum
+				desc = party_ger_zentrum
 				trigger = {
-					AND = {
-						OR = {
-							country_has_primary_culture = cu:north_german
-							country_has_primary_culture = cu:south_german
-						}
-						country_has_state_religion = rel:catholic
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
 					}
 				}
 			}
 			triggered_desc = {
-				desc = party_conservative_catholics
+				desc = party_ueci
 				trigger = {
 					OR = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
+					}
+				}
+			}
+			triggered_desc = {
+				desc = party_french_liberal_action
+				trigger = {
+					OR = {
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:occitan
 					}
 				}
 			}
@@ -165,204 +164,170 @@ religious_party = {
 	}
 	# THIS IS RUN ONLY ONCE AT GAME START
 	valid_for_country = {
-		always = no
+		always = yes
 	}
 	available_for_interest_group = {
-		always = no
+		always = yes
 	}
 	join_weight = {
 		value = {
 			value = -5
 			desc = "base_value"
 		}
-		if = {
+
+		if = { # French Liberal Action
 			limit = {
-				owner = {
-					is_player = yes
-					has_variable = bpm_party_establishment_religious
-				}
-				NOR = {
-					bpm_ig_is_radical_opposition = yes
-					bpm_ig_is_very_radical_opposition = yes
-				}
-			}
-			add = {
-				desc = "bpm_from_party_establishment"
-				value = {
-					value = 20
-					if = {
-						limit = {
-							bpm_ig_is_institutional = yes
-						}
-						subtract = 12
-					}
-				}
-				multiply = owner.var:bpm_party_establishment_religious
-				multiply = owner.var:bpm_political_stability
-				divide = 10000
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					any_interest_group = {
-						is_interest_group_type = ig_landowners
-						bpm_ig_is_marginal = no
-					}
-				}
-			}
-			add = {
-				value = -5
-				desc = "from_relevant_landowners"
-			}
-		}
-		if = {
-			limit = {
-				is_interest_group_type = ig_devout
-				owner = {
-					has_law = law_type:law_theocracy
-				}
-			}
-			add = {
-				value = 5
-				desc = "from_theocracy"
-			}
-		}
-		#if = { # nobody will join if the devout don't join
-		#	limit = {
-		#		NOT = { is_interest_group_type = ig_devout }
-		#		OR = {
-		#			NOT = { exists = owner.py:religious_party }
-		#			AND = {
-		#				exists = owner.py:religious_party
-		#				owner = {
-		#					ig:ig_devout = {
-		#						NOT = { is_member_of_party = owner.py:religious_party }
-		#					}
-		#				}
-		#			}
-		#		}
-		#	}
-		#	add = {
-		#		value = -20
-		#		desc = "from_no_devout_in_party" # this should probably never actually display in game because the party won't exist
-		#	}
-		#}
-		if = { # a party for powerful religious people
-			limit = {
-				is_interest_group_type = ig_devout
-				is_powerful = yes
-			}
-			add = {
-				value = 10
-				desc = "from_powerful_devout"
-			}
-		}
-		if = { # religiously inclined people might join if devout are powerful
-			limit = {
-				is_powerful = no
-				owner = {
-					ig:ig_devout = {
-						is_powerful = yes
-					}
-				}
-				leader = {
+				is_interest_group_type = ig_christian_democrats
+				owner = { 
 					OR = {
-						has_ideology = ideology:ideology_traditionalist
-						has_ideology = ideology:ideology_theocrat
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:occitan
+					}
+					OR = {
+						has_law = law_type:law_parliamentary_republic
+						has_law = law_type:law_presidential_republic
+					}
+					bpm_secularist_popularity >= 0.15
+				}
+				ig:ig_christian_democrats = {
+					OR = {
+						has_ideology = ideology_gov_liberal_republican
+						has_ideology = ideology:ideology_gov_liberal_republican
 					}
 				}
 			}
 			add = {
-				value = 10
-				desc = "from_powerful_devout_other"
+				value = 25
+				desc = "from_reconcillation_with_liberalism"
 			}
 		}
-		if = { # antireligious characters and IG's will never join
+
+		if = { # Unione Elettorale Cattolica Italiana
 			limit = {
 				OR = {
-					has_ideology = ideology:ideology_anti_clerical
-					leader = {
-						has_ideology = ideology:ideology_nihilist
+					is_interest_group_type = ig_christian_democrats
+					is_interest_group_type = ig_conservatives
+					is_interest_group_type = ig_reactionaries
+				}
+				owner = { 
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+					has_law = law_type:law_elected_bureaucrats
+					OR = {
+						bpm_secularist_popularity >= 0.2
+						NOT = {
+							has_law = law_type:law_state_religion
+						}
+					}
+					NOT = {
+						has_variable = bpm_old_new_wine_christian_democrat_win_variable
 					}
 				}
 			}
-			add = {	
-				value = -15
-				desc = "from_antireligious"
+			add = {
+				value = 25
+				desc = "from_catholic_political_involment"
 			}
 		}
-		if = { # patriarchs more likely to join conservatives with women's suffrage
+
+		if = {
 			limit = {
-				has_ideology = ideology:ideology_patriarchal
+				is_interest_group_type = ig_trade_unions
 				owner = {
 					has_law_or_variant = law_type:law_womens_suffrage
+					country_has_state_religion = rel:catholic
 				}
 			}
 			add = {
-				value = 3
-				desc = "from_patriarchy"
+				value = 2
+				desc = "bpm_from_common_interests"
 			}
 		}
-		if = { # conservatives love conservativism
+
+		if = { # Christian Democrats don't like being with people who want them gone
 			limit = {
-				bpm_ig_is_moderate_conservative = yes
-				bpm_ig_is_liberal_conservative = no
-			}
-			add = {
-				value = 15
-				desc = "bpm_from_main_conservative_ig"
-			}
-		}
-		if = { # reactionaries like conservativism
-			limit = {
-				bpm_ig_is_moderate_conservative = no
-				bpm_ig_is_traditionalist = yes
-			}
-			add = {
-				value = 5
-				desc = "bpm_from_reactionary_ig"
-			}
-		}
-		if = { # conservatives love conservativism
-			limit = {
-				leader = { bpm_leader_is_traditional_right = yes }
-			}
-			add = {
-				value = 6
-				desc = "from_conservative_leader"
-			}
-		}
-		if = { # reactionaries will join weaker conservatives
-			limit = {
-				OR = { bpm_ig_is_traditionalist = yes }
-				is_powerful = no
+				is_interest_group_type = ig_christian_democrats
 				owner = {
-					any_interest_group = {
-						is_powerful = no
-						is_interest_group_type = ig_conservatives
+					OR = {
+						NOT = {
+							country_has_state_religion = rel:catholic
+						}
+						ig:ig_christian_democrats = {
+							has_ideology = ideology_rel_pragmatic_moralist
+						}
+						AND = {
+							any_interest_group = {
+								OR = {
+									has_ideology = ideology:ideology_rel_moralist
+									has_ideology = ideology:ideology_rel_radical_moralist
+								}
+								OR = {
+									is_in_government = yes
+									is_powerful = yes
+								}
+							}
+							ig:ig_christian_democrats = {
+								has_ideology = ideology_rel_pragmatic_moralist
+							}
+						}
+					}
+				}
+				
+			}
+			add = {
+				value = 25
+				desc = "bpm_from_being_oppresed"
+			}
+		}
+
+		if = { # Christian Democrats hate electoralism
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				has_ideology = ideology:ideology_dop_placeholder
+				
+			}
+			add = {
+				value = -25
+				desc = "bpm_from_hostility_towards_democracy"
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
 					}
 				}
 			}
-			add = {	
-				value = 10
-				desc = "bpm_from_weak_conservative_ig"
+
+			add = {
+				value = -50
+				desc = "from_no_reason_to_exist"
 			}
 		}
-		if = { # devout more likely to join conservatives with total separation
+
+		if = { # nobody will join if the christdems don't join
 			limit = {
-				law_stance = {
-					law = law_type:law_total_separation
-					value < neutral
-				}
+				NOT = { is_interest_group_type = ig_christian_democrats }
 				OR = {
-					owner = { has_law = law_type:law_total_separation }
-					owner = { has_law = law_type:law_state_atheism }
+					NOT = { exists = owner.py:religious_party }
+					AND = {
+						exists = owner.py:religious_party
+						owner = {
+							ig:ig_christian_democrats ?= {
+								NOT = { is_member_of_party = owner.py:religious_party }
+							}
+						}
+					}
 				}
 			}
 			add = {
-				value = 4
-				desc = "from_devout_separation"
+				value = -50
+				desc = "from_no_christdems_in_party" # this should probably never actually display in game because the party won't exist
 			}
 		}
 	}
