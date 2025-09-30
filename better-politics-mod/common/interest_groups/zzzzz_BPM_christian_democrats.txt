@@ -121,7 +121,7 @@
 			}
 			add = {
 				desc = "POP_CLERGYMEN"
-				value = 75
+				value = 50
 			}
 		}
 
@@ -133,7 +133,7 @@
 			}
 			add = {
 				desc = "RURAL_POP"
-				value = 25
+				value = 20
 			}
 
 			if = {
@@ -155,38 +155,13 @@
 			limit = { strata = middle }
 			add = {
 				desc = "MIDDLE_CLASS"
-				value = 10
-				
-				if = {
-					limit = {
-						owner = {
-							ig:ig_christian_democrats = {
-								has_ideology = ideology:ideology_sta_federated_state
-							}
-						}
-					}
-					add = {
-						value = 2
-					}
-				}
+				value = 5
 
 				if = {
 					limit = {
 						owner = {
 							ig:ig_christian_democrats = {
 								has_ideology = ideology:ideology_eco_distributist_economy # CSP example:
-							}
-						}
-					}
-					add = {
-						value = 75
-					}
-				}
-				else_if = {
-					limit = { 
-						owner = {
-							ig:ig_christian_democrats = {
-								has_ideology = ideology:ideology_eco_modern_interventionist # Popularists, Young Right, Dutch Christian Democrats
 							}
 						}
 					}
@@ -198,12 +173,24 @@
 					limit = { 
 						owner = {
 							ig:ig_christian_democrats = {
+								has_ideology = ideology:ideology_eco_modern_interventionist # Popularists, Young Right, Dutch Christian Democrats
+							}
+						}
+					}
+					add = {
+						value = 35
+					}
+				}
+				else_if = {
+					limit = { 
+						owner = {
+							ig:ig_christian_democrats = {
 								has_ideology = ideology:ideology_eco_centralized_economy # Young Zentrumites, late Polish Chadecy
 							}
 						}
 					}
 					add = {
-						value = 25
+						value = 20
 					}
 				}
 				else_if = {
@@ -376,6 +363,15 @@
 				add = {
 					desc = "POP_ARISTOCRATS"
 					value = -250
+				}
+			}
+			else_if = {
+				limit = {
+					is_pop_type = peasants
+				}
+				add = {
+					desc = "POP_PEASANTS"
+					value = -100
 				}
 			}
 		}
