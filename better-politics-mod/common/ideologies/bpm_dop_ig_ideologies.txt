@@ -686,21 +686,21 @@ ideology_dop_divine_democrat = {
 
 	lawgroup_bureaucracy = {
 		law_hereditary_bureaucrats = disapprove
-		law_appointed_bureaucrats = approve
-		law_elected_bureaucrats = strongly_approve
+		law_appointed_bureaucrats = neutral
+		law_elected_bureaucrats = approve
 	}
 
 	lawgroup_legislative_principles = {
 		law_advisory_body = disapprove
-		law_separated_powers = strongly_approve
+		law_separated_powers = approve
 		law_supreme_legislature = strongly_disapprove
 	}
 
 	lawgroup_labour_associations = {
 		law_combination_acts = neutral
-		law_corporatized_unions = strongly_disapprove
+		law_corporatized_unions = disapprove
 		law_anti_strike_laws = approve
-    law_syndicalism = strongly_disapprove
+   		law_syndicalism = strongly_disapprove
 		law_right_to_associate = neutral
 		law_socialist_labor_unions = strongly_disapprove
 	}
@@ -730,7 +730,7 @@ icon = "gfx/interface/icons/ideology_icons/dop_ideology/conservative_democrat.dd
 	}
 
 	lawgroup_legislative_principles = {
-		law_advisory_body = approve
+		law_advisory_body = neutral
 		law_separated_powers = approve
 		law_supreme_legislature = strongly_disapprove
 	}
@@ -741,7 +741,7 @@ icon = "gfx/interface/icons/ideology_icons/dop_ideology/conservative_democrat.dd
 		law_anti_strike_laws = strongly_approve
 		law_syndicalism = disapprove
 		law_right_to_associate = neutral
-    law_socialist_labor_unions = strongly_disapprove
+  	  	law_socialist_labor_unions = strongly_disapprove
 	}
 }
 
@@ -769,7 +769,7 @@ ideology_dop_organic_democrat = {
 	}
 
 	lawgroup_legislative_principles = {
-		law_advisory_body = strongly_approve
+		law_advisory_body = approve
 		law_separated_powers = disapprove
 		law_supreme_legislature = strongly_disapprove
 	}
@@ -820,6 +820,6 @@ ideology_dop_organic_power = {
 		law_anti_strike_laws = neutral
 		law_syndicalism = strongly_disapprove
 		law_right_to_associate = strongly_disapprove
-    law_socialist_labor_unions = strongly_disapprove
+    	law_socialist_labor_unions = strongly_disapprove
 	}
 }

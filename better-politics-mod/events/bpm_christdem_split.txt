@@ -682,13 +682,6 @@ bpm_christdem_split.8 = {
 	option = { #### Internationalism (Franco-Italian Popularists, Young Right movement)
 		name = bpm_christdem_split.8.a
 
-		default_option = yes
-
-		highlighted_option = yes
-		trigger = {
-			
-		}
-
 		ig:ig_christian_democrats = {
 			hidden_effect = {
 				bpm_remove_all_cit_ideologies = yes
@@ -701,9 +694,6 @@ bpm_christdem_split.8 = {
 	option = { #### Imigrant Nationalism
 		name = bpm_christdem_split.8.b
 
-		default_option = yes
-
-		highlighted_option = yes
 		trigger = {
 			bpm_country_is_in_new_world = yes
 		}
@@ -716,13 +706,8 @@ bpm_christdem_split.8 = {
 		}
 	}
 
-	option = { # Multi-Ethnic nationalism (Poland, Austria, Hungary etc)
+	option = { # Multi-Ethnic nationalism (Poland, Austria, Czechoslovakia, Trentino etc)
 		name = bpm_christdem_split.8.c
-
-		highlighted_option = yes
-		trigger = {
-			
-		}
 
 		ig:ig_christian_democrats = {
 			hidden_effect = {
@@ -735,6 +720,8 @@ bpm_christdem_split.8 = {
 	option = { # Liberal Nationalism (Almost all if not actually all)
 		name = bpm_christdem_split.8.d
 
+		default_option = yes
+
 		ig:ig_christian_democrats = {
 			hidden_effect = {
 				bpm_remove_all_cit_ideologies = yes
@@ -743,31 +730,33 @@ bpm_christdem_split.8 = {
 		}
 	}
 
-	option = { # Ethnonationalism? Defo lithuania, very late CSP somewhat
+	option = { # Ethnonationalism? Defo lithuania
 		name = bpm_christdem_split.8.e
 
 		highlighted_option = yes
 		trigger = {
-			custom_tooltip = {
-				text = reactionary_movement_support_radicalism_tt
-				OR = {
-					var:bpm_reactionary_movement.political_movement_support >= 0.1
-					var:bpm_reactionary_movement.political_movement_radicalism >= 0.2
+			OR = {
+				custom_tooltip = {
+					text = reactionary_movement_support_radicalism_tt
+					OR = {
+						var:bpm_reactionary_movement.political_movement_support >= 0.1
+						var:bpm_reactionary_movement.political_movement_radicalism >= 0.2
+					}
 				}
-			}
-			custom_tooltip = {
-				text = liberal_nationalist_movement_support_radicalism_tt
-				OR = {
-					var:bpm_national_liberal_movement.political_movement_support >= 0.1
-					var:bpm_national_liberal_movement.political_movement_radicalism >= 0.3
+				custom_tooltip = {
+					text = liberal_nationalist_movement_support_radicalism_tt
+					OR = {
+						var:bpm_national_liberal_movement.political_movement_support >= 0.2
+						var:bpm_national_liberal_movement.political_movement_radicalism >= 0.3
+					}
 				}
-			}
-			any_interest_group = {
-				OR = {
-					has_ideology = ideology:ideology_cit_nationalist
-					has_ideology = ideology:ideology_cit_ethnonationalist
+				any_interest_group = {
+					OR = {
+						has_ideology = ideology:ideology_cit_nationalist
+						has_ideology = ideology:ideology_cit_ethnonationalist
+					}
+					is_powerful = yes
 				}
-				is_powerful = yes
 			}
 		}
 
@@ -2591,16 +2580,16 @@ bpm_papal_encyclicals.3 = { # Rerum novarum
 						OR = {
 							religion_percent_country = { 
 								target = rel:catholic
-								value >= 0.1
+								value >= 0.5
 							}
 							country_has_state_religion = rel:catholic
-							AND = {
-								religion_percent_country = { 
-									target = rel:protestant
-									value >= 0.1
-								}
-								bpm_country_is_in_europe = yes
-							}
+							#AND = {
+							#	religion_percent_country = { 
+							#		target = rel:protestant
+							#		value >= 0.1
+							#	}
+							#	bpm_country_is_in_europe = yes
+							#}
 						}
 					}
 
@@ -2612,6 +2601,15 @@ bpm_papal_encyclicals.3 = { # Rerum novarum
 						add_ideology = ideology_sta_organic_state
 						bpm_remove_all_eco_ideologies = yes
 						add_ideology = ideology_eco_distributist_economy
+						bpm_remove_all_wel_ideologies = yes
+						add_ideology = ideology_wel_distributist_welfare
+
+						bpm_reorder_ideologies = yes
+					}
+
+					ig:ig_devout = {
+						#bpm_remove_all_eco_ideologies = yes
+						#add_ideology = ideology_eco_distributist_economy
 						bpm_remove_all_wel_ideologies = yes
 						add_ideology = ideology_wel_distributist_welfare
 

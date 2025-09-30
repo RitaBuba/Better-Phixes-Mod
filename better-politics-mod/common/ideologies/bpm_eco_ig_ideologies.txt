@@ -1085,7 +1085,7 @@ ideology_eco_distributist_economy = {
 		law_tenant_farmers = neutral
 		law_homesteading = approve
 		law_commercialized_agriculture = approve
-		law_collectivized_agriculture = strongly_disapprove
+		law_collectivized_agriculture = disapprove
 	}
 
     lawgroup_taxation = {
@@ -1101,10 +1101,11 @@ ideology_eco_distributist_economy = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = strongly_disapprove
+		law_colonial_slavery = strongly_disapprove
 	}
 
 	lawgroup_repeatable_economy = {
-		law_repeatable_economy_liberalization = approve
+		law_repeatable_economy_liberalization = neutral
 		law_repeatable_economy_agricultural_investment = strongly_approve
 		law_repeatable_economy_peasant_corvee = disapprove
 		law_repeatable_economy_public_works = approve
@@ -1128,7 +1129,7 @@ ideology_eco_modern_interventionist = {
 
     lawgroup_trade_policy = {
 		law_free_trade = neutral
-		law_protectionism = approve
+		law_protectionism = neutral
 		law_isolationism = disapprove
 		law_mercantilism = disapprove
 	}
@@ -1154,6 +1155,7 @@ ideology_eco_modern_interventionist = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = strongly_disapprove
+		law_colonial_slavery = strongly_disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -1189,7 +1191,7 @@ ideology_eco_centralized_economy = {
     lawgroup_land_reform = {
 		law_serfdom = strongly_disapprove
 		law_tenant_farmers = disapprove
-		law_homesteading = strongly_approve
+		law_homesteading = approve # strongly_approve
 		law_commercialized_agriculture = strongly_disapprove
 		law_collectivized_agriculture = disapprove
 	}
@@ -1207,6 +1209,7 @@ ideology_eco_centralized_economy = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = strongly_disapprove
+		law_colonial_slavery = strongly_disapprove
 	}
 
 	lawgroup_repeatable_economy = {

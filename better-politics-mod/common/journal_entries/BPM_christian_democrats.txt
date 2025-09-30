@@ -149,7 +149,7 @@ je_bpm_christian_or_democrat = {
 				
 				custom_tooltip = {
 					text = "People's Springtime has fully ended."
-          has_global_variable = bpm_peoples_springtime_happened
+          			has_global_variable = bpm_peoples_springtime_happened
 				}
 				
 				OR = {
@@ -172,10 +172,10 @@ je_bpm_christian_or_democrat = {
 
 				custom_tooltip = {
 					text = "Country is in Mainland Europe"
-					bpm_country_is_in_europe = yes
-					NOT = {
-						this ?= c:BRI
-					}
+					bpm_country_is_in_mainland_europe = yes
+					#NOT = {
+					#	this ?= c:BRI
+					#}
 				}
 
 				custom_tooltip = {

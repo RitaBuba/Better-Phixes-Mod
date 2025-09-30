@@ -1,4 +1,4 @@
-je_bpm_errors_of_the_world = {
+﻿je_bpm_errors_of_the_world = {
 	icon = "gfx/interface/icons/invention_icons/egalitarianism.dds"
 
 	group = bpm_je_group_global
@@ -277,7 +277,7 @@ je_bpm_immortal_god = {
 	}
 
 	possible = {
-		
+		#always = yes
 		custom_tooltip = {
 			text = "Quanta cura has been issued"
 			has_global_variable = global_variable_quanta_cura_var_released
