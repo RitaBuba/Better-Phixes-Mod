@@ -9,25 +9,25 @@
 	}
 
 	possible = {
-		#custom_tooltip = {
-		#	text = "bpm_je_trigger_bpm_peoples_springtime_happened"
-		#	OR = {
-		#		has_global_variable = bpm_peoples_springtime_happened
-		#		game_date > 1855.1.1
-		#	}
-		#}
-		#trigger_if = {
-		#	limit = {
-		#		has_global_variable = bpm_peoples_springtime_happened
-		#	}
-		#	custom_tooltip = {
-		#		text = "bpm_je_trigger_peoples_springtime_not_recent"
-		#		NOT = { 
-		#			has_global_variable = recently_completed_peoples_springtime_je 
-		#		}
-		#	}
-		#}
-		always = yes
+		custom_tooltip = {
+			text = "bpm_je_trigger_bpm_peoples_springtime_happened"
+			OR = {
+				has_global_variable = bpm_peoples_springtime_happened
+				game_date > 1855.1.1
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_global_variable = bpm_peoples_springtime_happened
+			}
+			custom_tooltip = {
+				text = "bpm_je_trigger_peoples_springtime_not_recent"
+				NOT = { 
+					has_global_variable = recently_completed_peoples_springtime_je 
+				}
+			}
+		}
+		#always = yes
 	}
 
 	immediate = {
@@ -277,11 +277,11 @@ je_bpm_immortal_god = {
 	}
 
 	possible = {
-		always = yes
-		#custom_tooltip = {
-		#	text = "Quanta cura has been issued"
-		#	has_global_variable = global_variable_quanta_cura_var_released
-		#}
+		#always = yes
+		custom_tooltip = {
+			text = "Quanta cura has been issued"
+			has_global_variable = global_variable_quanta_cura_var_released
+		}
 	}
 
 	immediate = {
@@ -539,11 +539,11 @@ je_bpm_light_amidst_darkness = {
 	}
 
 	possible = {
-		#custom_tooltip = {
-		#	text = "Graves de communi re has been issued"
-		#	has_global_variable = global_variable_immortale_dei_var_released
-		#}
-		always = yes
+		custom_tooltip = {
+			text = "Graves de communi re has been issued"
+			has_global_variable = global_variable_immortale_dei_var_released
+		}
+		#always = yes
 	}
 
 	immediate = {
@@ -796,11 +796,11 @@ je_bpm_graves_de_communi_re = {
 	}
 
 	possible = {
-		#custom_tooltip = {
-		#	text = "rerum_novarum_issued_tooltip"
-		#	has_global_variable = global_rerum_novarum_issued_var
-		#}
-		always = yes
+		custom_tooltip = {
+			text = "rerum_novarum_issued_tooltip"
+			has_global_variable = global_rerum_novarum_issued_var
+		}
+		#always = yes
 	}
 
 	immediate = {
