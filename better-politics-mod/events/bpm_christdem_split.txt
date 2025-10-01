@@ -2451,7 +2451,7 @@ bpm_papal_encyclicals.1 = { # Quanta cura
 	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
-	icon = "gfx/interface/icons/event_icons/secondIntl.dds"
+	icon = "gfx/interface/icons/event_icons/church_and_state.dds"
 	title = bpm_papal_encyclicals.1.t
 	desc = bpm_papal_encyclicals.1.d
 	flavor = bpm_papal_encyclicals.1.f
@@ -2481,7 +2481,7 @@ bpm_papal_encyclicals.2 = { # Immortale dei
 	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
-	icon = "gfx/interface/icons/event_icons/secondIntl.dds"
+	icon = "gfx/interface/icons/event_icons/church_and_state.dds"
 	title = bpm_papal_encyclicals.2.t
 	desc = bpm_papal_encyclicals.2.d
 	flavor = bpm_papal_encyclicals.2.f
@@ -2557,7 +2557,7 @@ bpm_papal_encyclicals.3 = { # Rerum novarum
 	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
-	icon = "gfx/interface/icons/event_icons/secondIntl.dds"
+	icon = "gfx/interface/icons/event_icons/church_and_state.dds"
 	title = bpm_papal_encyclicals.3.t
 	desc = bpm_papal_encyclicals.3.d
 	flavor = bpm_papal_encyclicals.3.f
@@ -2633,7 +2633,7 @@ bpm_papal_encyclicals.4 = { # Graves de communi re
 	event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	on_opened_soundeffect = "event:/SFX/Events/europenorthamerica/political_extremism"
-	icon = "gfx/interface/icons/event_icons/secondIntl.dds"
+	icon = "gfx/interface/icons/event_icons/church_and_state.dds"
 	title = bpm_papal_encyclicals.4.t
 	desc = bpm_papal_encyclicals.4.d
 	flavor = bpm_papal_encyclicals.4.f

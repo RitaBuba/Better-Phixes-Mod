@@ -419,10 +419,10 @@ law_no_parties_allowed = {
 
 	modifier = {
 		bpm_decorative_ban_everyone = yes
-		country_bureaucrats_pol_str_mult = 0.5
-		interest_group_ig_reactionaries_pol_str_mult = 0.75
+		country_bureaucrats_pol_str_mult = 0.33
+		interest_group_ig_reactionaries_pol_str_mult = 0.66
 		country_rigidity_baseline_add = 10
-		country_authority_mult = 0.25
+		country_authority_mult = 0.1
 	}
 
 	ai_enact_weight_modifier = { #Petitions

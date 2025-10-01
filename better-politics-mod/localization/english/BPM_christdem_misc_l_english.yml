@@ -730,7 +730,7 @@
  je_bpm_paternalistic_reforms_tooltip: "To fill this #bold Progress Bar#!, you #v must#! have [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] [concept_in_government], and pass:\n- [GetLawType('law_census_voting').GetName];\n- [GetLawType('law_regulatory_bodies').GetName];\n- [GetLawType('law_wage_subsidies').GetName];\n- [GetLawType('law_repeatable_politics_popular_concessions').GetName];\n- [GetLawType('law_token_time_regulations').GetName]\n- [GetLawType('law_repeatable_economy_agricultural_investment').GetName];\n- [GetLawType('law_repeatable_politics_popular_concessions').GetName];\n- [GetLawType('law_repeatable_religion_promote_state_religion').GetName]"
 
  bpm_je_new_wine_increase_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 2#!#!!"
- bpm_je_old_wineskins_increase_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] will increase by #red #bold 1#!#!!"
+ bpm_je_old_wineskins_increase_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
 
  bpm_je_new_wine_decrease_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #green #bold 1#!#!!"
  bpm_je_old_wineskins_decrease_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 1#!#!!"
@@ -834,6 +834,8 @@
  
  bpm_je_old_wineskins_increase_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
  bpm_je_new_wine_increase_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 2#!#!!"
+
+ bpm_making_use_of_entranched_interests: "Making Use of Entrenched Interests"
 
  bpm_new_wine_old_wineskins_flavour.11.t: "New Wine in Old Wineskins"
  bpm_new_wine_old_wineskins_flavour.11.d: "With the release of the encyclical ‘Rerum novarum’ and the appearance of the [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant], a new political struggle begins. The old, conservative elites of the [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] aren't willing to give in or give up to the new, radical Catholics, and both groups will fight for power and survival."

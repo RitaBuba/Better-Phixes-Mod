@@ -1317,8 +1317,8 @@ je_bpm_new_wine_in_old_wineskins = {
 			}
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 2
-					name = bpm_old_wineskins_scripted_progress_bar 
+					value = -2
+					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
 		}
