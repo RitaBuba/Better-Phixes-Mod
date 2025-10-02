@@ -1265,7 +1265,7 @@ movement_anarchist = {
 	
 	secession = {
 		possible = {
-			political_movement_support >= 0.2
+			political_movement_support >= 0.5
 			scope:clout <= 0
 		}
 		
