@@ -1444,7 +1444,8 @@ on_game_started = {
 on_bpm_game_started = {
 	effect = {
 		every_country = {
-			trigger_event = { id = bpm_misc.5}
+			trigger_event = { id = bpm_misc.5 }
+			bpm_update_consciousness = yes
 		}
 	}
 }
