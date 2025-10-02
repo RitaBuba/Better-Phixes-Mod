@@ -61,6 +61,9 @@ one_party_independents = {
 					is_interest_group_type = ig_reactionaries
 					is_interest_group_type = ig_fascists
 				}
+				NOT = {
+					is_interest_group_type = ig_anarchists
+				}
 			}
 
 			add = {
@@ -76,6 +79,9 @@ one_party_independents = {
 					NOT = {
 						has_law = law_type:law_outlawed_dissent
 					}
+				}
+				NOT = {
+					is_interest_group_type = ig_anarchists
 				}
 				ig_approval = unhappy
 			}
@@ -93,6 +99,9 @@ one_party_independents = {
 					NOT = {
 						has_law = law_type:law_outlawed_dissent
 					}
+				}
+				NOT = {
+					is_interest_group_type = ig_anarchists
 				}
 				ig_approval < unhappy
 			}

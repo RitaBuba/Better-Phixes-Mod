@@ -505,6 +505,7 @@ agrarian_party = {
 				desc = "from_rural_interests_no_parties_allowed"
 			}
 		}
+		
 
 		if = { # Representing a more rural-one faction
 			limit = {
@@ -514,7 +515,10 @@ agrarian_party = {
 						has_law = law_type:law_outlawed_dissent
 					}
 				}
-				is_interest_group_type = ig_conservatives
+				OR = {
+					has_ideology = ideology:ideology_eco_conservative_agrarian
+					has_ideology = ideology:ideology_eco_traditional_agrarian
+				}
 			}
 
 			add = {

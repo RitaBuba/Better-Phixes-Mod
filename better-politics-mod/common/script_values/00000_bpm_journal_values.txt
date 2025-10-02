@@ -1256,7 +1256,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				#divide = 2.5
-				divide = 3.33
+				divide = 2.5
 				#max = 0
 			}
 
@@ -1283,7 +1283,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 2.33
+					multiply = 3.33
 				}
 			}
 
@@ -1316,7 +1316,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 					multiply = ROOT.ig:ig_christian_democrats.ig_clout
 					#divide = 1.66
-					multiply = 4.44
+					multiply = 5.55
 				}
 			}
 		}

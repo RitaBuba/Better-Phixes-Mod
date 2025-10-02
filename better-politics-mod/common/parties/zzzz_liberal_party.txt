@@ -409,6 +409,34 @@ liberal_party = {
 			value = 0
 			desc = "base_value"
 		}
+		############### ORGANIC DEMOCRACY
+
+		if = { # Representing a more urban-like, professional faction
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+				OR = {
+					is_interest_group_type = ig_petty_bourgeoisie
+					is_interest_group_type = ig_intelligentsia
+					is_interest_group_type = ig_armed_forces
+					is_interest_group_type = ig_industrialists
+				}
+			}
+
+			add = {
+				value = 50
+				desc = "from_professional_interests_no_parties_allowed"
+			}
+		}
+
+		
+
+
+
 		if = {
 			limit = {
 				owner = {
@@ -674,27 +702,7 @@ liberal_party = {
 			}
 		}
 
-		if = { # Representing a more urban-like, professional faction
-			limit = {
-				owner = {
-					has_law = law_type:law_no_parties_allowed
-					NOT = {
-						has_law = law_type:law_outlawed_dissent
-					}
-				}
-				OR = {
-					is_interest_group_type = ig_petty_bourgeoisie
-					is_interest_group_type = ig_intelligentsia
-					is_interest_group_type = ig_armed_forces
-					is_interest_group_type = ig_industrialists
-				}
-			}
-
-			add = {
-				value = 50
-				desc = "from_professional_interests_no_parties_allowed"
-			}
-		}
+		
 
 		if = { # against illiteracy and religious education
 			limit = {

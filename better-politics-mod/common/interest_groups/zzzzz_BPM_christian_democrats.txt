@@ -121,7 +121,7 @@
 			}
 			add = {
 				desc = "POP_CLERGYMEN"
-				value = 50
+				value = 100
 			}
 		}
 
@@ -133,7 +133,7 @@
 			}
 			add = {
 				desc = "RURAL_POP"
-				value = 20
+				value = 25
 			}
 
 			if = {

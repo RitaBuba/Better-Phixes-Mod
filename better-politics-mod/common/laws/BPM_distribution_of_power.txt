@@ -1094,10 +1094,10 @@ law_organic_democracy = {
 
 		country_legitimacy_ideological_incoherence_mult = -0.33
 
-		country_legitimacy_govt_total_clout_add = 100
+		country_legitimacy_govt_total_clout_add = 150
 		country_legitimacy_govt_size_add = 1
 
-		country_voting_power_wealth_threshold_add = 25
+		country_voting_power_wealth_threshold_add = 30
 		
 		interest_group_ig_landowners_pol_str_mult = 0.4
 		interest_group_ig_industrialists_pol_str_mult = 0.4
@@ -1120,7 +1120,7 @@ law_organic_democracy = {
 		country_bpm_labor_consciousness_target_mult = -0.1
 		country_legitimacy_govt_total_votes_add = 25
 		country_legitimacy_govt_total_clout_add = -25
-		country_voting_power_wealth_threshold_add = -5
+		country_voting_power_wealth_threshold_add = -6
 
 		interest_group_ig_rural_folk_pol_str_mult = 0.05
 		interest_group_ig_trade_unions_pol_str_mult = 0.05
