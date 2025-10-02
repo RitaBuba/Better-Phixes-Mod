@@ -240,7 +240,7 @@ bpm_rename_christian_democrat_ig = {
 			has_global_variable = global_rerum_novarum_issued_var
 			has_local_variable = rightwing_christian_democrats_loc_var
 		}
-		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_democrats_left }
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_democrats_leftwing }
 	}
 	else = {
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_democrats }

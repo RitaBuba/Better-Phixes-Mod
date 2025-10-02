@@ -1084,7 +1084,7 @@ law_organic_democracy = {
 	}
 
 	disallowing_laws = {
-		
+		law_council_republic
 	}
 	
 	modifier = {
@@ -1103,9 +1103,9 @@ law_organic_democracy = {
 		interest_group_ig_industrialists_pol_str_mult = 0.4
 		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.4
 
-		state_dependent_political_participation_add = -0.25
+		#state_dependent_political_participation_add = -0.25
 
-		country_voting_power_base_add = 20
+		country_voting_power_base_add = 15
 		country_institution_suffrage_max_investment_add = 1
 		country_institution_cost_institution_suffrage_mult = -0.85
 	}
@@ -1121,6 +1121,7 @@ law_organic_democracy = {
 		country_legitimacy_govt_total_votes_add = 25
 		country_legitimacy_govt_total_clout_add = -25
 		country_voting_power_wealth_threshold_add = -6
+		country_voting_power_base_add = 4
 
 		interest_group_ig_rural_folk_pol_str_mult = 0.05
 		interest_group_ig_trade_unions_pol_str_mult = 0.05

@@ -1427,8 +1427,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					value = 15
 					subtract = average_sol
 					divide = 15
-					multiply = 1.66
-					min = 0.0
+					multiply = 1.33
+					min = 0.0	
 					#max = 1.0 # (1-0.66)*3 will be 1.02, so we clamp it for nice numbers
 				}
 			}
@@ -1613,6 +1613,22 @@ bpm_je_christdem_ideological_power_gain = {
 	}
 
 	add = {
+		desc = "BPM_VALUE_FROM_TRADE_UNIONS_CLOUT"
+		if = {
+			limit = {
+				always = yes
+			}
+			every_interest_group = {
+				limit = {
+					is_interest_group_type = ig_trade_unions
+				}
+				add = interest_group_population_percentage
+			}
+			multiply = 10
+		}
+	}
+
+	add = {
 		desc = "BPM_VALUE_FROM_LABOR_CONCIOUSNESS"
 		if = {
 			limit = {
@@ -1673,24 +1689,10 @@ bpm_je_christdem_ideological_power_gain = {
 		}
 	}
 
-	add = {
-		desc = "BPM_VALUE_FROM_TRADE_UNIONS_CLOUT"
-		if = {
-			limit = {
-				always = yes
-			}
-			every_interest_group = {
-				limit = {
-					is_interest_group_type = ig_trade_unions
-				}
-				add = interest_group_population_percentage
-			}
-			multiply = 10
-		}
-	}
+	
 
 	add = {
-		desc = "BPM_VALUE_FROM_MOVEMENTS_CHRISTDEM"
+		desc = "BPM_VALUE_FROM_MOVEMENTS_LAISSEZ_FAIRE"
 
 		if = {
 			limit = {
@@ -1699,33 +1701,14 @@ bpm_je_christdem_ideological_power_gain = {
 			every_political_movement = {
 				limit = {
 					OR = {
-						is_political_movement_type = movement_labor
-						is_political_movement_type = movement_socialist
-						is_political_movement_type = movement_reformist_socialist
-						is_political_movement_type = movement_communist
-						is_political_movement_type = movement_anarchist
+						is_political_movement_type = movement_laissez_faire
+						is_political_movement_type = movement_liberal
 					}
 				}
-				add = {
-					value = political_movement_support
-					multiply = 1.25
-					divide = 1.5
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				always = yes
-			}
-			every_political_movement = {
-				limit = {
-					is_political_movement_type = movement_radical
-				}
-				add = {
+				subtract = {
 					value = political_movement_support
 					multiply = 1.33
-					divide = 1.66
+					divide = 2.5
 				}
 			}
 		}

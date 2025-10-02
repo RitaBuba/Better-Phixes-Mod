@@ -1259,7 +1259,7 @@ je_bpm_new_wine_in_old_wineskins = {
 	scripted_progress_bar = bpm_old_wine_paternalism_progress_bar
 
 	scripted_button = je_bpm_propagate_the_new_wine_button
-	#scripted_button = je_bpm_reaffirm_the_old_tastes
+	scripted_button = je_bpm_reaffirm_the_old_tastes
 
 	is_shown_when_inactive = {
 		always = yes
@@ -1329,39 +1329,39 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = "rerum_novarum_issued_tooltip"
-			has_global_variable = global_rerum_novarum_issued_var
-		}
-		custom_tooltip = {
-			text = "christdems_dont_have_divine_and_are_rather_progressive_welfare"
-			ig:ig_christian_democrats = {
-				NOT = {
-					has_ideology = ideology_dop_divine_democrat
-				}
-				OR = {
-					has_ideology = ideology_wel_expanded_public_welfare
-					has_ideology = ideology_wel_social_market_welfare
-				}
-			}
-		}
-		custom_tooltip = {
-			text = "christdems_cons_in_the_same_party"
-			ig:ig_christian_democrats = {
-				has_party = yes
-				party = {
-					is_party_type = conservative_party
-				}
-			}
-			ig:ig_conservatives = {
-				has_party = yes
-				party = {
-					is_party_type = conservative_party
-				}
-			}
-		}
+		#custom_tooltip = {
+		#	text = "rerum_novarum_issued_tooltip"
+		#	has_global_variable = global_rerum_novarum_issued_var
+		#}
+		#custom_tooltip = {
+		#	text = "christdems_dont_have_divine_and_are_rather_progressive_welfare"
+		#	ig:ig_christian_democrats = {
+		#		NOT = {
+		#			has_ideology = ideology_dop_divine_democrat
+		#		}
+		#		OR = {
+		#			has_ideology = ideology_wel_expanded_public_welfare
+		#			has_ideology = ideology_wel_social_market_welfare
+		#		}
+		#	}
+		#}
+		#custom_tooltip = {
+		#	text = "christdems_cons_in_the_same_party"
+		#	ig:ig_christian_democrats = {
+		#		has_party = yes
+		#		party = {
+		#			is_party_type = conservative_party
+		#		}
+		#	}
+		#	ig:ig_conservatives = {
+		#		has_party = yes
+		#		party = {
+		#			is_party_type = conservative_party
+		#		}
+		#	}
+		#}
 		
-		#always = yes # needs fixing, so it doesn't show up in the journal entry list
+		always = yes # needs fixing, so it doesn't show up in the journal entry list
 	}
 
 	invalid = {
@@ -1390,7 +1390,7 @@ je_bpm_new_wine_in_old_wineskins = {
 		custom_tooltip = {
 			text = "new_wine_value_50_tooltip"
 			je:je_bpm_new_wine_in_old_wineskins ?= { 
-				"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" = 50
+				"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" >= 75
 			}
 		}
 	}
@@ -1494,9 +1494,17 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	fail = {
-		custom_tooltip = {
-			text = "old_wineskins_paternalism_progress_tooltip"
-			var:bpm_old_wine_paternalism_progress_bar_var >= 6
+		OR = {
+			custom_tooltip = {
+				text = "old_wineskins_paternalism_progress_tooltip"
+				var:bpm_old_wine_paternalism_progress_bar_var >= 6
+			}
+			custom_tooltip = {
+				text = "new_wine_value_minus_25_tooltip"
+				je:je_bpm_new_wine_in_old_wineskins ?= { 
+					"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" <= -25
+				}
+			}
 		}
 	}
 

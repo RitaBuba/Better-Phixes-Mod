@@ -1743,6 +1743,10 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 		name = bpm_new_wine_old_wineskins_flavour.1.a
 		default_option = yes
 
+		ig:ig_christian_democrats = {
+			set_interest_group_name = ig_christian_democrats_leftwing
+		}
+
 		ig:ig_conservatives = {
 			leader = {
 				save_temporary_scope_as = clacon_leader
@@ -1795,19 +1799,7 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 
 			add_ideology = ideology_wel_distributist_welfare
 
-			if = {
-				limit = {
-					owner = {
-						ig:ig_christian_democrats ?= {
-							has_ideology = ideology:ideology_cit_christian_internationalist
-						}
-					}
-				}
-				add_ideology = ideology_cit_multiethnic_nationalist
-			}
-			else = {
-				add_ideology = ideology_cit_nationalist
-			}
+			add_ideology = ideology_cit_multiethnic_nationalist
 
 			add_ideology = ideology_corporatist
 		
@@ -1867,6 +1859,10 @@ bpm_new_wine_old_wineskins_flavour.2 = {
 		name = bpm_new_wine_old_wineskins_flavour.2.a
 		default_option = yes
 
+		ig:ig_conservatives = {
+			set_interest_group_name = ig_paternal_conservatives
+		}
+
 		ig:ig_christian_democrats = {
 			add_modifier = {
 				name = bpm_ig_defeated_in_struggle_for_survival_ig
@@ -1912,13 +1908,13 @@ bpm_new_wine_old_wineskins_flavour.2 = {
 			}
 		}
 
-		ig:ig_devout = {
-			hidden_effect = {
-				bpm_remove_all_wel_ideologies = yes
-			}
-			add_ideology = ideology_wel_paternalistic_welfare
-			add_ideology = ideology_corporatist
-		}
+		#ig:ig_devout = {
+		#	hidden_effect = {
+		#		bpm_remove_all_wel_ideologies = yes
+		#	}
+		#	add_ideology = ideology_wel_paternalistic_welfare
+		#	add_ideology = ideology_corporatist
+		#}
 	}
 }
 
@@ -2047,20 +2043,10 @@ bpm_new_wine_old_wineskins_flavour.5 = {
 		default_option = yes
 
 		custom_tooltip = {
-			text = bpm_je_old_wineskins_increase_value_tt
+			text = bpm_je_old_wineskins_increase_value_2_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = -1
-					name = bpm_new_wine_scripted_progress_bar 
-				}
-			}
-		}
-
-		custom_tooltip = {
-			text = bpm_je_new_wine_decrease_value_tt
-			je:je_bpm_new_wine_in_old_wineskins = {
-				add_progress = { 
-					value = -1
+					value = -2
 					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
@@ -2380,7 +2366,7 @@ bpm_new_wine_old_wineskins_flavour.10 = {
 			text = bpm_je_new_wine_increase_value_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 1
+					value = 2
 					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
@@ -2608,8 +2594,7 @@ bpm_papal_encyclicals.3 = { # Rerum novarum
 					}
 
 					ig:ig_devout = {
-						#bpm_remove_all_eco_ideologies = yes
-						#add_ideology = ideology_eco_distributist_economy
+						add_ideology = ideology_corporatist
 						bpm_remove_all_wel_ideologies = yes
 						add_ideology = ideology_wel_distributist_welfare
 
@@ -2694,6 +2679,16 @@ bpm_new_wine_old_wineskins_flavour.100 = { # Expanding/Limiting Franchise (in di
 		name = bpm_new_wine_old_wineskins_flavour.100.a
 		default_option = yes
 
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_decrease_value_5_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -5
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
+
 		change_variable = {
 			name = bpm_old_wine_paternalism_progress_bar_var
 			add = 1
@@ -2776,6 +2771,16 @@ bpm_new_wine_old_wineskins_flavour.101 = { # Workshop Regulations Act
 		name = bpm_new_wine_old_wineskins_flavour.101.a
 		default_option = yes
 
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_decrease_value_5_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -5
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
+
 		change_variable = {
 			name = bpm_old_wine_paternalism_progress_bar_var
 			add = 1
@@ -2853,6 +2858,16 @@ bpm_new_wine_old_wineskins_flavour.102 = { # Agricultural Modernization Act
 		name = bpm_new_wine_old_wineskins_flavour.102.a
 		default_option = yes
 
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_decrease_value_5_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -5
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
+
 		change_variable = {
 			name = bpm_old_wine_paternalism_progress_bar_var
 			add = 1
@@ -2907,6 +2922,16 @@ bpm_new_wine_old_wineskins_flavour.103 = { # Religious Schools Funding Act
 	option = {
 		name = bpm_new_wine_old_wineskins_flavour.103.a
 		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_decrease_value_5_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -5
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
 
 		change_variable = {
 			name = bpm_old_wine_paternalism_progress_bar_var
@@ -2977,6 +3002,16 @@ bpm_new_wine_old_wineskins_flavour.104 = { # Minor regulatory reforms.
 	option = {
 		name = bpm_new_wine_old_wineskins_flavour.104.a
 		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_decrease_value_5_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -5
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
 
 		change_variable = {
 			name = bpm_old_wine_paternalism_progress_bar_var
@@ -3049,6 +3084,16 @@ bpm_new_wine_old_wineskins_flavour.105 = { # Bill for Wage Support
 	option = {
 		name = bpm_new_wine_old_wineskins_flavour.105.a
 		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_decrease_value_5_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -5
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
 
 		change_variable = {
 			name = bpm_old_wine_paternalism_progress_bar_var
@@ -3127,6 +3172,16 @@ bpm_new_wine_old_wineskins_flavour.106 = { # Bill for Sunday rest
 	option = {
 		name = bpm_new_wine_old_wineskins_flavour.105.a
 		default_option = yes
+
+		custom_tooltip = {
+			text = bpm_je_old_wineskins_decrease_value_5_tt
+			je:je_bpm_new_wine_in_old_wineskins = {
+				add_progress = { 
+					value = -5
+					name = bpm_new_wine_scripted_progress_bar 
+				}
+			}
+		}
 
 		change_variable = {
 			name = bpm_old_wine_paternalism_progress_bar_var

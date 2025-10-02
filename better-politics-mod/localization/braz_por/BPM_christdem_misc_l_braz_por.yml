@@ -214,8 +214,8 @@
  ig_liberal_catholics: "Liberal Catholics"
  ig_liberal_catholics_desc: "$ig_catholic_interests_desc$"
 
- ig_christian_democrats_left: "Christian Democrats (Left)"
- ig_christian_democrats_left_desc: "$ig_christian_democrats_desc$"
+ ig_christian_democrats_leftwing: "Christian Democrats (Left)"
+ ig_christian_democrats_leftwing_desc: "$ig_christian_democrats_desc$"
 
  ig_social_catholics: "Social Catholics"
  ig_social_catholics_desc: "$ig_christian_democrats_desc$"

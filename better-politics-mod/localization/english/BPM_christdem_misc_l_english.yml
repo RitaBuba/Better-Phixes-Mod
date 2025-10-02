@@ -217,8 +217,8 @@
  ig_liberal_catholics: "Liberal Catholics"
  ig_liberal_catholics_desc: "$ig_catholic_interests_desc$"
 
- ig_christian_democrats_left: "Christian Democrats (Left)"
- ig_christian_democrats_left_desc: "$ig_christian_democrats_desc$"
+ ig_christian_democrats_leftwing: "Christian Democrats (Left)"
+ ig_christian_democrats_leftwing_desc: "$ig_christian_democrats_desc$"
 
  ig_social_catholics: "Social Catholics"
  ig_social_catholics_desc: "$ig_christian_democrats_desc$"
@@ -249,7 +249,7 @@
 
  ### ChristDem (R) (Belgium, Italy, Czechoslovakia)
  ig_christian_democrats_rightwing: "Christian Democrats (Right)"
- ig_christian_democrats_rightwing_desc: "The right-wing of Christian Democratic thought is generally more moderate and religious than the rest. Their prudent moderation can range from limiting suffrage and socio-economical legislation, to clericalism and religious welfare. Examples include the Italian Popularists (Right), the Czech Konzervativní Lidovci and the Belgian #italic de Broqueville#! cabinet."
+ ig_christian_democrats_rightwing_desc: "The right-wing of Christian Democratic thought is generally more moderate and religious than the rest. Their prudent moderation can range from limiting suffrage and socio-economical legislation, to clericalism and religious welfare. Examples include the Italian Popularists (Right), the Czech Konzervativní Lidovci, the Austrian Bürgerliche and the Belgian #italic de Broqueville#! cabinet."
 
  ### Classical Conservatives (Belgium, Poland) (If Christdems are the 'conservatives' in the state and the Burke Cons are not with Christian Democrats)
 
@@ -688,8 +688,8 @@
 
  bpm_new_wine_in_old_wineskins_modifier: "Tasting the New Wine"
 
- bpm_clacons_win_tt: "[SCOPE.sCharacter('christdem_leader').GetFullName] resigns with the loss of all influence."
- bpm_christde_win_tt: "[SCOPE.sCharacter('clacon_leader').GetFullName] resigns with the loss of all influence."
+ bpm_clacons_win_tt: "[SCOPE.sCharacter('christdem_leader').GetFullName] becomes politically irrelevant with the loss of all influence."
+ bpm_christde_win_tt: "[SCOPE.sCharacter('clacon_leader').GetFullName] becomes politically irrelevant with the loss of all influence."
 
  je_bpm_new_wine_scripted_progress_bar_name: "#italic New Wine#! Ideological Power"
  je_bpm_new_wine_scripted_progress_bar_desc: "#bold [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant]#! Ideological Power: ([JournalEntry.GetCurrentBarValue(ScriptedProgressBar.Self)|1]/75)"
@@ -710,6 +710,7 @@
 
  old_wineskins_value_50_tooltip: "#bold [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant]#! #gold Ideological Power#! equals #v 75#!.\n(#italic This will lead to a total victory of the @ig_conservatives! Classical Conservatives#!!)"
  new_wine_value_50_tooltip: "#bold [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant]#! #gold Ideological Power#! equals #v 75#!.\n(#italic This will lead to a total victory of the @ig_christian_democrats! Christian Democrats#!!)"
+ new_wine_value_minus_25_tooltip: "#bold [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant]#! #gold Ideological Power#! equals #red #v -25#!#!.\n(#italic This will lead to a total victory of the @ig_christian_democrats! Classical Conservatives#!!)"
 
  bpm_conservatives_winning_tooltip_tt: "The following changes will happen upon the victory of the @ig_conservatives! Classical Conservatives:"
 
@@ -721,13 +722,13 @@
 
  
 
- je_bpm_ideological_power: "#v Ideological Power#! is a ’mechanic’ that represents the coherent unity, committment and general entrenched political influence inside the local [Concept('concept_party', 'Conservative Party')], in both the #bold hushed grassroots#! and the #bold floors of the parliament#!. Both sides in this [concept_journal_entry] will gain #v Ideological Power#! depending on various values and factors, and could try to limit the growth of the other side with the use of their own #v Ideological Power#!.\n\n#v #lore 50#! Ideological Power#! is required to win, if none manage to reach it, and time runs out, a #v Status Quo#! will be made."
+ je_bpm_ideological_power: "#v Ideological Power#! is a ’mechanic’ that represents the coherent unity, committment and general entrenched political influence inside the local [Concept('concept_party', 'Conservative Party')], in both the #bold hushed grassroots#! and the #bold floors of the parliament#!. Both sides in this [concept_journal_entry] will gain #v Ideological Power#! depending on various values and factors, and could try to limit the growth of the other side with the use of their own #v Ideological Power#!.\n\n#v #lore 75#! Ideological Power#! is required to win, if none manage to reach it, and time runs out, a #v Status Quo#! will be made."
  
  je_bpm_new_wine_in_old_wineskins: "New Wine in Old Wineskins"
  je_bpm_new_wine_in_old_wineskins_reason: "The once relatively minor, weak and easily manipulated Catholic laymen have grown considerably throughout the years, and with the release of the encyclical ’Rerum novarum’ they even started to more openly partake in politics, much to the disgruntlement of the old, conservative elites.\n\nOften radical and persistent, the [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will have to wage a war for survival with the cunning [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant]. #v And there can only be one winner#!.\n\nThis [concept_journal_entry] follows the highly dynamic and influential [Concept('concept_political_strength', 'Political Battle')] that happeened in many countries, between the @ig_christian_democrats! #bold Christian Democrats#! and @ig_conservatives! #bold Classical Conservatives#!, in which both sides engaged in shrewd #italic political maneuvering#! to undermine the enemy [Concept('concept_political_movement', 'Faction')]/[Concept('concept_interest_group', 'Ideology')] and gain unassailable advantage, eventually #v defeating#! and #v absorbing#! the loser. For @ig_christian_democrats! Christian Democrats to win, they must reach #v 75#! #bold #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_ideological_power Ideological Power#!#!; and for the @ig_conservatives! Conservatives to win, they must pass #bold #tooltippable;tooltip:[Country.GetTooltipTag],je_bpm_paternalistic_reforms_tooltip Paternalistic Reforms#!#! to undermine the Catholics. The loser will be turned into a ’faction’ or a ’wing’. If none manage to win and #bold time runs out#!, a #v Status Quo#! will be made between both, ending this [concept_journal_entry].\n\n#lore It is also a mistake to believe that what exists today must survive until tomorrow and beyond, to want to maintain the present at all costs because we feel comfortable in it, to strive for immediate change in the present because we feel uncomfortable in it, and finally, to forget that the present is always, in reality, the emergence of a new state of affairs, and that this emergence is continuous.\n\n— Wojciech Korfanty, 1927#!"
  je_bpm_new_wine_in_old_wineskins_status: "Now for an exquisite taste."
 
- je_bpm_paternalistic_reforms_tooltip: "To fill this #bold Progress Bar#!, you #v must#! have [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] [concept_in_government], and pass:\n- [GetLawType('law_census_voting').GetName];\n- [GetLawType('law_regulatory_bodies').GetName];\n- [GetLawType('law_wage_subsidies').GetName];\n- [GetLawType('law_repeatable_politics_popular_concessions').GetName];\n- [GetLawType('law_token_time_regulations').GetName]\n- [GetLawType('law_repeatable_economy_agricultural_investment').GetName];\n- [GetLawType('law_repeatable_politics_popular_concessions').GetName];\n- [GetLawType('law_repeatable_religion_promote_state_religion').GetName]"
+ je_bpm_paternalistic_reforms_tooltip: "To fill this #bold Progress Bar#!, you #v must#! have [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] [concept_in_government], and pass:\n- [GetLawType('law_census_voting').GetName];\n- [GetLawType('law_regulatory_bodies').GetName];\n- [GetLawType('law_wage_subsidies').GetName];\n- [GetLawType('law_token_time_regulations').GetName]\n- [GetLawType('law_repeatable_economy_agricultural_investment').GetName];\n- [GetLawType('law_repeatable_politics_popular_concessions').GetName];\n- [GetLawType('law_repeatable_religion_promote_state_religion').GetName]"
 
  bpm_je_new_wine_increase_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 2#!#!!"
  bpm_je_old_wineskins_increase_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
@@ -758,10 +759,13 @@
  BPM_VALUE_FROM_LABOR_CONCIOUSNESS: "#bold #gold @laborers! Labor Consciousness#!#!"
  BPM_VALUE_FROM_LEADER_POPULARITY: "[concept_popularity] of the [Concept('concept_leader', 'Leader')] of [GetInterestGroupVariant('ig_christian_democrats', GetPlayer).GetNameWithCountryVariant]"
  BPM_VALUE_FROM_RADICAL_CLOUT: "popularity of [Concept('concept_bpm_ig_is_radical_left' 'Radical Left')] [Concept('concept_interest_group', 'Interest Groups')]"
- BPM_VALUE_FROM_MOVEMENTS_CHRISTDEM: "#pink Labor-Socialist#! and #orange Radical#! [Concept('concept_political_movement', 'Political Movements')]"
+ BPM_VALUE_FROM_MOVEMENTS_CHRISTDEM: "#pink Labor-Socialist#! and #orange Radical#! [Concept('concept_political_movement', 'Political Movements')]" 
+ BPM_VALUE_FROM_MOVEMENTS_LAISSEZ_FAIRE: "[concept_political_movement_support] of #yellow Laissez-faire#! and #yellow Liberal#! [Concept('concept_political_movement', 'Political Movements')]"
  BPM_VALUE_FROM_TRAITS_BASIC: "regular [Concept('concept_character_trait', 'Character Traits')] (like #bold Persistent#! or #bold Grifter#!)"
  BPM_VALUE_FROM_TRAITS_STRONG: "important [Concept('concept_character_trait', 'Character Traits')] (like #bold Charismatic#! and #bold Pious#!)"
  BPM_VALUE_FROM_CLOUT_DIFFERENCE: "[concept_clout] difference between [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] and [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] (#italic #bold Christian Democrats must have more Clout than Conservatives#!#!)" 
+
+ BPM_VALUE_FROM_PATERNALISTIC_LAWS: "[GetIdeology('ideology_wel_paternalistic_welfare').GetName] Reforms"
 
 
  bpm_new_wine_old_wineskins_flavour.1.t: "Not Vinegar"
@@ -776,9 +780,9 @@
  bpm_new_wine_old_wineskins_flavour.2.a: "Just as the Pope intented."
 
  bpm_new_wine_old_wineskins_flavour.3.t: "Oil and Water"
- bpm_new_wine_old_wineskins_flavour.3.d: ""
+ bpm_new_wine_old_wineskins_flavour.3.d: "The rise of @ig_christian_democrats! Christian Democrats and their struggle against the @ig_conservatives! Classical Conservatives ended in an uneding Status Quo, with both sides unable to destroy the other."
  bpm_new_wine_old_wineskins_flavour.3.f: ""
- bpm_new_wine_old_wineskins_flavour.3.a: ""
+ bpm_new_wine_old_wineskins_flavour.3.a: "That is... dissapointing..."
 
  bpm_new_wine_old_wineskins_flavour.4.t: "Unchallanged Right-winger"
  bpm_new_wine_old_wineskins_flavour.4.d: "The leader of the leading @ig_conservatives! Conservative faction — [SCOPE.sCharacter('unchallanged_right_winger').GetFullName] — has claimed himself as the true an only leader that truly represents the political right. He has openly called out everyone who opposed him and his conservatism, and has gained further support."
@@ -835,6 +839,8 @@
  bpm_je_old_wineskins_increase_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
  bpm_je_new_wine_increase_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 2#!#!!"
 
+ bpm_je_old_wineskins_decrease_value_5_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 5#!#!!"
+
  bpm_making_use_of_entranched_interests: "Making Use of Entrenched Interests"
 
  bpm_new_wine_old_wineskins_flavour.11.t: "New Wine in Old Wineskins"
@@ -859,7 +865,7 @@
 
 
 
- BPM_VALUE_FROM_PEASANT_POPULATION_COMPETITION_WITH_AGRPOPS_LAND_REFORM_POWER: "[GetPopType('peasants').GetName] Population; competing with [GetInterestGroupVariant('ig_agrarian_populists',GetPlayer).GetNameWithCountryVariant] for rural voters (#italic positive if [GetInterestGroupVariant('ig_agrarian_populists',GetPlayer).GetName] are in a [concept_party] with [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetName]#!) and [concept_political_movement_support] for the #gold Peasant Movement#! (#italic #v Ideological Leaning#! must be below #gold 66%#!!#!)"
+ BPM_VALUE_FROM_PEASANT_POPULATION_COMPETITION_WITH_AGRPOPS_LAND_REFORM_POWER: "[GetPopType('peasants').GetName] Population; competing with [GetInterestGroupVariant('ig_agrarian_populists',GetPlayer).GetNameWithCountryVariant] for rural voters (#italic positive if [GetInterestGroupVariant('ig_agrarian_populists',GetPlayer).GetName] are in a [concept_party] with [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetName]#!) and [concept_political_movement_support] for the #green Peasant Movement#! (#italic #v Ideological Leaning#! must be below #gold 66%#!!#!)"
  BPM_VALUE_FROM_SOCIALIST_MOVEMENTS_IGS_AND_AUTHORITARIANISM: "[Concept('concept_bpm_ig_is_socialist', 'Socialist')] [Concept('concept_interest_group', 'Interest Groups')] and their [concept_clout], and [concept_political_movement_support] for various #pink Socialist#! [Concept('concept_political_movement', 'Political Movements')]"
 
 
@@ -1042,9 +1048,14 @@
 
  from_professional_interests_no_parties_allowed: "No Parties Allowed Law"
  from_rural_interests_no_parties_allowed: "No Parties Allowed Law"
+ from_church_interests_no_parties_allowed: "No Parties Allowed Law"
  from_very_unsatisfied_with_the_existing_system: "Very Unsatisfied" 
  from_unsatisfied_with_the_existing_system: "Unsatisfied"
  from_independents_against_organic_democracy: "Against Organic Democracy as a Whole"
  from_trade_union_interests_no_parties_allowed: "No Parties Allowed Law"
 
  from_conservatives_no_parties_allowed: "Conservative-Agrarian Economical Approach"
+ from_laissez_faire_no_parties_allowed: "Laissez-faire Ideology"
+ party_church_parish: "Church Parishes"
+ from_invterventionist_no_parties_allowed: "Strong Support for Interventionist"
+ from_religious_welfare_no_parties_allowed: "Religious-driven Welfare" 
