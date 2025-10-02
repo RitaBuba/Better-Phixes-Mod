@@ -1301,7 +1301,7 @@ movement_anarchist = {
 		}
 		if = {
 			limit = {
-				political_movement_support >= 0.03
+				political_movement_support >= 0.25
 			}
 			add = {
 				# Anarchists are always mad
