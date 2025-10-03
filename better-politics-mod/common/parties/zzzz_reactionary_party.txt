@@ -339,7 +339,7 @@ reactionary_party = {
 				is_interest_group_type = ig_reactionaries
 			}
 			add = {
-				value = 10
+				value = 15
 				desc = "bpm_from_powerful_reactionaries"
 			}
 		}
@@ -629,6 +629,65 @@ reactionary_party = {
 				desc = "from_monarchist"
 			}
 		}
+
+		if = { # devout more likely to join conservatives with freedom of conscience
+			limit = {
+				law_stance = {
+					law = law_type:law_state_atheism
+					value < neutral
+				}
+				owner = { has_law = law_type:law_state_atheism }
+			}
+			add = {
+				value = 10
+				desc = "from_devout_atheism"
+			}
+		}
+
+		if = { # landowners will join
+			limit = {
+				is_interest_group_type = ig_landowners
+			}
+			add = {
+				value = 5
+				desc = "bpm_from_landowners"
+			}
+		}
+
+		if = { # the military is very patriotic and wil join will join
+			limit = {
+				is_interest_group_type = ig_armed_forces
+				owner = {
+					has_technology_researched = political_agitation
+				}
+			}
+			add = {
+				value = 6
+				desc = "bpm_from_military"
+			}
+		}
+
+		if = { # left-wing Catholic and right-wing Catholic division along monarchist lines
+			limit = {
+				bpm_ig_is_monarchist = yes
+				bpm_ig_is_organic_democrat = yes
+				owner = {
+					any_interest_group = {
+						is_interest_group_type = ig_christian_democrats
+						bpm_ig_is_republican = yes
+					}
+					religion_percent_country = { 
+						target = rel:catholic
+						value >= 0.5
+					}
+				}
+			}
+			add = {
+				value = 10
+				desc = "from_monarchist_catholics"
+			}
+		}
+
 		if = { # brazilian devout in republic
 			limit = {
 				is_interest_group_type = ig_devout
@@ -683,7 +742,7 @@ reactionary_party = {
 				bpm_ig_is_organic_democrat = yes
 			}
 			add = {
-				value = 25
+				value = 5
 				desc = "from_organicism"
 			}
 		}
@@ -728,13 +787,10 @@ reactionary_party = {
 					is_member_of_party = owner.py:conservative_party
 					is_powerful = yes
 				}
-				OR = {
-					is_interest_group_type = ig_national_liberals
-					is_interest_group_type = ig_market_liberals
-				}
+				bpm_ig_is_liberal_conservative = yes
 			}
 			add = {
-				value = 15
+				value = 10
 				desc = "from_powerful_christian_democrats"
 			}
 		}

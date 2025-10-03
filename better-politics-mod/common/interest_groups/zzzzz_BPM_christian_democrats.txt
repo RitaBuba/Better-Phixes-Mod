@@ -1,4 +1,4 @@
-ig_christian_democrats = {
+﻿ig_christian_democrats = {
 	color = hsv{ 0.52 0.85 1.0 }
 	texture = "gfx/interface/icons/ig_icons/christian_democrats.dds"	
 	layer = "revolution_dynamic_rural_folk"
@@ -101,15 +101,19 @@ ig_christian_democrats = {
         if = {
             limit = { 
                 has_pop_religion = catholic
-				#owner = {
-				#	NOT = {
-				#		country_has_state_religion = rel:catholic
-				#	}
-				#}
+				owner = { 
+                    religion_percent_country = { 
+						target = rel:catholic
+						value <= 0.5 
+					}
+					NOT = {
+						country_has_state_religion = rel:catholic
+					}
+                }
             }
             add = { 
                 desc = "Catholic Religion"
-                value = 10
+                value = 250
             }
         }
 
@@ -190,7 +194,7 @@ ig_christian_democrats = {
 						}
 					}
 					add = {
-						value = 20
+						value = 10
 					}
 				}
 				else_if = {
@@ -463,27 +467,27 @@ ig_christian_democrats = {
 			}
 		}	
 
-        multiply = { #stronger in non-Catholic countries (see Zentrum, Brabant/Limburg in the Netherlands)
-            desc = "Catholic Minority"    
-        
-            value = 1.0 
-            if = { 
-                limit = { 
-                    owner = { 
-                        OR = {
-							religion_percent_country = { 
-								target = rel:catholic
-								value <= 0.5 
-							}
-						}
-						NOT = {
-							country_has_state_religion = rel:catholic
-						}
-                    }
-                }
-                value = 10
-            }
-        }
+        #multiply = { #stronger in non-Catholic countries (see Zentrum, Brabant/Limburg in the Netherlands)
+        #    desc = "Catholic Minority"    
+        #
+        #    value = 1.0 
+        #    if = { 
+        #        limit = { 
+        #            owner = { 
+        #                OR = {
+		#					religion_percent_country = { 
+		#						target = rel:catholic
+		#						value <= 0.5 
+		#					}
+		#				}
+		#				NOT = {
+		#					country_has_state_religion = rel:catholic
+		#				}
+        #            }
+        #        }
+        #        value = 10
+        #    }
+        #}
 
 		if = {
 			limit = { owner = { NOT = { has_technology_researched = corporatism } } }

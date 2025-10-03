@@ -1329,39 +1329,39 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	possible = {
-		#custom_tooltip = {
-		#	text = "rerum_novarum_issued_tooltip"
-		#	has_global_variable = global_rerum_novarum_issued_var
-		#}
-		#custom_tooltip = {
-		#	text = "christdems_dont_have_divine_and_are_rather_progressive_welfare"
-		#	ig:ig_christian_democrats = {
-		#		NOT = {
-		#			has_ideology = ideology_dop_divine_democrat
-		#		}
-		#		OR = {
-		#			has_ideology = ideology_wel_expanded_public_welfare
-		#			has_ideology = ideology_wel_social_market_welfare
-		#		}
-		#	}
-		#}
-		#custom_tooltip = {
-		#	text = "christdems_cons_in_the_same_party"
-		#	ig:ig_christian_democrats = {
-		#		has_party = yes
-		#		party = {
-		#			is_party_type = conservative_party
-		#		}
-		#	}
-		#	ig:ig_conservatives = {
-		#		has_party = yes
-		#		party = {
-		#			is_party_type = conservative_party
-		#		}
-		#	}
-		#}
+		custom_tooltip = {
+			text = "rerum_novarum_issued_tooltip"
+			has_global_variable = global_rerum_novarum_issued_var
+		}
+		custom_tooltip = {
+			text = "christdems_dont_have_divine_and_are_rather_progressive_welfare"
+			ig:ig_christian_democrats = {
+				NOT = {
+					has_ideology = ideology_dop_divine_democrat
+				}
+				OR = {
+					has_ideology = ideology_wel_expanded_public_welfare
+					has_ideology = ideology_wel_social_market_welfare
+				}
+			}
+		}
+		custom_tooltip = {
+			text = "christdems_cons_in_the_same_party"
+			ig:ig_christian_democrats = {
+				has_party = yes
+				party = {
+					is_party_type = conservative_party
+				}
+			}
+			ig:ig_conservatives = {
+				has_party = yes
+				party = {
+					is_party_type = conservative_party
+				}
+			}
+		}
 		
-		always = yes # needs fixing, so it doesn't show up in the journal entry list
+		#always = yes # needs fixing, so it doesn't show up in the journal entry list
 	}
 
 	invalid = {
