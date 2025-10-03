@@ -240,7 +240,7 @@ bpm_rename_christian_democrat_ig = {
 			has_global_variable = global_rerum_novarum_issued_var
 			has_local_variable = rightwing_christian_democrats_loc_var
 		}
-		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_democrats_left }
+		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_democrats_leftwing }
 	}
 	else = {
 		ig:ig_christian_democrats ?= { set_interest_group_name = ig_christian_democrats }
@@ -1471,17 +1471,6 @@ bpm_rename_reactionary_ig = {
 			ig:ig_reactionaries ?= { 
 				OR = {
 					bpm_ig_is_democrat = yes 
-					bpm_ig_is_organic_democrat = yes
-				}
-			}
-		}
-		ig:ig_reactionaries ?= { set_interest_group_name = ig_national_conservatives }
-	}
-	else_if = {
-		limit = {
-			ig:ig_reactionaries ?= { 
-				OR = {
-					bpm_ig_is_democrat = yes 
 					has_ideology = ideology:ideology_dop_organic_democrat
 				}
 			}
@@ -1543,11 +1532,23 @@ bpm_rename_reactionary_ig = {
 			owner = {
 				religion_percent_country = { 
 					target = rel:catholic
-					value >= 0.6
+					value >= 0.5
 				}
 			}
 		}
 		ig:ig_reactionaries ?= { set_interest_group_name = ig_national_conservatives_catholic }
+	}
+
+	else_if = {
+		limit = {
+			ig:ig_reactionaries ?= { 
+				OR = {
+					bpm_ig_is_democrat = yes 
+					bpm_ig_is_organic_democrat = yes
+				}
+			}
+		}
+		ig:ig_reactionaries ?= { set_interest_group_name = ig_national_conservatives }
 	}
 	
 	else = {

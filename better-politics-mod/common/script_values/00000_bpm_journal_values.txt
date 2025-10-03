@@ -1256,7 +1256,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				#divide = 2.5
-				divide = 3.33
+				divide = 2.5
 				#max = 0
 			}
 
@@ -1283,7 +1283,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 2.33
+					multiply = 3.33
 				}
 			}
 
@@ -1316,7 +1316,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 					multiply = ROOT.ig:ig_christian_democrats.ig_clout
 					#divide = 1.66
-					multiply = 4.44
+					multiply = 5.55
 				}
 			}
 		}
@@ -1427,8 +1427,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					value = 15
 					subtract = average_sol
 					divide = 15
-					multiply = 1.66
-					min = 0.0
+					multiply = 1.33
+					min = 0.0	
 					#max = 1.0 # (1-0.66)*3 will be 1.02, so we clamp it for nice numbers
 				}
 			}
@@ -1613,6 +1613,22 @@ bpm_je_christdem_ideological_power_gain = {
 	}
 
 	add = {
+		desc = "BPM_VALUE_FROM_TRADE_UNIONS_CLOUT"
+		if = {
+			limit = {
+				always = yes
+			}
+			every_interest_group = {
+				limit = {
+					is_interest_group_type = ig_trade_unions
+				}
+				add = interest_group_population_percentage
+			}
+			multiply = 10
+		}
+	}
+
+	add = {
 		desc = "BPM_VALUE_FROM_LABOR_CONCIOUSNESS"
 		if = {
 			limit = {
@@ -1661,23 +1677,22 @@ bpm_je_christdem_ideological_power_gain = {
 	}
 
 	add = {
-		desc = "BPM_VALUE_FROM_TRADE_UNIONS_CLOUT"
+		desc = "BPM_VALUE_FROM_PATERNALISTIC_LAWS"
 		if = {
 			limit = {
 				always = yes
 			}
-			every_interest_group = {
-				limit = {
-					is_interest_group_type = ig_trade_unions
-				}
-				add = interest_group_population_percentage
+			subtract = {
+				value = var:bpm_old_wine_paternalism_progress_bar_var
+				divide = 10
 			}
-			multiply = 10
 		}
 	}
 
+	
+
 	add = {
-		desc = "BPM_VALUE_FROM_MOVEMENTS_CHRISTDEM"
+		desc = "BPM_VALUE_FROM_MOVEMENTS_LAISSEZ_FAIRE"
 
 		if = {
 			limit = {
@@ -1686,33 +1701,14 @@ bpm_je_christdem_ideological_power_gain = {
 			every_political_movement = {
 				limit = {
 					OR = {
-						is_political_movement_type = movement_labor
-						is_political_movement_type = movement_socialist
-						is_political_movement_type = movement_reformist_socialist
-						is_political_movement_type = movement_communist
-						is_political_movement_type = movement_anarchist
+						is_political_movement_type = movement_laissez_faire
+						is_political_movement_type = movement_liberal
 					}
 				}
-				add = {
-					value = political_movement_support
-					multiply = 1.25
-					divide = 1.5
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				always = yes
-			}
-			every_political_movement = {
-				limit = {
-					is_political_movement_type = movement_radical
-				}
-				add = {
+				subtract = {
 					value = political_movement_support
 					multiply = 1.33
-					divide = 1.66
+					divide = 2.5
 				}
 			}
 		}
@@ -1863,220 +1859,6 @@ bpm_je_christdem_ideological_power_gain = {
 	}
 }
 
-bpm_je_clacon_ideological_power_gain = {
-	value = 0
-
-	add = {
-		desc = "BPM_VALUE_FROM_LOW_LIBERAL_CONCIOUSNESS"
-		limit = {
-			has_variable = bpm_consciousness_liberal
-		}
-		add = {
-			value = ROOT.var:bpm_consciousness_liberal
-			multiply = -1
-			add = 75
-			multiply = 0.0075
-		}
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_LEADER_POPULARITY_CON"
-		every_scope_character = {
-			limit = {
-				is_interest_group_type = ig_conservatives
-				has_role = politician
-			}
-			add = popularity
-		}
-		multiply = 0.0022
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_LIBERAL_CONSERVATIVE_CLOUT"
-		if = {
-			limit = {
-				always = yes
-			}
-			every_interest_group = {
-				limit = {
-					OR = {
-						is_interest_group_type = ig_national_liberals
-						is_interest_group_type = ig_market_liberals
-						is_interest_group_type = ig_liberals
-					}
-				}
-				add = interest_group_population_percentage
-			}
-			multiply = 20
-		}
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_MOVEMENTS_CLACON"
-
-		if = {
-			limit = {
-				always = yes
-			}
-			every_political_movement = {
-				limit = {
-					OR = {
-						is_political_movement_type = movement_national_liberal
-						is_political_movement_type = movement_laissez_faire
-					}
-				}
-				add = {
-					value = political_movement_support
-					multiply = 1.55
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				always = yes
-			}
-			every_political_movement = {
-				limit = {
-					is_political_movement_type = movement_liberal
-				}
-				add = {
-					value = political_movement_support
-					multiply = 1.11
-				}
-			}
-		}
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_TRAITS_BASIC"
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = direct
-					}
-				}
-			}
-
-			add = 0.1
-		}
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = persistent
-					}
-				}
-			}
-
-			add = 0.1
-		}
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = reckless
-					}
-				}
-			}
-
-			subtract = 0.15
-		}
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = meticulous
-					}
-				}
-			}
-
-			add = 0.1
-		}
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = imposing
-					}
-				}
-			}
-
-			add = 0.1
-		}
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = master_bureaucrat
-					}
-				}
-			}
-
-			add = 0.1
-		}
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = grifter
-					}
-				}
-			}
-
-			subtract = 0.2
-		}
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = ruthless
-					}
-				}
-			}
-
-			add = 0.05
-		}
-	}
-
-	add = {
-		desc = "BPM_VALUE_FROM_TRAITS_STRONG"
-		
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = charismatic
-					}
-				}
-			}
-
-			add = 0.2
-		}
-
-		if = {
-			limit = {
-				ig:ig_conservatives = {
-					leader = {
-						has_trait = pious
-					}
-				}
-			}
-
-			add = 0.2
-		}
-	}
-}
-
 bpm_organicists_popularity = {
 	value = 0
 	every_interest_group = {
@@ -2172,304 +1954,5 @@ bpm_moralist_popularity = {
 			}
 		}
 		add = ig_clout
-	}
-}
-
-bpm_je_encyclical_values_rate = {
-	value = 0
-
-	add = {
-		desc = "BPM_VALUE_FROM_RADLIBS_SOCIALIST_CLOUT"
-		
-		every_country = {
-			limit = {
-				country_rank = rank_value:great_power
-			}
-
-			every_interest_group = {
-				limit = { 
-					is_interest_group_type = ig_radicals
-					is_interest_group_type = ig_socialists
-				}
-				add = {
-					value = ig_clout
-					multiply = 1.22
-				}
-			}
-		}
-	}
-}
-
-bpm_radlibs_socialists_popularity = {
-	value = 0
-
-	if = {
-		limit = {
-			country_rank = rank_value:great_power
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_interest_group = {
-			limit = { 
-				is_interest_group_type = ig_radicals
-				is_interest_group_type = ig_socialists
-			}
-			add = {
-				value = ig_clout
-				multiply = 1.66
-			}
-		}
-	}
-
-	if = {
-		limit = {
-			NOT = {
-				country_rank = rank_value:great_power
-			}
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_interest_group = {
-			limit = { 
-				is_interest_group_type = ig_radicals
-				is_interest_group_type = ig_socialists
-			}
-			add = {
-				value = ig_clout
-				multiply = 1.66
-			}
-		}
-	}
-
-	every_country = {
-		limit = {
-			NOT = {
-				country_rank = rank_value:great_power
-			}
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_interest_group = {
-			limit = { 
-				OR = {
-					is_interest_group_type = ig_radicals
-					is_interest_group_type = ig_socialists
-				}
-			}
-			add = {
-				value = ig_clout
-				multiply = 1.33
-			}
-		}
-	}
-}
-
-bpm_modlibs_popularity = {
-	value = 0
-	every_country = {
-		limit = {
-			country_rank = rank_value:great_power
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_interest_group = {
-			limit = { 
-				is_interest_group_type = ig_liberals
-			}
-			add = {
-				value = ig_clout
-				multiply = 1.44
-			}
-		}
-	}
-
-	every_country = {
-		limit = {
-			NOT = {
-				country_rank = rank_value:great_power
-			}
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_interest_group = {
-			limit = { 
-				is_interest_group_type = ig_liberals
-			}
-			add = {
-				value = ig_clout
-				multiply = 1.11
-			}
-		}
-	}
-}
-
-bpm_natlib_popularity = {
-	value = 0
-	every_country = {
-		limit = {
-			country_rank = rank_value:great_power
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_interest_group = {
-			limit = { 
-				is_interest_group_type = ig_national_liberals
-			}
-			add = {
-				value = ig_clout
-				multiply = 1.33
-			}
-		}
-	}
-
-	every_country = {
-		limit = {
-			NOT = {
-				country_rank = rank_value:great_power
-			}
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_interest_group = {
-			limit = { 
-				is_interest_group_type = ig_national_liberals
-			}
-			add = {
-				value = ig_clout
-				multiply = 1
-			}
-		}
-	}
-}
-
-bpm_liberal_movements_strength = {
-	value = 0
-	every_country = {
-		limit = {
-			country_rank = rank_value:great_power
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_political_movement = {
-			limit = {
-				is_political_movement_type = movement_liberal
-			}
-			add = {
-				value = political_movement_support
-				divide = 2
-			}
-		}
-
-		every_political_movement = {
-			limit = {
-				is_political_movement_type = movement_radical
-			}
-			add = {
-				value = political_movement_support
-				divide = 1.5
-			}
-		}
-
-		every_political_movement = {
-			limit = {
-				is_political_movement_type = movement_national_liberal
-			}
-			add = {
-				value = political_movement_support
-				divide = 1.25
-			}
-		}
-	}
-
-	every_country = {
-		limit = {
-			NOT = {
-				country_rank = rank_value:great_power
-			}
-			OR = {
-				religion_percent_country = { 
-					target = rel:catholic
-					value >= 0.2
-				}
-				country_has_state_religion = rel:catholic
-			}
-		}
-
-		every_political_movement = {
-			limit = {
-				is_political_movement_type = movement_liberal
-			}
-			add = {
-				value = political_movement_support
-				divide = 3
-			}
-		}
-
-		every_political_movement = {
-			limit = {
-				is_political_movement_type = movement_radical
-			}
-			add = {
-				value = political_movement_support
-				divide = 2
-			}
-		}
-		every_political_movement = {
-			limit = {
-				is_political_movement_type = movement_national_liberal
-			}
-			add = {
-				value = political_movement_support
-				divide = 2
-			}
-		}
 	}
 }

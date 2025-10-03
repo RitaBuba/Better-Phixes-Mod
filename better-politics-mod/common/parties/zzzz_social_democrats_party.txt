@@ -644,7 +644,7 @@ social_democrat_party = {
 			}
 
 			add = {
-				value = 50
+				value = 150
 				desc = "from_trade_union_interests_no_parties_allowed"
 			}
 		}

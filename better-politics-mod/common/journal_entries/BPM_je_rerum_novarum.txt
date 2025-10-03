@@ -27,6 +27,13 @@
 				}
 			}
 		}
+		custom_tooltip = {
+			text = "Country has more than or equal to 10% Catholics"
+			religion_percent_country = { 
+				target = rel:catholic
+				value >= 0.1
+			}
+		}
 		#always = yes
 	}
 
@@ -281,6 +288,13 @@ je_bpm_immortal_god = {
 		custom_tooltip = {
 			text = "Quanta cura has been issued"
 			has_global_variable = global_variable_quanta_cura_var_released
+		}
+		custom_tooltip = {
+			text = "Country has more than or equal to 10% Catholics"
+			religion_percent_country = { 
+				target = rel:catholic
+				value >= 0.1
+			}
 		}
 	}
 
@@ -543,6 +557,13 @@ je_bpm_light_amidst_darkness = {
 			text = "Graves de communi re has been issued"
 			has_global_variable = global_variable_immortale_dei_var_released
 		}
+		custom_tooltip = {
+			text = "Country has more than or equal to 10% Catholics"
+			religion_percent_country = { 
+				target = rel:catholic
+				value >= 0.1
+			}
+		}
 		#always = yes
 	}
 
@@ -801,6 +822,13 @@ je_bpm_graves_de_communi_re = {
 			has_global_variable = global_rerum_novarum_issued_var
 		}
 		#always = yes
+		custom_tooltip = {
+			text = "Country has more than or equal to 10% Catholics"
+			religion_percent_country = { 
+				target = rel:catholic
+				value >= 0.1
+			}
+		}
 	}
 
 	immediate = {

@@ -5,7 +5,12 @@ religious_party = {
 	color = { 100 100 100 }
 	name = {
 		first_valid = {
-
+			triggered_desc = {
+				desc = party_church_parish
+				trigger = {
+					has_law = law_type:law_no_parties_allowed
+				}
+			}
 			triggered_desc = {
 				desc = party_catholic_peoples_party
 				trigger = {
@@ -175,6 +180,45 @@ religious_party = {
 			desc = "base_value"
 		}
 
+		if = { # Representing a more rural-one faction
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+				is_interest_group_type = ig_devout
+			}
+
+			add = {
+				value = 75
+				desc = "from_church_interests_no_parties_allowed"
+			}
+		}
+
+		if = { # Distributist or Paternalistic Welfare
+			limit = {
+				owner = {
+					has_law = law_type:law_no_parties_allowed
+					NOT = {
+						has_law = law_type:law_outlawed_dissent
+					}
+				}
+				OR = {
+					has_ideology = ideology:ideology_eco_distributist_welfare
+					has_ideology = ideology:ideology_wel_paternalistic_welfare
+				}
+			}
+
+			add = {
+				value = 5
+				desc = "from_religious_welfare_no_parties_allowed"
+			}
+		}
+
+
+
 		if = { # French Liberal Action
 			limit = {
 				is_interest_group_type = ig_christian_democrats
@@ -291,22 +335,6 @@ religious_party = {
 			add = {
 				value = -25
 				desc = "bpm_from_hostility_towards_democracy"
-			}
-		}
-
-		if = {
-			limit = {
-				owner = {
-					has_law = law_type:law_no_parties_allowed
-					NOT = {
-						has_law = law_type:law_outlawed_dissent
-					}
-				}
-			}
-
-			add = {
-				value = -50
-				desc = "from_no_reason_to_exist"
 			}
 		}
 

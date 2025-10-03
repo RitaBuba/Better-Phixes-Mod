@@ -28,7 +28,7 @@ law_autocracy = {
 	modifier = {
 		country_legitimacy_govt_total_clout_add = 100
 		country_legitimacy_govt_size_add = 2
-		country_legitimacy_ideological_incoherence_mult = 0.25
+		country_legitimacy_ideological_incoherence_mult = 0.1
 		country_bureaucrats_pol_str_mult = 0.5
 		country_peasants_pol_str_mult = -0.4
 		state_pop_pol_str_mult = -0.95
@@ -110,7 +110,7 @@ law_colonial_admin = {
 		country_legitimacy_govt_total_clout_add = 60
 		country_legitimacy_govt_total_votes_add = 10
 		country_legitimacy_govt_size_add = 2
-		country_legitimacy_ideological_incoherence_mult = 0.1
+		country_legitimacy_ideological_incoherence_mult = 0.05
 		country_voting_power_base_add = 1
 		country_voting_power_wealth_threshold_add = 30
 		country_aristocrats_pol_str_mult = 0.80
@@ -257,7 +257,7 @@ law_oligarchy = {
 	modifier = {
 		country_legitimacy_govt_total_clout_add = 115
 		country_legitimacy_govt_size_add = 2
-		country_legitimacy_ideological_incoherence_mult = 0.25
+		country_legitimacy_ideological_incoherence_mult = 0.1
 		country_aristocrats_pol_str_mult = 0.40
 		country_bureaucrats_pol_str_mult = 0.40
 		country_capitalists_pol_str_mult = 0.40
@@ -356,7 +356,7 @@ law_elder_council = {
 		country_legitimacy_base_add = 20
 		country_legitimacy_govt_total_clout_add = 100
 		country_legitimacy_govt_size_add = 1
-		country_legitimacy_ideological_incoherence_mult = -0.1
+		country_legitimacy_ideological_incoherence_mult = -0.25
 		country_aristocrats_pol_str_mult = 0.5
 		country_officers_pol_str_mult = 0.5
 		country_clergymen_pol_str_mult = 0.5
@@ -967,7 +967,7 @@ law_anarchy = {
 	modifier = {
 		state_pop_pol_str_add = 4
 		state_political_strength_from_wealth_mult = -0.75
-		country_legitimacy_ideological_incoherence_mult = -0.25
+		country_legitimacy_ideological_incoherence_mult = -0.5
 		country_legitimacy_govt_total_clout_add = 60
 		country_authority_mult = -0.5
 		country_legitimacy_govt_size_add = 1
@@ -1084,7 +1084,7 @@ law_organic_democracy = {
 	}
 
 	disallowing_laws = {
-		
+		law_council_republic
 	}
 	
 	modifier = {
@@ -1092,18 +1092,20 @@ law_organic_democracy = {
 		#country_authority_mult = -0.25
 		country_rigidity_baseline_add = 10
 
-		country_legitimacy_ideological_incoherence_mult = -0.25
+		country_legitimacy_ideological_incoherence_mult = -0.33
 
-		country_legitimacy_govt_total_clout_add = 100
+		country_legitimacy_govt_total_clout_add = 150
 		country_legitimacy_govt_size_add = 1
+
+		country_voting_power_wealth_threshold_add = 30
 		
 		interest_group_ig_landowners_pol_str_mult = 0.4
 		interest_group_ig_industrialists_pol_str_mult = 0.4
 		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.4
 
-		state_dependent_political_participation_add = -0.25
+		#state_dependent_political_participation_add = -0.25
 
-		country_voting_power_base_add = 20
+		country_voting_power_base_add = 15
 		country_institution_suffrage_max_investment_add = 1
 		country_institution_cost_institution_suffrage_mult = -0.85
 	}
@@ -1118,6 +1120,8 @@ law_organic_democracy = {
 		country_bpm_labor_consciousness_target_mult = -0.1
 		country_legitimacy_govt_total_votes_add = 25
 		country_legitimacy_govt_total_clout_add = -25
+		country_voting_power_wealth_threshold_add = -6
+		country_voting_power_base_add = 4
 
 		interest_group_ig_rural_folk_pol_str_mult = 0.05
 		interest_group_ig_trade_unions_pol_str_mult = 0.05
@@ -1134,6 +1138,7 @@ law_organic_democracy = {
 			limit = { has_modifier = bpm_republic_gov_size }
 			remove_modifier = bpm_republic_gov_size
 		}
+		activate_law = law_type:law_advisory_body
 	}
 	
 	ai_will_do = {
@@ -1201,7 +1206,7 @@ law_organic_democracy = {
 		
 		if = {
 			limit = {
-				has_law = law_type:law_anarchy
+				has_law = law_type:law_organic_democracy
 				has_strategy = ai_strategy_egalitarian_agenda	
 				scope:target_country = { # Is their law different enough from what we want to impose?
 					NOT = { has_law = law_type:law_universal_suffrage }

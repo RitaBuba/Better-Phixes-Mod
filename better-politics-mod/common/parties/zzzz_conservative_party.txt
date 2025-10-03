@@ -688,6 +688,40 @@ conservative_party = {
 				desc = "from_devout_conscience"
 			}
 		}
+
+		if = { # weak natcons will cooperate with weak christdems
+			limit = {
+				is_interest_group_type = ig_reactionaries
+				is_powerful = no
+				owner = {
+					any_interest_group = {
+						is_powerful = no
+						is_interest_group_type = ig_christian_democrats
+						is_member_of_party = owner.py:conservative_party
+					}
+				}
+			}
+			add = {	
+				value = 10
+				desc = "bpm_from_catholic_coalition"
+			}
+		}
+
+		if = { # weak natcons will cooperate with weak christdems
+			limit = {
+				is_interest_group_type = ig_reactionaries
+				bpm_ig_is_organic_democrat = yes
+				is_powerful = no
+				owner = {
+					bpm_country_laws_are_moderately_undemocratic = yes
+				}
+			}
+			add = {	
+				value = 10
+				desc = "bpm_from_an_undemocratic_state"
+			}
+		}
+
 		if = { # patriarchs more likely to join conservatives with women's suffrage
 			limit = {
 				bpm_ig_is_sexist = yes

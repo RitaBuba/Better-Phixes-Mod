@@ -1259,7 +1259,7 @@ je_bpm_new_wine_in_old_wineskins = {
 	scripted_progress_bar = bpm_old_wine_paternalism_progress_bar
 
 	scripted_button = je_bpm_propagate_the_new_wine_button
-	#scripted_button = je_bpm_reaffirm_the_old_tastes
+	scripted_button = je_bpm_reaffirm_the_old_tastes
 
 	is_shown_when_inactive = {
 		always = yes
@@ -1317,8 +1317,8 @@ je_bpm_new_wine_in_old_wineskins = {
 			}
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 2
-					name = bpm_old_wineskins_scripted_progress_bar 
+					value = -2
+					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
 		}
@@ -1390,7 +1390,7 @@ je_bpm_new_wine_in_old_wineskins = {
 		custom_tooltip = {
 			text = "new_wine_value_50_tooltip"
 			je:je_bpm_new_wine_in_old_wineskins ?= { 
-				"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" = 50
+				"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" >= 75
 			}
 		}
 	}
@@ -1494,9 +1494,17 @@ je_bpm_new_wine_in_old_wineskins = {
 	}
 
 	fail = {
-		custom_tooltip = {
-			text = "old_wineskins_paternalism_progress_tooltip"
-			var:bpm_old_wine_paternalism_progress_bar_var >= 6
+		OR = {
+			custom_tooltip = {
+				text = "old_wineskins_paternalism_progress_tooltip"
+				var:bpm_old_wine_paternalism_progress_bar_var >= 6
+			}
+			custom_tooltip = {
+				text = "new_wine_value_minus_25_tooltip"
+				je:je_bpm_new_wine_in_old_wineskins ?= { 
+					"scripted_bar_progress(bpm_new_wine_scripted_progress_bar)" <= -25
+				}
+			}
 		}
 	}
 
