@@ -280,7 +280,7 @@
 
  BPM_VALUE_FROM_POST_RERUM_NOVARUM_SOL_BELOW_EXPECTED_AVERAGE_STANDARD_OF_LIVING_AND_TAXATION_LAW: "post-’#italic Rerum novarum#!’ inclination towards #v Moderate/Middle Stance#! & [GetLawGroup('lawgroup_taxation').GetName] [concept_law] and the #bold average#! @middling! [concept_sol] (#italic Positive if below 15.0, negative if above#!) (#italic The bigger [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] are the more moderate they will be#!)"
 
- BPM_VALUE_FROM_PRE_RERUM_NOVARUM_DISDAIN_FOR_CAPITALISM_AND_SOCIALISM: "pre-’#italic Rerum novarum#!’ disdain for #yellow Capitalism#! and inclination towards #v Distributist Side#! & pre-modern or anti-capitalist [concept_interest_group] [concept_clout] with [GetIdeology('ideology_eco_traditional_agrarian').GetName], [GetIdeology('ideology_eco_conservative_agrarian').GetName], [GetIdeology('ideology_eco_autarky').GetName] or [GetIdeology('ideology_eco_agrarian_autarky').GetName], as well as lack of artisantal/agrarian [concept_law]"
+ BPM_VALUE_FROM_PRE_RERUM_NOVARUM_DISDAIN_FOR_CAPITALISM_AND_SOCIALISM: "pre-’#italic Rerum novarum#!’ disdain for #yellow Capitalism#! and inclination towards #v Distributist Side#! & pre-modern or anti-capitalist [concept_interest_group] [concept_clout] with [GetIdeology('ideology_eco_traditional_agrarian').GetName], [GetIdeology('ideology_eco_conservative_agrarian').GetName], [GetIdeology('ideology_eco_autarky').GetName] or [GetIdeology('ideology_eco_agrarian_autarky').GetName], as well as lack of artisantal/agrarian [concept_law] (#italic multiplied if has a Secular [GetLawGroup('lawgroup_church_and_state').GetName]#!)"
  
  bpm_balance_ig_catholic_minority: "Catholic Minority (BPM Balance)"
 

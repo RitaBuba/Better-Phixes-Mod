@@ -429,6 +429,7 @@ je_bpm_immortal_god = {
 									value = government_legitimacy
 									multiply = 0.004
 									subtract = 0.4
+									divide = 6.66
 								}
 							}
 						}
@@ -452,7 +453,7 @@ je_bpm_immortal_god = {
 									value = government_legitimacy
 									multiply = 0.002
 									subtract = 0.2
-									divide = 3.33
+									divide = 4.44
 								}
 							}
 						}
@@ -471,7 +472,7 @@ je_bpm_immortal_god = {
 									value = government_legitimacy
 									multiply = 0.002
 									subtract = 0.2
-									divide = 2.22
+									divide = 3.33
 								}
 							}
 						}
