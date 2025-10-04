@@ -38,9 +38,16 @@
 	}
 
 	immediate = {
-		set_global_variable = {
-			name = je_papal_encyclical_quanta_cura
-			value = 0
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = je_papal_encyclical_quanta_cura
+				}
+			}
+			set_global_variable = {
+				name = je_papal_encyclical_quanta_cura
+				value = 0
+			}
 		}
 	}
 
@@ -299,9 +306,16 @@ je_bpm_immortal_god = {
 	}
 
 	immediate = {
-		set_global_variable = {
-			name = je_papal_encyclical_immortale_dei
-			value = 0
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = je_papal_encyclical_immortale_dei
+				}
+			}
+			set_global_variable = {
+				name = je_papal_encyclical_immortale_dei
+				value = 0
+			}
 		}
 	}
 
@@ -568,9 +582,16 @@ je_bpm_light_amidst_darkness = {
 	}
 
 	immediate = {
-		set_global_variable = {
-			name = je_papal_encyclical_rerum_novarum
-			value = 0
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = je_papal_encyclical_rerum_novarum
+				}
+			}
+			set_global_variable = {
+				name = je_papal_encyclical_rerum_novarum
+				value = 0
+			}
 		}
 	}
 
@@ -832,9 +853,16 @@ je_bpm_graves_de_communi_re = {
 	}
 
 	immediate = {
-		set_global_variable = {
-			name = je_papal_encyclical_graves_de_communi_re
-			value = 0
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = je_papal_encyclical_graves_de_communi_re
+				}
+			}
+			set_global_variable = {
+				name = je_papal_encyclical_graves_de_communi_re
+				value = 0
+			}
 		}
 	}
 
