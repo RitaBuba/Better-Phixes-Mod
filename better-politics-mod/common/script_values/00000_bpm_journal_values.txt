@@ -1293,7 +1293,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				#divide = 2.5
-				divide = 1.66
+				divide = 1.88
 				#max = 0
 			}
 
