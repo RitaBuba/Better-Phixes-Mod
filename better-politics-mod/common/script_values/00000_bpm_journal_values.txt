@@ -565,7 +565,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.33
+					multiply = 1.66
 				}
 			}
 		}
