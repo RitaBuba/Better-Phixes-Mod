@@ -3,7 +3,7 @@
  concept_bpm_party_ban_desc:0 "Certain [Concept('concept_law', 'Laws')] may cause various [Concept('concept_party', 'Parties')] to become banned. When banned, no [Concept('concept_interest_group','$concept_interest_groups$')] can join the [Concept('concept_party', 'Party')]. Your Freedom of Speech [Concept('concept_law', 'Laws')] determine exactly which [Concept('concept_party', 'Parties')] will end up banned from party bans."
 
  concept_bpm_bannable_parties:0 "All Parties Banned"
- concept_bpm_bannable_socialists_desc:0 "Censorship bans all parties, forcing them to be Institutionally-led 'factions' in the parliament. Outlawed Dissent bans all parties, and creates a mega-'faction' made out of Reactionaries and Institutional Interest Groups. Ideological Interest Groups are mostly independents."
+ concept_bpm_bannable_parties_desc:0 "Censorship bans all parties, forcing them to be Institutionally-led 'factions' in the parliament. Outlawed Dissent bans all parties, and creates a mega-'faction' made out of Reactionaries and Institutional Interest Groups. Ideological Interest Groups are mostly independents."
  
  concept_bpm_bannable_reactionaries:0 "Banned Reactionary Parties"
  concept_bpm_bannable_reactionaries_desc:0 "Always bans the Fascist party. Censorship (or harsher) also bans the Reactionary party. Outlawed Dissent also bans the Conservative and Religious parties."
