@@ -12,6 +12,7 @@
                 value >= 0.1 
             }
 		}
+		set_variable = local_christdem_split_var
 		bpm_initialize_catholic_interests = yes
 	}
 }

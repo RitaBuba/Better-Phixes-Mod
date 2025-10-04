@@ -298,6 +298,10 @@
  BPM_VALUE_FROM_PAPACY: "current [concept_ideology] of the #bold #gold [Concept('concept_ruler', 'Pope')] of the Holy See#!#! & [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant] [concept_interest_group] [concept_clout] and [concept_leader] (if [Concept('concept_state_religion', 'State')] is [GetReligion('catholic').GetName])"
  BPM_VALUE_FROM_CONSERVATIVE_MODERATION_EVENTS_AND_OTHER_REASONS: "christian moderation, [GetIdeology('ideology_moderate').GetName] [concept_leader], [Concept('concept_loyalist', 'Loyalists')] and other reasons."
 
+ more_conservative_tooltip: "[GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will be more inclined towards the #bold #italic Christianity#! Side!"
+
+ more_democratic_tooltip: "[GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will be slightly more inclined towards the #bold #italic Democracy#! Side!"
+
  
  ###############################################################
  ################################################# 

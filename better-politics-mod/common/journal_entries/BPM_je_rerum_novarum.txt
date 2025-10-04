@@ -405,7 +405,7 @@ je_bpm_immortal_god = {
 							add = {
 								value = ig:ig_national_liberals.ig_clout
 								add = ig:ig_conservatives.ig_clout
-								divide = 2
+								divide = 1.66
 							}
 						}
 					}

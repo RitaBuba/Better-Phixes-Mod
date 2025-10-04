@@ -18,7 +18,7 @@ bpm_christdem_split.1 = {
 	dlc = dlc_bpm
 	
 	immediate = {
-		set_local_variable = local_christdem_split_var
+		set_variable = local_christdem_split_var
 		
 		bpm_initialize_catholic_interests = yes
 	}
@@ -51,10 +51,10 @@ bpm_christdem_split.2 = {
 		if = {
 			limit = {
 				NOT = {
-					has_local_variable = local_christdem_split_var
+					has_variable = local_christdem_split_var
 				}
 			}
-			set_local_variable = local_christdem_split_var
+			set_variable = local_christdem_split_var
 		}
 		
 		bpm_initialize_christdems = yes
@@ -124,7 +124,7 @@ bpm_christdem_split.3 = {
 	}
 
 	after = {
-		change_variable = { name = christian_democrats_ideology_change add = 1 }
+		#change_variable = { name = christian_democrats_ideology_change add = 1 }
 		ig:ig_christian_democrats = {
 			hidden_effect = {
 				bpm_reorder_ideologies = yes
@@ -137,15 +137,21 @@ bpm_christdem_split.3 = {
 
 		default_option = yes
 
-		highlighted_option = yes
-
-
+		
+		custom_tooltip = {
+			text = "more_democratic_tooltip"
+			change_variable = { name = christian_democrats_ideology_change add = 1 }
+		}
 	}
 
 	option = {
 		name = bpm_christdem_split.3.b
 
 		default_option = yes
+		custom_tooltip = {
+			text = "more_conservative_tooltip"
+			change_variable = { name = christian_democrats_ideology_change add = -2 }
+		}
 	}
 }
 
