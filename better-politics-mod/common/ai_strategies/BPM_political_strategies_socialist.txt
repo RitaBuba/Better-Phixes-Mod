@@ -107,7 +107,7 @@
 			value = 75			
 		}			
 		institution_centralization = {
-			value = 150
+			value = 300
 		}	
 		institution_suffrage = {
 			value = 150
@@ -116,7 +116,7 @@
 			value = 100
 		}
 		institution_economy = {
-			value = 150
+			value = 300
 		}
 	}
 
@@ -258,7 +258,7 @@ ai_strategy_socialist_retreat_agenda = {
 			value = 100			
 		}			
 		institution_centralization = {
-			value = 150
+			value = 300
 		}	
 		institution_suffrage = {
 			value = 50
@@ -267,7 +267,7 @@ ai_strategy_socialist_retreat_agenda = {
 			value = 100
 		}
 		institution_economy = {
-			value = 150
+			value = 300
 		}
 	}
 

@@ -40,6 +40,15 @@
 			
 			multiply = 0.33
 		}			
+
+		if = {
+			limit = {
+				has_law = law_type:law_advisory_body
+				exists = scope:law
+				scope:law.type = { is_same_law_group_as = law_type:law_advisory_body }
+			}
+			multiply = 0.5
+		}
 	}
 	
 	max_progressiveness = {
@@ -56,6 +65,18 @@
 		if = {
 			limit = { any_interest_group = { is_insurrectionary = yes } }
 			add = 10
+		}
+
+		if = {
+			limit = {
+				any_country = {
+					filter = {
+						has_interest_marker_in_region = root.capital.region
+					}
+					country_rank > root.country_rank
+				}
+			}
+			add = 25
 		}
 
 		if = {
@@ -129,7 +150,7 @@
 			value = 150		
 		}
 		institution_centralization = {
-			value = 200
+			value = 300
 		}	
 		institution_suffrage = {
 			value = 100
@@ -138,7 +159,7 @@
 			value = 150
 		}
 		institution_economy = {
-			value = 150
+			value = 300
 		}
 	}
 
@@ -301,7 +322,7 @@ ai_strategy_reactionary_agenda = {
 			value = 150
 		}
 		institution_economy = {
-			value = 150
+			value = 300
 		}
 	}
 
@@ -480,7 +501,7 @@ ai_strategy_progressive_agenda = {
 			value = 100			
 		}
 		institution_centralization = {
-			value = 150
+			value = 300
 		}	
 		institution_suffrage = {
 			value = 200
@@ -489,7 +510,7 @@ ai_strategy_progressive_agenda = {
 			value = 100
 		}
 		institution_economy = {
-			value = 100
+			value = 300
 		}
 	}
 
@@ -685,7 +706,7 @@ ai_strategy_progressive_conservative_agenda = {
 			value = 100			
 		}
 		institution_centralization = {
-			value = 175
+			value = 350
 		}	
 		institution_suffrage = {
 			value = 150
@@ -694,7 +715,7 @@ ai_strategy_progressive_conservative_agenda = {
 			value = 100
 		}
 		institution_economy = {
-			value = 100
+			value = 300
 		}
 	}
 
@@ -865,7 +886,7 @@ ai_strategy_egalitarian_agenda = {
 			value = 75			
 		}			
 		institution_centralization = {
-			value = 150
+			value = 350
 		}	
 		institution_suffrage = {
 			value = 200
@@ -874,7 +895,7 @@ ai_strategy_egalitarian_agenda = {
 			value = 100
 		}
 		institution_economy = {
-			value = 150
+			value = 300
 		}
 	}
 
@@ -1066,7 +1087,7 @@ ai_strategy_nationalist_agenda = {
 			value = 150
 		}
 		institution_economy = {
-			value = 100
+			value = 300
 		}
 	}	
 
