@@ -71,7 +71,7 @@ bpm_country_is_in_mainland_europe = {
 			region = sr:region_poland
 			region = sr:region_danubia
 			region = sr:region_balkans
-			region = sr:region_baltic
+			region = sr:region_baltic_states
 		}
 	}
 }
