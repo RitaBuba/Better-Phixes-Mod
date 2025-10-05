@@ -50,15 +50,19 @@
 	on_character_ig_membership = {
 		if = {
 			limit = {
-				OR = {
-					owner = { 
-						religion_percent_country = { 
-							target = rel:catholic
-							value <= 1.0
-						}
+				owner = {
+					c:PRU ?= this
+				}
+			}
+			change_character_religion = rel:catholic
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					owner = {
+						has_law = law_type:bpm_repeatable_politics_terror_name_white
 					}
 				}
-				always = yes
 			}
 			change_character_religion = rel:catholic
 		}

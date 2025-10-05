@@ -214,7 +214,7 @@ ig_reactionaries = {
 				limit = { strata = middle }
 				add = {
 					desc = "PATCON_MIDDLE_CLASS"
-					value = 50
+					value = 35
 				}
 			}
 

@@ -2196,6 +2196,7 @@ ideology_jingoist_leader = {
 			bpm_ig_is_radical_socialist = no
 			owner = { has_law = law_type:law_council_republic }
 		}
+		NOT = { is_interest_group_type = ig_christian_democrats }
 	}
 	
 	interest_group_leader_weight = {
@@ -5405,6 +5406,7 @@ ideology_market_liberal = {
 				bpm_ig_is_marginal = no
 			}
 		}
+		NOT = { is_interest_group_type = ig_christian_democrats }
 		bpm_ig_is_labor = no
 		bpm_ig_is_radical_left = no
 		bpm_ig_is_radical_right = no
