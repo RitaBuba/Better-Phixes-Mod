@@ -213,6 +213,9 @@
  
  ig_katholiken: "Katholiken"
  ig_katholiken_desc: "$ig_catholic_interests_desc$"
+ 
+ ig_katholiken_christdem: "Katholiken"
+ ig_katholiken_christdem_desc: "$ig_catholic_interests_desc$"
 
  ig_liberal_catholics: "Liberal Catholics"
  ig_liberal_catholics_desc: "$ig_catholic_interests_desc$"

@@ -295,9 +295,6 @@ religious_party = {
 				is_interest_group_type = ig_christian_democrats
 				owner = {
 					OR = {
-						NOT = {
-							country_has_state_religion = rel:catholic
-						}
 						ig:ig_christian_democrats = {
 							has_ideology = ideology_rel_pragmatic_moralist
 						}
