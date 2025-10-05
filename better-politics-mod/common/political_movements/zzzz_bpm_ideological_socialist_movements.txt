@@ -312,6 +312,7 @@ movement_labor = { # Explicitly non-socialist labour movement
 	}	
 	
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		if = {
 			limit = {
 				law_stance = {
@@ -812,6 +813,7 @@ movement_socialist = {
 	}	
 	
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		if = {
 			limit = {
 				law_stance = {
@@ -1275,6 +1277,7 @@ movement_anarchist = {
 	}	
 	
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		if = {
 			limit = {
 				law_stance = {
@@ -1697,6 +1700,7 @@ movement_communist = {
 	}	
 	
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		if = {
 			limit = {
 				law_stance = {

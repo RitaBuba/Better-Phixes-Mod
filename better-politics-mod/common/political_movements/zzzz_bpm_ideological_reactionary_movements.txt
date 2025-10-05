@@ -420,6 +420,7 @@ movement_royalist_absolutist = {
 	}
 	
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		owner ?= {
 			if = {
 				limit = {		
@@ -818,6 +819,7 @@ movement_reactionary = {
 	}
 
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 	}
 }
 
@@ -1205,6 +1207,7 @@ movement_fascist = {
 	}	
 	
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		if = {
 			limit = {
 				law_stance = {
