@@ -1,43 +1,42 @@
-bpm_additional_radicalism_factor = {
+bpm_additional_radicalism_factors = {
 	value = 0
 	if = {
 		limit = {
 			bpm_movement_is_socialist = yes
-			OR = {
+			owner = { OR = {
 				bpm_country_is_pre_constitutional = yes
 				bpm_country_is_pre_modern_absolutist = yes
-			}
+			} }
 		}
 		add = 0.2
 	}
 	if = {
 		limit = {
 			bpm_movement_is_socialist = yes
-			bpm_country_is_constitutional_monarchy = yes
+			owner = { bpm_country_is_constitutional_monarchy = yes }
 		}
 		add = 0.1
 	}
 	if = {
 		limit = {
 			bpm_movement_is_progressive_liberal = yes
-			OR = {
+			owner = { OR = {
 				bpm_country_laws_has_socialist_economics = yes
 				bpm_country_laws_have_traditional_economics = yes
-			}
+			} }
 		}
 		add = 0.1
 	}
 	if = {
 		limit = {
-			OR = {
-				bpm_movement_is_regressive = yes
-			}
-			OR = {
+			bpm_movement_is_regressive = yes
+			owner = { OR = {
 				bpm_country_laws_has_socialist_economics = yes
 				bpm_country_laws_are_liberal_democratic = yes
 				bpm_country_laws_are_moderately_liberal_democratic = yes
 				bpm_country_is_republic = yes
-			}
+				bpm_country_is_constitutional_monarchy = yes
+			} }
 		}
 		add = 0.3
 	}

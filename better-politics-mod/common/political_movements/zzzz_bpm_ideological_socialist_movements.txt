@@ -1700,7 +1700,7 @@ movement_communist = {
 	}	
 	
 	additional_radicalism_factors = {
-		add = bpm_additional_radicalism_factors
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		if = {
 			limit = {
 				law_stance = {
