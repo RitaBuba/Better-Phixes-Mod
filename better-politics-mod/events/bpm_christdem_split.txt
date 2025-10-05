@@ -1047,7 +1047,7 @@ bpm_christdem_split.12 = {
 	}
 
 	immediate = {
-		#set_variable = bpm_christian_democrats_program_completed
+		set_variable = bpm_christian_democrats_program_completed
 	}
 
 	after = {
@@ -1458,8 +1458,8 @@ bpm_christdem_split.50 = {
 				}
 				#"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
 				OR = {
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 20
 					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
+					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
 				}
 			}
 
