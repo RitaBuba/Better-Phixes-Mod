@@ -8,14 +8,14 @@
 	}
 	
 	min_law_chance_to_pass = {
-		value = 5
+		value = 10
 		
 		if = {
 			limit = { 				
 				ai_has_reasons_to_not_oppose_law = yes
 			}
 			
-			multiply = 0.5
+			multiply = 0.67
 		}		
 	}
 	
@@ -169,7 +169,7 @@ ai_strategy_socialist_retreat_agenda = {
 				ai_has_reasons_to_not_oppose_law = yes
 			}
 			
-			multiply = 0.5
+			multiply = 0.67
 		}		
 	}
 	
