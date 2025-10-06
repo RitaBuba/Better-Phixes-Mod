@@ -132,7 +132,7 @@ bpm_je_christian_democrat_ideology_rate = {
 						is_in_government = yes
 						has_ideology = ideology:ideology_dop_conservative_democratrat
 					}
-					ig_clout >= 0.01
+					ig_clout >= 0.005
 				}
 			}
 
@@ -342,7 +342,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				}
 				subtract = ig_clout
 			}
-			multiply = 1.25
+			multiply = 1.33
 		}
 
 		if = { ### Moralist Interest Groups should drive them towards more conservative and reactionary stances.
@@ -713,7 +713,7 @@ bpm_je_christian_democrat_ideology_rate = {
 				value = -50
 				add = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
-				divide = 2.5
+				divide = 2
 			}
 		}
 
@@ -828,7 +828,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			}
 			add = {
 				value = ROOT.var:bpm_laborer_population_yandev_var
-				multiply = 0.1 # 0.05 - Counter-balance for the 'reactionary' shopkeepers and farmers!
+				multiply = 0.125 # 0.05 - Counter-balance for the 'reactionary' shopkeepers and farmers!
 			}
 			add = {
 				value = bpm_proletarian_popularity # 0.05%
@@ -843,7 +843,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 		if = { ### 
 			limit = {
 				ig:ig_christian_democrats = {
-					ig_clout >= 0.009
+					ig_clout >= 0.001
 					leader = {
 						NOT = {
 							has_ideology = ideology:ideology_market_liberal
@@ -1078,7 +1078,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 		if = {
 			limit = {
 				ig:ig_christian_democrats = {
-					ig_clout >= 0.01
+					ig_clout >= 0.001
 					#always = yes
 				}
 			}
@@ -1225,7 +1225,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			value = bpm_country_fraction_below_expected_sol
 			multiply = bpm_country_fraction_below_expected_sol
 			#multiply = bpm_country_fraction_below_expected_sol
-			multiply = 49 # 50
+			multiply = 66 # 50
 		}
 	}
 
@@ -1238,7 +1238,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			}
 			subtract = {
 				value = ROOT.var:bpm_peasant_population_yandev_var
-				multiply = 0.066 # 0.04
+				multiply = 0.077 # 0.04
 			}
 		}
 
@@ -1291,7 +1291,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				#divide = 2.5
-				divide = 1.44
+				multiply = 1.2
+				divide = 1.33
 				#max = 0
 			}
 
@@ -1374,7 +1375,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			if = { ### Unjust taxation is evil, and we suffer so much! Or do we?
 				limit = {
 					ig:ig_christian_democrats = {
-						ig_clout >= 0.009
+						ig_clout >= 0.001
 					}
 				}
 
@@ -1507,7 +1508,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			}
 			subtract = {
 				value = ROOT.var:bpm_shopkeeper_population_yandev_var
-				multiply = 1.66
+				multiply = 2
 			}
 			subtract = {
 				value = ROOT.var:bpm_farmer_population_yandev_var
@@ -1562,7 +1563,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				add = {
 					value = ig_clout
-					multiply = 3.33
+					multiply = 2.5
 				}
 			}
 		}
