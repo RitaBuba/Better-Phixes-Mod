@@ -268,7 +268,7 @@ bpm_christdem_split.5 = {
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 
 	title = bpm_christdem_split.5.t
-	desc = bpm_christdem_split.5.d
+	desc = bpm_christdem_split.5.desc
 	flavor = bpm_christdem_split.5.f
 	
 	duration = 3
