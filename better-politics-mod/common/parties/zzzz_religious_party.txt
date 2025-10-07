@@ -257,7 +257,7 @@ religious_party = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
 					}
-					OR = {
+					NOR = {
 						country_has_primary_culture = cu:french
 						country_has_primary_culture = cu:south_german
 					}
@@ -290,7 +290,7 @@ religious_party = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
 					}
-					OR = {
+					NOR = {
 						country_has_primary_culture = cu:french
 						country_has_primary_culture = cu:south_german
 					}
@@ -324,7 +324,7 @@ religious_party = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
 					}
-					OR = {
+					NOR = {
 						country_has_primary_culture = cu:french
 						country_has_primary_culture = cu:south_german
 					}

@@ -740,6 +740,10 @@ conservative_party = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
 					}
+					NOR = {
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:south_german
+					}
 					ig:ig_christian_democrats ?= {
 						has_party = yes
 						party = { 
@@ -752,7 +756,7 @@ conservative_party = {
 				}
 			}
 			add = {
-				value = 25
+				value = 50
 				desc = "bpm_from_catholic_whites"
 			}
 		}

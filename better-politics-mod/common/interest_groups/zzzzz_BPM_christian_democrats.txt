@@ -166,7 +166,7 @@
 						}
 					}
 					add = {
-						value = 50
+						value = 35
 					}
 				}
 				else_if = {
@@ -178,7 +178,7 @@
 						}
 					}
 					add = {
-						value = 35
+						value = 25
 					}
 				}
 				else_if = {
@@ -279,7 +279,7 @@
 						}
 					}
 					add = {
-						value = 35
+						value = 25
 					}
 				}
 				else_if = {
@@ -291,7 +291,7 @@
 						}
 					}
 					add = {
-						value = 50
+						value = 30
 					}
 				}
 
@@ -304,7 +304,7 @@
 						}
 					}
 					add = {
-						value = 10
+						value = 5
 					}
 				}
 
@@ -432,7 +432,7 @@
 						}
 					}
 					add = {
-						value = 10
+						value = 5
 					}
 				}
 

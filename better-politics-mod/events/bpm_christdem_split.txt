@@ -2489,6 +2489,24 @@ bpm_papal_encyclicals.2 = { # Immortale dei
 		set_global_variable = global_variable_immortale_dei_var_released
 		hidden_effect = {
 			every_country = {
+				limit = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+					NOR = {
+						country_has_primary_culture = cu:south_german
+						country_has_primary_culture = cu:french
+					}
+				}
+				ig:ig_agrarian_populists = {
+					bpm_remove_all_rel_ideologies = yes
+					add_ideology = ideology_rel_modern_moralist
+
+					bpm_reorder_ideologies = yes
+				}
+			}
+			every_country = {
 				if = {
 					limit = {
 						OR = {

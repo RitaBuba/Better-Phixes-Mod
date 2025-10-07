@@ -257,6 +257,9 @@ bpm_ig_is_radical_liberal = {
 			AND = {
 				has_ideology = ideology:ideology_dop_radical_democrat
 				bpm_ig_is_actually_desiring_socialism = no
+				NOT = {
+					has_ideology = ideology:ideology_rel_modern_moralist
+				}
 			}
 		}
 		NOT = { is_interest_group_type = ig_liberals }
