@@ -1337,26 +1337,44 @@ je_bpm_new_wine_in_old_wineskins = {
 			text = "christdems_dont_have_divine_and_are_rather_progressive_welfare"
 			ig:ig_christian_democrats = {
 				NOT = {
-					has_ideology = ideology_dop_divine_democrat
+					has_ideology = ideology:ideology_dop_divine_democrat
 				}
 				OR = {
-					has_ideology = ideology_wel_expanded_public_welfare
-					has_ideology = ideology_wel_social_market_welfare
+					has_ideology = ideology:ideology_wel_expanded_public_welfare
+					has_ideology = ideology:ideology_wel_social_market_welfare
 				}
 			}
 		}
 		custom_tooltip = {
 			text = "christdems_cons_in_the_same_party"
-			ig:ig_christian_democrats = {
-				has_party = yes
-				party = {
-					is_party_type = conservative_party
+			OR = {
+				AND = {
+					ig:ig_christian_democrats = {
+						has_party = yes
+						party = {
+							is_party_type = conservative_party
+						}
+					}
+					ig:ig_conservatives = {
+						has_party = yes
+						party = {
+							is_party_type = conservative_party
+						}
+					}
 				}
-			}
-			ig:ig_conservatives = {
-				has_party = yes
-				party = {
-					is_party_type = conservative_party
+				AND = {
+					ig:ig_christian_democrats = {
+						has_party = yes
+						party = {
+							is_party_type = religious_party
+						}
+					}
+					ig:ig_conservatives = {
+						has_party = yes
+						party = {
+							is_party_type = religious_party
+						}
+					}
 				}
 			}
 		}
