@@ -815,7 +815,13 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			}
 		}
 		else = {
-			subtract = 0.2
+			subtract = {
+				value = ROOT.var:bpm_consciousness_labor
+				subtract = 75
+				multiply = 0.008
+				subtract = 0.2
+				min = -0.2
+			}
 		}
 	}
 
@@ -863,7 +869,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 				add = {
-					value = 0.0133
+					value = 0.0033
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -885,7 +891,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 				add = {
-					value = 0.0077
+					value = 0.0044
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -895,7 +901,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					has_law = law_type:law_interventionism
 				}
 				subtract = {
-					value = 0.0033
+					value = 0.0022
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -910,7 +916,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 				subtract = {
-					value = 0.0066
+					value = 0.005
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -933,7 +939,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 
 			else = {
 				add = {
-					value = 0.0022
+					value = 0.0011
 					divide = ROOT.ig:ig_christian_democrats.ig_clout
 				}
 			}
@@ -973,7 +979,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				add = {
 					value = ig_clout
-					multiply = 1.33
+					multiply = 1.28
 				}
 			}
 			
@@ -992,7 +998,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.33
+					multiply = 1.5
 				}
 			}
 		}
@@ -1225,7 +1231,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			value = bpm_country_fraction_below_expected_sol
 			multiply = bpm_country_fraction_below_expected_sol
 			#multiply = bpm_country_fraction_below_expected_sol
-			multiply = 60 # 50
+			multiply = 33 # 50
 		}
 	}
 
@@ -1390,7 +1396,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						}
 					}
 					add = {
-						value = 0.015
+						value = 0.005
 						divide = ROOT.ig:ig_christian_democrats.ig_clout
 					}
 				}
@@ -1400,7 +1406,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_law = law_type:law_per_capita_based_taxation
 					}
 					add = {
-						value = 0.01
+						value = 0.004
 						divide = ROOT.ig:ig_christian_democrats.ig_clout
 					}
 				}
@@ -1410,7 +1416,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_law = law_type:law_proportional_taxation
 					}
 					add = {
-						value = 0.066
+						value = 0.003
 						divide = ROOT.ig:ig_christian_democrats.ig_clout
 					}
 				}
@@ -1420,7 +1426,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_law = law_type:law_graduated_taxation
 					}
 					add = {
-						value = 0.0033
+						value = 0.002
 						divide = ROOT.ig:ig_christian_democrats.ig_clout
 					}
 				}
@@ -1430,13 +1436,13 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				limit = {
 					tax_level = very_low
 				}
-				multiply = 0.33
+				multiply = 0.8
 			}
 			else_if = {
 				limit = {
 					tax_level = low
 				}
-				multiply = 0.66
+				multiply = 0.9
 			}
 			else_if = {
 				limit = {
@@ -1448,21 +1454,21 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				limit = {
 					tax_level = high
 				}
-				multiply = 1.66
+				multiply = 1.05
 			}
 			else_if = {
 				limit = {
 					tax_level = very_high
 				}
-				multiply = 2.33
+				multiply = 1.1
 			}
 
 			add = {
 				value = 50
 				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
-				#divide = 1.66
-				multiply = 2.66
+				divide = 3
+				#multiply = 3.33
 			}
 
 			if = {
