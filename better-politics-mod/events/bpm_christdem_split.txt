@@ -1423,7 +1423,7 @@ bpm_christdem_split.50 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	icon = "gfx/interface/icons/event_icons/event_industry.dds"
 	title = bpm_christdem_split.50.t
-	desc = bpm_christdem_split.50.d
+	desc = bpm_christdem_split.50.desc
 	flavor = bpm_christdem_split.50.f
 	duration = 3
 
