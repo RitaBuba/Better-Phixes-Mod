@@ -137,6 +137,12 @@ je_german_unification_idea = {
 				has_global_variable = bpm_je_german_unification_idea_complete
 			}
 		}
+		NOR = {
+			exists = c:HUN
+			c:HUN = {
+				is_subject_of = c:AUS
+			}
+		}
 	}
 
 	on_complete = {
