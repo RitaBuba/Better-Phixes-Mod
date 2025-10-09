@@ -132,7 +132,9 @@ law_interventionism = {
 							law = law_type:law_interventionism
 							value > approve
 						}
-					 }				
+					 }		
+					 bpm_consciousness_liberal_percent > 0.15
+		
 				}	
 			}
 			add = 1000
@@ -218,7 +220,9 @@ law_agrarianism = {
 							law = law_type:law_agrarianism
 							value > approve
 						}
-					}				
+					}			
+					 bpm_consciousness_liberal_percent > 0.15
+	
 				}	
 			}
 			add = 1000
@@ -298,7 +302,8 @@ law_laissez_faire = {
 							law = law_type:law_laissez_faire
 							value > approve
 						}
-					 }				
+					 }	
+					 bpm_consciousness_liberal_percent > 0.15
 				}	
 			}
 			add = 1000
@@ -372,8 +377,12 @@ law_cooperative_ownership = {
 		if = {
 			limit = { 
 				has_law = law_type:law_council_republic
+				ig:ig_anarchists ?= {
+					is_in_government = yes
+					is_powerful = yes
+				}
 			}
-			add = 250
+			add = 750
 		}
 	}
 	
@@ -477,7 +486,7 @@ law_command_economy = {
 			limit = { 
 				has_law = law_type:law_council_republic
 			}
-			add = 250
+			add = 500
 		}
 		
 		if = {
