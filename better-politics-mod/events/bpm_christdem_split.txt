@@ -1458,8 +1458,12 @@ bpm_christdem_split.50 = {
 				}
 				#"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
 				OR = {
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
-					"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
+					je:je_bpm_christian_or_democrat ?= { 
+						"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 20
+					}
+					je:je_bpm_christian_or_democrat ?= { 
+						"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
+					}
 				}
 			}
 
@@ -1587,7 +1591,7 @@ bpm_christdem_split.51 = {
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
 		# Must have a democracy stance!
-		has_variable = bpm_christian_democrats_sta_ideology
+		has_variable = bpm_christian_democrats_dop_ideology
 		OR = {
 			AND = {
 				ig:ig_christian_democrats = {
@@ -1602,10 +1606,13 @@ bpm_christdem_split.51 = {
 				ig:ig_christian_democrats = {
 					has_ideology = ideology:ideology_dop_divine_democrat
 				}
-				#"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
 				OR = {
-					"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 70
-					"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" <= 30
+					je:je_bpm_christian_or_democrat ?= { 
+						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 70
+					}
+					je:je_bpm_christian_or_democrat ?= { 
+						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 30
+					}
 				}
 			}
 

@@ -132,7 +132,7 @@ bpm_je_christian_democrat_ideology_rate = {
 						is_in_government = yes
 						has_ideology = ideology:ideology_dop_conservative_democratrat
 					}
-					ig_clout >= 0.005
+					ig_clout >= 0.001
 				}
 			}
 
@@ -979,7 +979,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				add = {
 					value = ig_clout
-					multiply = 1.28
+					multiply = 1.33
 				}
 			}
 			
@@ -998,7 +998,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.5
+					multiply = 1.44
 				}
 			}
 		}
@@ -1557,20 +1557,11 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			}
 		}
 		else = {
-			every_interest_group = {
-				limit = {
-					OR = {
-						is_interest_group_type = ig_industrialists
-						#has_ideology = ideology:ideology_eco_laissez_faire
-					}
-					NOT = {
-						has_ideology = ideology:ideology_nonexistent
-					}
-				}
-				add = {
-					value = ig_clout
-					multiply = 2.5
-				}
+			add = {
+				value = -50
+				add = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
+				multiply = ROOT.ig:ig_industrialists.ig_clout
+				divide = 3.33
 			}
 		}
 	}

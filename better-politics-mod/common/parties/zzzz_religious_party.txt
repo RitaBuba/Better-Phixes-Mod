@@ -248,76 +248,10 @@ religious_party = {
 
 		if = { # Unione Elettorale Cattolica Italiana
 			limit = {
-				is_interest_group_type = ig_conservatives
-				ig:ig_conservatives = {
-					clout <= 0.03
-				}
-				owner = { 
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-					NOR = {
-						country_has_primary_culture = cu:french
-						country_has_primary_culture = cu:south_german
-					}
-					has_law = law_type:law_elected_bureaucrats
-					OR = {
-						bpm_secularist_popularity >= 0.2
-						NOT = {
-							has_law = law_type:law_state_religion
-						}
-					}
-					NOT = {
-						has_variable = bpm_old_new_wine_christian_democrat_win_variable
-					}
-				}
-			}
-			add = {
-				value = 50
-				desc = "from_catholic_political_involment"
-			}
-		}
-
-		if = { # Unione Elettorale Cattolica Italiana
-			limit = {
-				is_interest_group_type = ig_conservatives
-				ig:ig_conservatives = {
-					clout <= 0.05
-				}
-				owner = { 
-					OR = {
-						country_has_primary_culture = cu:north_italian
-						country_has_primary_culture = cu:south_italian
-					}
-					NOR = {
-						country_has_primary_culture = cu:french
-						country_has_primary_culture = cu:south_german
-					}
-					has_law = law_type:law_elected_bureaucrats
-					OR = {
-						bpm_secularist_popularity >= 0.2
-						NOT = {
-							has_law = law_type:law_state_religion
-						}
-					}
-					NOT = {
-						has_variable = bpm_old_new_wine_christian_democrat_win_variable
-					}
-				}
-			}
-			add = {
-				value = 25
-				desc = "from_catholic_political_involment"
-			}
-		}
-
-		if = { # Unione Elettorale Cattolica Italiana
-			limit = {
 				OR = {
 					is_interest_group_type = ig_christian_democrats
-					#is_interest_group_type = ig_conservatives
 					is_interest_group_type = ig_reactionaries
+					is_interest_group_type = ig_conservatives
 				}
 				owner = { 
 					OR = {
@@ -397,7 +331,6 @@ religious_party = {
 			limit = {
 				is_interest_group_type = ig_christian_democrats
 				has_ideology = ideology:ideology_dop_placeholder
-				
 			}
 			add = {
 				value = -25

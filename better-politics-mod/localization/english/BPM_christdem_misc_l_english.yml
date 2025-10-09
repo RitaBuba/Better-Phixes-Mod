@@ -268,7 +268,7 @@
  BPM_VALUE_FROM_PEASANTS_LABORERS_AND_POPULARITY_OF_PROLETARIAT: "@laborers! Laborer [Concept('concept_pop', 'Population')] as well as [Concept('concept_bpm_ig_is_proletarian', 'Proletarian')] [Concept('concept_interest_group', 'Interest Groups')] [Concept('concept_pop', 'Population Percentage')]"
 
  BPM_VALUE_FROM_BELOW_EXPECTED_SOL: "fraction of [Concept('concept_pop', 'Population')] that lives below [Concept('concept_expected_sol', 'Minimum Expected')]"
- BPM_VALUE_FROM_BUSINESS_AND_LAISSEZ_FAIRE_IN_PARTY_WITH_CHRISTDEMS: "[GetInterestGroupVariant('ig_industrialists',GetPlayer).GetNameWithCountryVariant] [concept_clout] (#italic Positive if you have [GetLawType('law_laissez_faire').GetName]#!)"
+ BPM_VALUE_FROM_BUSINESS_AND_LAISSEZ_FAIRE_IN_PARTY_WITH_CHRISTDEMS: "[GetInterestGroupVariant('ig_industrialists',GetPlayer).GetNameWithCountryVariant] [concept_clout] (#italic will drift towards the side it is on#!)"
  BPM_VALUE_FROM_BELOW_TAX_LAW_AND_LEVEL: "?????????"
  BPM_VALUE_FROM_MARKET_WELFARE_LAWS_BELOW_LVL_3_AND_LACK_OF_WELFARE: "[Concept('concept_welfare_payments', 'Welfare')] [Concept('concept_law', 'Laws')] ([GetLawGroup('lawgroup_health_system').GetName], [GetLawGroup('lawgroup_education_system').GetName], [GetLawGroup('lawgroup_labor_rights').GetName]) that are below #gold 3#! [concept_investment_level] & lack of [GetLawGroup('lawgroup_welfare').GetName] [concept_law] or below [Concept('concept_investment_level', 'Level 4')] & #gold Child Labor#! Allowed"
 
