@@ -4013,6 +4013,7 @@ ideology_fascist = {
 		owner = { has_technology_researched = mass_propaganda }
 		# Any Interest Group
 		bpm_ig_is_right_wing = yes
+		NOT = { is_interest_group_type = ig_christian_democrats }
 	}
 	
 	interest_group_leader_weight = {
@@ -7027,6 +7028,7 @@ ideology_integralist = {
 		}
 		# Any Interest Group
 		bpm_ig_is_left_wing = no
+		NOT = { is_interest_group_type = ig_christian_democrats }
 	}
 	
 	interest_group_leader_weight = {

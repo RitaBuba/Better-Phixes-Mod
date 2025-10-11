@@ -500,3 +500,6 @@
 
  interest_group_ig_christian_democrats_pop_attraction_mult:1 "$ig_variant_christian_democrats$ Pop Attraction"
  interest_group_ig_christian_democrats_pop_attraction_mult_desc:1 "A bonus or penalty to the how attracted Pops are to the $ig_variant_christian_democrats$ [concept_interest_group]"
+
+ ig_authoritarian_conservatives: "Authoritarian Conservatives"
+ ig_authoritarian_conservatives_desc: "$ig_conservatives_desc$"

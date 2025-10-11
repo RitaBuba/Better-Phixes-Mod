@@ -632,7 +632,7 @@ bpm_je_christian_democrat_ideology_rate = {
 		
 		subtract = {
 			value = var:bpm_peasant_population_yandev_var
-			multiply = 0.077 # 0.04
+			multiply = 0.125 # 0.04
 		}
 
 		if = { ### If both are together then Christian Democrats will be far more progressive (Italy, Belgium)
@@ -896,16 +896,6 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 			}
 
-			else_if = {
-				limit = {
-					has_law = law_type:law_interventionism
-				}
-				subtract = {
-					value = 0.0022
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
-				}
-			}
-
 			if = { # Free Trade vs Protectionism (Free Trade is okay during low SoL, its bad anywhere else)
 				limit = {
 					has_law = law_type:law_free_trade
@@ -979,7 +969,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				add = {
 					value = ig_clout
-					multiply = 1.33
+					multiply = 1.44
 				}
 			}
 			
@@ -998,7 +988,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.44
+					multiply = 1.55
 				}
 			}
 		}
@@ -1039,7 +1029,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				add = {
 					value = ig_clout
-					multiply = 1.33
+					multiply = 1.44
 				}
 			}
 			
@@ -1072,7 +1062,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.66
+					multiply = 1.55
 				}
 			}
 		}
@@ -1231,7 +1221,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			value = bpm_country_fraction_below_expected_sol
 			multiply = bpm_country_fraction_below_expected_sol
 			#multiply = bpm_country_fraction_below_expected_sol
-			multiply = 33 # 50
+			multiply = 38 # 50
 		}
 	}
 
@@ -1297,7 +1287,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				#divide = 2.5
-				multiply = 1.2
+				multiply = 1.33
 				divide = 1.33
 				#max = 0
 			}
@@ -1479,7 +1469,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					value = 15
 					subtract = average_sol
 					divide = 15
-					multiply = 1.33
+					multiply = 1.66
 					min = 0.0	
 					#max = 1.0 # (1-0.66)*3 will be 1.02, so we clamp it for nice numbers
 				}
@@ -1552,7 +1542,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 6.66
+					multiply = 3.33
 				}
 			}
 		}
@@ -1561,7 +1551,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				value = -50
 				add = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
 				multiply = ROOT.ig:ig_industrialists.ig_clout
-				divide = 3.33
+				divide = 4.44
 			}
 		}
 	}

@@ -250,8 +250,11 @@ religious_party = {
 			limit = {
 				OR = {
 					is_interest_group_type = ig_christian_democrats
-					is_interest_group_type = ig_reactionaries
+					#is_interest_group_type = ig_reactionaries
 					is_interest_group_type = ig_conservatives
+				}
+				NOT = {
+					has_ideology = ideology:ideology_dop_placeholder
 				}
 				owner = { 
 					OR = {
@@ -270,7 +273,38 @@ religious_party = {
 						}
 					}
 					NOT = {
-						has_variable = bpm_old_new_wine_christian_democrat_win_variable
+						has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+					}
+				}
+			}
+			add = {
+				value = 50
+				desc = "from_catholic_political_involment"
+			}
+		}
+
+		if = { # Unione Elettorale Cattolica Italiana
+			limit = {
+				is_interest_group_type = ig_conservatives
+				ig_clout <= 0.05
+				owner = { 
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+					NOR = {
+						country_has_primary_culture = cu:french
+						country_has_primary_culture = cu:south_german
+					}
+					has_law = law_type:law_elected_bureaucrats
+					OR = {
+						bpm_secularist_popularity >= 0.2
+						NOT = {
+							has_law = law_type:law_state_religion
+						}
+					}
+					NOT = {
+						has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
 					}
 				}
 			}
@@ -297,32 +331,10 @@ religious_party = {
 		if = { # Christian Democrats don't like being with people who want them gone
 			limit = {
 				is_interest_group_type = ig_christian_democrats
-				owner = {
-					OR = {
-						ig:ig_christian_democrats = {
-							has_ideology = ideology_rel_pragmatic_moralist
-						}
-						AND = {
-							any_interest_group = {
-								OR = {
-									has_ideology = ideology:ideology_rel_moralist
-									has_ideology = ideology:ideology_rel_radical_moralist
-								}
-								OR = {
-									is_in_government = yes
-									is_powerful = yes
-								}
-							}
-							ig:ig_christian_democrats = {
-								has_ideology = ideology_rel_pragmatic_moralist
-							}
-						}
-					}
-				}
-				
+				has_ideology = ideology_rel_pragmatic_moralist
 			}
 			add = {
-				value = 25
+				value = 50
 				desc = "bpm_from_being_oppresed"
 			}
 		}

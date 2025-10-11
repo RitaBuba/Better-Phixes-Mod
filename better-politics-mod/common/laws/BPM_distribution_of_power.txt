@@ -1075,7 +1075,10 @@ law_organic_democracy = {
 		#	text = root_has_enacted_no_parties_allowed
 		#	has_law = law_type:law_no_parties_allowed
 		#}
-		has_law = law_type:law_no_parties_allowed
+		OR = {
+			has_law = law_type:law_no_parties_allowed
+			has_law = law_type:law_military_junta
+		}
 	}
 	
 	unlocking_laws = {
@@ -1137,6 +1140,16 @@ law_organic_democracy = {
 		if = {
 			limit = { has_modifier = bpm_republic_gov_size }
 			remove_modifier = bpm_republic_gov_size
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_law = law_type:law_no_parties_allowed
+					}
+				}
+				activate_law = law_type:law_no_parties_allowed
+			}
 		}
 		activate_law = law_type:law_advisory_body
 	}

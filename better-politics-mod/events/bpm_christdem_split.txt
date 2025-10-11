@@ -562,6 +562,7 @@ bpm_christdem_split.7 = {
 				}
 				has_technology_researched = corporatism
 			}
+			always = no
 		}
 
 		ig:ig_christian_democrats = {
@@ -583,7 +584,7 @@ bpm_christdem_split.7 = {
 			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" >= 75
 			#	}
 			#}
-			has_technology_researched = corporatism
+			#has_technology_researched = corporatism
 			
 			custom_tooltip = {
 				text = welfare_leaning_state_eco_35_tt
@@ -1459,7 +1460,7 @@ bpm_christdem_split.50 = {
 				#"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
 				OR = {
 					je:je_bpm_christian_or_democrat ?= { 
-						"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 20
+						"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" <= 20
 					}
 					je:je_bpm_christian_or_democrat ?= { 
 						"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 80
@@ -1611,7 +1612,7 @@ bpm_christdem_split.51 = {
 						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 70
 					}
 					je:je_bpm_christian_or_democrat ?= { 
-						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 30
+						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" <= 30
 					}
 				}
 			}
