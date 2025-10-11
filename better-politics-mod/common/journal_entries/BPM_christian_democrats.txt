@@ -751,7 +751,8 @@ je_bpm_christian_or_democrat = {
 							name = independence_from_church_variable
 							add = {
 								value = ROOT.ig:ig_liberals.ig_clout
-								multiply = 1.2
+								multiply = 1.1
+								divide = 2.5
 							}
 						}
 					}
@@ -768,6 +769,7 @@ je_bpm_christian_or_democrat = {
 							add = {
 								value = ROOT.ig:ig_radicals.ig_clout
 								multiply = 1.33
+								divide = 2
 							}
 						}
 					}
@@ -804,6 +806,29 @@ je_bpm_christian_or_democrat = {
 				if = {
 					limit = {
 						any_political_movement = {
+							is_political_movement_type = movement_labor
+						}
+					}
+					change_variable = {
+						name = independence_from_church_variable
+						add = {
+							if = {
+								limit = {
+									is_player = yes
+								}
+								value = ROOT.var:bpm_labor_movement.political_movement_support
+								multiply = 0.33
+							}
+							else = {
+								value = 0.02
+							}
+						}
+					}
+				}
+
+				if = {
+					limit = {
+						any_political_movement = {
 							is_political_movement_type = movement_liberal
 						}
 					}
@@ -815,7 +840,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_liberal_movement.political_movement_support
-								multiply = 0.33
+								multiply = 0.4
 							}
 							else = {
 								value = 0.02
@@ -837,7 +862,7 @@ je_bpm_christian_or_democrat = {
 									is_player = yes
 								}
 								value = ROOT.var:bpm_radical_movement.political_movement_support
-								multiply = 0.4
+								multiply = 0.45
 							}
 							else = {
 								value = 0.01
@@ -1009,7 +1034,20 @@ je_bpm_christian_or_democrat = {
 						name = independence_from_church_variable
 						add = {
 							value = var:bpm_consciousness_liberal
-							multiply = 0.0066
+							multiply = 0.0083
+						}
+					}
+				}
+
+				if = { ##### Population loves liberalism, why don't the catholics grow into the liberal democracy?
+					limit = {
+						has_variable = bpm_consciousness_labor
+					}
+					change_variable = {
+						name = independence_from_church_variable
+						add = {
+							value = var:bpm_consciousness_labor
+							multiply = 0.0033
 						}
 					}
 				}

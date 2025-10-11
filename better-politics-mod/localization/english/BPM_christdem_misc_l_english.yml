@@ -267,15 +267,15 @@
  BPM_VALUE_FROM_LABOR_CONCIOUSNESS_BELOW_75_PERCENT: "#bold #gold @laborers! Labor Consciousness#! #!(#italic Below 75.0#!)"
  BPM_VALUE_FROM_PEASANTS_LABORERS_AND_POPULARITY_OF_PROLETARIAT: "@laborers! Laborer [Concept('concept_pop', 'Population')] as well as [Concept('concept_bpm_ig_is_proletarian', 'Proletarian')] [Concept('concept_interest_group', 'Interest Groups')] [Concept('concept_pop', 'Population Percentage')]"
 
- BPM_VALUE_FROM_BELOW_EXPECTED_SOL: "fraction of [Concept('concept_pop', 'Population')] that lives below [Concept('concept_expected_sol', 'Minimum Expected')]"
- BPM_VALUE_FROM_BUSINESS_AND_LAISSEZ_FAIRE_IN_PARTY_WITH_CHRISTDEMS: "[GetInterestGroupVariant('ig_industrialists',GetPlayer).GetNameWithCountryVariant] [concept_clout] (#italic will drift towards the side it is on#!)"
+ BPM_VALUE_FROM_BELOW_EXPECTED_SOL: "fraction of [Concept('concept_pop', 'Population')] that lives below [Concept('concept_expected_sol', 'Minimum Expected')] and average [concept_sol] amongst [concept_country] [Concept('concept_pop', 'Population')]"
+ BPM_VALUE_FROM_BUSINESS_AND_LAISSEZ_FAIRE_IN_PARTY_WITH_CHRISTDEMS: "[GetInterestGroupVariant('ig_industrialists',GetPlayer).GetNameWithCountryVariant] [concept_clout] (#italic will drift towards the side it is on if you have [GetLawType('law_laissez_faire').GetName]#!)"
  BPM_VALUE_FROM_BELOW_TAX_LAW_AND_LEVEL: "?????????"
- BPM_VALUE_FROM_MARKET_WELFARE_LAWS_BELOW_LVL_3_AND_LACK_OF_WELFARE: "[Concept('concept_welfare_payments', 'Welfare')] [Concept('concept_law', 'Laws')] ([GetLawGroup('lawgroup_health_system').GetName], [GetLawGroup('lawgroup_education_system').GetName], [GetLawGroup('lawgroup_labor_rights').GetName]) that are below #gold 3#! [concept_investment_level] & lack of [GetLawGroup('lawgroup_welfare').GetName] [concept_law] or below [Concept('concept_investment_level', 'Level 4')] & #gold Child Labor#! Allowed"
+ BPM_VALUE_FROM_MARKET_WELFARE_LAWS_BELOW_LVL_3_AND_LACK_OF_WELFARE: "[Concept('concept_welfare_payments', 'Welfare')] [Concept('concept_law', 'Laws')] ([GetLawGroup('lawgroup_health_system').GetName], [GetLawGroup('lawgroup_education_system').GetName], [GetLawGroup('lawgroup_labor_rights').GetName]) that are below #gold 3#! [concept_investment_level] & lack of [GetLawGroup('lawgroup_welfare').GetName] [concept_law] or below [Concept('concept_investment_level', 'Level 4')] & #gold Child Labor#! Allowed (#italic growth dependant on [GetInterestGroupVariant('ig_trade_unions',GetPlayer).GetNameWithCountryVariant] Popularity#!)"
 
  BPM_VALUE_FROM_LAISSEZ_FAIRE_VS_INTERVENTIONISM_LAW_IGS_MOVEMENT: "#bold #yellow Laissez-Faire#!#! and #bold #white Moderately Interventionist#!#! vs. #bold #blue Strongly Interventionist#!#! and #bold #pink Proletarian#!#! [Concept('concept_interest_group', 'Interest Groups')] and their [concept_clout], [GetLawGroup('lawgroup_economic_system').GetName] and [GetLawGroup('lawgroup_trade_policy').GetName] [Concept('concept_law', 'Laws')] (#italic #bold Economic Leaning#! must be below #gold 66%#!#!!)"
  BPM_VALUE_FROM_PATERNALIST_RELIGIOUS_VS_SECULAR_EXTENSIVE_WELFARE: "#bold Religious-Paternalistic-Market#! vs. #bold Secular-Public#! [Concept('concept_welfare_payments', 'Welfare')] [Concept('concept_interest_group', 'Interest Groups')] and their [concept_clout]"
 
- BPM_VALUE_FROM_MIDDLE_CLASS_LANDOWNER_POPULATION: "middle-class conservative-liberal [GetPopType('shopkeepers').GetName], [GetPopType('farmers').GetName], [GetPopType('clergymen').GetName] and [GetPopType('aristocrats').GetName] [Concept('concept_pop', 'Population')]"
+ BPM_VALUE_FROM_MIDDLE_CLASS_LANDOWNER_POPULATION: "middle-class conservative-liberal [GetPopType('shopkeepers').GetName], [GetPopType('farmers').GetName], [GetPopType('clergymen').GetName] and [GetPopType('aristocrats').GetName] [Concept('concept_pop', 'Population')], as well as [GetInterestGroupVariant('ig_landowners',GetPlayer).GetNameWithCountryVariant], [GetInterestGroupVariant('ig_rural_folk',GetPlayer).GetNameWithCountryVariant] and [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] and their [concept_clout]"
 
  BPM_VALUE_RERUM_NOVARUM_ECONOMY: "[GetPlayer.GetCustom('bpm_je_rerum_novarum_economy_bar')]"
 
@@ -396,7 +396,7 @@
  bpm_christdem_split.50.f: ""
 
  bpm_christdem_split.51.t: "Revising the Ideological Matters"
- bpm_christdem_split.50.d: "WIP"
+ bpm_christdem_split.50.d: "Recent changes in the state's political system, developing modernist ideas, as well as internal tensions have begun to affect the @ig_christian_democrats! #blue Christian Democtats#! and their views on the political system and suffrage, centralization and responding to the developing country, and have led them to internal debates and changes toward alternatives to their current and existing economic positions, as well as voicing voices that were previously quiet."
  bpm_christdem_split.50.f: ""
 
  ##### Decentralization and State Power

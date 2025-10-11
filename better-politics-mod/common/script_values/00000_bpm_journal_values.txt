@@ -969,7 +969,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				add = {
 					value = ig_clout
-					multiply = 1.44
+					multiply = 1.33
 				}
 			}
 			
@@ -988,7 +988,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 1.55
+					multiply = 1.5
 				}
 			}
 		}
@@ -1086,8 +1086,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 				add = {
-					value = 0.001
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					value = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 10
 				}
 			}
 
@@ -1102,8 +1102,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				add = {
 					value = 3
 					subtract = "institution_investment_level(institution_health_system)"
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
-					divide = 750
+					multiply = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 3.33
 				}
 			}
 
@@ -1117,8 +1117,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 				add = {
-					value = 0.001
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					value = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 10
 				}
 			}
 
@@ -1133,8 +1133,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				add = {
 					value = 3
 					subtract = "institution_investment_level(institution_schools)"
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
-					divide = 750
+					multiply = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 3.33
 				}
 			}
 
@@ -1147,8 +1147,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 				add = {
-					value = 0.001
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					value = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 10
 				}
 			}
 
@@ -1163,8 +1163,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				add = {
 					value = 3
 					subtract = "institution_investment_level(institution_workplace_safety)"
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
-					divide = 750
+					multiply = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 3.33
 				}
 			}
 
@@ -1177,8 +1177,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 				add = {
-					value = 0.001
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					value = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 10
 				}
 			}
 
@@ -1193,8 +1193,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				add = {
 					value = 4
 					subtract = "institution_investment_level(institution_social_security)"
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
-					divide = 500
+					multiply = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 3.33
 				}
 			}
 
@@ -1207,8 +1207,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 					}
 				}
 				add = {
-					value = 0.002
-					divide = ROOT.ig:ig_christian_democrats.ig_clout
+					value = ROOT.ig:ig_trade_unions.interest_group_population_percentage
+					multiply = 10
 				}
 			}
 		}
@@ -1221,7 +1221,16 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			value = bpm_country_fraction_below_expected_sol
 			multiply = bpm_country_fraction_below_expected_sol
 			#multiply = bpm_country_fraction_below_expected_sol
-			multiply = 38 # 50
+			multiply = 24.689 # 50
+		}
+
+		add = {
+			value = 5
+			subtract = average_sol
+			divide = 20
+			multiply = 1.5
+			max = 0.0	
+			#max = 1.0 # (1-0.66)*3 will be 1.02, so we clamp it for nice numbers
 		}
 	}
 
@@ -1234,7 +1243,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			}
 			subtract = {
 				value = ROOT.var:bpm_peasant_population_yandev_var
-				multiply = 0.077 # 0.04
+				multiply = 0.088 # 0.04
 			}
 		}
 
@@ -1287,7 +1296,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				#divide = 2.5
-				multiply = 1.33
+				multiply = 1.5
 				divide = 1.33
 				#max = 0
 			}
@@ -1519,6 +1528,30 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				multiply = 4.44
 			}
 		}
+		every_interest_group = {
+			limit = {
+				OR = {
+					is_interest_group_type = ig_rural_folk
+					is_interest_group_type = ig_intelligentsia
+				}
+			}
+
+			subtract = {
+				value = ig_clout
+				multiply = 1.2
+			}
+		}
+
+		every_interest_group = {
+			limit = {
+				is_interest_group_type = ig_landowners
+			}
+
+			subtract = {
+				value = ig_clout
+				multiply = 2.33
+			}
+		}
 	}
 
 	add = { # Cooperation with business always ended up in becoming more and more pro-capitalist. Examples being the main line of CSP.
@@ -1542,7 +1575,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 3.33
+					multiply = 6.66
 				}
 			}
 		}
