@@ -1219,16 +1219,16 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 	
 		add = {
 			value = bpm_country_fraction_below_expected_sol
-			multiply = bpm_country_fraction_below_expected_sol
 			#multiply = bpm_country_fraction_below_expected_sol
-			multiply = 24.689 # 50
+			#multiply = bpm_country_fraction_below_expected_sol
+			multiply = 6.666 # 33.456
 		}
 
 		add = {
 			value = 5
 			subtract = average_sol
 			divide = 20
-			multiply = 1.5
+			multiply = 1.66
 			max = 0.0	
 			#max = 1.0 # (1-0.66)*3 will be 1.02, so we clamp it for nice numbers
 		}
