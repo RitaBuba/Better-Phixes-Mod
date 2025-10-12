@@ -109,7 +109,7 @@
             }
             add = { 
                 desc = "Catholic Religion"
-                value = 250
+                value = 500
             }
         }
 
@@ -349,20 +349,14 @@
 			}
 			if = {
 				limit = {
-					is_pop_type = capitalists
+					OR = {
+						is_pop_type = capitalists
+						is_pop_type = aristocrats
+					}
 				}
 				add = {
-					desc = "POP_CAPITALISTS"
-					value = -250
-				}
-			}
-			else_if = {
-				limit = {
-					is_pop_type = aristocrats
-				}
-				add = {
-					desc = "POP_ARISTOCRATS"
-					value = -250
+					desc = "LOWER_CLASS_MOVEMENT"
+					value = -500
 				}
 			}
 			else_if = {
@@ -371,10 +365,55 @@
 				}
 				add = {
 					desc = "POP_PEASANTS"
+					value = -250
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_eco_distributist_economy
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_pop_type = capitalists
+						is_pop_type = aristocrats
+					}
+				}
+				add = {
+					desc = "LOWER_CLASS_MOVEMENT"
 					value = -100
 				}
 			}
 		}
+
+		if = {
+			limit = {
+				owner = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_eco_distributist_economy
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_pop_type = capitalists
+						is_pop_type = aristocrats
+					}
+				}
+				add = {
+					desc = "LOWER_CLASS_MOVEMENT"
+					value = -250
+				}
+			}
+		}
+		
 
 		if = {
 			limit = {

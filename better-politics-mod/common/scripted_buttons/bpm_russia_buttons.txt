@@ -518,7 +518,7 @@ je_bpm_reaffirm_the_old_tastes = {
 
 	effect = {
 		custom_tooltip = {
-			text = bpm_je_old_wineskins_increase_value_2_tt
+			text = bpm_je_old_wineskins_decrease_value_2_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
 					value = -2

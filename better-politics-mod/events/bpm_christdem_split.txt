@@ -605,7 +605,7 @@ bpm_christdem_split.7 = {
 	option = {
 		name = bpm_christdem_split.7.b
 
-		highlighted_option = yes
+		#highlighted_option = yes
 		trigger = {
 			#custom_tooltip = {
 			#	text = welfare_leaning_central_welfare_tt
@@ -614,7 +614,7 @@ bpm_christdem_split.7 = {
 			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" <= 80
 			#	}
 			#}
-			has_technology_researched = corporatism
+			#has_technology_researched = corporatism
 		}
 
 		ig:ig_christian_democrats = {
@@ -628,7 +628,7 @@ bpm_christdem_split.7 = {
 	option = {
 		name = bpm_christdem_split.7.c
 
-		highlighted_option = yes
+		#highlighted_option = yes
 		trigger = {
 			#custom_tooltip = {
 			#	text = welfare_leaning_state_welfare_tt
@@ -636,7 +636,7 @@ bpm_christdem_split.7 = {
 			#		"scripted_bar_progress(je_bpm_christian_democrats_welfare_progress_bar)" >= 75
 			#	}
 			#}
-			has_technology_researched = corporatism
+			#has_technology_researched = corporatism
 		}
 
 		ig:ig_christian_democrats = {
@@ -1792,6 +1792,7 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 				bpm_remove_all_eco_ideologies = yes
 				bpm_remove_all_wel_ideologies = yes
 				bpm_remove_all_cit_ideologies = yes
+				bpm_remove_all_fem_ideologies = yes
 			}
 
 			add_ideology = ideology_dop_moderate_democrat
@@ -1814,6 +1815,8 @@ bpm_new_wine_old_wineskins_flavour.1 = {
 			add_ideology = ideology_wel_distributist_welfare
 
 			add_ideology = ideology_cit_multiethnic_nationalist
+
+			add_ideology = ideology_fem_benevolent_sexism
 
 			add_ideology = ideology_corporatist
 		
@@ -1982,7 +1985,7 @@ bpm_new_wine_old_wineskins_flavour.4 = {
 	}
 
 	trigger = {
-		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
 		NOT = {
 			has_variable = no_more_woeste_var
 		}
@@ -1993,7 +1996,7 @@ bpm_new_wine_old_wineskins_flavour.4 = {
 		default_option = yes
 
 		custom_tooltip = {
-			text = bpm_je_old_wineskins_increase_value_2_tt
+			text = bpm_je_old_wineskins_decrease_value_2_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
 					value = -2
@@ -2049,7 +2052,7 @@ bpm_new_wine_old_wineskins_flavour.5 = {
 	}
 
 	trigger = {
-		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
 	}
 
 	option = {
@@ -2057,10 +2060,10 @@ bpm_new_wine_old_wineskins_flavour.5 = {
 		default_option = yes
 
 		custom_tooltip = {
-			text = bpm_je_old_wineskins_increase_value_2_tt
+			text = bpm_je_new_wine_increase_value_1_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = -2
+					value = 1
 					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
@@ -2104,7 +2107,7 @@ bpm_new_wine_old_wineskins_flavour.6 = {
 	}
 
 	trigger = {
-		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
 	}
 
 	option = {
@@ -2122,10 +2125,12 @@ bpm_new_wine_old_wineskins_flavour.6 = {
 		}
 
 		ig:ig_christian_democrats = {
-			add_modifier = {
-				name = bpm_support_from_church_officials
-				days = short_modifier_time
-				is_decaying = yes
+			leader = {
+				add_modifier = {
+					name = bpm_support_from_church_officials
+					days = short_modifier_time
+					is_decaying = yes
+				}
 			}
 		}
 
@@ -2164,7 +2169,7 @@ bpm_new_wine_old_wineskins_flavour.7 = {
 	}
 
 	trigger = {
-		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
 	}
 
 	option = {
@@ -2172,7 +2177,7 @@ bpm_new_wine_old_wineskins_flavour.7 = {
 		default_option = yes
 
 		custom_tooltip = {
-			text = bpm_je_old_wineskins_increase_value_2_tt
+			text = bpm_je_old_wineskins_decrease_value_2_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
 					value = -2
@@ -2250,7 +2255,7 @@ bpm_new_wine_old_wineskins_flavour.8 = {
 	}
 
 	trigger = {
-		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
 	}
 
 	option = {
@@ -2258,10 +2263,10 @@ bpm_new_wine_old_wineskins_flavour.8 = {
 		default_option = yes
 
 		custom_tooltip = {
-			text = bpm_je_new_wine_increase_value_2_tt
+			text = bpm_je_new_wine_increase_value_1_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 2
+					value = 1
 					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
@@ -2299,7 +2304,7 @@ bpm_new_wine_old_wineskins_flavour.9 = {
 	}
 
 	trigger = {
-		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
 	}
 
 	option = {
@@ -2307,17 +2312,7 @@ bpm_new_wine_old_wineskins_flavour.9 = {
 		default_option = yes
 
 		custom_tooltip = {
-			text = bpm_je_old_wineskins_increase_value_tt
-			je:je_bpm_new_wine_in_old_wineskins = {
-				add_progress = { 
-					value = -1
-					name = bpm_new_wine_scripted_progress_bar 
-				}
-			}
-		}
-
-		custom_tooltip = {
-			text = bpm_je_new_wine_decrease_value_tt
+			text = bpm_je_old_wineskins_decrease_value_1_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
 					value = -1
@@ -2352,24 +2347,8 @@ bpm_new_wine_old_wineskins_flavour.10 = {
 
 	dlc = dlc_bpm
 
-	immediate = {
-		ig:ig_conservatives = {
-			hidden_effect = {
-				bpm_remove_all_wel_ideologies = yes
-			}
-			add_ideology = ideology_wel_paternalistic_welfare
-			
-			add_ideology = ideology_corporatist
-			set_interest_group_name = ig_paternal_conservatives
-		
-			hidden_effect = {
-				bpm_reorder_ideologies = yes
-			}
-		}
-	}
-
 	trigger = {
-		has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
+		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
 	}
 
 	option = {
@@ -2377,20 +2356,10 @@ bpm_new_wine_old_wineskins_flavour.10 = {
 		default_option = yes
 
 		custom_tooltip = {
-			text = bpm_je_new_wine_increase_value_tt
+			text = bpm_je_new_wine_increase_value_1_tt
 			je:je_bpm_new_wine_in_old_wineskins = {
 				add_progress = { 
-					value = 2
-					name = bpm_new_wine_scripted_progress_bar 
-				}
-			}
-		}
-
-		custom_tooltip = {
-			text = bpm_je_old_wineskins_increase_value_tt
-			je:je_bpm_new_wine_in_old_wineskins = {
-				add_progress = { 
-					value = -1
+					value = 1
 					name = bpm_new_wine_scripted_progress_bar 
 				}
 			}
@@ -2429,7 +2398,21 @@ bpm_new_wine_old_wineskins_flavour.11 = {
 	dlc = dlc_bpm
 
 	immediate = {
+		ig:ig_conservatives = {
+			hidden_effect = {
+				bpm_remove_all_dop_ideologies = yes
+				bpm_remove_all_wel_ideologies = yes
+			}
+			add_ideology = ideology_dop_moderate_democrat
+			add_ideology = ideology_wel_paternalistic_welfare
+			
+			add_ideology = ideology_corporatist
+			set_interest_group_name = ig_paternal_conservatives
 		
+			hidden_effect = {
+				bpm_reorder_ideologies = yes
+			}
+		}
 	}
 
 	trigger = {
@@ -2439,6 +2422,20 @@ bpm_new_wine_old_wineskins_flavour.11 = {
 	option = {
 		name = bpm_new_wine_old_wineskins_flavour.10.a
 		default_option = yes	
+
+		ig:ig_christian_democrats = {
+			add_modifier = {
+				name = bpm_stubborn_ig
+				days = normal_modifier_time
+			}
+		}
+
+		ig:ig_conservatives = {
+			add_modifier = {
+				name = bpm_stubborn_ig
+				days = normal_modifier_time
+			}
+		}
 	}
 }
 

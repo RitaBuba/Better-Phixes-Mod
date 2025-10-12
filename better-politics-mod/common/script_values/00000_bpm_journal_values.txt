@@ -811,7 +811,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 			}
 			add = {
 				value = ROOT.var:bpm_consciousness_labor
-				multiply = 0.011
+				multiply = 0.0088
 			}
 		}
 		else = {

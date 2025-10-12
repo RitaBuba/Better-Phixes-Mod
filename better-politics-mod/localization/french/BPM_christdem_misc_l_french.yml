@@ -832,7 +832,7 @@
  
  available_because_you_have_clacon_tt: "An additional modifier will be added because have a [Concept('concept_state_religion', 'Christian State Religion')] or [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] are [concept_in_government]."
  
- bpm_je_old_wineskins_increase_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
+ bpm_je_old_wineskins_decrease_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
  bpm_je_new_wine_increase_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 2#!#!!"
 
  bpm_new_wine_old_wineskins_flavour.11.t: "New Wine in Old Wineskins"

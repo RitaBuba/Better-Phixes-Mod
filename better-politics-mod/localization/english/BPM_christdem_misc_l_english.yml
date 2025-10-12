@@ -740,7 +740,7 @@
  bpm_je_new_wine_increase_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 2#!#!!"
  bpm_je_old_wineskins_increase_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
 
- bpm_je_new_wine_decrease_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #green #bold 1#!#!!"
+ bpm_je_new_wine_increase_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 1#!#!!"
  bpm_je_old_wineskins_decrease_value_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 1#!#!!"
 
  je_bpm_propagate_the_new_wine_button: "Propagate the New Wine"
@@ -839,12 +839,17 @@
  bpm_christian_and_righteous_cause_state: "A Truly Catholic State"
  bpm_critically_criticized: "Critically Criticized"
  bpm_minor_party_created: "Independent Minor Party Created"
+ bpm_from_being_christian_democratic: "Being Christian Demeocratic"
 
+ LOWER_CLASS_MOVEMENT: "Disdain to Radical, Lower Class Movement"
  
  available_because_you_have_clacon_tt: "An additional modifier will be added because have a [Concept('concept_state_religion', 'Christian State Religion')] or [GetInterestGroupVariant('ig_conservatives',GetPlayer).GetNameWithCountryVariant] are [concept_in_government]."
  
- bpm_je_old_wineskins_increase_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
+ bpm_je_old_wineskins_decrease_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 2#!#!!"
  bpm_je_new_wine_increase_value_2_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 2#!#!!"
+
+ bpm_je_old_wineskins_decrease_value_1_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 1#!#!!"
+ bpm_je_new_wine_increase_value_1_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will increase by #green #bold 1#!#!!"
 
  bpm_je_old_wineskins_decrease_value_5_tt: "The #v Ideological Power#! of [GetInterestGroupVariant('ig_christian_democrats',GetPlayer).GetNameWithCountryVariant] will decrease by #red #bold 5#!#!!"
 

@@ -277,7 +277,7 @@ religious_party = {
 						}
 					}
 					NOT = {
-						has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+						has_variable = bpm_old_new_wine_christian_democrat_win_variable
 					}
 				}
 			}
@@ -308,7 +308,7 @@ religious_party = {
 						}
 					}
 					NOT = {
-						has_local_variable = bpm_old_new_wine_christian_democrat_win_variable
+						has_variable = bpm_old_new_wine_christian_democrat_win_variable
 					}
 				}
 			}
