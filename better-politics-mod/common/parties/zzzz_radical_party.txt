@@ -187,7 +187,7 @@ radical_party = {
 				}
 			}
 			triggered_desc = {
-				desc = party_the_far_left
+				desc = party_radical_ita
 				trigger = {
 					OR = {
 						country_has_primary_culture = cu:north_italian
