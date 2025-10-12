@@ -172,7 +172,11 @@ religious_party = {
 		always = yes
 	}
 	available_for_interest_group = {
-		always = yes
+		bpm_interest_group_is_activated = yes
+		NOT = { bpm_is_party_banned = { PARTY = conservative_party } }
+		owner = {
+			country_has_voting_franchise = yes
+		}
 	}
 	join_weight = {
 		value = {
@@ -250,8 +254,8 @@ religious_party = {
 			limit = {
 				OR = {
 					is_interest_group_type = ig_christian_democrats
-					#is_interest_group_type = ig_reactionaries
-					is_interest_group_type = ig_conservatives
+					is_interest_group_type = ig_reactionaries
+					#is_interest_group_type = ig_conservatives
 				}
 				NOT = {
 					has_ideology = ideology:ideology_dop_placeholder
@@ -331,10 +335,10 @@ religious_party = {
 		if = { # Christian Democrats don't like being with people who want them gone
 			limit = {
 				is_interest_group_type = ig_christian_democrats
-				has_ideology = ideology_rel_pragmatic_moralist
+				has_ideology = ideology:ideology_rel_pragmatic_moralist
 			}
 			add = {
-				value = 50
+				value = 100
 				desc = "bpm_from_being_oppresed"
 			}
 		}

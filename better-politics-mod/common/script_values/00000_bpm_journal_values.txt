@@ -962,6 +962,9 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 						has_ideology = ideology:ideology_eco_modernizer
 						has_ideology = ideology:ideology_eco_conservative_agrarian
 						has_ideology = ideology:ideology_eco_modern_agrarian
+						leader = {
+							has_ideology = ideology:ideology_market_liberal
+						}
 					}
 					NOT = {
 						has_ideology = ideology:ideology_nonexistent
@@ -1296,8 +1299,8 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				subtract = ROOT.je:je_bpm_christian_or_democrat.var:economical_leaning_bar_variable
 				multiply = ROOT.ig:ig_christian_democrats.ig_clout
 				#divide = 2.5
-				multiply = 1.5
-				divide = 1.33
+				multiply = 1.22
+				divide = 1.44
 				#max = 0
 			}
 
@@ -1324,7 +1327,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				}
 				subtract = {
 					value = ig_clout
-					multiply = 4.44
+					multiply = 4.88
 				}
 			}
 
