@@ -289,7 +289,11 @@ je_north_german_unification = {
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	
 	group = je_group_german_unification
-	
+
+	immediate = {
+		c:PRU = { trigger_event = ( id = german_unification.3 ) }
+	}
+
 	complete = {
 		custom_tooltip = {
 			has_global_variable = schleswig_holstein_question_solved
@@ -318,9 +322,6 @@ je_north_german_unification = {
 	}
 
 	on_monthly_pulse = {
-		events = {
-			german_unification.3 # Bismarck
-		}
 	
 		effect = {
 			if = { 
