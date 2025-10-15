@@ -177,10 +177,13 @@ je_bpm_nova_republica = {
 		NOT = {
 			any_interest_group = {
 				leader = {
-					OR = {
-						has_ideology = ideology:ideology_legitimist
-						has_ideology = ideology:ideology_bonapartist
-					}
+					has_ideology = ideology:ideology_bonapartist
+				}
+			}
+			any_interest_group = {
+				NOT = { is_interest_group_type = ig_reactionaries }
+				leader = {
+					has_ideology = ideology:ideology_legitimist
 				}
 			}
 		}

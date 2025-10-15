@@ -367,11 +367,15 @@ bpm_france.5 = { # Second Republic Entrenched
 		custom_tooltip = {
 			text = no_more_royalists
 			set_variable = monarchy_stamped_out_var
+			remove_variable = bpm_fra_second_republic
 		}
 		every_interest_group = {
 			limit = {
 				leader = {
-					has_monarchist_ideology = yes
+					AND = {
+						has_monarchist_ideology = yes
+						NOT = { has_ideology = ideology:ideology_legitimist }
+					}
 				}
 			}
 			leader = {
