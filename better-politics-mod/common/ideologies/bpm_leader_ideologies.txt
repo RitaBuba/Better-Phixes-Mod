@@ -1161,6 +1161,7 @@ ideology_reformer = {
 	lawgroup_slavery = {
 		law_slavery_banned = neutral
 		law_legacy_slavery = disapprove
+		law_colonial_slavery = disapprove
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 	}
@@ -1828,6 +1829,7 @@ ideology_abolitionist = {
 		law_slavery_banned = strongly_approve
 		law_legacy_slavery = disapprove
 		law_debt_slavery = disapprove #strongly_disapprove
+		law_colonial_slavery = disapprove
 		law_slave_trade = strongly_disapprove
 	}
 
@@ -1918,6 +1920,7 @@ ideology_slaver = {
 	
 	lawgroup_slavery = {
 		law_slave_trade = strongly_approve
+		law_colonial_slavery = neutral
 		law_legacy_slavery = neutral
 		law_debt_slavery = neutral
 		law_slavery_banned = strongly_disapprove
@@ -2655,6 +2658,7 @@ ideology_socialist_leader = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = strongly_disapprove
+		law_colonial_slavery = strongly_disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -6375,6 +6379,7 @@ ideology_jacksonian_democrat = {
 	lawgroup_slavery = {
 		law_slavery_banned = strongly_disapprove
 		law_debt_slavery = strongly_disapprove		
+		law_colonial_slavery = neutral
 		law_slave_trade = neutral
 		law_legacy_slavery = approve
 	}
@@ -8987,6 +8992,7 @@ ideology_utilitarian_leader = {
 		law_debt_slavery = strongly_disapprove		
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = disapprove
+		law_colonial_slavery = disapprove
 	}
 
 	lawgroup_taxation = {
@@ -9471,6 +9477,7 @@ ideology_reconstructionist = {
 		law_legacy_slavery = disapprove
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
+		law_colonial_slavery = disapprove
 	}
 
 	lawgroup_centralization = {
