@@ -35,6 +35,7 @@ ideology_moderate = {
 				modifier:interest_group_bpm_intelligentsia_force_leader_non_moderate = yes # Forced to have opinions
 			}
 		}
+		is_interest_group_type = ig_christian_democrats
 	}
 	
 	interest_group_leader_weight = {
@@ -61,6 +62,13 @@ ideology_moderate = {
 				is_powerful = yes
 			}
 			add = 20
+		}
+
+		if = {
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+			}
+			add = 50
 		}
 	}
 
@@ -145,6 +153,14 @@ ideology_center_leader = {
 			}
 			add = 10
 		}
+
+		if = {
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+			}
+
+			add = 25
+		}
 	}
 
 	non_interest_group_leader_trigger = {
@@ -213,6 +229,7 @@ ideology_traditionalist = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = disapprove
 		law_repeatable_culture_promote_democratic_values = disapprove
+		law_repeatable_culture_affirmative_action = strongly_disapprove
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = approve
 		law_repeatable_culture_promote_absolutist_values = approve
@@ -328,7 +345,7 @@ ideology_traditionalist = {
 			owner = {
 				has_law = law_type:law_no_womens_rights
 				has_law = law_type:law_state_religion
-				NOT = { has_law = law_type:law_multicultural }
+				NOT = { has_law_or_variant = law_type:law_multicultural }
 			}
 		}
 	}
@@ -637,6 +654,7 @@ ideology_republican_leader = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = approve
 		law_repeatable_culture_promote_democratic_values = strongly_approve
+		law_repeatable_culture_affirmative_action = strongly_disapprove
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = approve
 		law_repeatable_culture_promote_absolutist_values = strongly_disapprove
@@ -1151,6 +1169,7 @@ ideology_reformer = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = strongly_approve
 		law_repeatable_culture_promote_democratic_values = approve
+		law_repeatable_culture_affirmative_action = disapprove
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = approve
 		law_repeatable_culture_promote_absolutist_values = disapprove
@@ -1595,7 +1614,7 @@ ideology_feminist = {
 		bpm_interest_group_is_activated = yes
 		owner = { 
 			has_technology_researched = feminism 
-			NOT = { has_law = law_type:law_womens_suffrage }
+			NOT = { has_law_or_variant = law_type:law_womens_suffrage }
 		}
 		bpm_ig_is_radical_right = no
 	}
@@ -1607,7 +1626,7 @@ ideology_feminist = {
 			if = {
 				limit = {
 					owner = {
-						has_law = law_type:law_womens_suffrage
+						has_law_or_variant = law_type:law_womens_suffrage
 					}
 				}
 				add = -200
@@ -1674,14 +1693,14 @@ ideology_feminist = {
     		bpm_interest_group_is_activated = yes
     		owner = { 
     			has_technology_researched = feminism 
-    			NOT = { has_law = law_type:law_womens_suffrage }
+    			NOT = { has_law_or_variant = law_type:law_womens_suffrage }
     		}
     		bpm_ig_is_radical_right = no
     	}
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_womens_suffrage
+				has_law_or_variant = law_type:law_womens_suffrage
 			}
 		}
 
@@ -2196,6 +2215,7 @@ ideology_jingoist_leader = {
 			bpm_ig_is_radical_socialist = no
 			owner = { has_law = law_type:law_council_republic }
 		}
+		NOT = { is_interest_group_type = ig_christian_democrats }
 	}
 	
 	interest_group_leader_weight = {
@@ -4001,6 +4021,7 @@ ideology_fascist = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = strongly_disapprove
 		law_repeatable_culture_promote_democratic_values = strongly_disapprove
+		law_repeatable_culture_affirmative_action = strongly_disapprove
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = strongly_approve
 		law_repeatable_culture_promote_absolutist_values = approve
@@ -4012,6 +4033,7 @@ ideology_fascist = {
 		owner = { has_technology_researched = mass_propaganda }
 		# Any Interest Group
 		bpm_ig_is_right_wing = yes
+		NOT = { is_interest_group_type = ig_christian_democrats }
 	}
 	
 	interest_group_leader_weight = {
@@ -5013,6 +5035,7 @@ ideology_ethno_nationalist = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = strongly_disapprove
 		law_repeatable_culture_promote_democratic_values = strongly_disapprove
+		law_repeatable_culture_affirmative_action = strongly_disapprove
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = strongly_approve
 		law_repeatable_culture_promote_absolutist_values = approve
@@ -5404,6 +5427,7 @@ ideology_market_liberal = {
 				bpm_ig_is_marginal = no
 			}
 		}
+		NOT = { is_interest_group_type = ig_christian_democrats }
 		bpm_ig_is_labor = no
 		bpm_ig_is_radical_left = no
 		bpm_ig_is_radical_right = no
@@ -6006,6 +6030,7 @@ ideology_humanitarian = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = strongly_approve
 		law_repeatable_culture_promote_democratic_values = strongly_approve
+		law_repeatable_culture_affirmative_action = disapprove
 		law_repeatable_culture_promote_socialist_values = disapprove
 		law_repeatable_culture_promote_patriotic_values = neutral
 		law_repeatable_culture_promote_absolutist_values = strongly_disapprove
@@ -6024,7 +6049,7 @@ ideology_humanitarian = {
 		#		NOT = { bpm_country_laws_are_racist = yes }
 		#		has_law = law_type:law_guaranteed_liberties
 		#		has_law = law_type:law_protected_speech
-		#		has_law = law_type:law_womens_suffrage
+		#		has_law_or_variant = law_type:law_womens_suffrage
 		#		has_law = law_type:law_compulsory_primary_school
 		#	}
 		#}
@@ -6042,7 +6067,7 @@ ideology_humanitarian = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 				}
 			}
 			add = -10
@@ -6066,7 +6091,7 @@ ideology_humanitarian = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 				}
 			}
 			add = -10
@@ -6166,7 +6191,7 @@ ideology_humanitarian = {
     		#		NOT = { bpm_country_laws_are_racist = yes }
     		#		has_law = law_type:law_guaranteed_liberties
     		#		has_law = law_type:law_protected_speech
-    		#		has_law = law_type:law_womens_suffrage
+    		#		has_law_or_variant = law_type:law_womens_suffrage
     		#		has_law = law_type:law_compulsory_primary_school
     		#	}
     		#}
@@ -6188,7 +6213,7 @@ ideology_humanitarian = {
 				NOT = { bpm_country_laws_are_racist = yes }
 				has_law = law_type:law_guaranteed_liberties
 				has_law = law_type:law_protected_speech
-				has_law = law_type:law_womens_suffrage
+				has_law_or_variant = law_type:law_womens_suffrage
 				has_law = law_type:law_compulsory_primary_school
 			}
 		}
@@ -6206,7 +6231,7 @@ ideology_humanitarian = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 				}
 			}
 			add = -10
@@ -6230,7 +6255,7 @@ ideology_humanitarian = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 				}
 			}
 			add = -10
@@ -6370,6 +6395,7 @@ ideology_jacksonian_democrat = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = neutral
 		law_repeatable_culture_promote_democratic_values = approve
+		law_repeatable_culture_affirmative_action = strongly_disapprove
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = strongly_approve
 		law_repeatable_culture_promote_absolutist_values = neutral
@@ -6494,6 +6520,7 @@ ideology_tridemism = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = approve
 		law_repeatable_culture_promote_democratic_values = approve
+		law_repeatable_culture_affirmative_action = strongly_disapprove
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = strongly_approve
 		law_repeatable_culture_promote_absolutist_values = neutral
@@ -7022,6 +7049,7 @@ ideology_integralist = {
 		}
 		# Any Interest Group
 		bpm_ig_is_left_wing = no
+		NOT = { is_interest_group_type = ig_christian_democrats }
 	}
 	
 	interest_group_leader_weight = {
@@ -7217,6 +7245,7 @@ ideology_liberal_leader = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = approve
 		law_repeatable_culture_promote_democratic_values = strongly_approve
+		law_repeatable_culture_affirmative_action = strongly_disapprove
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = approve
 		law_repeatable_culture_promote_absolutist_values = strongly_disapprove
@@ -7546,6 +7575,7 @@ ideology_humanitarian_royalist = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = strongly_approve
 		law_repeatable_culture_promote_democratic_values = approve
+		law_repeatable_culture_affirmative_action = disapprove
 		law_repeatable_culture_promote_socialist_values = disapprove
 		law_repeatable_culture_promote_patriotic_values = approve
 		law_repeatable_culture_promote_absolutist_values = strongly_disapprove
@@ -7592,7 +7622,7 @@ ideology_humanitarian_royalist = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 				}
 			}
 			add = -25
@@ -7608,7 +7638,7 @@ ideology_humanitarian_royalist = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 				}
 			}
 			add = -25
@@ -7735,7 +7765,7 @@ ideology_humanitarian_royalist = {
 				has_law = law_type:law_monarchy
 				NOT = { bpm_country_laws_are_racist = yes }
 				has_law = law_type:law_guaranteed_liberties
-				has_law = law_type:law_womens_suffrage
+				has_law_or_variant = law_type:law_womens_suffrage
 				has_law = law_type:law_compulsory_primary_school
 			}
 		}
@@ -8821,6 +8851,7 @@ ideology_traditionalist_minoritarian = {
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = disapprove
 		law_repeatable_culture_promote_democratic_values = disapprove
+		law_repeatable_culture_affirmative_action = strongly_approve
 		law_repeatable_culture_promote_socialist_values = strongly_disapprove
 		law_repeatable_culture_promote_patriotic_values = neutral
 		law_repeatable_culture_promote_absolutist_values = neutral
@@ -9047,7 +9078,7 @@ ideology_utilitarian_leader = {
 				OR = {
 					has_law = law_type:law_compulsory_primary_school
 					has_law = law_type:law_public_schools
-					has_law = law_type:law_womens_suffrage
+					has_law_or_variant = law_type:law_womens_suffrage
 					has_law = law_type:law_graduated_taxation
 					has_law = law_type:law_proportional_taxation
 				}
@@ -9152,6 +9183,7 @@ ideology_sovereignist_leader = { # For colonised peoples
 	lawgroup_repeatable_culture = {
 		law_repeatable_culture_invite_foreign_experts = neutral
 		law_repeatable_culture_promote_democratic_values = approve
+		law_repeatable_culture_affirmative_action = strongly_approve
 		law_repeatable_culture_promote_socialist_values = neutral
 		law_repeatable_culture_promote_patriotic_values = neutral
 		law_repeatable_culture_promote_absolutist_values = strongly_disapprove
@@ -9286,7 +9318,7 @@ ideology_despotic_utopian = {
 						has_law = law_type:law_technocracy
 						has_law = law_type:law_single_party_state
 					}
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 					has_law = law_type:law_isolationism
 				}
 			}
@@ -9409,7 +9441,7 @@ ideology_despotic_utopian = {
 						has_law = law_type:law_technocracy
 						has_law = law_type:law_single_party_state
 					}
-					has_law = law_type:law_multicultural
+					has_law_or_variant = law_type:law_multicultural
 					has_law = law_type:law_isolationism
 				}
 			}
@@ -9552,5 +9584,162 @@ ideology_reconstructionist = {
 			}
 			add = -100
 		}
+	}
+}
+
+ideology_reactionary_anti_capitalist = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/unused/ideology_leader_reactionary.dds"
+	
+	character_ideology = yes
+	show_in_list = yes
+
+	lawgroup_church_and_state = {
+		law_state_religion = approve
+		law_freedom_of_conscience = approve
+		law_total_separation = strongly_disapprove
+		law_state_atheism = strongly_disapprove
+	}
+
+	lawgroup_trade_policy = {		
+		law_protectionism = strongly_approve
+		law_mercantilism = approve		
+		law_isolationism = disapprove
+		law_free_trade = strongly_disapprove
+	}
+
+    lawgroup_education_system = {
+		law_no_schools = disapprove
+		law_religious_schools = strongly_approve
+		law_private_schools = neutral
+		law_public_schools = approve
+	}
+
+    lawgroup_labor_rights = {
+		law_no_workers_rights = neutral
+		law_regulatory_bodies = approve
+		law_worker_protections = strongly_approve
+	}
+
+	lawgroup_economic_system = {
+		law_traditionalism = strongly_disapprove
+		law_interventionism = approve
+		law_agrarianism = strongly_approve
+		law_industry_banned = strongly_approve
+		law_laissez_faire = neutral
+		law_cooperative_ownership = strongly_approve
+		law_command_economy = disapprove
+		law_extraction_economy = strongly_disapprove
+	}
+
+    lawgroup_land_reform = {
+		law_serfdom = strongly_disapprove
+		law_tenant_farmers = approve
+		law_homesteading = approve
+		law_commercialized_agriculture = neutral
+		law_collectivized_agriculture = strongly_disapprove
+	}
+
+    lawgroup_welfare = {
+		law_no_social_security = neutral
+		law_poor_laws = neutral
+		law_wage_subsidies = approve
+		law_old_age_pension = strongly_approve
+	}
+	
+	interest_group_leader_trigger = {
+		bpm_interest_group_is_activated = yes 
+		owner = { has_technology_researched = corporatism }
+		bpm_ig_is_socialist = no
+		NOT = {
+			has_ideology = ideology:ideology_wel_distributist_welfare
+		}
+	}
+	
+	interest_group_leader_weight = {
+		value = 50
+		if = {
+			limit = {
+				bpm_ig_is_liberal = yes
+				NOT = { is_interest_group_type = ig_national_liberals }	
+			}
+			add = -50
+		}
+		if = {
+			limit = {
+				owner = { has_variable = local_patcon_split_var }
+				OR = {
+					is_interest_group_type = ig_national_liberals
+					is_interest_group_type = ig_conservatives
+					is_interest_group_type = ig_devout
+				}
+			}
+			add = 50
+		}
+		# not very relevant if issues are already addressed
+		if = {
+			limit = {
+				owner = {
+					NOT = {
+						has_law = law_type:law_council_republic
+					}
+					has_law = law_type:law_public_schools
+					has_law = law_type:law_regulatory_bodies
+					has_law = law_type:law_wage_subsidies
+					has_law = law_type:law_state_controlled_labor_unions
+				}
+			}
+			add = -25
+		}
+		# less likely for landowners and devout
+		if = {
+			limit = {
+				is_interest_group_type = ig_landowners
+			}
+			add = -75
+		}
+		# more likely for content trade unions and rural folk outside of council republic
+		if = {
+			limit = {
+				bpm_ig_is_lower_institutional = yes
+				ig_approval >= 0
+				owner = {
+					NOT = { has_law = law_type:law_council_republic }
+				}
+			}
+			add = 25
+		}
+		# conservative and/or reactionary leaders have a higher spawn chance if the Anti-Dreyfusards won
+		if = {
+			limit = {
+				has_variable = anti_dreyfusard_victory
+			}
+			add = 25
+		}
+	}
+
+	non_interest_group_leader_trigger = {
+        interest_group = {
+    		bpm_interest_group_is_activated = yes 
+    		owner = { has_technology_researched = corporatism }
+    		bpm_ig_is_socialist = no
+    		NOT = {
+    			has_ideology = ideology:ideology_wel_distributist_welfare
+    		}
+    	}
+		# Agitators should have an ideology at odds with current laws
+		NAND = {
+			has_role = agitator
+			owner = {
+				NOT = { has_law = law_type:law_council_republic }
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_regulatory_bodies
+				has_law = law_type:law_compulsory_primary_school
+				has_law = law_type:law_state_controlled_labor_unions
+			}
+		}
+	}
+	
+	non_interest_group_leader_weight = {
+		value = 50
 	}
 }
