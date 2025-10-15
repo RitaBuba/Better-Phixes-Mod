@@ -35,7 +35,7 @@ india_nationalism_events.4 = { # Gandhi in Sooth Efrika
 			}
 			any_scope_pop = {
 				culture = {
-					has_discrimination_trait = south_asian_heritage
+					has_discrimination_trait = heritage_group_south_asian
 				}
 			}
 		}
