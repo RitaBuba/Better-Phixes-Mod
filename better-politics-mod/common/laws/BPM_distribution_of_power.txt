@@ -99,8 +99,15 @@ law_neo_absolutism = { # Reward for completing the neo-absolutist content
 	}
 
 	on_activate = {
-		scripted_effect_parties_disappearence = yes
 		clear_geheime_staatskonferenz = yes
+		bpm_disable_elective_laws = yes
+		if = {
+			limit = { bpm_country_is_republic = yes	}
+			scripted_effect_parties_emergence = yes
+			add_modifier = bpm_republic_gov_size
+		} else = {
+			scripted_effect_parties_disappearence = yes
+		}
 	}
 
 	is_visible = {
@@ -109,20 +116,25 @@ law_neo_absolutism = { # Reward for completing the neo-absolutist content
 	}
 
 	modifier = {
-		country_legitimacy_headofstate_add = 30
-		country_legitimacy_govt_total_clout_add = 120
+		country_legitimacy_govt_total_clout_add = 100
+		country_legitimacy_govt_size_add = 2
 		country_legitimacy_ideological_incoherence_mult = 0.1
 		country_bureaucrats_pol_str_mult = 0.5
-		country_officers_pol_str_mult = 0.5
-		state_pop_pol_str_mult = -0.75
+		country_peasants_pol_str_mult = -0.4
+		state_pop_pol_str_mult = -0.95
 		state_political_strength_from_wealth_mult = 1
 		state_pop_pol_str_add = -6
 		country_authority_add = 250
+		# country_bpm_base_mandate_add = 60
 	}
+
+	can_impose = { 
+		always = no
+	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-
+		
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750

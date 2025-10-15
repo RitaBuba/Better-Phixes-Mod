@@ -243,7 +243,7 @@ conservative_party = {
 					has_law = law_type:law_monarchy
 					ruler = {
 						culture = {
-							has_discrimination_trait = german_speaking
+							has_discrimination_trait = language_germanophone
 						}
 					}
 				}
@@ -1339,6 +1339,28 @@ conservative_party = {
 					}
 				}
 			}
+			if = { # arbitrary weight for Monarchist split from Republican Conservatives
+				limit = {
+					OR = { 
+						is_interest_group_type = ig_reactionaries
+						leader = { has_ideology = ideology:ideology_legitimists }
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							NOT = { has_law = law_type:law_monarchy }
+							ig:ig_conservatives ?= {
+								bpm_ig_is_republican = yes
+							}
+						}
+					}
+					add = {
+						value = -20
+						desc = "from_legitimist"
+					}
+				}
+			}
 		}
 		# BRZ
 		else_if = {
@@ -1381,6 +1403,20 @@ conservative_party = {
 				}
 				add = {
 					value = 50
+					desc = "bpm_from_colonialist"
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_interest_group_type = ig_devout
+						is_interest_group_type = ig_landowners
+						is_interest_group_type = ig_rural_folk
+						is_interest_group_type = ig_trade_unions
+					}
+				}
+				add = {
+					value = -30
 					desc = "bpm_from_colonialist"
 				}
 			}

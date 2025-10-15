@@ -7041,9 +7041,9 @@ ideology_integralist = {
 		owner = { 
 			any_primary_culture = { 
 				OR = { 
-					has_discrimination_trait = lusophone 
-					has_discrimination_trait = hispanophone
-					has_discrimination_trait = francophone
+					has_discrimination_trait = language_lusophone 
+					has_discrimination_trait = language_hispanophone
+					has_discrimination_trait = language_francophone
 				} 
 			} 
 		}
@@ -7145,7 +7145,7 @@ ideology_integralist = {
 			limit = {
 				owner = {
 					any_primary_culture = {
-						has_discrimination_trait = francophone
+						has_discrimination_trait = language_francophone
 					}
 				}
 				bpm_ig_is_fascist = yes
@@ -7191,9 +7191,9 @@ ideology_integralist = {
     		owner = { 
     			any_primary_culture = { 
     				OR = { 
-    					has_discrimination_trait = lusophone 
-    					has_discrimination_trait = hispanophone
-    					has_discrimination_trait = francophone
+    					has_discrimination_trait = language_lusophone 
+    					has_discrimination_trait = language_hispanophone
+    					has_discrimination_trait = language_francophone
     				} 
     			} 
     		}
@@ -8196,20 +8196,20 @@ ideology_bonapartist = {
 	}
 
 	lawgroup_distribution_of_power = {
-		law_autocracy = strongly_approve
-		law_oligarchy = approve
+		law_autocracy = disapprove
+		law_oligarchy = disapprove
 		law_landed_voting = neutral	
 		law_wealth_voting = neutral	
 		law_military_junta = approve
-		law_census_voting = disapprove		
-		law_universal_suffrage = disapprove
+		law_census_voting = approve		
+		law_universal_suffrage = strongly_approve
 		law_anarchy = strongly_disapprove
 		law_technocracy = strongly_disapprove
 	}
 
 	lawgroup_army_model = {
-		law_mass_conscription = approve
-		law_professional_army = strongly_approve
+		law_mass_conscription = strongly_approve
+		law_professional_army = approve
 		law_national_militia = disapprove
 		law_peasant_levies = disapprove
 	}
@@ -9021,7 +9021,7 @@ ideology_utilitarian_leader = {
 	country_trigger = {
 		has_technology_researched = empiricism
 		any_primary_culture = {
-			has_discrimination_trait = anglophone
+			has_discrimination_trait = language_anglophone
 		}
 	}
 

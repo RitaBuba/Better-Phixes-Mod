@@ -503,6 +503,7 @@
 		bpm_set_colony_law = yes
 	}
 
+
 	every_country = {
 		limit = {
 			country_has_state_religion = rel:oriental_orthodox
