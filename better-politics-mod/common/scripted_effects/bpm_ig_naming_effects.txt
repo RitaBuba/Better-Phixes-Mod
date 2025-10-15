@@ -120,9 +120,9 @@ bpm_rename_rural_folk_ig = {
 			OR = {
 				c:BIC ?= this
 				any_primary_culture = {
-					has_discrimination_trait = south_asian_heritage
+					has_discrimination_trait = heritage_group_south_asian
 					NOT = {
-						has_discrimination_trait = himalayan
+						has_discrimination_trait = heritage_himalayan
 					}
 				}
 			}

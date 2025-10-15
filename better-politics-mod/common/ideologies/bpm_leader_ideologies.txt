@@ -7014,9 +7014,9 @@ ideology_integralist = {
 		owner = { 
 			any_primary_culture = { 
 				OR = { 
-					has_discrimination_trait = lusophone 
-					has_discrimination_trait = hispanophone
-					has_discrimination_trait = francophone
+					has_discrimination_trait = language_lusophone 
+					has_discrimination_trait = language_hispanophone
+					has_discrimination_trait = language_francophone
 				} 
 			} 
 		}
@@ -7117,7 +7117,7 @@ ideology_integralist = {
 			limit = {
 				owner = {
 					any_primary_culture = {
-						has_discrimination_trait = francophone
+						has_discrimination_trait = language_francophone
 					}
 				}
 				bpm_ig_is_fascist = yes
@@ -7163,9 +7163,9 @@ ideology_integralist = {
     		owner = { 
     			any_primary_culture = { 
     				OR = { 
-    					has_discrimination_trait = lusophone 
-    					has_discrimination_trait = hispanophone
-    					has_discrimination_trait = francophone
+    					has_discrimination_trait = language_lusophone 
+    					has_discrimination_trait = language_hispanophone
+    					has_discrimination_trait = language_francophone
     				} 
     			} 
     		}
@@ -8990,7 +8990,7 @@ ideology_utilitarian_leader = {
 	country_trigger = {
 		has_technology_researched = empiricism
 		any_primary_culture = {
-			has_discrimination_trait = anglophone
+			has_discrimination_trait = language_anglophone
 		}
 	}
 
