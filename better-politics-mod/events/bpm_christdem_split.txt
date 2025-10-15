@@ -1592,38 +1592,40 @@ bpm_christdem_split.51 = {
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
 		# Must have a democracy stance!
-		has_variable = bpm_christian_democrats_dop_ideology
-		OR = {
-			AND = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_dop_christian_democrat
-				}
-				je:je_bpm_christian_or_democrat ?= { 
-					"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" <= 60
-				}
-			}
-
-			AND = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_dop_divine_democrat
-				}
-				OR = {
-					je:je_bpm_christian_or_democrat ?= { 
-						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 70
+		AND = {
+			has_variable = bpm_christian_democrats_dop_ideology
+			OR = {
+				AND = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_dop_christian_democrat
 					}
 					je:je_bpm_christian_or_democrat ?= { 
 						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" <= 30
 					}
-				}
-			}
+				}  
 
-			AND = {
-				ig:ig_christian_democrats = {
-					has_ideology = ideology:ideology_dop_conservative_democrat
+				AND = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_dop_divine_democrat
+					}
+					OR = {
+						je:je_bpm_christian_or_democrat ?= { 
+							"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 70
+						}
+						je:je_bpm_christian_or_democrat ?= { 
+							"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" <= 30
+						}
+					}
 				}
-				
-				je:je_bpm_christian_or_democrat ?= { 
-					"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 40
+
+				AND = {
+					ig:ig_christian_democrats = {
+						has_ideology = ideology:ideology_dop_conservative_democrat
+					}
+					
+					je:je_bpm_christian_or_democrat ?= { 
+						"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 70
+					}
 				}
 			}
 		}
@@ -1673,6 +1675,7 @@ bpm_christdem_split.51 = {
 					has_ideology = ideology:ideology_dop_divine_democrat
 				}
 			}
+			always = no
 		}
 
 		ig:ig_christian_democrats = {

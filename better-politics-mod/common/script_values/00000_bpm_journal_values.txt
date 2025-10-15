@@ -1587,7 +1587,7 @@ bpm_je_christian_democrat_economy_rate = { # bpm_country_fraction_below_expected
 				value = -50
 				add = ROOT.je:je_bpm_christian_or_democrat.var:ideological_leaning_bar_variable
 				multiply = ROOT.ig:ig_industrialists.ig_clout
-				divide = 4.44
+				divide = 12.34
 			}
 		}
 	}
