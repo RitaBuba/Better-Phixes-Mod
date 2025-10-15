@@ -286,7 +286,7 @@
 			limit = {
 				c:BIC ?= owner
 				culture = {
-					has_discrimination_trait = heritage_christian
+					has_discrimination_trait = heritage_group_european
 				}
 			}
 			multiply = {
