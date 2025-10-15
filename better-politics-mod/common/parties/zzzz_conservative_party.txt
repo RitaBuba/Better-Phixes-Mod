@@ -1113,6 +1113,28 @@ conservative_party = {
 					}
 				}
 			}
+			if = { # arbitrary weight for Monarchist split from Republican Conservatives
+				limit = {
+					OR = { 
+						is_interest_group_type = ig_reactionaries
+						leader = { has_ideology = ideology:ideology_legitimists }
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							NOT = { has_law = law_type:law_monarchy }
+							ig:ig_conservatives ?= {
+								bpm_ig_is_republican = no
+							}
+						}
+					}
+					add = {
+						value = -20
+						desc = "from_legitimist"
+					}
+				}
+			}
 		}
 		# BRZ
 		else_if = {
