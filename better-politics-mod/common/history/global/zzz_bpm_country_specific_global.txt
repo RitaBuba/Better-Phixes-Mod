@@ -501,6 +501,7 @@
 		bpm_set_colony_law = yes
 	}
 
+
 	every_country = {
 		limit = {
 			country_has_state_religion = rel:oriental_orthodox
@@ -514,6 +515,16 @@
 		}
 		ig:ig_landowners ?= {
 			set_interest_group_name = ig_mesafint
+		}
+	}
+
+	every_country = {
+		limit = {
+			country_is_in_south_america = yes
+			any_primary_culture = { has_discrimination_trait = hispanophone }
+		}
+		ig:ig_landowners ?= {
+			set_interest_group_name = ig_hacendados
 		}
 	}
 
