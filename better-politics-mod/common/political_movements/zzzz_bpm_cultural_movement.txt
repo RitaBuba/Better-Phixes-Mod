@@ -233,6 +233,40 @@
 				subtract = pop_radical_fraction
 			}
 		}
+		if = {
+			limit = {
+				owner ?= {
+					any_political_movement = {
+						is_political_movement_type = movement_cultural_majority
+						OR = {
+							is_being_suppressed = yes
+							is_being_bolstered = yes
+						}
+						save_temporary_scope_as = affected_movement
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:affected_movement = {
+						is_being_suppressed = yes
+					}
+				}
+				multiply = {
+					value = 1
+					subtract = owner.modifier:country_suppression_attraction_factor
+					desc = "concept_suppressed"
+				}
+			}
+			else = {
+				multiply = {
+					value = 1
+					add = owner.modifier:country_bolster_attraction_factor
+					desc = "concept_bolstered"
+				}
+			}
+		}
+
 	}	
 	
 	revolution = {
@@ -333,6 +367,7 @@
 	}
 	
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		if = {
 			limit = {
 				owner.ruler ?= {
@@ -760,6 +795,40 @@ movement_cultural_minority = {
 				desc = "SPRINGTIME_OF_THE_PEOPLES_UNDERWAY"
 			}
 		}
+		if = {
+			limit = {
+				owner ?= {
+					any_political_movement = {
+						is_political_movement_type = movement_cultural_minority
+						OR = {
+							is_being_suppressed = yes
+							is_being_bolstered = yes
+						}
+						save_temporary_scope_as = affected_movement
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:affected_movement = {
+						is_being_suppressed = yes
+					}
+				}
+				multiply = {
+					value = 1
+					subtract = owner.modifier:country_suppression_attraction_factor
+					desc = "concept_suppressed"
+				}
+			}
+			else = {
+				multiply = {
+					value = 1
+					add = owner.modifier:country_bolster_attraction_factor
+					desc = "concept_bolstered"
+				}
+			}
+		}
+
 	}	
 	
 	secession = {
@@ -843,6 +912,7 @@ movement_cultural_minority = {
 	}
 	
 	additional_radicalism_factors = {
+		add = { value = bpm_additional_radicalism_factors desc = "bpm_additional_radicalism_factors" }
 		if = {
 			limit = { 
 				owner = { has_journal_entry = je_springtime_of_the_peoples } 

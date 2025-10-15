@@ -490,7 +490,7 @@ pedro.8 = {
 		
 		hidden_effect = {
 			ig:ig_landowners = {
-				remove_ideology = ideology_stratocratic
+				remove_ideology = ideology_hierarchic
 				add_ideology = ideology_oligarchic
 			}
 		}
@@ -830,7 +830,7 @@ pedro.9 = {
 						has_ideology = ideology:ideology_positivist
 						has_ideology = ideology:ideology_republican_leader
 						has_ideology = ideology:ideology_radical
-						has_ideology = ideology:ideology_atheist
+						has_ideology = ideology:ideology_nihilist
 					}
 				}
 				bpm_ig_is_republican = yes
@@ -854,7 +854,7 @@ pedro.9 = {
 							has_ideology = ideology:ideology_positivist
 							has_ideology = ideology:ideology_republican_leader
 							has_ideology = ideology:ideology_radical
-							has_ideology = ideology:ideology_atheist
+							has_ideology = ideology:ideology_nihilist
 						}
 					}
 					bpm_ig_is_republican = yes
@@ -1054,6 +1054,7 @@ pedro.12 = {
 				}
 				set_character_immortal = yes
 			}
+			save_scope_as = isabel_scope #PBF
 		}
 		# pedro's popularity is reduced
 		scope:pedro_scope = {

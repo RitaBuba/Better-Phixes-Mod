@@ -1,4 +1,4 @@
-# Modifiers
+﻿# Modifiers
 bpm_stubborn_ig = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
 	interest_group_approval_add = -4
@@ -89,6 +89,7 @@ bpm_stability_stagnant = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
 	country_law_enactment_time_mult = 1.0
 	country_law_enactment_success_add = -0.2
+	country_bpm_labor_consciousness_target_mult = -0.25
 }
 
 #33% - 66%
@@ -105,6 +106,7 @@ bpm_stability_unstable = {
 	building_throughput_add = -0.2
 	state_construction_mult = -0.2
 	state_pop_pol_str_add = 2
+	country_bpm_labor_consciousness_target_mult = 1
 }
 
 bpm_high_command_chaos = {
@@ -515,7 +517,6 @@ bpm_solidarity_bimetal = {
 	country_gold_reserve_limit_mult	= 0.20
 	country_loan_interest_rate_add = -0.01
 	state_capitalists_investment_pool_efficiency_mult = 0.10
-	country_trade_route_competitiveness_mult = -0.05
 }
 
 bpm_solidarity_silver = {
@@ -525,7 +526,6 @@ bpm_solidarity_silver = {
 	country_gold_reserve_limit_mult	= 0.40
 	country_loan_interest_rate_add = -0.02
 	state_capitalists_investment_pool_efficiency_mult = 0.20
-	country_trade_route_competitiveness_mult = -0.10
 }
 
 bpm_solidarity_fiat = {
@@ -535,7 +535,6 @@ bpm_solidarity_fiat = {
 	country_gold_reserve_limit_mult	= 0.80
 	country_loan_interest_rate_add = -0.04
 	state_capitalists_investment_pool_efficiency_mult = 0.40
-	country_trade_route_competitiveness_mult = -0.20
 }
 
 bpm_solidarity_capital_flow_gold = {
@@ -755,7 +754,7 @@ bpm_cemented_oligarchy = {
 
 bpm_canton_system = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
-	tariff_export_add = 0.15
+	state_tariff_export_add = 0.15
 	country_society_tech_spread_mult = -0.10
 }
 

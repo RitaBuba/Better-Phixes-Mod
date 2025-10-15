@@ -9,7 +9,7 @@ law_state_religion = {
 	
 	progressiveness = -50
 	
-	on_enact = {
+	on_activate = { #PBF
 		recalculate_pop_ig_support = yes
 		if = {
 			limit = {
@@ -35,7 +35,8 @@ law_state_religion = {
 
 		country_acceptance_state_religion_add = 25
 		country_acceptance_shared_religious_trait_add = 0
-		country_acceptance_religion_base_add = -25	
+		country_acceptance_shared_religious_trait_group_add = -10
+		country_acceptance_no_shared_religious_trait_add = -25
 
 		country_allow_conversion_violent_hostility_bool = no
 		country_allow_conversion_cultural_erasure_bool = yes
@@ -126,7 +127,7 @@ law_freedom_of_conscience = {
 		law_theocracy
 	}
 	
-	on_enact = {
+	on_activate = { #PBF
 		recalculate_pop_ig_support = yes
 		if = {
 			limit = {
@@ -152,7 +153,8 @@ law_freedom_of_conscience = {
 
 		country_acceptance_state_religion_add = 20
 		country_acceptance_shared_religious_trait_add = 15
-		country_acceptance_religion_base_add = 0
+		country_acceptance_shared_religious_trait_group_add = 5
+		country_acceptance_no_shared_religious_trait_add = 0
 
 		country_allow_conversion_violent_hostility_bool = no
 		country_allow_conversion_cultural_erasure_bool = yes
@@ -216,7 +218,7 @@ law_total_separation = {
 		}
 	}
 
-	on_enact = {
+	on_activate = { #PBF
 		recalculate_pop_ig_support = yes
 		if = {
 			limit = {
@@ -235,7 +237,8 @@ law_total_separation = {
 	modifier = {
 		country_acceptance_state_religion_add = 15
 		country_acceptance_shared_religious_trait_add = 15
-		country_acceptance_religion_base_add = 15
+		country_acceptance_shared_religious_trait_group_add = 15
+		country_acceptance_no_shared_religious_trait_add = 15
 
 		country_allow_conversion_violent_hostility_bool = no
 		country_allow_conversion_cultural_erasure_bool = yes
@@ -302,7 +305,8 @@ law_state_atheism = {
 
 		country_acceptance_state_religion_add = 15
 		country_acceptance_shared_religious_trait_add = 0
-		country_acceptance_religion_base_add = -10
+		country_acceptance_shared_religious_trait_group_add = -5
+		country_acceptance_no_shared_religious_trait_add = -10
 
 		country_allow_conversion_violent_hostility_bool = no
 		country_allow_conversion_cultural_erasure_bool = yes
@@ -311,7 +315,7 @@ law_state_atheism = {
 		country_allow_conversion_full_acceptance_bool = yes
 	}
 	
-	on_enact = {
+	on_activate = { #PBF
 		if = {
 			limit = {
 				NOT = { country_has_state_religion = rel:atheist }
@@ -335,10 +339,6 @@ law_state_atheism = {
 			}
 		}
 		recalculate_pop_ig_support = yes
-	}
-	
-	on_activate = {
-		set_state_religion = rel:atheist
 	}
 
 	can_impose = {

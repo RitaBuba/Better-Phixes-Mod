@@ -300,6 +300,8 @@ types ongoing_outliner_items {
 						min = 0
 						max = 1
 					}
+					blockoverride "progress_icon" {
+					}
 				}
 				textbox = {
 					size = { 30 30 }
@@ -683,8 +685,7 @@ types ongoing_outliner_items {
 	type outliner_revolutionary_political_movement_item = flowcontainer {
 		direction = vertical
 
-		datacontext = "[AccessPlayer.GetGrowingCivilWar.AccessPoliticalMovement]"
-		visible = "[AccessPlayer.GetGrowingCivilWar.IsValid]"
+		datacontext = "[CivilWar.AccessPoliticalMovement]"
 
 		onmousehierarchyenter = "[AccessHighlightManager.HighlightPoliticalMovement(PoliticalMovement.Self)]"
 		onmousehierarchyleave = "[AccessHighlightManager.RemoveHighlight]"
@@ -717,15 +718,6 @@ types ongoing_outliner_items {
 				duration = 0.7
 				on_start = "[PdxGuiWidget.FindChild('revolution_button').TriggerAnimation('1')]"
 				on_start = "[PdxGuiWidget.FindChild('interest_group_top').TriggerAnimation('show')]"
-			}
-
-			state = {
-				#name = _hide
-				name = testing2
-				#trigger_on_create = yes
-				#on_start = "[PdxGuiWidget.FindChild('revolution_clock').TriggerAnimation('hide')]"
-				alpha = 0
-				duration = 1
 			}
 
 			widget = {
@@ -843,7 +835,7 @@ types ongoing_outliner_items {
 								round_progress_bad = {
 									size = { 80% 80% }
 									position = { 0 7 }
-									value = "[FixedPointToFloat(AccessPlayer.GetGrowingCivilWar.GetClockTime)]"
+									value = "[FixedPointToFloat(CivilWar.GetClockTime)]"
 									parentanchor = center
 								}
 								
@@ -870,11 +862,7 @@ types ongoing_outliner_items {
 							widget = {
 								size = { 230 25 }
 
-								revolution_progress_bar = {
-									blockoverride "datacontext" {
-										datacontext = "[AccessPlayer.GetGrowingCivilWar]"
-									}
-								}
+								revolution_progress_bar = {}
 							}
 
 							### Movement Header ###
@@ -976,7 +964,6 @@ types ongoing_outliner_items {
 			
 			### Interest Groups
 			flowcontainer = {
-				datacontext = "[AccessPlayer.GetGrowingCivilWar]"
 				visible = "[Not(IsDataModelEmpty(CivilWar.AccessInsurrectionaryIGs(GetPlayer)))]"
 				datamodel = "[CivilWar.AccessInsurrectionaryIGs(GetPlayer)]"
 				parentanchor = hcenter
@@ -992,7 +979,6 @@ types ongoing_outliner_items {
 				}
 				item = {
 					ig_button = {
-						visible = "[GreaterThanOrEqualTo_CFixedPoint(InterestGroup.GetClout,'(CFixedPoint)0.001')]"
 						size = { 26 26 }
 						
 						tooltipwidget = {
@@ -1002,7 +988,5 @@ types ongoing_outliner_items {
 				}
 			}
 		}
-
-		outliner_revolutionary_movement_events = {}
 	}
 }

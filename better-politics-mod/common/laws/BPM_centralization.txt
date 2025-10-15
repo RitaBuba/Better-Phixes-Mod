@@ -23,12 +23,15 @@ law_ad_hoc_centralization = {
 	}
 	
 	is_visible = {
-		has_law = law_type:law_ad_hoc_centralization
+		OR = {
+			has_law = law_type:law_ad_hoc_centralization
+			has_game_started = no
+		}
 	}
 
-	pop_support = {
-		value = 0
-	}
+#	pop_support = {
+#		value = 0
+#	}
 
 	ai_will_do = {
 		always = no
@@ -90,6 +93,18 @@ law_confederated = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_ad_hoc_centralization
+				any_country = {
+					filter = {
+						has_interest_marker_in_region = root.capital.region
+					}
+					country_rank > root.country_rank
+				}
+			}
+			add = 25
 		}
 	}
 }
@@ -163,6 +178,19 @@ law_federated = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		if = {
+			limit = {
+				has_law = law_type:law_ad_hoc_centralization
+				any_country = {
+					filter = {
+						has_interest_marker_in_region = root.capital.region
+					}
+					country_rank > root.country_rank
+				}
+			}
+			add = 25
+		}
+
 	}
 }
 
@@ -215,15 +243,17 @@ law_devolved = {
 		country_institution_centralization_max_investment_add = 2
 	}
 
-	on_enact = {		
+	on_enact = {
 		if = {
 			limit = {
 				has_journal_entry = je_bpm_second_revolution
 			}
-			add_acceptance = {
-    		    target = cu:afro_american
-    		    value = 10
-    		}
+			every_scope_state = {	
+				add_acceptance = {
+					target = cu:afro_american
+					value = 10
+				}
+			}
 		}
 	}
 
@@ -250,6 +280,18 @@ law_devolved = {
 				has_journal_entry = je_bpm_1834_additional_act
 			}
 			add = 100
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_ad_hoc_centralization
+				any_country = {
+					filter = {
+						has_interest_marker_in_region = root.capital.region
+					}
+					country_rank > root.country_rank
+				}
+			}
+			add = 25
 		}
 	}
 }
@@ -331,6 +373,35 @@ law_unitary = {
 				has_journal_entry = je_bpm_1834_additional_act
 			}
 			add = 100
+		}
+		# Russian Obschinas 
+		if = {
+			limit = {
+				has_modifier = bpm_russia_ad_hoc_governance
+			}
+			add = 750
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_ad_hoc_centralization
+				any_country = {
+					filter = {
+						has_interest_marker_in_region = root.capital.region
+					}
+					country_rank > root.country_rank
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_ad_hoc_centralization
+				OR = {
+					has_law = law_type:law_presidential_republic
+					has_law = law_type:law_parliamentary_republic
+				}
+			}
+			add = 999
 		}
 	}
 }
