@@ -20,20 +20,19 @@
 			if = {
 				limit = {
 					c:BOL ?= this
-					government_legitimacy >= 50
 
 					AND = {
 						c:SPU ?= {
 							is_subject_of = c:BOL
-							liberty_desire <= 50
+							liberty_desire <= 60
 						}
 						c:NPU ?= {
 							is_subject_of = c:BOL
-							liberty_desire <= 50
+							liberty_desire <= 60
 						}
 						c:IQU ?= {
 							is_subject_of = c:BOL
-							liberty_desire <= 50
+							liberty_desire <= 60
 						}
 					}
 				}
