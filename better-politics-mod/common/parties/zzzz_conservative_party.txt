@@ -1113,6 +1113,26 @@ conservative_party = {
 					}
 				}
 			}
+			if = { # arbitrary weight for Unionist split from Republican Conservatives
+				limit = {
+					is_interest_group_type = ig_reactionaries
+					leader = { has_ideology = ideology:ideology_legitimist }
+				}
+				if = {
+					limit = {
+						owner = {
+							NOT = { has_law = law_type:law_monarchy }
+							ig:ig_conservatives ?= {
+								bpm_ig_is_republican = yes
+							}
+						}
+					}
+					add = {
+						value = -30
+						desc = "bpm_from_bourbon"
+					}
+				}
+			}
 		}
 		# BRZ
 		else_if = {
