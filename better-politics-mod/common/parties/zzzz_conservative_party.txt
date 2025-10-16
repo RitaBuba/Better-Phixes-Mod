@@ -1115,8 +1115,10 @@ conservative_party = {
 			}
 			if = { # arbitrary weight for Unionist split from Republican Conservatives
 				limit = {
-					is_interest_group_type = ig_reactionaries
-					leader = { has_ideology = ideology:ideology_legitimist }
+					OR = {
+						is_interest_group_type = ig_reactionaries
+						leader = { has_ideology = ideology:ideology_legitimist }
+					}
 				}
 				if = {
 					limit = {
