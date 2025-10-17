@@ -1004,9 +1004,7 @@ bpm_rename_natlib_ig = {
 	if = {
 		limit = { this = c:FRA }
 		if = {
-			limit = {
-				ig:ig_national_liberals ?= { bpm_ig_is_republican = no }
-			}
+			limit = { limit = { ig:ig_national_liberals ?= { bpm_ig_is_monarchist = yes } } }
 			ig:ig_national_liberals ?= { set_interest_group_name = ig_bonapartists }
 		}
 	}
@@ -1311,10 +1309,14 @@ bpm_rename_conservative_ig = {
 	else_if = {
 		limit = { this = c:FRA }
 		if = {
-			limit = { ig:ig_liberals ?= { bpm_ig_is_republican = yes } }
+			limit = {
+				ig:ig_liberals ?= { bpm_ig_is_republican = yes }
+				ig:ig_conservatives ?= { bpm_ig_is_monarchist = yes }
+			}
 			ig:ig_conservatives ?= { set_interest_group_name = ig_orleanists }
 		}
 		else = {
+			limit = { ig:ig_conservatives ?= { bpm_ig_is_monarchist = yes } }
 			ig:ig_conservatives ?= { set_interest_group_name = ig_orleanists_right }
 		}
 	}
@@ -1387,7 +1389,13 @@ bpm_rename_reactionary_ig = {
 		limit = {
 			this = c:FRA
 		}
-		ig:ig_reactionaries ?= { set_interest_group_name = ig_legitimists }
+		if = {
+			has_variable = bpm_second_republic_cemented
+			ig:ig_reactionaries ?= { set_interest_group_name = ig_unionists }
+		}
+		else_if = {
+			ig:ig_reactionaries ?= { set_interest_group_name = ig_legitimists }
+		}
 	}
 	else_if ={
 		limit = {

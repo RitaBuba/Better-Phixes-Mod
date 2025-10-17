@@ -294,6 +294,9 @@
  ig_miguelists:0 "Miguelists"
  ig_miguelists_desc:0 "$ig_reactionaries_desc$"
 
+ ig_unionists:0 "Unionists"
+ ig_unionists_desc:0 "$ig_reactionaries_desc$"
+
  ig_restorationists:0 "Restorationists"
  ig_restorationists_desc:0 "$ig_absolutists_desc$"
 

@@ -1339,11 +1339,11 @@ conservative_party = {
 					}
 				}
 			}
-			if = { # arbitrary weight for Monarchist split from Republican Conservatives
+			if = { # arbitrary weight for Unionist split from Republican Conservatives
 				limit = {
-					OR = { 
+					OR = {
 						is_interest_group_type = ig_reactionaries
-						leader = { has_ideology = ideology:ideology_legitimists }
+						leader = { has_ideology = ideology:ideology_legitimist }
 					}
 				}
 				if = {
@@ -1356,8 +1356,8 @@ conservative_party = {
 						}
 					}
 					add = {
-						value = -20
-						desc = "from_legitimist"
+						value = -30
+						desc = "bpm_from_bourbon"
 					}
 				}
 			}
