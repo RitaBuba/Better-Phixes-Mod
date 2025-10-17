@@ -368,6 +368,7 @@ bpm_france.5 = { # Second Republic Entrenched
 			text = no_more_royalists
 			set_variable = monarchy_stamped_out_var
 			remove_variable = bpm_fra_second_republic
+			add_variable = bpm_second_republic_cemented
 		}
 		every_interest_group = {
 			limit = {
