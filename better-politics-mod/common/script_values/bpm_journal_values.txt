@@ -2472,3 +2472,16 @@ bpm_je_victor_rate = {
 		}
 	}
 }
+
+bpm_orleg_clout = {
+	value = 0
+	every_interest_group = {
+		limit = {
+			OR = {
+				is_interest_group_type = ig_conservatives
+				is_interest_group_type = reactionaries
+			}
+		}
+		add = ig_clout
+	}
+}
