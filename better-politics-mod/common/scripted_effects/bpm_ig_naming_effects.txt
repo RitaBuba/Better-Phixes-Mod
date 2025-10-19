@@ -1390,7 +1390,7 @@ bpm_rename_reactionary_ig = {
 			this = c:FRA
 		}
 		if = {
-			has_variable = bpm_second_republic_cemented
+			limit = { has_variable = bpm_second_republic_cemented }
 			ig:ig_reactionaries ?= { set_interest_group_name = ig_unionists }
 		}
 		else_if = {
