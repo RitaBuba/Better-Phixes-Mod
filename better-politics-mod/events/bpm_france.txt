@@ -21,7 +21,7 @@ bpm_france_july_monarchy.1 = { # Resignation of Victor Borglie
 
 	dlc = dlc_bpm
 
-	cooldown = { days = 100 }
+	cooldown = { days = 36500 }
 
 	trigger = {
 		this = c:FRA
