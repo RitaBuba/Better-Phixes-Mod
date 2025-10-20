@@ -604,7 +604,7 @@ FRA_odilon_barrot = { #Odilon Barrot
 	birth_date = 1791.7.19
 	ig_leader = yes
 	interest_group = ig_liberals
-	ideology = ideology_orleanist
+	ideology = ideology_moderate
 	traits = {
 		inspirational_orator
 	}
