@@ -317,6 +317,10 @@ movement_anti_slavery = {
 				}
 			}
 		}
+
+		interest_group_can_join = {
+			bpm_ig_is_abolitionist = yes
+		}
 	}
 
 	secession = {
@@ -725,6 +729,10 @@ movement_pro_slavery = {
 					multiply = 0.1
 				}
 			}		
+		}
+
+		interest_group_can_join = {
+			bpm_ig_is_pro_slavery = yes
 		}
 	}
 	
@@ -1304,6 +1312,13 @@ movement_positivist = {
 	
 		state_weight = {
 			value = 1		
+		}
+
+		interest_group_can_join = {
+			OR = {
+				leader ?= { has_ideology = ideology:ideology_positivist }
+				has_ideology = ideology:ideology_dop_technocrat
+			}
 		}
 	}
 	
@@ -1915,6 +1930,12 @@ movement_land_reform = {
 				value = 1
 				add = political_movement_support 
 			}	
+		}
+
+		interest_group_can_join = {
+			bpm_ig_is_agrarian = yes
+			bpm_ig_is_pro_serfdom = no
+			bpm_ig_is_pro_slavery = no
 		}
 	}
 	

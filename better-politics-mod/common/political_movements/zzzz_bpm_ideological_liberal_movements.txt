@@ -386,6 +386,12 @@ movement_modernizer = {
 		state_weight = {
 			value = 1		
 		}
+
+		interest_group_can_join = {
+			bpm_ig_is_traditionalist = no
+			bpm_ig_is_pro_slavery = no
+			bpm_ig_is_pro_serfdom = no
+		}
 	}
 	
 	secession = {
@@ -711,6 +717,11 @@ movement_royalist_constitutional = {
 	revolution = {
 		possible = {
 			political_movement_support >= 0.1
+		}
+
+		interest_group_can_join = {
+			bpm_ig_is_monarchist = yes
+			bpm_ig_is_democrat = yes
 		}
 		
 		weight = {
@@ -1216,6 +1227,10 @@ movement_liberal = {
 		possible = {
 			political_movement_support >= 0.1
 		}
+
+		interest_group_can_join = {
+			bpm_ig_is_liberal = yes
+		}
 		
 		weight = {
 			value = 100
@@ -1676,6 +1691,10 @@ movement_radical = {
 		possible = {
 			political_movement_support >= 0.15
 		}
+
+		interest_group_can_join = {
+			bpm_ig_is_monarchist = no
+		}
 		
 		weight = {
 			value = 100
@@ -2066,6 +2085,10 @@ movement_feminist = {
 	revolution = {
 		possible = {
 			political_movement_support >= 0.15
+		}
+
+		interest_group_can_join = {
+			bpm_ig_is_feminist = yes
 		}
 		
 		weight = {
@@ -2492,6 +2515,10 @@ movement_market_liberal = {
 	revolution = {
 		possible = {
 			political_movement_support >= 0.1
+		}
+
+		interest_group_can_join = {
+			bpm_ig_is_market_liberal = yes
 		}
 		
 		weight = {
@@ -2974,6 +3001,11 @@ movement_national_liberal = {
 	revolution = {
 		possible = {
 			political_movement_support >= 0.15
+		}
+
+		interest_group_can_join = {
+			bpm_ig_wants_small_government = no
+			bpm_ig_is_socialist = no
 		}
 		
 		weight = {
