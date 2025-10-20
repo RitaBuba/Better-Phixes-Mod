@@ -416,9 +416,8 @@ movement_socialist = {
 		}
 	}
 
-	can_pressure_interest_group = {
-		bpm_ig_is_left_wing = yes
-	}
+	can_pressure_interest_group = { 		bpm_ig_is_left_wing = yes }
+    interest_group_can_join = { 		bpm_ig_is_left_wing = yes }
 	
 	character_support_trigger = {
 		OR = {
@@ -925,9 +924,8 @@ movement_anarchist = {
 		add_movement_enthusiasm_modifier = yes
 	}
 
-	can_pressure_interest_group = {
-		bpm_ig_is_proletarian = yes
-	}
+	can_pressure_interest_group = { 		bpm_ig_is_proletarian = yes }
+    interest_group_can_join = { 		bpm_ig_is_proletarian = yes }
 	
 	character_support_trigger = {
 		OR = {
@@ -1352,10 +1350,9 @@ movement_communist = {
 		add_movement_enthusiasm_modifier = yes
 	}
 
-	can_pressure_interest_group = {
-		bpm_ig_is_proletarian = yes
-	}
-	
+	can_pressure_interest_group = { 		bpm_ig_is_proletarian = yes }
+    interest_group_can_join = { 		bpm_ig_is_proletarian = yes }
+		
 	character_support_trigger = {
 		OR = {
 			has_ideology = ideology:ideology_vanguardist
@@ -1783,9 +1780,8 @@ movement_reformist_socialist = {
 	
 	on_disbanded = {}
 
-	can_pressure_interest_group = {
-		bpm_ig_is_left_wing = yes
-	}
+	can_pressure_interest_group = { 		bpm_ig_is_left_wing = yes }
+    interest_group_can_join = { 		bpm_ig_is_left_wing = yes }
 	
 	character_support_trigger = {
 		OR = {
