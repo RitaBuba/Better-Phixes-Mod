@@ -192,7 +192,7 @@
 			if = {
 				limit = {
 					culture = {
-						has_discrimination_trait = heritage_group_european
+						has_discrimination_trait_group = heritage_group_european
 					}
 				}
 				multiply = {
