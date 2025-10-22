@@ -396,7 +396,7 @@ movement_socialist = {
 			has_global_variable = first_intl_chain_complete_var
 		}
 		NOT = {
-			owner = ?= { 
+			owner ?= { 
 				any_political_movement = { is_political_movement_type = movement_communist } 
 			}
 		}
@@ -412,7 +412,7 @@ movement_socialist = {
 	disband_trigger = {
 		OR = {
 			bpm_consciousness_labor_percent > 0.75
-			owner = ?= { 
+			owner ?= { 
 				any_political_movement = { is_political_movement_type = movement_communist } 
 			}
 		}
