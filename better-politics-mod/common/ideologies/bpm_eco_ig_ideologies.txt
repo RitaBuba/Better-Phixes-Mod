@@ -42,6 +42,7 @@ ideology_eco_laissez_faire = {
 		law_debt_slavery = neutral
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = disapprove
+		law_colonial_slavery = disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -95,6 +96,7 @@ ideology_eco_interventionist = {
 		law_debt_slavery = neutral
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = disapprove
+		law_colonial_slavery = disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -148,6 +150,7 @@ ideology_eco_traditional_agrarian = {
 		law_debt_slavery = neutral
 		law_slave_trade = disapprove
 		law_legacy_slavery = neutral
+		law_colonial_slavery = neutral
 	}
 
 	lawgroup_repeatable_economy = {
@@ -201,6 +204,7 @@ ideology_eco_modern_agrarian = {
 		law_debt_slavery = disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = disapprove
+		law_colonial_slavery = disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -254,6 +258,7 @@ ideology_eco_agrarian_socialist = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = strongly_disapprove
+		law_colonial_slavery = strongly_disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -307,6 +312,7 @@ ideology_eco_autarky = {
 		law_debt_slavery = approve
 		law_slave_trade = disapprove
 		law_legacy_slavery = neutral
+		law_colonial_slavery = approve
 	}
 
 	lawgroup_repeatable_economy = {
@@ -360,6 +366,7 @@ ideology_eco_agrarian_autarky = {
 		law_debt_slavery = disapprove
 		law_slave_trade = disapprove
 		law_legacy_slavery = neutral
+		law_colonial_slavery = disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -413,6 +420,7 @@ ideology_eco_socialist_autarky = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = strongly_disapprove
+		law_colonial_slavery = strongly_disapprove
 	}
 
 
@@ -467,6 +475,7 @@ ideology_eco_socialist_mixed_economy = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = strongly_disapprove
+		law_colonial_slavery = strongly_disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -520,6 +529,7 @@ ideology_eco_proletarian_economy = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = strongly_disapprove
+		law_colonial_slavery = strongly_disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -573,6 +583,7 @@ ideology_eco_serf_economy = {
 		law_debt_slavery = neutral
 		law_slave_trade = neutral
 		law_legacy_slavery = neutral
+		law_colonial_slavery = neutral
 	}
 
 	lawgroup_repeatable_economy = {
@@ -626,6 +637,7 @@ ideology_eco_trad_isolationist = {
 		law_debt_slavery = neutral
 		law_slave_trade = neutral
 		law_legacy_slavery = neutral
+		law_colonial_slavery = neutral
 	}
 
 	lawgroup_repeatable_economy = {
@@ -679,6 +691,7 @@ ideology_eco_slave_economy = {
 		law_debt_slavery = neutral
 		law_slave_trade = strongly_approve
 		law_legacy_slavery = neutral
+		law_colonial_slavery = approve
 	}
 
 	lawgroup_repeatable_economy = {
@@ -732,6 +745,7 @@ ideology_eco_antebellum_economy = {
 		law_debt_slavery = neutral
 		law_slave_trade = strongly_approve
 		law_legacy_slavery = neutral
+		law_colonial_slavery = strongly_disapprove
 	}
 	lawgroup_repeatable_economy = {
 		law_repeatable_economy_liberalization = disapprove
@@ -785,6 +799,7 @@ ideology_eco_modernizer = {
 		law_debt_slavery = disapprove
 		law_slave_trade = strongly_disapprove
 		law_legacy_slavery = disapprove
+		law_colonial_slavery = neutral
 	}
 
 	lawgroup_repeatable_economy = {
@@ -838,6 +853,7 @@ ideology_eco_conservative_agrarian = {
 		law_debt_slavery = neutral
 		law_slave_trade = disapprove
 		law_legacy_slavery = neutral
+		law_colonial_slavery = neutral
 	}
     lawgroup_repeatable_economy = {
 		law_repeatable_economy_liberalization = neutral
@@ -890,6 +906,7 @@ ideology_eco_american_system = {
 		law_debt_slavery = strongly_disapprove
 		law_slave_trade = disapprove
 		law_legacy_slavery = neutral
+		law_colonial_slavery = strongly_disapprove
 	}
 
 	lawgroup_repeatable_economy = {
@@ -942,6 +959,7 @@ ideology_eco_debt_serf_economy = {
 		law_debt_slavery = approve
 		law_slave_trade = approve
 		law_legacy_slavery = approve
+		law_colonial_slavery = approve
 	}
 
 	lawgroup_repeatable_economy = {
@@ -995,6 +1013,7 @@ ideology_eco_colonialist = {
 		law_debt_slavery = neutral
 		law_slave_trade = neutral
 		law_legacy_slavery = neutral
+		law_colonial_slavery = neutral
 	}
 
 	lawgroup_repeatable_economy = {
@@ -1048,6 +1067,7 @@ ideology_eco_slave_colonialist = {
 		law_debt_slavery = approve
 		law_slave_trade = approve
 		law_legacy_slavery = approve
+		law_colonial_slavery = disapprove
 	}
 
 	lawgroup_repeatable_economy = {
