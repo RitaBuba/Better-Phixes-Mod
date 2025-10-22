@@ -102,7 +102,7 @@ FRA_louis_philippe = {
 	ruler = yes
 	birth_date = 1773.10.6
 	dna = dna_king_louis_philippe_01
-	interest_group = ig_conservatives
+	interest_group = ig_market_liberals
 	ideology = ideology_orleanist
 	traits = {
 		basic_political_operator
@@ -503,7 +503,7 @@ FRA_louis-mathieu_mole = { #Louis-Mathieu Molé
 	historical = yes
 	birth_date = 1781.1.24
 	ig_leader = yes
-	interest_group = ig_landowners
+	interest_group = ig_market_liberals
 	ideology = ideology_orleanist
 	traits = {
 		basic_diplomat

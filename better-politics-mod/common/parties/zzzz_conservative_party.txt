@@ -1316,6 +1316,10 @@ conservative_party = {
 								owner = { has_variable = bpm_resistance_professionals }
 								is_interest_group_type = ig_intelligentsia
 							}
+							AND = {
+								owner = { has_variable = bpm_resistance_market_liberals }
+								is_interest_group_type = ig_market_liberals
+							}
 						}
 					}
 					add = {
