@@ -69,6 +69,7 @@ bpm_ig_is_radical_opposition_authoritarian_in_democracy = {
 
 bpm_ig_is_radical_opposition_status_quo = {
 	AND = {
+		is_interest_group_type = ig_christian_democrats
 		NOT = {
 			has_ideology = ideology:ideology_rel_pragmatic_moralist
 		}
