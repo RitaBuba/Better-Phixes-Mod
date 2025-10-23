@@ -441,6 +441,8 @@ bpm_rename_intelligentsia_ig = {
 				set_interest_group_name = ig_rus_meschane
 			}
 		}
+	} else_if = {
+
 	} else_if = { # Urban Obschina (Socialist-Narodnik)
 		limit = {
 			has_modifier = bpm_russia_obschina_empowered

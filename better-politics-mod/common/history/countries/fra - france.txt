@@ -34,7 +34,14 @@
 		activate_law = law_type:law_national_guard
 		activate_law = law_type:law_tenant_farmers
 
-			
+		activate_law = law_type:law_artisanal_economy	
+
+		ig:ig_intelligentsia = {
+			bpm_remove_all_eco_ideologies = yes
+			add_ideology = ideology_eco_artisan
+			bpm_reorder_ideologies = yes
+		}
+		
 		set_institution_investment_level = {
 			institution = institution_schools
 			level = 2

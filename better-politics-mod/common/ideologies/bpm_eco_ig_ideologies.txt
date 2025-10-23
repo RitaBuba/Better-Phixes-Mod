@@ -54,6 +54,61 @@ ideology_eco_laissez_faire = {
 	}
 }
 
+ideology_eco_artisan = {
+	icon = "gfx/interface/icons/ideology_icons/eco_ideology/laissez_faire.dds"
+	priority = 1000
+    lawgroup_economic_system = {
+		law_traditionalism = strongly_disapprove
+		law_interventionism = strongly_disapprove
+		law_agrarianism = disapprove
+		law_laissez_faire = strongly_disapprove
+		law_industry_banned = strongly_approve
+		law_cooperative_ownership = approve
+		law_command_economy = strongly_disapprove
+		law_extraction_economy = strongly_disapprove
+	}
+
+    lawgroup_trade_policy = {
+		law_free_trade = neutral
+		law_protectionism = strongly_approve
+		law_isolationism = strongly_disapprove
+		law_mercantilism = disapprove
+	}
+
+    lawgroup_land_reform = {
+		law_serfdom = strongly_disapprove
+		law_tenant_farmers = disapprove
+		law_homesteading = neutral
+		law_commercialized_agriculture = approve
+		law_collectivized_agriculture = strongly_disapprove
+	}
+
+    lawgroup_taxation = {
+		law_consumption_based_taxation = neutral
+		law_land_based_taxation = disapprove
+		law_per_capita_based_taxation = approve
+		law_proportional_taxation = disapprove
+		law_graduated_taxation = strongly_disapprove
+	}
+
+    lawgroup_slavery = {
+		law_slavery_banned = neutral
+		law_debt_slavery = neutral
+		law_slave_trade = strongly_disapprove
+		law_legacy_slavery = disapprove
+		law_colonial_slavery = disapprove
+	}
+
+	lawgroup_repeatable_economy = {
+		law_repeatable_economy_liberalization = strongly_approve
+		law_repeatable_economy_agricultural_investment = neutral
+		law_repeatable_economy_peasant_corvee = disapprove
+		law_repeatable_economy_public_works = strongly_disapprove
+		law_repeatable_economy_forced_industrialization = strongly_disapprove
+	}
+}
+
+
 ideology_eco_interventionist = {
 	icon = "gfx/interface/icons/ideology_icons/eco_ideology/interventionist.dds"
 	priority = 1000
