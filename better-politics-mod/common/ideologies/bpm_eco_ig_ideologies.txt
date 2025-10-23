@@ -55,7 +55,7 @@ ideology_eco_laissez_faire = {
 }
 
 ideology_eco_artisan = {
-	icon = "gfx/interface/icons/ideology_icons/eco_ideology/laissez_faire.dds"
+	icon = "gfx/interface/icons/ideology_icons/eco_ideology/artisan.dds"
 	priority = 1000
     lawgroup_economic_system = {
 		law_traditionalism = strongly_disapprove
