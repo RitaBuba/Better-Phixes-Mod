@@ -8,7 +8,31 @@
 
 	can_cause_obstinance = yes
 	
-	creation_trigger = { has_technology_researched = nationalism }
+	creation_trigger = { 
+		has_technology_researched = nationalism 
+		NOR = { # Will not spawn if you're an un-unified German or Italian state
+			AND = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+				NOT = {
+					c:GER ?= this
+				}
+			}
+			AND = {
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				NOR = {
+					c:ITA ?= this
+					c:AUS ?= this
+					c:KUK ?= this
+				}
+			}
+		}
+	}
 	creation_weight = {
 		value = 50
 	}
