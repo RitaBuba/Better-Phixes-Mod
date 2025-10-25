@@ -26,7 +26,7 @@ peoples_springtime.1 = {
 		any_interest_group = {
 			bpm_ig_is_marginal = no
 			OR = {
-				is_revolutionary = yes
+				is_insurrectionary = yes
 				owner = { is_secessionist = yes }
 			}
 			OR = {
