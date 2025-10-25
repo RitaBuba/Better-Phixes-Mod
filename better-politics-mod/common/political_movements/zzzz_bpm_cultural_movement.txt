@@ -16,8 +16,12 @@
 					country_has_primary_culture = cu:north_german
 					country_has_primary_culture = cu:south_german
 				}
-				NOT = {
+				NOR = {
 					c:GER ?= this
+					c:TRS ?= this
+					c:AUS ?= this
+					c:KUK ?= this
+					c:HRE ?= this
 				}
 			}
 			AND = {
@@ -29,6 +33,7 @@
 					c:ITA ?= this
 					c:AUS ?= this
 					c:KUK ?= this
+					c:HRE ?= this
 				}
 			}
 		}
