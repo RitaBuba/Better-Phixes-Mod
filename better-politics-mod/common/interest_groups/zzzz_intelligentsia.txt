@@ -69,6 +69,17 @@
 				assamese avadhi baluchi bengali bihari gujarati kannada malayalam marathi oriya panjabi pathan rajput sindi tamil telegu hindustani bundeli pahari gondi bageli chhattisgarhi deccani
 			}
 		}
+		rule = {
+			trigger = {
+				c:ZAN ?= this
+				any_primary_culture = {
+					cu:bedouin = this
+				}
+			}
+			cultures = {
+				swahili bedouin
+			}
+		}
 	}
 
 	on_character_ig_membership = {
@@ -145,6 +156,14 @@
 			add = {
 				desc = "POP_MACHINISTS"
 				value = 50
+			}
+		}
+		if = {
+			limit = { owner = { has_law = law_type:law_artisanal_economy } 
+			OR = { is_pop_type = laborers is_pop_type = peasants is_pop_type = shopkeepers }}
+			add = {
+				desc = "POP_ARTISANS"
+				value = 250
 			}
 		}
 		add = {

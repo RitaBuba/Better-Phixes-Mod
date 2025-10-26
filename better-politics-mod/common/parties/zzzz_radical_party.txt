@@ -193,6 +193,11 @@ radical_party = {
 						country_has_primary_culture = cu:north_italian
 						country_has_primary_culture = cu:south_italian
 					}
+					NOR = {
+						c:AUS ?= this
+						c:KUK ?= this
+						c:HRE ?= this
+					}
 				}
 			}
 			triggered_desc = {
@@ -627,6 +632,19 @@ radical_party = {
 			add = {
 				value = -25
 				desc = "bpm_from_hostility_towards_democracy"
+			}
+		}
+
+		else_if = {
+			limit = {
+				is_interest_group_type = ig_christian_democrats
+				NOT = {
+					has_ideology = ideology:ideology_dop_placeholder
+				}
+			}
+			add = {
+				value = -25
+				desc = "From Conservatism"
 			}
 		}
 		

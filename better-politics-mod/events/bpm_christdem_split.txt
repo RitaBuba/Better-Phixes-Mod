@@ -800,6 +800,10 @@ bpm_christdem_split.9 = {
 
 	immediate = {
 		set_variable = bpm_christian_democrats_dop_ideology
+		set_variable = {
+			name = bpm_christdems_dop_ideology_debug
+			years = 1
+		}
 	}
 
 	after = {
@@ -1591,6 +1595,9 @@ bpm_christdem_split.51 = {
 
 	trigger = {
 		has_journal_entry = je_bpm_christian_or_democrat
+		NOT = {
+			has_variable = bpm_christdems_dop_ideology_debug
+		}
 		# Must have a democracy stance!
 		AND = {
 			has_variable = bpm_christian_democrats_dop_ideology
@@ -1703,7 +1710,7 @@ bpm_christdem_split.51 = {
 				}
 			}
 			je:je_bpm_christian_or_democrat ?= { 
-				"scripted_bar_progress(je_bpm_christian_democrats_economy_progress_bar)" >= 66
+				"scripted_bar_progress(je_bpm_christian_democrat_ideology_progress_bar)" >= 66
 			}
 		}
 
@@ -1977,6 +1984,10 @@ bpm_new_wine_old_wineskins_flavour.4 = {
 	duration = 3
 
 	dlc = dlc_bpm
+
+	cooldown = {
+		months = 6
+	}
 	
 	immediate = {
 		ig:ig_conservatives = {
@@ -2050,6 +2061,10 @@ bpm_new_wine_old_wineskins_flavour.5 = {
 
 	dlc = dlc_bpm
 
+	cooldown = {
+		months = 6
+	}
+
 	immediate = {
 		
 	}
@@ -2104,6 +2119,10 @@ bpm_new_wine_old_wineskins_flavour.6 = {
 	duration = 3
 
 	dlc = dlc_bpm
+
+	cooldown = {
+		months = 6
+	}
 
 	immediate = {
 		
@@ -2162,6 +2181,10 @@ bpm_new_wine_old_wineskins_flavour.7 = {
 	duration = 3
 
 	dlc = dlc_bpm
+
+	cooldown = {
+		months = 6
+	}
 
 	immediate = {
 		ig:ig_conservatives = {
@@ -2252,6 +2275,10 @@ bpm_new_wine_old_wineskins_flavour.8 = {
 	duration = 3
 
 	dlc = dlc_bpm
+	
+	cooldown = {
+		months = 6
+	}
 
 	immediate = {
 		
@@ -2299,6 +2326,10 @@ bpm_new_wine_old_wineskins_flavour.9 = {
 	duration = 3
 
 	dlc = dlc_bpm
+
+	cooldown = {
+		months = 6
+	}
 
 	immediate = {
 		owner.py:conservative_party = {
@@ -2349,6 +2380,10 @@ bpm_new_wine_old_wineskins_flavour.10 = {
 	duration = 3
 
 	dlc = dlc_bpm
+
+	cooldown = {
+		months = 6
+	}
 
 	trigger = {
 		#has_journal_entry = je:je_bpm_new_wine_in_old_wineskins
