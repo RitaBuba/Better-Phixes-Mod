@@ -152,6 +152,13 @@ je_german_unification_idea = {
 		}
 	}
 
+	invalid = {
+		OR = {
+			exists = c:GER
+			has_global_variable = germany_formed
+		}
+	}
+
 	on_complete = {
 		hidden_effect = {
 			set_global_variable = bpm_je_german_unification_idea_complete
