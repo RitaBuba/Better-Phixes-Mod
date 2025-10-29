@@ -84,7 +84,7 @@ FRA_adolphe_thiers = {
 	birth_date = 1797.4.15
 	dna = dna_adolphe_thiers
 	ig_leader = yes
-	interest_group = ig_intelligentsia
+	interest_group = ig_industrialists
 	ideology = ideology_reformer
 	traits = {
 		experienced_political_operator
