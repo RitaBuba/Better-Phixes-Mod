@@ -77,6 +77,21 @@ FRA_francois-rene_de_chateaubriand = {
 	}
 }
 
+FRA_jacques_lafitte = {
+	first_name = "Jacques"
+	last_name = "Laffitte"
+	historical = yes
+	culture = primary_culture
+	birth_date = 1767.10.24
+	dna = dna_jacques_laffitte
+	interest_group = ig_industrialists
+	ideology = ideology_reformer
+	traits = {
+		basic_political_operator
+		reckless
+	}
+}
+
 FRA_adolphe_thiers = {
 	first_name = "Adolphe"
 	last_name = "Thiers"
