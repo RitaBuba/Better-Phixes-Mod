@@ -72,13 +72,38 @@
 			limit = { is_pop_type = shopkeepers }
 			add = {
 				desc = "POP_SHOPKEEPERS"
-				value = 200
+				value = 50
 			}
 			if = {
 				limit = { owner = { has_law_or_variant  = law_type:law_mercantilism } }
 				add = {
 					desc = "MERCHANT_GUILDS"
+					value = 50
+				}
+			}
+			if = { has_amendment = amendment_type:bpm_amendment_remnants_of_guilds
+				limit = { 
+					owner = { 
+						OR = { 
+							has_amendment = amendment_type:bpm_amendment_the_guild_system
+							has_amendment = amendment_type:bpm_amendment_artisanal_economy 
+						}
+					} 
+				}
+				add = {
+					desc = "MERCHANT_GUILDS" # bad loc
 					value = 100
+				}
+			}
+			else_if = { 
+				limit = { 
+					owner = { 
+						has_amendment = amendment_type:bpm_amendment_remnants_of_guilds
+					} 
+				}
+				add = {
+					desc = "MERCHANT_GUILDS" # bad loc
+					value = 50
 				}
 			}
 		}
@@ -93,14 +118,14 @@
 			limit = { is_pop_type = clerks }
 			add = {
 				desc = "POP_CLERKS"
-				value = 200
+				value = 50
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = bureaucrats }
 			add = {
 				desc = "POP_BUREAUCRATS"
-				value = 50
+				value = 20
 			}
 		}
 		else_if = {
@@ -114,18 +139,13 @@
 			limit = { is_pop_type = machinists }
 			add = {
 				desc = "POP_MACHINISTS"
-				value = 50
+				value = 20
 			}
 		}
 		if = {
 			limit = { 
 				owner = { 
-					OR = {
-						active_law:lawgroup_economic_system = {
-							has_amendment = amendment_type:bpm_amendment_artisanal_economy
-						}
-						has_variable = bpm_springtime_special_interests
-					}
+					has_variable = bpm_springtime_special_interests
 				}
 			}
 			if = {
@@ -134,7 +154,7 @@
 				}
 				add = {
 					desc = "POP_ARTISANS"
-					value = 350
+					value = 50
 				}
 			}
 			else_if = {
@@ -157,7 +177,7 @@
 				}
 				add = {
 					desc = "POP_ARTISANS"
-					value = 350
+					value = 100
 					workplace ?= {multiply = self_ownership_fraction}
 				}
 			}
@@ -171,7 +191,7 @@
 					strata = middle
 					bpm_pop_employment_is_rural = no
 				}
-				value = 150
+				value = 50
 			}
 		}	
 		add = {
@@ -188,7 +208,7 @@
 						}
 					}
 				}
-				value = 100
+				value = 10
 			}
 		}
 		
@@ -222,21 +242,12 @@
 			}
 		}
 
-		multiply = ig_attraction_to_interests_from_stability	
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
+		multiply = ig_attraction_to_interests_from_stability
+		
+		multiply = ig_attraction_from_government
+
+		multiply = ig_attraction_from_leader_popularity
+
 	}
 
 	monarch_weight = {

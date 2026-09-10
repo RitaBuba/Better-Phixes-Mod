@@ -59,7 +59,7 @@
 			owner ?= {
 				NOR = {
 					has_law_or_variant  = law_type:law_collectivized_agriculture
-					has_law_or_variant  = law_type:law_commercialized_agriculture
+					# has_law_or_variant  = law_type:law_commercialized_agriculture
 				}
 			}
 		}
@@ -133,7 +133,7 @@
 			}
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 250
+				value = 100
 			}
 			if = {
 				limit = { state = { is_slave_state = yes } }
@@ -158,28 +158,28 @@
 			add = {
 				# desc = "RURAL_UPPER_CLASS" # Gotta find a way to fix this post update
 				desc = "POP_ARISTOCRATS_CON"
-				value = 75
+				value = 20
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = clergymen }
 			add = {
 				desc = "POP_CLERGYMEN"
-				value = 50
+				value = 20
 			}
 		}
 		else_if = {
-			limit = { is_pop_type = officers }
+			limit = { AND = { is_pop_type = officers owner = { bpm_country_has_law_or_variant_entrenched = { law = law_type:law_noble_officers } } } }
 			add = {
 				desc = "POP_OFFICERS"
 				value = 50
 			}
 		}
 		else_if = {
-			limit = { is_pop_type = farmers }
+			limit = { AND = { is_pop_type = farmers owner = { OR = { bpm_country_has_law_or_variant_entrenched = { law = law_type:law_serfdom } bpm_country_has_law_or_variant_entrenched = { law = law_type:law_tenant_farming } } } } }
 			add = {
 				desc = "POP_FARMERS"
-				value = 50
+				value = 50 # else 20 or 10
 			}
 		}
 
@@ -196,21 +196,11 @@
 			}
 		}
 
-		multiply = ig_attraction_to_interests_from_stability	
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
+		multiply = ig_attraction_to_interests_from_stability
+		
+		multiply = ig_attraction_from_government
+
+		multiply = ig_attraction_from_leader_popularity
 
 	}
 	

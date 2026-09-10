@@ -42,7 +42,7 @@
 			trigger = {
 				c:ZAN ?= this
 				any_primary_culture = {
-					cu:bedouin = this
+					cu:swahili = this
 				}
 			}
 			cultures = {
@@ -71,7 +71,7 @@
 				owner = {
 					c:ZAN ?= this
 					any_primary_culture = {
-						cu:bedouin = this
+						cu:swahili = this
 					}
 				}
 			}
@@ -83,7 +83,7 @@
 				owner = {
 					c:ZAN ?= this
 					any_primary_culture = {
-						cu:bedouin = this
+						cu:swahili = this
 					}
 				}
 			}
@@ -104,6 +104,8 @@
 			is_pop_type = capitalists
 			is_pop_type = engineers
 			is_pop_type = shopkeepers
+			is_pop_type = aristocrats
+			#is_pop_type = bureaucracts
 			AND = {
 				exists = c:BIC
 				owner ?= c:BIC
@@ -125,7 +127,7 @@
 			limit = { is_pop_type = capitalists }
 			add = {
 				desc = "POP_CAPITALISTS"
-				value = 225
+				value = 100
 			}
 			if = {
 				limit = {
@@ -150,35 +152,45 @@
 				}
 				add = {
 					desc = "POP_CAPITALISTS"
-					value = 75
+					value = 50
 				}
 			}
 		}
 		else_if = {
 			limit = { 
 				is_pop_type = aristocrats
-				owner = { 
-					has_variable = bpm_liberal_movement 
-					NOT = { exists = ig:ig_liberals }
+				owner = {
+					OR = {
+						bpm_country_has_law_or_variant_entrenched = { law = law_type:law_interventionism }
+						bpm_country_has_law_or_variant_entrenched = { law = law_type:law_laissez_faire }
+					}
+					bpm_country_has_law_or_variant_entrenched = { law = law_type:law_commercialized_agriculture }
 				}
 			}
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 75
+				value = 20
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = engineers }
-			add = {
-				desc = "POP_ENGINEERS"
-				value = 50
+			if = {
+				limit = {
+					always = no # the CR support thing here
+				}
+			}
+			else = {
+				add = {
+					desc = "POP_ENGINEERS"
+					value = 10
+				}
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = shopkeepers }
 			add = {
 				desc = "POP_SHOPKEEPERS"
-				value = 50
+				value = 20
 			}
 		}
 		
@@ -256,21 +268,12 @@
 			}
 		}
 
-		multiply = ig_attraction_to_interests_from_stability	
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
+		multiply = ig_attraction_to_interests_from_stability
+		
+		multiply = ig_attraction_from_government
+
+		multiply = ig_attraction_from_leader_popularity
+		
 	}
 	
 	monarch_weight = {
@@ -291,7 +294,7 @@
 		}
 	}	
 
-	executive_weight = {
+	executive_weight = { # MAYBE make some sort of bureaucratic - industrialist mix under command eco, with bureacurats supporting indust and the reverse
 		value = 2.0
 		if = {
 			limit = {

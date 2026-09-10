@@ -82,28 +82,28 @@
 			limit = { is_pop_type = academics }
 			add = {
 				desc = "POP_ACADEMICS"
-				value = 50
+				value = 20
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = clerks }
 			add = {
 				desc = "POP_CLERKS"
-				value = 100
+				value = 50
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = bureaucrats }
 			add = {
 				desc = "POP_BUREAUCRATS"
-				value = 250
+				value = 100
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = capitalists }
 			add = {
 				desc = "POP_CAPITALISTS"
-				value = 50
+				value = 10
 			}
 		}
 		else_if = {
@@ -120,26 +120,14 @@
 			}
 			add = {
 				desc = "POP_ARISTOCRATS_CON"
-				value = 250
+				value = 100
 			}
 		}			
 		else_if = {
 			limit = { is_pop_type = aristocrats }
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 50
-			}
-		}
-				
-		add = {
-			desc = "MILD_DISCRIMINATION"
-			if = {
-				limit = {
-					pop_acceptance >= acceptance_status_3
-					pop_acceptance <= acceptance_status_4
-					bpm_pop_employment_is_rural = no
-				}
-				value = 100
+				value = 20
 			}
 		}
 
@@ -157,7 +145,7 @@
 			}
 			add = {
 				desc = "POLITICAL_MACHINES"
-				value = 100
+				value = 20
 			}
 		}
 		else_if = {
@@ -172,7 +160,7 @@
 			}
 			add = {
 				desc = "POLITICAL_MACHINES"
-				value = 50
+				value = 10
 			}
 		}
 
@@ -204,36 +192,13 @@
 				}
 			}
 		}
-		
-		add = {
-			desc = "POP_MILITARY_BUREAUCRACY"
-			if = {
-				limit = {
-					is_pop_type = bureaucrats
-					owner = {
-						c:ALK ?= this
-						has_government_type = gov_chartered_company
-					}
-				}
-				multiply = 0.25
-			}
-		}
 
-		multiply = ig_attraction_to_interests_from_stability	
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
+		multiply = ig_attraction_to_interests_from_stability
+		
+		multiply = ig_attraction_from_government
+
+		multiply = ig_attraction_from_leader_popularity
+
 	}
 	
 	monarch_weight = {

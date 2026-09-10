@@ -42,7 +42,7 @@
 			trigger = {
 				c:ZAN ?= this
 				any_primary_culture = {
-					cu:bedouin = this
+					cu:swahili = this
 				}
 			}
 			cultures = {
@@ -97,14 +97,8 @@
 		OR = {
 			has_state_religion = yes
 			AND = {
-				exists = c:BIC
-				owner ?= c:BIC
+				c:BIC ?= owner
 				has_pop_religion = hindu
-			}
-			AND = {
-				exists = c:ZAN
-				owner ?= c:ZAN
-				has_pop_religion = sunni
 			}
 		}
 		NOT = { 
@@ -113,23 +107,42 @@
 	}
 	
 	pop_weight = {
-		value = 25
+		value = 0
+
+		# Base pop support
 
 		if = {
 			limit = { is_pop_type = peasants }
 			add = {
 				desc = "POP_PEASANTS"
-				value = 100
+				value = 50
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = clergymen }
 			add = {
 				desc = "POP_CLERGYMEN"
-				value = 500
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "DEVOUT_LITERACY"
+			if = {
+				limit = { 
+					NOT = { 
+						is_pop_type = clergymen
+					}
+				}
+				value = literacy_rate
+				multiply = -100
+				add = 50
+				max = 0
 			}
 		}
 		
+		# Support multipliers
+
 		if = {
 			limit = {
 				owner = { has_law_or_variant = law_type:law_state_religion }
@@ -174,21 +187,6 @@
 		}
 
 		add = {
-			desc = "DEVOUT_LITERACY"
-			if = {
-				limit = { 
-					NOT = { 
-						is_pop_type = clergymen
-					}
-				}
-				value = literacy_rate
-				multiply = -100
-				add = 50
-				max = 0
-			}
-		}
-
-		add = {
 			desc = "THEOCRACY"
 			if = {
 				limit = {
@@ -199,36 +197,13 @@
 		}
 
 		multiply = ig_attraction_to_interests_from_stability	
-		
-		multiply = {
-			desc = "RELIGION_SUPPRESSED"
-			value = 1.0
-			if = {
-				limit = {
-					is_pop_type = clergymen
-					owner = {
-						has_law_or_variant = law_type:law_total_separation
-					}
-				}
-				value = 1.5
-			}
-		}		
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
-	}
+				
+		multiply = ig_attraction_from_government
+
+		multiply = ig_attraction_from_leader_popularity
 	
+	}
+
 	monarch_weight = {
 		owner.ig:ig_devout = {
 			value = bpm_ig_monarch_weight

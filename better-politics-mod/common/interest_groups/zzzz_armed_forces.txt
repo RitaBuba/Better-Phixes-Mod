@@ -50,7 +50,7 @@
 			trigger = {
 				c:ZAN ?= this
 				any_primary_culture = {
-					cu:bedouin = this
+					cu:swahili = this
 				}
 			}
 			cultures = {
@@ -63,66 +63,99 @@
 	on_character_ig_membership = {}
 	
 	pop_potential = {
-		pop_acceptance >= acceptance_status_4
 		OR = {
 			is_pop_type = soldiers
 			is_pop_type = officers
-			is_pop_type = aristocrats
 			is_pop_type = bureaucrats
 			is_pop_type = capitalists
 			is_pop_type = shopkeepers
+			trigger_if = {
+				limit = { 
+					owner.ig:ig_armed_forces = { 
+						bpm_ig_is_socialist = no
+					}
+				}
+				is_pop_type = aristocrats
+			}
 		}		
 	}
 	
 	pop_weight = {
-		value = 25
+		value = 0
 
-		add = {
-			desc = "POP_WAR_PROFITEERS"
+		# Base pop support
+
+		if = {
+			limit = { 
+				is_pop_type = soldiers
+			}
 			if = {
-				limit = { 
-					OR = {
-						pop_employment_building_group = bg_military_industry
-					}
+				limit = { pop_employment_building = building_conscription_center }
+				add = {
+					desc = "POP_CONSCRIPTS" # Change loc ! :))) This is because theres a visible need to change the loc!
+					value = 50
 				}
-				value = 125
+			}
+			else = {
+				add = {
+					desc = "POP_SOLDIERS"
+					value = 100
+				}
 			}
 		}
-		
-		if = {
-			limit = { is_pop_type = soldiers }
+		else_if = {
+			limit = { 
+					is_pop_type = soldiers
+				}
 			add = {
 				desc = "POP_SOLDIERS"
-				value = 50
+				value = 100
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = officers }
 			add = {
 				desc = "POP_OFFICERS"
-				value = 300
+				value = 100
 			}
 		}
+
 		else_if = {
 			limit = { is_pop_type = aristocrats }
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 100
+				value = 20
 			}
 		}
 		else_if = {
-			limit = { is_pop_type = bureaucrats }
+			limit = { 
+				is_pop_type = bureaucrats
+				OR = { 
+					pop_employment_building = building_naval_logistics_center
+					pop_employment_building = building_army_logistics_center
+				}
+			}
 			add = {
 				desc = "POP_BUREAUCRATS"
-				value = 50
+				value = 100
 			}
 		}
 
-		multiply = ig_attraction_to_interests_from_stability
+		add = {
+			desc = "POP_WAR_PROFITEERS"
+			if = {
+				limit = { 
+					pop_employment_building_group = bg_military_industry
+				}
+				value = 100
+			}
+		}
+
+		# Support multipliers
+
 		multiply = {
 			desc = "IN_WAR"	
 			value = 1.0
-
 			if = {
 				limit = { 
 					owner = {
@@ -132,32 +165,13 @@
 				value = 2
 			}		
 		}		
-		multiply = {
-			desc = "LEADER_POPULARITY"
-			scope:interest_group = {
-				leader = {
-					value = popularity
-					multiply = 0.01
-					add = 1
-					max = 2.0
-					min = 0.75
-				}
-			}
-		}	
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
+
+		multiply = ig_attraction_to_interests_from_stability
+
+		multiply = ig_attraction_from_leader_popularity
+
+		multiply = ig_attraction_from_government
+	
 	}
 	
 	monarch_weight = {
