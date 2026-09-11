@@ -143,58 +143,7 @@
 		
 		# Support multipliers
 
-		if = {
-			limit = {
-				owner = { has_law_or_variant = law_type:law_state_religion }
-			}
-			multiply = {
-				desc = "STATE_RELIGION_LAW"
-				value = 2.0
-			}
-		}
-		else_if = {
-			limit = {
-				owner = { has_law_or_variant = law_type:law_total_separation }
-			}
-			multiply = {
-				desc = "TOTAL_SEPARATION_LAW"
-				value = 0.8
-			}
-		}
-		else_if = {
-			limit = {
-				owner = { has_law_or_variant  = law_type:law_state_atheism }
-			}
-			multiply = {
-				desc = "STATE_ATHEISM_LAW"
-				value = 0.1
-			}
-		}
-
-		add = {
-			desc = "RELIGIOUS_INSTITUTIONS"
-			if = {
-				limit = {
-					owner = {
-						OR = {
-							has_law_or_variant  = law_type:law_religious_schools
-							has_law_or_variant  = law_type:law_charitable_health_system
-						}
-					}
-				}
-				value = 50
-			}
-		}
-
-		add = {
-			desc = "THEOCRACY"
-			if = {
-				limit = {
-					owner = { has_law_or_variant  = law_type:law_theocracy }
-				}
-				value = 100
-			}
-		}
+		multiply = state.modifier:state_bpm_ig_devout_attraction_weight_mult
 
 		multiply = ig_attraction_to_interests_from_stability	
 				

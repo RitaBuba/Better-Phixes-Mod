@@ -553,3 +553,60 @@ REPLACE:country_shopkeepers_pol_str_mult={
 		ai_value=0
 	}
 }
+
+# IG Attraction Laws
+
+state_bpm_ig_armed_forces_aristocrats_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_devout_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_devout_attraction_weight_mult = {
+	decimals = 1
+	color = neutral
+}
+
+state_bpm_ig_industrialists_capitalists_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_intelligentsia_shopkeepers_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_intelligentsia_farmers_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_landowners_middle_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_landowners_farmers_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_petty_bourgeoisie_middle_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_petty_bourgeoisie_lower_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_rural_folk_attraction_weight_mult = {
+	decimals = 1
+	color = neutral
+}

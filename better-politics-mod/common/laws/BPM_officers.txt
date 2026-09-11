@@ -13,6 +13,8 @@ law_noble_officers = {
 		country_military_tech_research_speed_mult = -0.25
 		country_bpm_auth_authority_per_army_size_add = 0.5
 		country_bpm_auth_state_capacity_loss_from_aristocrat_ig = 0.01
+		state_bpm_ig_armed_forces_aristocrats_attraction_weight_add = 20
+		state_bpm_ig_landowners_officers_attraction_weight_add = 50
 	}
 
 	is_visible = {

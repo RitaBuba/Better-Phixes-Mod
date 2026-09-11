@@ -15,6 +15,8 @@
 		country_capitalists_pol_str_mult = -0.75
 		building_group_bg_manufacturing_allowed_collectivization_add = 0.9
 		building_group_bg_mining_allowed_collectivization_add = 0.9
+
+		state_bpm_ig_intelligentsia_shopkeepers_attraction_weight_add = 100
 	}
 
 	possible = {

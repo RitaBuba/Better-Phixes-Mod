@@ -1,4 +1,16 @@
-﻿INJECT:law_isolationism = {
+﻿INJECT:law_mercantilism = {
+	modifier = {
+		state_bpm_ig_intelligentsia_shopkeepers_attraction_weight_add = 50
+	}
+}
+
+INJECT:law_free_trade = {
+	modifier = {
+		state_bpm_ig_industrialists_capitalists_attraction_weight_add = 20
+	}
+}
+
+INJECT:law_isolationism = {
 	modifier = {
 		country_rigidity_baseline_add = 10
 	}

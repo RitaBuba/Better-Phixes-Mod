@@ -1,4 +1,10 @@
-﻿INJECT:law_private_health_insurance = {
+﻿INJECT:law_charitable_health_system = {
+	institution_modifier = {
+		state_bpm_ig_devout_attraction_weight_add = 5
+	}
+}
+
+INJECT:law_private_health_insurance = {
 	institution_modifier = {
 		country_capitalists_pol_str_mult = 0.1
 		country_shopkeepers_pol_str_mult = 0.1

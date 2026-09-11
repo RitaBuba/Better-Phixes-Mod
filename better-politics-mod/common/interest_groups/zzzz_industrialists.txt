@@ -129,20 +129,7 @@
 				desc = "POP_CAPITALISTS"
 				value = 100
 			}
-			if = {
-				limit = {
-					owner = {
-						OR = {
-							has_law_or_variant  = law_type:law_laissez_faire
-							has_law_or_variant  = law_type:law_free_trade
-						}
-					}
-				}
-				add = {
-					desc = "MONOPOLIES"
-					value = 100
-				}
-			}
+			add = state.modifer:state_bpm_ig_industrialists_capitalists_attraction_weight_add = 20
 			if = {
 				limit = {
 					owner = { 
@@ -159,24 +146,18 @@
 		else_if = {
 			limit = { 
 				is_pop_type = aristocrats
-				owner = {
-					OR = {
-						bpm_country_has_law_or_variant_entrenched = { law = law_type:law_interventionism }
-						bpm_country_has_law_or_variant_entrenched = { law = law_type:law_laissez_faire }
-					}
-					bpm_country_has_law_or_variant_entrenched = { law = law_type:law_commercialized_agriculture }
-				}
+				pop_employment_building = building_company_headquarter
 			}
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 20
+				value = 100
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = engineers }
 			if = {
 				limit = {
-					always = no # the CR support thing here
+					always = yes # the CR support thing here
 				}
 			}
 			else = {

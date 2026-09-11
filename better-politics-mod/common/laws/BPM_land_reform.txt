@@ -43,6 +43,8 @@
 		state_minimum_incorporated_subsistence_arable_land_add = 0.33
 		building_minimum_incorporated_subsistence_employment_add = 0.15
 		country_rigidity_baseline_add = 15
+
+		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
 	}
 
 	# AI should never try to bring back serfdom
@@ -118,6 +120,7 @@ REPLACE:law_serfdom = {
 		state_minimum_incorporated_subsistence_arable_land_add = 0.75
 		building_minimum_incorporated_subsistence_employment_add = 0.5
 		country_rigidity_baseline_add = 20
+		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
 	}
 	on_activate = {
 		if = {
@@ -146,6 +149,7 @@ INJECT:law_manorialism = {
 		interest_group_ig_landowners_pol_str_mult = -0.15
 		country_aristocrats_pol_str_mult = 0.15
 		country_rigidity_baseline_add = 15
+		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
 	}
 }
 
@@ -156,18 +160,21 @@ INJECT:law_tenant_farmers = {
 		country_rigidity_baseline_add = 10
 		building_group_bg_agriculture_allowed_collectivization_add = 0.15
 		building_group_bg_ranching_allowed_collectivization_add = 0.15
+		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
 	}
 }
 
 INJECT:law_latifundias = {
 	modifier = {
 		country_rigidity_baseline_add = 10
+		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
 	}
 }
 
 INJECT:law_expanded_latifundias = {
 	modifier = {
 		country_rigidity_baseline_add = 5
+		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
 	}
 }
 
@@ -247,7 +254,7 @@ REPLACE:law_collectivized_agriculture = {
 			custom_tooltip = farmers_pb_ig_shift_effect_negative_tt
 		}
 		if = {
-			limit = {
+			limit = {	
 				has_journal_entry = je_pedro_brazil
 				NOT = { has_variable = landreform_pedropoint }
 			}

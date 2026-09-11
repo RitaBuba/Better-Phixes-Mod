@@ -868,6 +868,8 @@ bpm_amendment_the_guild_system = {
 		state_capitalists_investment_pool_contribution_add = -0.1
 
 		building_minimum_wage_mult = 0.1
+
+		state_bpm_ig_intelligentsia_shopkeepers_attraction_weight_add = 100
 	}
 
 	possible = {
@@ -915,6 +917,8 @@ bpm_amendment_remnants_of_guilds = {
 		country_shopkeepers_pol_str_mult = 0.1
 
 		state_education_access_add = -0.05
+
+		state_bpm_ig_intelligentsia_shopkeepers_attraction_weight_add = 50
 	}
 
 	possible = {

@@ -116,52 +116,35 @@
 		else_if = {
 			limit = {
 				is_pop_type = aristocrats
-				owner = { country_has_state_religion = rel:confucian }
 			}
-			add = {
-				desc = "POP_ARISTOCRATS_CON"
-				value = 100
+			if = {
+				limit = {
+					owner = { country_has_state_religion = rel:confucian }
+				}
+				add = {
+					desc = "POP_ARISTOCRATS_CON"
+					value = 100
+				}
 			}
-		}			
-		else_if = {
-			limit = { is_pop_type = aristocrats }
-			add = {
-				desc = "POP_ARISTOCRATS"
-				value = 20
-			}
+			else = {
+				add = {
+					desc = "POP_ARISTOCRATS"
+					value = 20
+				}
+			}			
 		}
 
 		if = {
 			limit = {
 				strata = middle
-				owner = {
-					OR = {
-						has_law_or_variant  = law_type:law_landed_voting
-						has_law_or_variant  = law_type:law_wealth_voting
-						has_law_or_variant  = law_type:law_census_voting
-						has_law_or_variant  = law_type:law_appointed_bureaucrats
-					}
-				}
 			}
-			add = {
-				desc = "POLITICAL_MACHINES"
-				value = 20
-			}
+			add = state.modifier:state_bpm_ig_petty_bourgeoisie_middle_attraction_weight_add
 		}
 		else_if = {
 			limit = {
 				strata = lower
-				owner = {
-					OR = {
-						has_law_or_variant  = law_type:law_census_voting
-						has_law_or_variant  = law_type:law_elected_bureaucrats
-					}
-				}
 			}
-			add = {
-				desc = "POLITICAL_MACHINES"
-				value = 10
-			}
+			add = state.modifier:state_bpm_ig_petty_bourgeoisie_lower_attraction_weight_add
 		}
 
 		if = {

@@ -126,6 +126,7 @@
 				desc = "POP_ARISTOCRATS"
 				value = 20
 			}
+			add = state.modifier:state_bpm_ig_armed_forces_aristocrats_attraction_weight_add
 		}
 		else_if = {
 			limit = { 

@@ -48,6 +48,8 @@ REPLACE:law_state_religion = {
 		country_allow_conversion_open_prejudice_bool = yes
 		country_allow_conversion_second_rate_citizen_bool = yes
 		country_allow_conversion_full_acceptance_bool = yes
+
+		state_bpm_ig_devout_attraction_weight_mult = 2.0
 	}
 
 	can_impose = {
@@ -164,6 +166,8 @@ REPLACE:law_freedom_of_conscience = {
 		country_allow_conversion_open_prejudice_bool = yes
 		country_allow_conversion_second_rate_citizen_bool = no
 		country_allow_conversion_full_acceptance_bool = no
+
+		state_bpm_ig_devout_attraction_weight_mult = 1.2
 	}
 
 	can_impose = {
@@ -262,6 +266,7 @@ REPLACE:law_total_separation = {
 		country_allow_conversion_second_rate_citizen_bool = no
 		country_allow_conversion_full_acceptance_bool = no
 		
+		state_bpm_ig_devout_attraction_weight_mult = 0.8
 	}
 
 	can_impose = {
@@ -347,6 +352,8 @@ law_total_separation_upgraded = {
 		country_allow_conversion_open_prejudice_bool = yes
 		country_allow_conversion_second_rate_citizen_bool = yes
 		country_allow_conversion_full_acceptance_bool = yes
+
+		state_bpm_ig_devout_attraction_weight_mult = 0.2
 	}
 	
 	can_impose = {
@@ -420,6 +427,8 @@ REPLACE:law_state_atheism = {
 		country_allow_conversion_open_prejudice_bool = yes
 		country_allow_conversion_second_rate_citizen_bool = yes
 		country_allow_conversion_full_acceptance_bool = yes
+
+		state_bpm_ig_devout_attraction_weight_mult = 0.1
 	}
 
 	institution = institution_home_affairs

@@ -646,6 +646,10 @@ REPLACE:law_landed_voting = {
 		country_bpm_auth_authority_per_bureaucracy_add = 0.02
 
 		country_electoral_confidence_impact_mult = -0.3
+
+		state_bpm_ig_landowners_middle_attraction_weight_add = 10
+		state_bpm_ig_petty_bourgeoisie_middle_attraction_weight_add = 20
+		state_bpm_ig_petty_bourgeoisie_lower_attraction_weight_add = 10
 	}
 
 	on_enact = {
@@ -780,6 +784,10 @@ REPLACE:law_wealth_voting = {
 		country_bpm_auth_authority_per_bureaucracy_add = 0.02
 
 		country_electoral_confidence_impact_mult = -0.2
+
+		state_bpm_ig_landowners_middle_attraction_weight_add = 10
+		state_bpm_ig_petty_bourgeoisie_middle_attraction_weight_add = 20
+		state_bpm_ig_petty_bourgeoisie_lower_attraction_weight_add = 10
 	}
 
 	on_enact = {
@@ -923,6 +931,10 @@ REPLACE:law_census_voting = {
 		country_rigidity_baseline_add = -20
 
 		country_electoral_confidence_impact_mult = -0.1
+
+		state_bpm_ig_landowners_middle_attraction_weight_add = 10
+		state_bpm_ig_petty_bourgeoisie_middle_attraction_weight_add = 20
+		state_bpm_ig_petty_bourgeoisie_lower_attraction_weight_add = 10
 	}
 
 	on_activate = {

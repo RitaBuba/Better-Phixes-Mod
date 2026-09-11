@@ -90,14 +90,13 @@
 				value = -50
 			}
 		}		
-
 		add = {
-			desc = "URBAN_POP"
+			desc = "RURAL_POP"
 			if = {
 				limit = { 
-					bpm_pop_employment_is_rural = no
+					bpm_pop_employment_is_rural = yes
 				}
-				value = 50
+				value = -100
 			}
 		}
 		if = {
@@ -107,6 +106,7 @@
 					is_pop_type = clerks
 					is_pop_type = machinists
 				}
+				bpm_pop_employment_is_rural = no
 			}
 			add = {
 				desc = "POP_PROLETARIAT"
@@ -124,6 +124,7 @@
 					is_pop_type = academics
 					is_pop_type = engineers
 				}
+				bpm_pop_employment_is_rural = no
 			}
 			add = {
 				desc = "POP_LEADERS"
@@ -140,8 +141,7 @@
 				}
 			}
 			multiply = ig_attraction_to_interests_from_stability	
-		}	
-
+		}
 		
 		if = {
 			limit = { owner = { bpm_performance_significant_country = yes } }
@@ -154,7 +154,7 @@
 				}
 				multiply = {
 					desc = "BPM_STRONG_LABOR"
-					value = 4
+					value = 6
 				}
 			}
 			else_if = {
@@ -165,7 +165,7 @@
 				}
 				multiply = {
 					desc = "BPM_AVERAGE_LABOR"
-					value = 3
+					value = 4
 				}
 			}
 			if = {

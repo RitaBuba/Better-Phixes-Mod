@@ -74,38 +74,7 @@
 				desc = "POP_SHOPKEEPERS"
 				value = 50
 			}
-			if = {
-				limit = { owner = { has_law_or_variant  = law_type:law_mercantilism } }
-				add = {
-					desc = "MERCHANT_GUILDS"
-					value = 50
-				}
-			}
-			if = { has_amendment = amendment_type:bpm_amendment_remnants_of_guilds
-				limit = { 
-					owner = { 
-						OR = { 
-							has_amendment = amendment_type:bpm_amendment_the_guild_system
-							has_amendment = amendment_type:bpm_amendment_artisanal_economy 
-						}
-					} 
-				}
-				add = {
-					desc = "MERCHANT_GUILDS" # bad loc
-					value = 100
-				}
-			}
-			else_if = { 
-				limit = { 
-					owner = { 
-						has_amendment = amendment_type:bpm_amendment_remnants_of_guilds
-					} 
-				}
-				add = {
-					desc = "MERCHANT_GUILDS" # bad loc
-					value = 50
-				}
-			}
+			add = state.modifier:state_bpm_ig_intelligentsia_shopkeepers_attraction_weight_add
 		}
 		else_if = {
 			limit = { is_pop_type = academics }
@@ -193,25 +162,13 @@
 				}
 				value = 50
 			}
-		}	
-		add = {
-			desc = "POLITICAL_MACHINES"
-			if = {
-				limit = {
-					strata = middle
-					owner = {
-						OR = {
-							has_law_or_variant  = law_type:law_landed_voting
-							has_law_or_variant  = law_type:law_wealth_voting
-							has_law_or_variant  = law_type:law_census_voting
-							has_law_or_variant  = law_type:law_appointed_bureaucrats
-						}
-					}
-				}
-				value = 10
-			}
 		}
-		
+		if = {
+			limit = {
+				strata = middle
+			}
+			add = state.modifier:state_bpm_ig_landowners_middle_attraction_weight_add
+		}	
 		if = {
 			limit = {
 				c:BIC ?= owner

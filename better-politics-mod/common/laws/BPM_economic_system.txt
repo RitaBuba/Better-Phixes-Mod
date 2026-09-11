@@ -9,6 +9,7 @@ INJECT:law_traditionalism = {
 		country_rigidity_baseline_add = 10
 		state_pop_pol_str_add = -2
 		country_institution_economy_max_investment_add = -5
+		state_bpm_ig_rural_folk_attraction_weight_mult = 1.5
 	}
 
 	institution = institution_economy
@@ -160,6 +161,7 @@ INJECT:law_agrarianism = {
 		country_shopkeepers_pol_str_mult = 0.5
 		country_capitalists_pol_str_mult = 0.25
 		country_aristocrats_pol_str_mult = 0.25
+		state_bpm_ig_rural_folk_attraction_weight_mult = 1.5
 	}
 
 	institution = institution_economy
@@ -220,6 +222,7 @@ INJECT:law_laissez_faire = {
 		state_shopkeepers_investment_pool_efficiency_mult = 0.15
 		state_aristocrats_investment_pool_efficiency_mult = -0.05
 		country_capitalists_pol_str_mult = 0.2
+		state_bpm_ig_industrialists_capitalists_attraction_weight_add = 20
 	}
 
 	ai_enact_weight_modifier = {
