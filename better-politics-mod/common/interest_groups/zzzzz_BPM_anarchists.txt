@@ -70,7 +70,7 @@
 	}
 	
 	pop_weight = {
-		value = 5
+		value = 0
 	
 		if = {
 			limit = { 
@@ -82,27 +82,30 @@
 			add = {
 				desc = "POP_PROLETARIAT"
 				value = owner.bpm_consciousness_socialist_igs_laborers
+				# max = 100 
+				# would but idk its range
 			}
 			add = {
 				desc = "POP_EDUCATED_PROLETARIAT"
 				value = literacy_rate
 				multiply = 200
+				max = 100
 			}
 		}
 		else_if = {
 			limit = {
-				OR = {
-					is_pop_type = machinists
-				}
+				is_pop_type = machinists
 			}
 			add = {
 				desc = "POP_PROLETARIAT"
 				value = owner.bpm_consciousness_socialist_igs_machinists
+				# max = 100
 			}
 			add = {
 				desc = "POP_EDUCATED_PROLETARIAT"
 				value = literacy_rate
 				multiply = 200
+				max = 100
 			}
 		}
 		else_if = {
@@ -122,10 +125,7 @@
 		}
 		else_if = {
 			limit = {
-				OR = {
-					is_pop_type = peasants
-					is_pop_type = capitalists
-				}
+				is_pop_type = peasants
 			}
 			add = {
 				desc = "POP_EXCLUSIONS"
@@ -138,6 +138,7 @@
 				desc = "POP_EDUCATED_FARMERS"
 				value = literacy_rate
 				multiply = 200
+				max = 100
 			}
 		}
 		else_if = {
@@ -159,7 +160,7 @@
 			}
 			add = {
 				desc = "POP_SOLDIERS"
-				value = 70
+				value = 50
 			}
 		}
 
@@ -172,10 +173,12 @@
 				value = 20
 			}
 			if = {
-				limit = { is_employed = no }
+				limit = { 
+					is_employed = no 
+				}
 				add = {
 					desc = "URBAN_UNEMPLOYED"
-					value = 50
+					value = -50
 				}
 			}
 		}
@@ -195,44 +198,15 @@
 		}
 
 
-		add = {
-			desc = "POP_DISCRIMINATED"
-			if = {
-				limit = { 
-					pop_acceptance <= acceptance_status_3
-				}
-				value = 50
-			}
-		}	
-		
-		add = ig_attraction_agrarian_socialism
+		add = bpm_ig_discriminated_pop_attraction
+		add = bpm_ig_powerful_fascists_attraction_add
 
-		if = {
-			limit = { owner = { bpm_performance_significant_country = yes } }
-			add = ig_attraction_tmp_bpm_non_rural_socialist
-			add = {
-				desc = "POWERFUL_FAC"
-				if = {
-					limit = { owner = { has_variable = bpm_country_has_powerful_fascists_var } }
-					value = 30
-				}
-			}
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader = {
-						value = popularity
-						multiply = 0.01
-						add = 1
-						max = 2.0
-						min = 0.5
-					}
-				}
-			}	
-			multiply = bpm_ig_agitators_popularity
-			multiply = bpm_ig_ruler_popularity
-			multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
-		}
+		multiply = ig_attraction_from_leader_popularity
+		multiply = bpm_ig_agitators_popularity
+		multiply = bpm_ig_ruler_popularity
+		multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
+		multiply = ig_attraction_to_ruler_ideology_from_stability
+		multiply = ig_attraction_from_government
 
 		multiply = {
 			desc = "WEAK_UNIONS"	
@@ -241,6 +215,7 @@
 			if = {
 				limit = { 
 					owner = { NOT = { has_variable = bpm_country_has_established_unions_history_var } }
+					# is syndicalist
 				}
 				value = 0.5
 			}		
@@ -253,6 +228,7 @@
 			if = {
 				limit = { 
 					owner = { has_variable = bpm_country_has_powerful_unions_var }
+					# is syndicalist
 				}
 				value = 1.5
 			}		
@@ -271,25 +247,7 @@
 				value = 1.3
 			}		
 		}	
-		owner = {
-			if = {
-				limit = { has_global_variable = second_intl_chain_complete_var }
-				multiply = 1.0
-			}
-			else_if = {
-				limit = { has_global_variable = first_intl_chain_complete_var }
-				multiply = {
-					desc = "BEFORE_SECOND_INTERNATIONAL"
-					value = 0.7
-				}
-			}
-			else = {
-				multiply = {
-					desc = "BEFORE_FIRST_INTERNATIONAL"
-					value = 0.5
-				}
-			}
-		}
+		multiply = bpm_ig_anarchist_internationale_attraction_mult
 		multiply = {
 			desc = "POLITICAL_AGITATION"	
 			value = 1.0
@@ -338,21 +296,7 @@
 				}
 				value = 0.5
 			}		
-		}	
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
 		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
 	}
 
 	monarch_weight = {

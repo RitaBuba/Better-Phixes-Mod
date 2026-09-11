@@ -254,31 +254,6 @@ ig_attraction_to_ruler_ideology_from_stability = {
 	min = 1
 }
 
-ig_attraction_tmp_bpm_non_rural_socialist = { # NOTE: This attraction script value will be DEPRECATED in a future rework of IG support weights
-
-	# add = {
-	# 	desc = "POP_LOWER_STRATA_VERY_POOR"
-	# 	if = {
-	# 		limit = {
-	# 			strata = lower
-	# 			standard_of_living <= 10
-	# 			literacy_rate >= 0.5
-	# 		}
-	# 		value = 50
-	# 	}
-	# }
-	# add = {
-	# 	desc = "POP_LOWER_STRATA_POOR"
-	# 	if = {
-	# 		limit = {
-	# 			strata = lower
-	# 			standard_of_living <= 15
-	# 			literacy_rate >= 0.5
-	# 		}
-	# 		value = 50
-	# 	}
-	# }
-
 	if = {
 		limit = { owner = { has_law = law_type:law_council_republic } }
 		add = {
@@ -710,6 +685,42 @@ bpm_ig_revolutionary_government_attraction = {
 				value = 1
 				root = {subtract = pop_radical_fraction}
 			}
+		}
+	}
+}
+
+bpm_ig_discriminated_pop_attraction = {
+	if = {
+		limit = { 
+			root = {
+				pop_acceptance <= acceptance_status_3
+			}	
+		}
+		value = 50
+	}
+}
+
+bpm_ig_powerful_fascists_attraction_add = {
+	if = {
+		limit = { owner = { has_variable = bpm_country_has_powerful_fascists_var } }
+		value = 20
+	}
+}
+
+bpm_ig_anarchist_internationale_attraction_mult = {
+	value = 0.5
+	owner = {
+		if = {
+			limit = { 
+				has_global_variable = second_intl_chain_complete_var 
+			}
+			value = 1.0
+		}
+		else_if = {
+			limit = { 
+				has_global_variable = first_intl_chain_complete_var 
+			}
+			value = 0.7
 		}
 	}
 }
