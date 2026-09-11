@@ -610,3 +610,23 @@ state_bpm_ig_rural_folk_attraction_weight_mult = {
 	decimals = 1
 	color = neutral
 }
+
+state_bpm_ig_agrarian_populists_peasants_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_agrarian_populists_pro_freedom_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_agrarian_populists_attraction_weight_mult = {
+	decimals = 2
+	color = neutral
+}
+
+state_bpm_ig_agrarian_socialists_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}

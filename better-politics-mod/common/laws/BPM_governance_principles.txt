@@ -675,6 +675,8 @@ REPLACE:law_council_republic = {
 		#country_legitimacy_govt_total_clout_add = 100
 		
 		country_institution_economy_max_investment_add = 2 
+
+		state_bpm_ig_agrarian_socialists_attraction_weight_add = 20
 	}
 	
 #	pop_support = {

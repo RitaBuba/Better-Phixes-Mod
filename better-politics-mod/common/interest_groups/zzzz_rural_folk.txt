@@ -132,9 +132,7 @@
 		multiply = state.modifier:state_bpm_ig_rural_folk_attraction_weight_mult
 
 		multiply = ig_attraction_to_interests_from_stability
-		
 		multiply = ig_attraction_from_government
-
 		multiply = ig_attraction_from_leader_popularity
 
 	}

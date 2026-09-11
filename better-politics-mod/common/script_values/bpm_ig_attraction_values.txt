@@ -254,56 +254,6 @@ ig_attraction_to_ruler_ideology_from_stability = {
 	min = 1
 }
 
-ig_attraction_agrarian_socialism = {
-	value = 0
-	if = {
-		limit = {
-			has_global_variable = bpm_agrarian_socialism_power_global
-			bpm_pop_employment_is_rural = yes
-			strata <= middle
-		}
-		if = {
-			limit = {
-				owner = {
-					has_variable = bpm_agrarian_socialism_power
-					global_var:bpm_agrarian_socialism_power_global < var:bpm_agrarian_socialism_power
-				}
-			}
-			add = {
-				desc = "BPM_POP_AGRARIAN_SOCIALISM_LOCAL"
-				value = 2
-				multiply = owner.var:bpm_agrarian_socialism_power
-	
-				if = {
-					limit = { scope:interest_group = { is_interest_group_type = ig_agrarian_populists } }
-					multiply = 4
-				}
-				if = {
-					limit = { strata = middle }
-					multiply = 0.25
-				}
-			}
-		}
-
-		else = {
-			add = {
-				desc = "BPM_POP_AGRARIAN_SOCIALISM_GLOBAL"
-				value = 2
-				multiply = global_var:bpm_agrarian_socialism_power_global
-	
-				if = {
-					limit = { scope:interest_group = { is_interest_group_type = ig_agrarian_populists } }
-					multiply = 4
-				}
-				if = {
-					limit = { strata = middle }
-					multiply = 0.25
-				}
-			}
-		}
-	}
-}
-
 ig_attraction_tmp_bpm_non_rural_socialist = { # NOTE: This attraction script value will be DEPRECATED in a future rework of IG support weights
 
 	# add = {

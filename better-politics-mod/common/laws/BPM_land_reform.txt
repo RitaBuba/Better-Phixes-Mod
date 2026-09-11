@@ -45,6 +45,7 @@
 		country_rigidity_baseline_add = 15
 
 		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
+		state_bpm_ig_agrarian_populists_peasants_attraction_weight_add = 20
 	}
 
 	# AI should never try to bring back serfdom
@@ -121,6 +122,8 @@ REPLACE:law_serfdom = {
 		building_minimum_incorporated_subsistence_employment_add = 0.5
 		country_rigidity_baseline_add = 20
 		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
+		state_bpm_ig_agrarian_populists_peasants_attraction_weight_add = 20
+		state_bpm_ig_agrarian_populists_pro_freedom_attraction_weight_add = 20
 	}
 	on_activate = {
 		if = {
@@ -150,6 +153,8 @@ INJECT:law_manorialism = {
 		country_aristocrats_pol_str_mult = 0.15
 		country_rigidity_baseline_add = 15
 		state_bpm_ig_landowners_farmers_attraction_weight_add = 50
+		state_bpm_ig_agrarian_populists_peasants_attraction_weight_add = 20
+		state_bpm_ig_agrarian_populists_pro_freedom_attraction_weight_add = 20
 	}
 }
 
@@ -183,6 +188,7 @@ INJECT:law_commercialized_agriculture = {
 	modifier = {
 		building_group_bg_agriculture_allowed_collectivization_add = 0.25
 		building_group_bg_ranching_allowed_collectivization_add = 0.25
+		state_bpm_ig_agrarian_socialists_attraction_weight_add = 50
 	}
 
 	institution = institution_economy
@@ -196,6 +202,7 @@ INJECT:law_commercialized_agriculture = {
 INJECT:law_homesteading = {
 	modifier = {
 		country_populist_movement_support_add = 0.05
+		state_bpm_ig_agrarian_populists_attraction_weight_mult = 0.8
 	}
 	
 	institution = institution_economy
@@ -204,12 +211,14 @@ INJECT:law_homesteading = {
 		building_group_bg_ranching_allowed_collectivization_add = 0.05
 		state_farmers_investment_pool_efficiency_mult = 0.05
 		state_shopkeepers_investment_pool_efficiency_mult = 0.05
+		state_bpm_ig_agrarian_populists_attraction_weight_mult = -0.05
 	}
 }
 
 INJECT:law_peasant_proprietorship = {
 	modifier = {
 		country_populist_movement_support_add = 0.05
+		state_bpm_ig_agrarian_populists_attraction_weight_mult = 0.8
 	}
 
 	institution = institution_economy
@@ -218,6 +227,7 @@ INJECT:law_peasant_proprietorship = {
 		building_group_bg_ranching_allowed_collectivization_add = 0.05
 		state_farmers_investment_pool_efficiency_mult = 0.05
 		state_shopkeepers_investment_pool_efficiency_mult = 0.05
+		state_bpm_ig_agrarian_populists_attraction_weight_mult = -0.05
 	}
 }
 
@@ -231,6 +241,7 @@ REPLACE:law_collectivized_agriculture = {
 	modifier = {
 		building_group_bg_agriculture_allowed_collectivization_add = 0.5
 		building_group_bg_ranching_allowed_collectivization_add = 0.5
+		state_bpm_ig_agrarian_socialists_attraction_weight_add = 50
 	}
 
 	institution = institution_economy
@@ -240,6 +251,7 @@ REPLACE:law_collectivized_agriculture = {
 		building_group_bg_plantations_allowed_collectivization_add = 0.25
 		state_farmers_investment_pool_efficiency_mult = 0.1
 		state_shopkeepers_investment_pool_efficiency_mult = 0.05
+		state_bpm_ig_agrarian_socialists_attraction_weight_add = 10
 	}
 
 	on_enact = {

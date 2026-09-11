@@ -299,6 +299,7 @@ REPLACE:law_debt_slavery = {
 	
 	modifier = {
 		country_aristocrats_pol_str_mult = 0.25
+		state_bpm_ig_agrarian_populists_pro_freedom_attraction_weight_add = 50
 	}
 }
 
@@ -353,6 +354,7 @@ REPLACE:law_slave_trade = {
 	
 	modifier = {
 		country_aristocrats_pol_str_mult = 0.6
+		state_bpm_ig_agrarian_populists_pro_freedom_attraction_weight_add = 50
 	}
 	
 	ai_will_do = {
@@ -437,6 +439,7 @@ REPLACE:law_legacy_slavery = {
 	
 	modifier = {
 		country_aristocrats_pol_str_mult = 0.4
+		state_bpm_ig_agrarian_populists_pro_freedom_attraction_weight_add = 20
 	}
 
 	ai_enact_weight_modifier = { 
