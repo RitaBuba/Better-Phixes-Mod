@@ -33,6 +33,8 @@ REPLACE:law_monarchy = {
 		country_labor_consciousness_change_add = -0.05
 		country_bpm_labor_consciousness_target_mult = -0.25
 		#country_legitimacy_govt_total_clout_add = 100
+		state_bpm_ig_conservatives_aristocrats_attraction_weight_add = 20
+		state_bpm_ig_liberals_middle_attraction_weight_add = 50
 	}
 	
 #	pop_support = {

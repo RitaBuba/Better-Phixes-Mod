@@ -630,3 +630,13 @@ state_bpm_ig_agrarian_socialists_attraction_weight_add = {
 	decimals = 0
 	color = neutral
 }
+
+state_bpm_ig_conservatives_aristocrats_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}
+
+state_bpm_ig_liberals_middle_attraction_weight_add = {
+	decimals = 0
+	color = neutral
+}

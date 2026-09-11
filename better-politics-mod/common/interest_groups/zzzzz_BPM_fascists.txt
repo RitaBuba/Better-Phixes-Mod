@@ -45,7 +45,7 @@
 				limit = { 
 					is_pop_type = capitalists
 				}
-				value = 100
+				value = 50
 			}
 		}
 
@@ -55,7 +55,7 @@
 				limit = { 
 					strata = middle
 				}
-				value = 75
+				value = 100
 			}
 		}
 		add = {
@@ -76,92 +76,52 @@
 				value = 50
 			}
 		}
-
-		if = {
-			limit = { owner = { bpm_performance_significant_country = yes } }
-			add = {
-				desc = "POWERFUL_SOC"
-				if = {
-					limit = {
-						owner = { has_variable = bpm_country_has_powerful_socialists_var }
-					}
-					value = 30
-				}
-			}
-			add = {
-				desc = "LOST_WAR"
-				if = {
-					limit = {
-						owner = { has_modifier = bpm_country_recently_lost_war }
-					}
-					value = 30
-				}
-			}
-			multiply = bpm_ig_agitators_popularity
-			multiply = bpm_ig_ruler_popularity
-			multiply = {
-				desc = "POLITICAL_AGITATION"	
-				value = 1.0
-				if = {
-					limit = { owner = { has_technology_researched = political_agitation } }
-					value = 1.3
-				}		
-			}
-			multiply = {
-				desc = "DEVASTATED"	
-				value = 1.0
-	
-				if = {
-					limit = { 
-						state = {
-							devastation > 5
-						}
-					}
-					value = 1.5
-				}		
-			}	
-			multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
-		}
-		
-		multiply = {
-			desc = "LEADER_POPULARITY"
-			scope:interest_group = {
-				leader = {
-					value = popularity
-					multiply = 0.01 # Fascists are heavily dependent on their leader
-					add = 1
-					max = 2
-					min = 0.1
-				}
-			}
-		}	
-
-		multiply = bpm_ig_agitators_popularity
-		multiply = bpm_ig_ruler_popularity
-		multiply = ig_attraction_to_ruler_ideology_from_stability
-
-		multiply = {
+		add = {
 			desc = "UNEDUCATED"
 			value = literacy_rate
-			multiply = 1.5
-			max = 1.0
+			multiply = -150
+			max = 0
+			min = -50
 		}
 
-		multiply = {
-			desc = "NO_POLITICAL_AGITATION"	
-			value = 1.0
-			
+		add = {
+			desc = "POWERFUL_SOC"
 			if = {
-				limit = { 
-					owner = {
-						NOT = { has_technology_researched = political_agitation }
-					}
+				limit = {
+					owner = { has_variable = bpm_country_has_powerful_socialists_var }
 				}
-				value = 0.5
+				value = 50
+			}
+		}
+		add = {
+			desc = "LOST_WAR"
+			if = {
+				limit = {
+					owner = { has_modifier = bpm_country_recently_lost_war }
+				}
+				value = 50
+			}
+		}
+		multiply = {
+			desc = "POLITICAL_AGITATION"	
+			value = 0.5
+			if = {
+				limit = { owner = { has_technology_researched = political_agitation } }
+				value = 1.2
 			}		
 		}
-
-		multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }	
+		multiply = {
+			desc = "DEVASTATED"	
+			value = 1.0
+			if = {
+				limit = { 
+					state = {
+						devastation > 5
+					}
+				}
+				value = 1.5
+			}		
+		}
 		if = {
 			limit = {
 				owner = {
@@ -173,20 +133,12 @@
 			}
 			multiply = 3
 		}
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
+		multiply = ig_attraction_from_leader_popularity
+		multiply = bpm_ig_agitators_popularity
+		multiply = bpm_ig_ruler_popularity
+		multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
+		multiply = ig_attraction_to_ruler_ideology_from_stability
+		multiply = ig_attraction_from_government
 	}
 	
 	monarch_weight = {

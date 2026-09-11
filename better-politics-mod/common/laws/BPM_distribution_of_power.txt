@@ -60,6 +60,8 @@ REPLACE:law_autocracy = {
 		state_pop_pol_str_add = -2
 		country_electoral_confidence_impact_mult = -1
 		# country_bpm_base_mandate_add = 60
+		state_bpm_ig_conservatives_aristocrats_attraction_weight_add = 20
+		state_bpm_ig_liberals_middle_attraction_weight_add = 50
 	}
 
 	is_visible = {
@@ -650,6 +652,8 @@ REPLACE:law_landed_voting = {
 		state_bpm_ig_landowners_middle_attraction_weight_add = 10
 		state_bpm_ig_petty_bourgeoisie_middle_attraction_weight_add = 20
 		state_bpm_ig_petty_bourgeoisie_lower_attraction_weight_add = 10
+		state_bpm_ig_conservatives_aristocrats_attraction_weight_add = 20
+		state_bpm_ig_liberals_middle_attraction_weight_add = 50
 	}
 
 	on_enact = {
@@ -788,6 +792,8 @@ REPLACE:law_wealth_voting = {
 		state_bpm_ig_landowners_middle_attraction_weight_add = 10
 		state_bpm_ig_petty_bourgeoisie_middle_attraction_weight_add = 20
 		state_bpm_ig_petty_bourgeoisie_lower_attraction_weight_add = 10
+		state_bpm_ig_conservatives_aristocrats_attraction_weight_add = 10
+		state_bpm_ig_liberals_middle_attraction_weight_add = 20
 	}
 
 	on_enact = {

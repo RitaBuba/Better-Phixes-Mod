@@ -5,16 +5,6 @@
 	index = 10
 
 	ideologies = {
-		ideology_gov_moderate_monarchist
-		ideology_dop_authoritarian_democrat
-		ideology_sta_powerful_state
-		ideology_cit_nationalist
-		ideology_eco_conservative_agrarian
-		ideology_rel_moralist
-		ideology_mil_patriotic
-		ideology_wel_religious_welfare
-		ideology_fem_moderate_patriarchal
-		ideology_ban_averse
 		# Vanilla
 		ideology_paternalistic
 		ideology_hierarchic
@@ -60,7 +50,6 @@
 		custom_tooltip = {
 			text = BPM_VALID_POP_FOR_IG
 			owner ?= {
-				has_technology_researched = rationalism
 				ig:ig_conservatives ?= {
 					bpm_interest_group_is_activated = yes
 				}
@@ -69,17 +58,21 @@
 	}
 	
 	pop_weight = {
-		value = 30
+		value = 0
 	
 		if = {
-			limit = { strata = lower }
+			limit = { 
+				strata = lower 
+			}
 			add = {
 				desc = "LOWER_CLASS"
 				value = 20
 			}
 		}
 		else_if = {
-			limit = { strata = middle }
+			limit = { 
+				strata = middle 
+			}
 			add = {
 				desc = "MIDDLE_CLASS"
 				value = 50
@@ -91,7 +84,7 @@
 			}
 			add = {
 				desc = "POP_CAPITALISTS"
-				value = 175
+				value = 20
 			}
 		}
 		else_if = {
@@ -100,8 +93,9 @@
 			}
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 250
+				value = 50
 			}
+			add = state.modifier:state_bpm_ig_conservatives_aristocrats_attraction_weight_add
 		}
 
 		# RURAL
@@ -119,7 +113,6 @@
 		else_if = {
 			limit = {
 				scope:interest_group = { 
-					#has_ideology = ideology:ideology_wel_paternalistic_welfare 
 					bpm_ig_is_paternalistic = yes
 				}
 			}
@@ -127,30 +120,30 @@
 				limit = { strata = lower }
 				add = {
 					desc = "PATCON_LOWER_CLASS"
-					value = 50
+					value = 100
 				}
 			}
 			else_if = {
 				limit = { strata = middle }
 				add = {
 					desc = "PATCON_MIDDLE_CLASS"
-					value = 50
+					value = 20
 				}
 			}
 			else_if = {
 				limit = { strata = upper }
 				add = {
 					desc = "PATCON_CAPITALISTS"
-					value = 50
+					value = 10
 				}
 			}
 		}
 
-		multiply = {
-			desc = "UNEDUCATED"
+		add = {
+			desc = "EDUCATED"
 			value = literacy_rate
-			multiply = 2.0
-			max = 1.0
+			multiply = 150
+			max = 50
 		}
 
 		owner = {
@@ -173,38 +166,25 @@
 			}
 		}
 
-		if = {
-			limit = { owner = { bpm_performance_significant_country = yes } }
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader = {
-						value = popularity
-						multiply = 0.005
-						add = 1
-						max = 1.5
-						min = 0.67
+		multiply = {
+			desc = "STILL_OLIGARCHIC"
+			value = 1.0
+			if = {
+				limit = {
+					owner = {
+						has_law_or_variant = law_type:law_oligarchy
+						has_law_or_variant = law_type:law_monarchy
 					}
 				}
-			}	
-			multiply = {
-				desc = "STILL_OLIGARCHIC"
-				value = 1.0
-				if = {
-					limit = {
-						owner = {
-							has_law_or_variant = law_type:law_oligarchy
-							has_law_or_variant = law_type:law_monarchy
-						}
-					}
-					value = 0.5
-				}
+				value = 0.5
 			}
-			multiply = bpm_ig_agitators_popularity
-			multiply = bpm_ig_ruler_popularity
-			multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
 		}
+		multiply = ig_attraction_from_leader_popularity
+		multiply = bpm_ig_agitators_popularity
+		multiply = bpm_ig_ruler_popularity
+		multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
 		multiply = ig_attraction_to_ruler_ideology_from_stability
+		multiply = ig_attraction_from_government
 
 		multiply = {
 			desc = "AT_WAR"	
@@ -215,20 +195,6 @@
 				value = 1.4
 			}		
 		}
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
 	}
 	
 	monarch_weight = {

@@ -49,7 +49,6 @@
 		custom_tooltip = {
 			text = BPM_VALID_POP_FOR_IG
 			owner ?= {
-				has_technology_researched = rationalism
 				ig:ig_liberals ?= {
 					bpm_interest_group_is_activated = yes
 				}
@@ -58,7 +57,7 @@
 	}
 	
 	pop_weight = {
-		value = 40
+		value = 0
 
 		if = {
 			limit = { is_pop_type = peasants }
@@ -70,13 +69,13 @@
 				}
 				add = {
 					desc = "POP_INCLUSIONS"
-					value = 60
+					value = 50
 				}	
 			}
 			else = {
 				add = {
 					desc = "POP_EXCLUSIONS"
-					value = -50
+					value = -100
 				}
 			}
 		}
@@ -84,34 +83,7 @@
 			limit = { is_pop_type = aristocrats }
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 60
-			}
-			if = {
-				limit = { 
-					owner = {
-						has_law_or_variant = law_type:law_monarchy
-						OR = {
-							has_law_or_variant = law_type:law_landed_voting
-							has_law_or_variant = law_type:law_autocracy
-						}
-					}
-				}
-				add = {
-					desc = "ARISTOCRAT_REFORMERS"
-					value = 30
-				}
-			}
-			else_if = {
-				limit = { 
-					owner = {
-						has_law_or_variant = law_type:law_monarchy
-						has_law_or_variant = law_type:law_wealth_voting
-					}
-				}
-				add = {
-					desc = "ARISTOCRAT_REFORMERS"
-					value = 20
-				}
+				value = 10
 			}
 		}
 		else_if = {
@@ -121,15 +93,17 @@
 			}
 			add = {
 				desc = "MIDDLE_CLASS"
-				value = 30
+				value = 20
 			}
 		}
 
 		if = {
-			limit = { OR = {
-				is_pop_type = capitalists 
-				is_pop_type = shopkeepers
-			} }
+			limit = { 
+				OR = {
+					is_pop_type = capitalists 
+					is_pop_type = shopkeepers
+				} 
+			}
 			add = {
 				desc = "POP_CAPITALISTS"
 				value = owner.bpm_consciousness_liberal_igs_capitalists_shopkeepers
@@ -149,7 +123,7 @@
 		}
 		else = {
 			add = {
-				desc = "LABOR_CONSCIOUSNESS"
+				desc = "LIBERAL_CONSCIOUSNESS"
 				value = owner.bpm_consciousness_liberal_igs_others
 			}
 		}
@@ -160,7 +134,7 @@
 				bpm_pop_employment_is_rural = no
 			}
 			add = {
-				value = 30
+				value = 50
 				desc = "URBAN"
 			}
 			if = {
@@ -169,7 +143,7 @@
 					NOT = { is_pop_type = clergymen }
 				}
 				add = {
-					value = 100
+					value = 20
 					desc = "URBAN_MIDDLE_CLASS"
 				}
 			}
@@ -207,28 +181,12 @@
 					value = 100
 				}
 			}
-
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader = {
-						value = popularity
-						multiply = 0.005
-						add = 1
-						max = 1.5
-						min = 0.67
-					}
-				}
-			}
-			multiply = bpm_ig_agitators_popularity
-			multiply = bpm_ig_ruler_popularity
-			multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
 		}
-		multiply = {
-			desc = "UNEDUCATED"
+		add = {
+			desc = "EDUCATED"
 			value = literacy_rate
-			multiply = 1.5
-			max = 1.0
+			multiply = 150
+			max = 50
 		}
 		if = {
 			limit = { game_date < 1855.1.1 }
@@ -248,22 +206,12 @@
 				}
 			}
 		}
-		multiply = ig_attraction_to_ruler_ideology_from_stability
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
-	}
+	multiply = ig_attraction_from_leader_popularity
+	multiply = bpm_ig_agitators_popularity
+	multiply = bpm_ig_ruler_popularity
+	multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
+	multiply = ig_attraction_to_ruler_ideology_from_stability
+	multiply = ig_attraction_from_government
 	
 	monarch_weight = {
 		owner.ig:ig_liberals = {
