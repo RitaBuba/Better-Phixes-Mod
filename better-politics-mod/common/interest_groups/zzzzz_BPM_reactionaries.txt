@@ -5,16 +5,6 @@
 	index = 14
 	
 	ideologies = {
-		ideology_gov_radical_monarchist
-		ideology_dop_autocrat
-		ideology_sta_security_state
-		ideology_cit_traditional_culture
-		ideology_rel_radical_moralist
-		ideology_mil_aristocratic_militarist
-		ideology_eco_traditional_agrarian
-		ideology_wel_no_welfare
-		ideology_fem_patriarchal
-		ideology_ban_conservative_supremacist
 		# Vanilla
 		ideology_reactionary
 		ideology_hierarchic
@@ -90,27 +80,34 @@
 	}
 	
 	pop_weight = {
-		value = 10
+		value = 0
 
 		if = {
-			limit = { strata = middle }
+			limit = { strata = lower }
 			add = {
-				desc = "MIDDLE_CLASS"
-				value = 50
+				desc = "LOWER_CLASS"
+				value = 20
 			}
 		}
 		else_if = {
 			limit = { is_pop_type = aristocrats }
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 150
+				value = 100
 			}
 		}
 		else_if = {
-			limit = { is_pop_type = capitalists }
+			limit = { is_pop_type = clergymen }
 			add = {
-				desc = "POP_CAPITALISTS"
+				desc = "POP_ARISTOCRATS"
 				value = 100
+			}
+		}
+		else_if = {
+			limit = { is_pop_type = peasants }
+			add = {
+				desc = "POP_PEASANTS"
+				value = 20
 			}
 		}
 
@@ -120,8 +117,16 @@
 				limit = { 
 					bpm_pop_employment_is_rural = yes
 				}
-				value = 40
+				value = 50
 			}
+		}
+
+		add = {
+			desc = "UNEDUCATED"
+			value = literacy_rate
+			subtract = owner.literacy_rate
+			multiply = -200
+			min = -50
 		}
 
 		if = {
@@ -209,7 +214,6 @@
 		if = {
 			limit = {
 				scope:interest_group = { 
-					#has_ideology = ideology:ideology_wel_paternalistic_welfare 
 					bpm_ig_is_organic_democrat = yes
 				}
 			}
@@ -217,14 +221,14 @@
 				limit = { strata = lower }
 				add = {
 					desc = "PATCON_LOWER_CLASS"
-					value = 30
+					value = 50
 				}
 			}
 			else_if = {
 				limit = { strata = middle }
 				add = {
 					desc = "PATCON_MIDDLE_CLASS"
-					value = 50
+					value = 20
 				}
 			}
 
@@ -244,7 +248,6 @@
 		else_if = {
 			limit = {
 				scope:interest_group = { 
-					#has_ideology = ideology:ideology_wel_paternalistic_welfare 
 					bpm_ig_is_paternalistic = yes
 				}
 			}
@@ -259,21 +262,13 @@
 				limit = { strata = middle }
 				add = {
 					desc = "PATCON_MIDDLE_CLASS"
-					value = 50
-				}
-			}
-			else_if = {
-				limit = { is_pop_type = capitalists }
-				add = {
-					desc = "PATCON_CAPITALISTS"
-					value = 30
+					value = 10
 				}
 			}
 		}
 
 		if = {
 			limit = { owner = { 
-				bpm_performance_significant_country = yes 
 				NOR = {
 					has_law = law_type:law_slavery_banned
 					has_law = law_type:law_colonial_slavery
@@ -329,23 +324,7 @@
 				}
 				
 			}
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader = {
-						value = popularity
-						multiply = 0.005
-						add = 1
-						max = 1.5
-						min = 0.67
-					}
-				}
-			}	
-			multiply = bpm_ig_agitators_popularity
-			multiply = bpm_ig_ruler_popularity
-			multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
 		}
-		multiply = ig_attraction_to_ruler_ideology_from_stability
 
 		multiply = {
 			desc = "AT_WAR"	
@@ -356,20 +335,12 @@
 				value = 1.3
 			}		
 		}
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
+		multiply = ig_attraction_from_leader_popularity
+		multiply = bpm_ig_agitators_popularity
+		multiply = bpm_ig_ruler_popularity
+		multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
+		multiply = ig_attraction_to_ruler_ideology_from_stability
+		multiply = ig_attraction_from_government
 	}
 	
 	monarch_weight = {
