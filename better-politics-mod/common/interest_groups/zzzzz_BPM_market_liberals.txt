@@ -52,23 +52,16 @@
 				}
 			}
 		}
+		NOT = { is_pop_type = peasants }
 	}
 	
 	pop_weight = {
-		value = 40
-
+		value = 0
 		if = {
-			limit = { is_pop_type = peasants }
-			add = {
-				desc = "POP_EXCLUSIONS"
-				value = -50
-			}
-		}
-		else_if = {
 			limit = { is_pop_type = aristocrats }
 			add = {
 				desc = "POP_ARISTOCRATS"
-				value = 60
+				value = 10
 			}
 		}
 		else_if = {
@@ -120,7 +113,7 @@
 				bpm_pop_employment_is_rural = no
 			}
 			add = {
-				value = 30
+				value = 100
 				desc = "URBAN"
 			}
 			if = {
@@ -129,14 +122,14 @@
 					NOT = { is_pop_type = clergymen }
 				}
 				add = {
-					value = 50
+					value = 10
 					desc = "URBAN_MIDDLE_CLASS"
 				}
 			}
 			else_if = {
 				limit = { strata = upper }
 				add = {
-					value = 30
+					value = 20
 					desc = "URBAN_UPPER_CLASS"
 				}
 			}
@@ -205,9 +198,6 @@
 				}
 			}
 		}
-
-		if = {
-			limit = { owner = { bpm_performance_significant_country = yes } }
 			add = {
 				desc = "SLAVERY_DETRACTORS"
 				if = {
@@ -225,60 +215,19 @@
 					value = 50
 				}
 			}
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader = {
-						value = popularity
-						multiply = 0.005
-						add = 1
-						max = 1.5
-						min = 0.67
-					}
-				}
-			}
-			multiply = {
-				desc = "TRADITIONAL_MONARCHY"	
-				value = 1.0
-				
-				if = {
-					limit = { 
-						owner = {
-							has_law_or_variant = law_type:law_monarchy
-							OR = {
-								has_law_or_variant = law_type:law_oligarchy
-								has_law_or_variant = law_type:law_autocracy
-							}
-						}
-					}
-					value = 0.75
-				}		
-			}
-			multiply = bpm_ig_agitators_popularity
-			multiply = bpm_ig_ruler_popularity
-			multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
-		}
-		multiply = {
-			desc = "UNEDUCATED"
+		add = {
+			desc = "EDUCATED"
 			value = literacy_rate
-			multiply = 1.5
-			max = 1.0
+			subtract = owner.literacy_rate
+			multiply = 200
+			max = 100
 		}
+		multiply = ig_attraction_from_leader_popularity
+		multiply = bpm_ig_agitators_popularity
+		multiply = bpm_ig_ruler_popularity
+		multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
 		multiply = ig_attraction_to_ruler_ideology_from_stability
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        scope:interest_group = { multiply = { value =  bpm_ig_revolutionary_government_attraction desc = "bpm_ig_revolutionary_government_attraction" } }
+		multiply = ig_attraction_from_government
 	}
 	
 	monarch_weight = {

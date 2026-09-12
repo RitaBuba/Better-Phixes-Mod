@@ -64,7 +64,7 @@
 	}
 	
 	pop_weight = {
-		value = 20
+		value = 0
 
 		if = {
 			limit = { is_pop_type = peasants }
@@ -131,12 +131,10 @@
 				limit = { 
 					bpm_pop_employment_is_rural = no
 				}
-				value = 40
+				value = 50
 			}
 		}
 
-		if = {
-			limit = { owner = { bpm_performance_significant_country = yes } }
 			add = {
 				desc = "SLAVERY_DETRACTORS"
 				if = {
@@ -154,28 +152,12 @@
 					value = 50
 				}
 			}
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader = {
-						value = popularity
-						multiply = 0.005
-						add = 1
-						max = 1.5
-						min = 0.67
-					}
-				}
-			}	
-			multiply = bpm_ig_agitators_popularity
-			multiply = bpm_ig_ruler_popularity
-			multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
-		}
-
-		multiply = {
-			desc = "UNEDUCATED"
+		add = {
+			desc = "EDUCATED"
 			value = literacy_rate
-			multiply = 1.4
-			max = 1.0
+			subtract = owner.literacy_rate
+			multiply = 200
+			max = 100
 		}
 
 		if = {
@@ -196,22 +178,12 @@
 				}
 			}
 		}
-
+		multiply = ig_attraction_from_leader_popularity
+		multiply = bpm_ig_agitators_popularity
+		multiply = bpm_ig_ruler_popularity
+		multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
 		multiply = ig_attraction_to_ruler_ideology_from_stability
-		if = {
-			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
-			}
-			multiply = {
-				desc = "IN_GOVERNMENT_ATTRACTION"
-				value = 1
-				add = scope:interest_group.modifier:interest_group_in_government_attraction_mult
-				min = 0
-			}
-		}
-        multiply = { scope:interest_group = { value =  bpm_ig_revolutionary_government_attraction } desc = "bpm_ig_revolutionary_government_attraction" }
+		multiply = ig_attraction_from_government
 	}
 	
 	monarch_weight = {

@@ -182,12 +182,23 @@
 				}
 			}
 		}
+
+		# education new
+
 		add = {
 			desc = "EDUCATED"
 			value = literacy_rate
-			multiply = 150
-			max = 50
+			subtract = owner.literacy_rate
+			multiply = 200
+			max = 100
 		}
+
+		#add = {
+		#	desc = "EDUCATED"
+		#	value = literacy_rate
+		#	multiply = 150
+		#	max = 50
+		#}
 		if = {
 			limit = { game_date < 1855.1.1 }
 			if = {
@@ -206,12 +217,13 @@
 				}
 			}
 		}
-	multiply = ig_attraction_from_leader_popularity
-	multiply = bpm_ig_agitators_popularity
-	multiply = bpm_ig_ruler_popularity
-	multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
-	multiply = ig_attraction_to_ruler_ideology_from_stability
-	multiply = ig_attraction_from_government
+		multiply = ig_attraction_from_leader_popularity
+		multiply = bpm_ig_agitators_popularity
+		multiply = bpm_ig_ruler_popularity
+		multiply = { desc = bpm_ig_attraction_from_radicals_and_loyalists_tt value = ig_attraction_from_radicals_and_loyalists }
+		multiply = ig_attraction_to_ruler_ideology_from_stability
+		multiply = ig_attraction_from_government
+	}
 	
 	monarch_weight = {
 		owner.ig:ig_liberals = {
